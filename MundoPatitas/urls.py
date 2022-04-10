@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MundoPatitas.views import ejemplo, ejemploHtml
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ejemplo/', ejemplo),
+    path('ejemploHtml/', ejemploHtml),
 ]
