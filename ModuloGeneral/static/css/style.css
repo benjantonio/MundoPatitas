@@ -1,0 +1,23 @@
+
+
+p,h1{
+    color: white;
+    text-align: center;
+}
+
+.prueba{
+    background-color: #000000;
+}
+
+
+body{
+    background-color: #1b1b1b;
+}
+
+.cuadrado{
+    margin-left: 50vh;
+    width: 100vh;
+    height: 100px;
+    text-align: center;
+    background-color: aliceblue;
+}
