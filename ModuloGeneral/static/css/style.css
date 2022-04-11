@@ -1,20 +1,19 @@
-
-
-p,h1{
+p,
+h1 {
     color: white;
     text-align: center;
 }
 
-.prueba{
+.prueba {
     background-color: #000000;
 }
 
-
-body{
+body {
+    background-image: '{% static "img/fondo.jpg" %}';
     background-color: #1b1b1b;
 }
 
-.cuadrado{
+.cuadrado {
     margin-left: 50vh;
     width: 100vh;
     height: 100px;
