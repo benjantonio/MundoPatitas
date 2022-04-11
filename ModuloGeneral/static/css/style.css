@@ -9,7 +9,6 @@ h1 {
 }
 
 body {
-    background-image: '{% static "img/fondo.jpg" %}';
     background-color: #1b1b1b;
 }
 
