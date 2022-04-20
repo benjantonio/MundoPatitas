@@ -16,54 +16,8 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
 
-
-
-
-
-
-    <!-- INICIO DE CODIGO HEADER-->
-
-
-
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <!-- ARREGLAR IMAGEN -->
-            <a class="navbar-logo" href="#"><img class="logo-nav" src='{% static "img/patitas.png" %}' alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Veterinarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Foro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Cementerio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Adopciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Ayuda</a>
-                    </li>
-                </ul>
-                <button class="btn Ingresar">Ingresar</button>
-                <button class="btn Registro">Registrarse</button>
-            </div>
-        </div>
-    </nav>
-    <!--FIN MENU-->
-
-
 </head>
-<!--FIN HEADER-->
+
 
 
 
@@ -73,11 +27,57 @@
 
 <body>
 
+    <!--INICIO HEADER-->
+    <header>
+
+        <!-- MENU -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- ARREGLAR IMAGEN -->
+                <a class="navbar-logo" href="#"><img class="logo-nav" src='{% static "img/patitas.png" %}' alt="Logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Veterinarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Foro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Cementerio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Adopciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Ayuda</a>
+                        </li>
+                    </ul>
+                    <button class="btn Ingresar">Ingresar</button>
+                    <button class="btn Registro">Registrarse</button>
+                </div>
+            </div>
+        </nav>
+        <!--FIN MENU-->
+
+
+
+    </header>
+    <!--FIN HEADER-->
+
+
+
+
+
+
     <!--DIV PARA HACER LIENZO CENTRAL Y CAMBIAR COLOR DE FONDO-->
-    <div class="container">
-
-        <!--SALTOS DE LINEA-->
-
+    <div class="container lienzo">
 
 
         <!--CARRUSEL-->
@@ -149,7 +149,34 @@
 
 
 
+
+
+
     </div>
+    <!--FIN DIV LIENZO DE FONDO-->
+
+
+    <!--INICIO FOOTER-->
+    <footer>
+        <div class="footer">
+            <img src='{% static "img/patitas.png" %}' alt="logo-footer">
+
+        </div>
+
+
+
+    </footer>
+    <!--FIN FOOTER-->
+
+
+
+
+
+
+
+
+
+
 </body>
 <!-- FIN BODY -->
 

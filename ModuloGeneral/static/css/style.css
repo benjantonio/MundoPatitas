@@ -8,8 +8,9 @@ body {
 .container {
     /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
     margin: auto;
-    background-color: red;
+    background-color: white;
     padding: 30px;
+    margin-bottom: 50px;
 }
 
 .logo-nav {
@@ -23,13 +24,12 @@ body {
     padding: 30px;
     z-index: 2;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
-.navbar .container-fluid {
-    display: flex;
-    align-items: center;
-}
 
-.navbar-nav {
-    display: inline-flex;
+/* FOOTER */
+
+.footer {
+    background-color: white;
 }
