@@ -1,23 +1,21 @@
-
-
-p,h1{
-    color: white;
-    text-align: center;
+body {
+    /* IMAGEN DE FONDO*/
+    background-image: url("../img/huellas.jpg");
 }
 
-.prueba{
-    background-color: #000000;
+.container {
+    /* CONTAINER DEL DIV DE BODY */
+    margin: auto;
+    background-color: white;
+    padding: 30px;
 }
 
-
-body{
-    background-color: #1b1b1b;
+.logo-nav {
+    /* LOGO MENU */
+    height: 40px;
 }
 
-.cuadrado{
-    margin-left: 50vh;
-    width: 100vh;
-    height: 100px;
-    text-align: center;
-    background-color: aliceblue;
+.navbar {
+    /* MENU */
+    padding: 30px;
 }
