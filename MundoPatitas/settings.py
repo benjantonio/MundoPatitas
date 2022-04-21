@@ -56,7 +56,7 @@ ROOT_URLCONF = 'MundoPatitas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/benja/Documents/GitHub/MundoPatitas/Modulos/General/templates'],
+        'DIRS': ['C:/Users/benja/Documents/GitHub/MundoPatitas/ModuloGeneral/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
