@@ -1,0 +1,14 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+
+<div class="cont-re">
+    <div class="cliente">
+        <img src="{% static 'img/mascotas.jpg' %}" alt="">
+        <button class="btn-cli">Registro Cliente</button>
+    </div>
+    <div class="vet">
+        <img src="{% static 'img/vet.jpg' %}" alt="">
+        <button class="btn-vet">Registro Veterinaria</button>
+    </div>
+</div>
+
+{% endblock %}

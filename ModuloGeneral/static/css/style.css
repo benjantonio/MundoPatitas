@@ -1,17 +1,23 @@
 /* CSS PAGINA HOME */
 
+
+/*GENERALES*/
+
 body {
     /* IMAGEN DE FONDO*/
     background-image: url("../img/huellas.jpg");
 }
 
-.container {
-    /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
-    margin: auto;
-    background-color: white;
-    padding: 30px;
-    margin-bottom: 50px;
+html {
+    min-height: 100%;
+    position: relative;
 }
+
+
+/*FIN GENERALES*/
+
+
+/*MENU*/
 
 .logo-nav {
     /* LOGO MENU */
@@ -19,11 +25,58 @@ body {
 }
 
 .navbar {
-    /* MENU */
-    position: fixed;
-    padding: 30px;
-    /* <<<<<<< HEAD */
+    /* position: fixed; */
+    padding: 20px;
+    /* z-index: 2; */
+    /* transition: all 0.3s ease; */
+    width: 100%;
+    height: 80px;
+    border-bottom: 5px solid rgb(39, 174, 96);
 }
+
+.ingreso {
+    text-decoration: none;
+    color: grey;
+    margin: 0px 5px;
+    padding: 4px;
+    transition: all 600ms;
+}
+
+.ingreso:hover {
+    color: grey;
+    border: 2px solid rgb(39, 174, 96);
+    border-radius: 6px;
+    transform: scale(1.2);
+}
+
+
+/*FIN MENU*/
+
+
+/*CONTENEDOR*/
+
+.contenedor {
+    width: 100%;
+    min-height: calc(100vh - 80px - 60px);
+}
+
+
+/*FIN CONTENEDOR*/
+
+
+/*CONTAINER*/
+
+.container {
+    /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 300px;
+    /* padding-top: 120px; */
+}
+
+
+/*FIN CONTAINER*/
 
 
 /*LOGIN*/
@@ -32,11 +85,11 @@ body {
     display: block;
     width: 50%;
     height: 300px;
-    border: 1px solid white;
+    border-radius: 6px;
     float: left;
     margin: auto 25%;
-    margin-top: 140px;
-    background: rgba(170, 183, 184, 0.7);
+    margin-top: 100px;
+    background: rgba(253, 254, 254, 0.8);
 }
 
 .form-login {
@@ -77,6 +130,7 @@ body {
     display: block;
     margin: 0px auto;
     margin-top: 10px;
+    border: 1px solid grey;
     border-radius: 6px;
     background: rgba(253, 254, 254, 0.7);
 }
@@ -85,20 +139,11 @@ body {
     display: block;
     margin: 0px auto;
     margin-top: 25px;
+    padding: 4px;
     border-radius: 15px;
+    border: 2px solid rgb(39, 174, 96);
     background: rgba(253, 254, 254, 0.7);
 }
-
-
-/* .titulo {
-    width: 100%;
-    text-align: center;
-    font-style: oblique;
-    border: 1px solid white;
-    background: rgba(253, 254, 254, 0.2);
-    padding-top: 5px;
-    margin-bottom: 40px;
-} */
 
 .img-login {
     width: 40%;
@@ -110,24 +155,91 @@ body {
 .img-login img {
     width: 100%;
     height: 100%;
+    border-radius: 6px;
 }
 
 
 /*FIN LOGIN*/
 
 
-/* =======
-    z-index: 2;
-    transition: all 0.3s ease;
+/*REGISTRO*/
+
+.cont-re {
+    width: 60%;
+    height: 450px;
+    display: block;
+    margin: 0px auto;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.cont-re .cliente {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.cont-re .vet {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.cont-re img {
     width: 100%;
-} */
+    height: 100%;
+    border-radius: 6px;
+    transition: all 1000ms;
+}
+
+.cont-re img:hover {
+    transform: scale(1.2)
+}
+
+.btn-cli {
+    position: absolute;
+    left: 460px;
+    top: 420px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    background: rgba(253, 254, 254, 0.5);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-vet {
+    position: absolute;
+    right: 460px;
+    top: 420px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    background: rgba(253, 254, 254, 0.5);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 
-/* FOOTER */
+/*FIN REGISTRO*/
+
+
+/*FOOTER*/
 
 .footer {
     background-color: white;
+    margin: 0px;
+    width: 100%;
+    height: 65px;
+    border-top: 5px solid rgb(39, 174, 96);
 }
+
+.footer img {
+    width: 110px;
+    height: 55px;
+    margin-top: 5px;
+    margin-left: 30px;
+    padding-bottom: 5px;
+}
+
+
+/*FIN FOOTER*/
 
 
 /* >>>>>>> Jocelyn */
