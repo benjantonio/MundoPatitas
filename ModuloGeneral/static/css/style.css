@@ -197,8 +197,9 @@ html {
 }
 
 .btn-cli {
+    font-size: 22px;
     position: absolute;
-    left: 460px;
+    left: 435px;
     top: 420px;
     border: 1px solid grey;
     border-radius: 6px;
@@ -207,13 +208,22 @@ html {
 }
 
 .btn-vet {
+    font-size: 22px;
     position: absolute;
-    right: 460px;
+    right: 435px;
     top: 420px;
     border: 1px solid grey;
     border-radius: 6px;
     background: rgba(253, 254, 254, 0.5);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.moodal .row:first-child {
+    margin-top: 0px;
+}
+
+.modal .row {
+    margin-top: 5px;
 }
 
 
