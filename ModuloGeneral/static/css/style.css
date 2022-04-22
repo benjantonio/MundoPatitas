@@ -1,13 +1,16 @@
+/* CSS PAGINA HOME */
+
 body {
     /* IMAGEN DE FONDO*/
     background-image: url("../img/huellas.jpg");
 }
 
 .container {
-    /* CONTAINER DEL DIV DE BODY */
+    /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
     margin: auto;
     background-color: white;
     padding: 30px;
+    margin-bottom: 50px;
 }
 
 .logo-nav {
@@ -17,7 +20,9 @@ body {
 
 .navbar {
     /* MENU */
+    position: fixed;
     padding: 30px;
+    /* <<<<<<< HEAD */
 }
 
 
@@ -109,3 +114,20 @@ body {
 
 
 /*FIN LOGIN*/
+
+
+/* =======
+    z-index: 2;
+    transition: all 0.3s ease;
+    width: 100%;
+} */
+
+
+/* FOOTER */
+
+.footer {
+    background-color: white;
+}
+
+
+/* >>>>>>> Jocelyn */
