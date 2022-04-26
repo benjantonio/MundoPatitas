@@ -7,6 +7,9 @@
 
 
 <div class="container-panelcli container">
+    <div class="cont-menuaside">
+        <span id="menu-btn" class="material-symbols-outlined menuaside">menu</span>
+    </div>
         <aside>
             <div class="top">
                 <div class="top2-aside">
@@ -14,38 +17,62 @@
                     <h2 class="h2-aside titulo-panelcliente">PANEL<span class="success">CLIENTE</h2>
                 </div>
                 <div class="close" id="close-btn">
-                    <span class="material-symbols-outlined">close</span>
+                    <span id="close-btn" class="material-symbols-outlined">close</span>
                 </div>
             </div>
-    
+
             <div>
                 <h5 class="saludo-cliente"><span class="success">¡Hola </span>Marcelo!</h2>
             </div>
-    
+
             <div class="sidebar">
                 <a class="a-sidebar" href="#">
-                    <span class="material-symbols-outlined">person</span><h3 class="h3-aside">Yo</h3>
+                    <span class="material-symbols-outlined icon-yo">person</span>
+                    <h3 class="h3-aside">Yo</h3>
                 </a>
             </div>
-    
+
             <div class="sidebar">
                 <a class="a-sidebar" href="#">
-                    <span class="material-symbols-outlined">pets</span>
+                    <span class="material-symbols-outlined icon-mismascotas">pets</span>
                     <h3 class="h3-aside">Mis Mascotas</h3>
                 </a>
             </div>
-    
+
             <div class="sidebar">
                 <a class="a-sidebar" href="#">
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined icon-historialcitas" >description</span>
                     <h3 class="h3-aside">Historial Citas</h3>
                 </a>
             </div>
-    
+
             <div class="sidebar">
                 <a class="a-sidebar" href="#">
-                    <span class="material-symbols-outlined">contact_support</span>
+                    <span class="material-symbols-outlined icon-misadopciones">volunteer_activism</span>
+                    <h3 class="h3-aside">Mis Adopciones</h3>
+                </a>
+            </div>
+
+            <div class="sidebar">
+                <a class="a-sidebar" href="#">
+                    <span class="material-symbols-outlined icon-micementerio">
+                        filter_drama
+                        </span>
+                    <h3 class="h3-aside">Mi Cementerio</h3>
+                </a>
+            </div>
+
+            <div class="sidebar">
+                <a class="a-sidebar" href="#">
+                    <span class="material-symbols-outlined icon-ayuda">contact_support</span>
                     <h3 class="h3-aside">Ayuda</h3>
+                </a>
+            </div>
+
+            <div class="sidebar">
+                <a class="a-sidebar a-cerrarsesion" href="#">
+                    <span class="material-symbols-outlined icon-cerrarsesion">logout</span>
+                    <h3 class="h3-aside">Cerrar Sesión</h3>
                 </a>
             </div>
         </aside>
@@ -54,6 +81,6 @@
             <h3 style="text-align: center;">Configurar tu Cuenta</h3>
             <img class="img-perfil-aside" src='{% static "img/foto_perfil.jpg" %}' alt="">
         </div>
-    
+
 </div>
 {% endblock %}

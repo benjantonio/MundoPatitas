@@ -270,19 +270,18 @@ html {
     appearance: none;
     box-sizing: border-box;
 
-
     display: grid;
     width: 96%;
-    height: 70vh;
+    height: 80vh;
     margin: 0 auto;
-    margin-top: 30px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto ;
 
-    border-radius: 50px;
+    border-radius: 0 0 40px 40px;
+}
 
-
-
+.cont-menuaside{
+    display: none;
 }
 
 .a-sidebar {
@@ -341,27 +340,41 @@ html {
     color: #363949;
 }
 
-.primary{
-    color: #7380ec;
-}
-
-.danger{
-    color: #ff7782;
-}
 
 .success{
     color: #09d882;
 }
 
-.warning{
+
+.icon-mismascotas{
+    color: #ff7782;
+}
+
+.icon-yo{
+    color: #4eca63;
+}
+
+.icon-historialcitas{
     color: #ffbb55;
 }
 
+.icon-misadopciones{
+    color: #7380ec;
+}
+
+.icon-micementerio{
+    color: #659bd4;
+}
+
+.icon-cerrarsesion{
+    color: #e42b3b;
+}
 
 aside{
     height: 100%;
     background: white;
     border-radius: 50px;
+
 }
 
 aside .top{ /* contenedor PANEL CLIENTE*/
@@ -425,37 +438,33 @@ aside .sidebar a{
     transition: all 300ms ease;
     margin: 0;
     padding: 2rem auto 2rem auto;
+
 }
 
 aside .sidebar a span{
     font-size: 1.6rem;
     margin-left: 2rem;
-    transition: all 300ms ease;
+    transition: all 400ms ease;
 
 }
 
 aside .sidebar a:focus {
     background: #7fd8a4;
     color: #ffffff;
-
 }
+
+
 
 aside .sidebar a:focus:before{
     content: '';
     width: 6px;
     height: 100%;
     background: #38bb64;
-
-}
-
-
-aside .sidebar a:focus span{
-    color: rgb(255, 255, 255);
-    margin-left: calc(1rem - 3px);
 }
 
 aside .sidebar a:hover{
     color: #09d882;
+
 }
 
 aside .sidebar a:focus{
@@ -469,9 +478,25 @@ aside .sidebar a:hover span{
 }
 
 aside .sidebar a:focus span{
-    margin-left: 2rem;
+    color: #ffffff;
+    margin-left: 1.84rem;
+    transition: all 0ms ease;
 
 }
+
+aside .sidebar .a-cerrarsesion:hover{
+    color: #e42b3b;
+    }
+
+aside .sidebar .a-cerrarsesion:focus{
+    color: #ffffff;
+    transition: all 150ms ease;
+    background: #e05050;
+    }
+
+aside .sidebar .a-cerrarsesion:focus:before{
+    background: #a81313;
+    }
 
 .part2{
     height: 100%;
@@ -487,3 +512,69 @@ aside .sidebar a:focus span{
     border-radius: 50%;
     vertical-align: middle;
 }
+
+/* ================================== MEDIA QUERYS CELULAR =================================*/
+
+@media screen and (max-width: 767px) {
+    .container-panelcli{
+        grid-template-columns: 30rem auto ;
+        display: flex;
+        }
+
+    .top2-aside h2{
+        display: inline;
+        position: relative;
+        }
+
+    aside .sidebar h3{
+        display: inline;
+        }
+
+    aside .sidebar a{
+        width: 5.6rem;
+        }
+
+    .img-aside{
+    margin-left: 0.4rem;
+        }
+
+    aside{
+        position: fixed;
+        left: 0;
+        background-color: #ffffff;
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 0.5rem 1rem 4rem 1rem #00000018;
+        height: 70vh;
+        padding-right: 1.8rem;
+        border-radius: 20px;
+        height: 60%;
+        display: none;
+    }
+
+    aside .sidebar a{
+        width: 100%;
+        height: 2.6rem;
+        }
+
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+        }
+    
+    .cont-menuaside{
+        position: fixed;
+        cursor: pointer;
+        background: #09d882;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        border-radius: 50px;
+        color: #ffffff;
+        display: block;
+    }
+ 
+    .menuaside{
+        margin-top: 18px;
+    }
+    }
