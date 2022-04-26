@@ -1,10 +1,15 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
 
+<!-- div "sidebar" | contenedores de los a -->
+<!-- a | botones-->
+<!-- span | iconos-->
+<!-- h3 | texto menu (Yo, Mis Mascotas, Historial, etc)-->
+
 
 <div class="container-panelcli container">
         <aside>
             <div class="top">
-                <div class="logo-aside">
+                <div class="top2-aside">
                     <img class="img-aside" src='{% static "img/logo-panelcliente.png" %}' alt="">
                     <h2 class="h2-aside titulo-panelcliente">PANEL<span class="success">CLIENTE</h2>
                 </div>
@@ -13,15 +18,13 @@
                 </div>
             </div>
     
-    
             <div>
                 <h5 class="saludo-cliente"><span class="success">¡Hola </span>Marcelo!</h2>
             </div>
     
             <div class="sidebar">
                 <a class="a-sidebar" href="#">
-                    <span class="material-symbols-outlined">person</span>
-                    <h3 class="h3-aside">Yo</h3>
+                    <span class="material-symbols-outlined">person</span><h3 class="h3-aside">Yo</h3>
                 </a>
             </div>
     

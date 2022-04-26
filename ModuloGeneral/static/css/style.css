@@ -1,5 +1,5 @@
 /* Importación de letras desde API de Google (en este link van solo 5 letras seleccionadas en elección en https://fonts.google.com/)*/
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 /* CSS PAGINA HOME */
 
 /*GENERALES*/
@@ -270,14 +270,19 @@ html {
     appearance: none;
     box-sizing: border-box;
 
+
     display: grid;
     width: 96%;
-    height: 80vh;
+    height: 70vh;
     margin: 0 auto;
+    margin-top: 30px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto ;
 
     border-radius: 50px;
+
+
+
 }
 
 .a-sidebar {
@@ -359,32 +364,33 @@ aside{
     border-radius: 50px;
 }
 
-aside .top{
-    background: rgb(255, 255, 255);
+aside .top{ /* contenedor PANEL CLIENTE*/
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 1.4rem;
-    border-radius: 50px;
+    margin-left: 0.3rem;
+    border-radius: 500px;
 }
 
-.titulo-panelcliente{
-    margin-top: 1.3rem;
-}
-
-aside .logo-aside{
+.top2-aside{ /* CONTENEDOR IN PANEL */
     display: flex;
     gap: 0.4rem;
 }
 
-aside .logo-aside img{
-   object-fit: cover;
-   width: 3.7rem;
-   margin-top: 0.3rem;
-   margin-bottom: 0.3rem;
+.img-aside{ /* LOGO PANEL */
+    object-fit: cover;
+    width: 3.7rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
-aside .close{
+.titulo-panelcliente{ /* TITULO "PANEL CLIENTE"*/
+    margin-top: 1.3rem;
+}
+
+aside .close{ /* BOTON CERRAR PANEL*/
     display: none;
 }
 
