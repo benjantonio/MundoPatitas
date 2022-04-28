@@ -1,6 +1,6 @@
 const sideMenu = document.querySelector("aside");
-const misMascotasTab = document.querySelector(".tabMisMascotas")
-const yoTab = document.querySelector(".tabPanelCliente")
+const misMascotasTab = document.querySelector("#tabMisMascotas")
+const yoTab = document.querySelector("#tabYo")
 
 
 const menuBtn = document.querySelector("#menu-btn");

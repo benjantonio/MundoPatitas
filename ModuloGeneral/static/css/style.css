@@ -586,13 +586,13 @@ aside .sidebar .a-cerrarsesion:focus:before{
     font-style: normal;
 }
 
-.tabPanelCliente{
+.tabYo{
     background: white;
     border-radius: 50px;
     width: 100%;
 }
 
-.tabPanelCliente .card{
+.card{
     height: auto;
     padding: 10px;
     margin: 30px;
@@ -603,12 +603,12 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 
 /* TAB YO */
-.tabYo{
+.cardYo{
     align-items: center;
     text-align: center;
 }
 
-.tabYo .img-perfil-aside{
+.cardYo .img-perfil-aside{
     margin-top: 10px;
     object-fit: cover;
     width: 8rem;
@@ -616,7 +616,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     box-shadow: 0.8rem 0.5rem 2rem 0.7rem #00000015;
 }
 
-.tabYo .btn-modificarImagen{
+.cardYo .btn-modificarImagen{
     background: #20d0dd;
     color: white;
     border-radius: 50px;
@@ -627,7 +627,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #00000015;
 }
 
-.tabYo .contenido{
+.cardYo .contenido{
     margin-top: 20px;
     gap: 2rem;
     display: grid;
@@ -641,11 +641,11 @@ aside .sidebar .a-cerrarsesion:focus:before{
     box-shadow: 0.4rem 0.2rem 2rem 0.7rem #00000015;
 }
 
-.tabYo .btns{
+.cardYo .btns{
     margin-top: 30px;
 }
 
-.tabYo .btns .btn-modificar{
+.cardYo .btns .btn-modificar{
     background: #09d882;
     color: white;
     border-radius: 50px;
@@ -654,6 +654,29 @@ aside .sidebar .a-cerrarsesion:focus:before{
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
+}
+
+/* ======= TAB MIS MASCOTAS ========== */
+.tabSection{
+    background: white;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.cardMisMascotas{
+    text-align: center;
+    align-items: center;
+}
+
+.cardMisMascotas .contenido{
+    height: auto;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    border: 1px solid #00000017;
+    box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 
@@ -763,13 +786,13 @@ aside .sidebar .a-cerrarsesion:focus:before{
         margin-top: 18px;
         }
 
-    .tabPanelCliente .card{
+    .tabYo .card{
         margin: 15px;
         box-shadow: none;
         border-width: 0;
     }
 
-    .tabYo .contenido{
+    .cardYo .contenido{
         grid-template-columns: auto ;
         padding: 10px;
     }
