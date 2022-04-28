@@ -72,7 +72,7 @@ html {
     /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
     margin: auto;
     background-color: white;
-    padding: 30px;
+    padding: 0;
     margin-bottom: 300px;
     /* padding-top: 120px; */
 }
@@ -272,13 +272,91 @@ html {
 
     display: grid;
     width: 96%;
-    height: 80vh;
+    height: 80%;
     margin: 0 auto;
     gap: 1.8rem;
     grid-template-columns: 14rem auto ;
 
     border-radius: 0 0 40px 40px;
+    padding: 30px;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.zonas{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.formatoZona{
+    display: grid;
+    grid-template-columns: 30rem 20rem auto ;
+    height: 40rem;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 30px;
+}
+
+.zonaAdopcion{
+    background-image: url("../img/adopciones.png");
+    background-size: cover;
+}
+
+.textoAdopcion{
+    background: #22c4b6;
+    border-radius: 50px;
+    padding: 20px;
+    color: white;
+}
+
+.btnAdopciones{
+    background: #22c4b6;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 5rem;
+    border-radius: 50px;
+    color: rgb(238, 238, 238);
+    padding: 10px;
+    box-shadow: 0rem 0rem 4rem 3rem #0000000a;
+}
+
+.zonaMiCuenta{
+    background-image: url("../img/carusel2.png");
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .cont-menuaside{
     display: none;
@@ -372,6 +450,7 @@ html {
 
 aside{
     height: 100%;
+    padding-bottom: 60px;
     background: white;
     border-radius: 50px;
 
@@ -498,27 +577,100 @@ aside .sidebar .a-cerrarsesion:focus:before{
     background: #a81313;
     }
 
-.part2{
-    height: 100%;
-    width: 100%;
+
+/* ========================= TABS ===================== */
+
+.texto-info-PC{
+    font-size: 14px;
+}
+
+.tabPanelCliente{
     background: white;
     border-radius: 50px;
+    width: 100%;
+}
+
+.tabPanelCliente .card{
+    height: auto;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    border: 1px solid #00000017;
+    box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
+}
+
+
+/* TAB YO */
+.tabYo{
+    align-items: center;
     text-align: center;
 }
 
-.img-perfil-aside{
+.tabYo .img-perfil-aside{
+    margin-top: 10px;
     object-fit: cover;
-    width: 10rem;
+    width: 8rem;
     border-radius: 50%;
-    vertical-align: middle;
 }
+
+.tabYo .btn-modificarImagen{
+    background: #09d882;
+    color: white;
+    border-radius: 50px;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.tabYo .contenido{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+
+
+.tabMisMascotas{
+    display: none;
+}
+
+.tabHistorialCitas{
+    display: none;
+}
+
+.tabMisAdopciones{
+    display: none;
+}
+
+.tabMiCementerio{
+    display: none;
+}
+
+.tabAyuda{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ================================== MEDIA QUERYS CELULAR =================================*/
 
 @media screen and (max-width: 767px) {
     .container-panelcli{
-        grid-template-columns: 30rem auto ;
+        grid-template-columns: auto ;
         display: flex;
+        width: 100%;
+        padding: 15px;
+        height:100%
         }
 
     .top2-aside h2{
@@ -540,7 +692,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
     aside{
         position: fixed;
-        left: 0;
+        left: -100%;
         background-color: #ffffff;
         width: 18rem;
         z-index: 3;
@@ -548,8 +700,15 @@ aside .sidebar .a-cerrarsesion:focus:before{
         height: 70vh;
         padding-right: 1.8rem;
         border-radius: 20px;
-        height: 60%;
+        height: auto;
         display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu{
+        to{
+            left: 0;
+        }
     }
 
     aside .sidebar a{
@@ -561,8 +720,9 @@ aside .sidebar .a-cerrarsesion:focus:before{
         display: inline-block;
         cursor: pointer;
         }
-    
+
     .cont-menuaside{
+        margin: 10px;
         position: fixed;
         cursor: pointer;
         background: #09d882;
@@ -573,8 +733,13 @@ aside .sidebar .a-cerrarsesion:focus:before{
         color: #ffffff;
         display: block;
     }
- 
+
     .menuaside{
         margin-top: 18px;
+        }
+
+    .cardTabYo{
+        margin: 5px;
+        box-shadow: none;
     }
-    }
+}

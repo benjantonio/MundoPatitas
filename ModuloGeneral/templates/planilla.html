@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body onload="enviarAnchoWeb();" onresize="enviarAnchoWeb();"> <!--Estos 2 metodos envian el ancho del html a un javascript, con el cual se necesita leer en el panel cliente (para una aniamción)-->
     <!--INICIO HEADER-->
     <header>
 
@@ -67,6 +67,7 @@
     </header>
     <!--FIN HEADER-->
 
+    
     <div class="contenedor">
         {% block content %} {% endblock %}
     </div>
@@ -90,6 +91,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{% static 'js/form.js' %}"></script>
     <script src="{% static 'js/menuPanelCliente.js' %}"></script>
+    
 
 </body>
 

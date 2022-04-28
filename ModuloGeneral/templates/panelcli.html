@@ -6,9 +6,9 @@
 <!-- h3 | texto menu (Yo, Mis Mascotas, Historial, etc)-->
 
 
-<div class="container-panelcli container">
-    <div class="cont-menuaside">
-        <span id="menu-btn" class="material-symbols-outlined menuaside">menu</span>
+<div class="container-panelcli container" >
+    <div id="menu-btn" class="cont-menuaside">
+        <span class="material-symbols-outlined menuaside">menu</span>
     </div>
         <aside>
             <div class="top">
@@ -17,7 +17,7 @@
                     <h2 class="h2-aside titulo-panelcliente">PANEL<span class="success">CLIENTE</h2>
                 </div>
                 <div class="close" id="close-btn">
-                    <span id="close-btn" class="material-symbols-outlined">close</span>
+                    <span class="material-symbols-outlined">close</span>
                 </div>
             </div>
 
@@ -77,10 +77,56 @@
             </div>
         </aside>
 
-        <div class="part2">
-            <h3 style="text-align: center;">Configurar tu Cuenta</h3>
-            <img class="img-perfil-aside" src='{% static "img/foto_perfil.jpg" %}' alt="">
+
+        <div class=" tabPanelCliente">
+            <div class="tabYo card">
+                <h4>Tu Información</h4>
+                <img class="img-perfil-aside" src='{% static "img/foto_perfil.jpg" %}' alt="">
+                <p class="btn-modificarImagen">+Modificar Imágen</p>
+
+                <div class="contenido">
+                    <h6>Tu Nombre: <br><span class="texto-info-PC">Marcelo Caceres</span></h6>
+                    <p>Lorndi beatae! In quas unde cupiditate iste. Quod, placeat ab. Repudiandae rem laudantium iste autem aut?</p>
+                    <p>Lorem ipsum, dolor sit amet laudantium deleniti asperiores. Facere est fugiat, reiciendis impedit sed quam cum eos.</p>
+                    <p>Lorem ipsum, dolor sit amet consecm deleniti asperiores. Facere est fugiat, reiciendis impedit sed quam cum eos.</p>
+                    <p>Lorem ipsum, dolor sit amet conasperiores. Facere est fugiat, reiciendis impedit sed quam cum eos.</p>
+                    <p>Lorem ipsum, dolor sit amet conseces. Facere est fugiat, reiciendis impedit sed quam cum eos.</p>
+                </div>
+
+                <div class="btns">
+                    <p class="btn-modificar">Modificar</p>
+                </div>
+
+            </div>
         </div>
 
+        <div class="tabMisMascotas tabPanelCliente">
+            <h3 style="text-align: center;">Mis Mascotas</h3>
+            <p>tus mascotas</p>
+        </div>
+
+        <div class="tabHistorialCitas tabPanelCliente">
+            <h3 style="text-align: center;">Historial Citas</h3>
+            <p>el historial citas</p>
+        </div>
+
+        <div class="tabMisAdopciones tabPanelCliente">
+            <h3 style="text-align: center;">Adopciones</h3>
+            <p>asdasd</p>
+        </div>
+
+        <div class="tabMiCementerio tabPanelCliente">
+            <h3 style="text-align: center;">Cementerio</h3>
+            <p>el cementerio</p>
+        </div>
+
+        <div class="tabAyuda tabPanelCliente">
+            <h3 style="text-align: center;">Ayuda</h3>
+            <p>la ayuda</p>
+        </div>
+
+
 </div>
+
+
 {% endblock %}

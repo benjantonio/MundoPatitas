@@ -1,71 +1,23 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
 
 <div class="container lienzo">
-    <!--CARRUSEL-->
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src='{% static "img/MundoPatitas.png" %}' class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src='{% static "img/carrusel1.png" %}' class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src='{% static "img/carusel2.png" %}' class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-    </div>
 
-    <!--SALTOS DE LINEA-->
-    <br>
-    <br>
-    <br>
 
-    <!--CARD-->
-    <div class="row container-fluid slide-vetes">
-        <div class="col-6 card" style="width: 18rem;">
-            <img src='{% static "img/vete1.jpg" %}' class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Juana Maria</h5>
-                <p class="card-text">Veterinaria</p>
-                <a href="#" class="btn btn-primary">Perfil</a>
-            </div>
-        </div>
-        <div class="col-6 card" style="width: 18rem;">
-            <img src='{% static "img/vete1.jpg" %}' class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Maria Juana</h5>
-                <p class="card-text">Veterinaria</p>
-                <a href="#" class="btn btn-primary">Perfil</a>
-            </div>
-        </div>
-        <div class="col-6 card" style="width: 18rem;">
-            <img src='{% static "img/vete1.jpg" %}' class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Juana Maria</h5>
-                <p class="card-text">Veterinaria</p>
-                <a href="#" class="btn btn-primary">Perfil</a>
-            </div>
-        </div>
-        <div class="col-6 card" style="width: 18rem;">
-            <img src='{% static "img/vete1.jpg" %}' class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Maria Juana</h5>
-                <p class="card-text">Veterinaria</p>
-                <a href="#" class="btn btn-primary">Perfil</a>
+    <div class="zonas">
+
+        <div class="zonaAdopcion formatoZona">
+            <p class="textoAdopcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptatibus ipsum, velit voluptates et eligendi ullam odio eaque quia magni impedit nihil perferendis aliquam autem ratione reiciendis deleniti distinctio animi?</p>
+            <div class="btnAdopciones">
+                <h3 >Adoptar</h3>
             </div>
         </div>
 
+        <div class="zonaMiCuenta formatoZona">
+            
+        </div>
 
-    </div>
+    
+
 </div>
 
 {% endblock %}

@@ -4,8 +4,18 @@ const closeBtn = document.querySelector("#close-btn");
 
 menuBtn.addEventListener('click', () =>{
     sideMenu.style.display = 'block';
+
 })
 
 closeBtn.addEventListener('click', () =>{
-    sideMenu.style.display = 'none';
+    sideMenu.style = 'display:none;';
 })
+
+function enviarAnchoWeb(){
+    let ancho = document.documentElement.clientWidth;
+
+    if (ancho >=751){
+        sideMenu.style.display = 'block';
+    }
+
+}
