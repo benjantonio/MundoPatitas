@@ -581,7 +581,9 @@ aside .sidebar .a-cerrarsesion:focus:before{
 /* ========================= TABS ===================== */
 
 .texto-info-PC{
-    font-size: 14px;
+    font-size: 16px;
+    color: #1d1d1d;
+    font-style: normal;
 }
 
 .tabPanelCliente{
@@ -611,25 +613,48 @@ aside .sidebar .a-cerrarsesion:focus:before{
     object-fit: cover;
     width: 8rem;
     border-radius: 50%;
+    box-shadow: 0.8rem 0.5rem 2rem 0.7rem #00000015;
 }
 
 .tabYo .btn-modificarImagen{
-    background: #09d882;
+    background: #20d0dd;
     color: white;
     border-radius: 50px;
     padding: 8px;
     margin-top: 10px;
     cursor: pointer;
     font-size: 13px;
+    box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #00000015;
 }
 
 .tabYo .contenido{
     margin-top: 20px;
+    gap: 2rem;
     display: grid;
     grid-template-columns: auto auto auto;
+    font-size: 14px;
+    color: #8a8a8a;
+    font-style: italic;
+    background: #f5f5f5;
+    border-radius: 50px;
+    padding: 33px;
+    box-shadow: 0.4rem 0.2rem 2rem 0.7rem #00000015;
 }
 
+.tabYo .btns{
+    margin-top: 30px;
+}
 
+.tabYo .btns .btn-modificar{
+    background: #09d882;
+    color: white;
+    border-radius: 50px;
+    padding: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
+}
 
 
 .tabMisMascotas{
@@ -738,8 +763,14 @@ aside .sidebar .a-cerrarsesion:focus:before{
         margin-top: 18px;
         }
 
-    .cardTabYo{
-        margin: 5px;
+    .tabPanelCliente .card{
+        margin: 15px;
         box-shadow: none;
+        border-width: 0;
+    }
+
+    .tabYo .contenido{
+        grid-template-columns: auto ;
+        padding: 10px;
     }
 }
