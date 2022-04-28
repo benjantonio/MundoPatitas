@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 
 /*GENERALES*/
 
 body {
     /* IMAGEN DE FONDO*/
     background-image: url("../img/huellas.jpg");
-}
-
-html {
-    min-height: 100%;
-    position: relative;
 }
 
 
@@ -40,6 +36,7 @@ html {
     width: 100%;
     height: 80px;
     border-bottom: 5px solid rgb(39, 174, 96);
+    font-family: 'Chewy', cursive;
 }
 
 .ingreso {
@@ -80,83 +77,6 @@ html {
     background-color: white;
     padding: 30px;
     /* padding-top: 120px; */
-}
-
-
-/* CONTAINER SECTION CAROUSEL*/
-
-.carousel {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    margin: 100px auto;
-    border-radius: 20px;
-    box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.26);
-    cursor: pointer;
-    transition: all 0, 3 ease-in-out;
-}
-
-.carousel :hover {
-    transform: scale(1.1);
-    box-shadow: 13px, 15px, 37px rgba(0, 0, 0, 0.195);
-}
-
-.carousel img {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel p {
-    font-size: 3rem;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 8);
-}
-
-
-/* FIN CONTAINER SECTION CAROUSEL*/
-
-
-/* CARD HOME */
-
-html body .allcard {
-    display: grid;
-    height: 100%;
-    place-items: center;
-    text-align: center;
-    background: #f2f2f2;
-}
-
-.allcard {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-.card-slider {
-    max-width: 1150px;
-    display: flex;
-}
-
-.allcard .card-slider .card {
-    flex: 1;
-    margin: 0 10px;
-    background: #fff;
-}
-
-.allcard .card-slider .card .img img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.card-slider .content .title {
-    font-size: 25px;
-    font-weight: 600;
 }
 
 
@@ -319,17 +239,15 @@ html body .allcard {
 footer {
     background-color: white;
     margin: 0px;
+    padding: 0;
     width: 100%;
-    height: 65px;
+    height: 100%;
     border-top: 5px solid rgb(39, 174, 96);
 }
 
 .footer img {
-    width: 110px;
-    height: 55px;
-    margin-top: 5px;
-    margin-left: 30px;
-    padding-bottom: 5px;
+    width: 100vr;
+    height: 100%;
 }
 
 
