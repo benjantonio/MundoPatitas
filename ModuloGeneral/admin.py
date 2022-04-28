@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import Region, Comuna
+from django.contrib.auth.admin import UserAdmin
+from .models import UsuarioPerfil
 
-# Register your models here.
-admin.site.register(Region)
-admin.site.register(Comuna)
+admin.site.register(UsuarioPerfil, UserAdmin)
+
+# # Register your models here.
+# admin.site.register(Region)
+# admin.site.register(Comuna)

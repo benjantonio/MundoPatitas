@@ -1,8 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, User
+from django.contrib.auth.models import AbstractUser
 
 
-# Create your models here.
+# Create your models her
+class PerfilUsuario(models.Model):
+    id_perfil = models.AutoField(primary_key=True, default=1)
+    descripcion = models.CharField(max_length=100)
+
+class UsuarioPerfil(AbstractUser):
+    edad = models.IntegerField(blank=True, null=True)
+    id_perfil = models.OneToOneField(PerfilUsuario,on_delete=models.CASCADE, default=1)
+
 class Region(models.Model):
     id_region = models.AutoField(primary_key=True, verbose_name="Id Region")
     nombre_region = models.CharField(max_length=100, verbose_name="Nombre Region")
@@ -17,14 +25,14 @@ class PublicacionForo(models.Model):
     categoria = models.CharField(max_length=100, verbose_name="Categoria Publicación")
     fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha")
     mensaje = models.CharField(max_length=1000, verbose_name="Mensaje")
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(UsuarioPerfil, on_delete=models.CASCADE)
 
 class RespuestaForo(models.Model):
     id_respuesta = models.AutoField(primary_key=True)
     fecha = models.DateTimeField(auto_now_add=True)
     comentario = models.CharField(max_length=1000)
     valoracion = models.IntegerField()
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(UsuarioPerfil, on_delete=models.CASCADE)
     id_publicacion = models.ForeignKey(PublicacionForo, on_delete=models.CASCADE)
 
 class PublicacionAdopcion(models.Model):
@@ -41,7 +49,7 @@ class Mascota(models.Model):
     tipo = models.CharField(max_length=50)
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(UsuarioPerfil, on_delete=models.CASCADE)
 
 class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
@@ -49,7 +57,7 @@ class Veterinario(models.Model):
     correo = models.CharField(max_length=50)
     celular = models.IntegerField()
     valoracion = models.IntegerField()
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(UsuarioPerfil, on_delete=models.CASCADE)
 
 class CitaMedica(models.Model):
     id_cita = models.AutoField(primary_key=True)
