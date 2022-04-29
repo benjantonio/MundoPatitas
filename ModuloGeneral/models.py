@@ -3,13 +3,12 @@ from django.contrib.auth.models import AbstractUser
 
 
 # Create your models her
-class PerfilUsuario(models.Model):
-    id_perfil = models.AutoField(primary_key=True, default=1)
-    descripcion = models.CharField(max_length=100)
-
 class UsuarioPerfil(AbstractUser):
     edad = models.IntegerField(blank=True, null=True)
-    id_perfil = models.OneToOneField(PerfilUsuario,on_delete=models.CASCADE, default=1)
+    celular = models.IntegerField(blank=True, null=True)
+    direccion = models.CharField(max_length=250, blank=True, null=True)
+    comuna = models.CharField(max_length=250, blank=True, null=True)
+    perfil = models.CharField(max_length=50, blank=True, null=True)
 
 class Region(models.Model):
     id_region = models.AutoField(primary_key=True, verbose_name="Id Region")
