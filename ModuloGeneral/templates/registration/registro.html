@@ -14,60 +14,69 @@
 
 
             <div class="tab-pane fade show active p-3" id="nav-registro" role="tabpanel" aria-labelledby="nav-registro-tab">
-                <form method="POST">
+                <form id="form" method="POST">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-6">
+                        <div id="usuario" class="col-md-6">
                             <label for="">Usuario</label>
                             <input type="text" name="username">
+                            <span class="oculto">Usuario Invalido. Debe ingresar minimo 4 caracteres</span>
                         </div>
-                        <div class="col-md-6">
+                        <div id="password" class="col-md-6">
                             <label for="">Contraseña</label>
                             <input type="password" name="password">
+                            <span class="oculto">Contraseña Invalida. Debe ingresar minimo 8 caracteres e incluir numeros</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div id="nombre" class="col-md-6">
                             <label for="">Nombe</label>
                             <input type="text" placeholder="Jose Rojas" name="first_name">
+                            <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres</span>
                         </div>
-                        <div class="col-md-6">
+                        <div id="correo" class="col-md-6">
                             <label for="">Correo</label><br>
                             <input type="email" name="email">
+                            <span class="oculto">Correo Invalido. Debe ingresar un correo con el formato correcto</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div id="celular" class="col-md-6">
                             <label for="">Celular</label><br>
                             <input type="number" placeholder="987654321" name="celular">
+                            <span class="oculto">Celular Invalido. Debe ingresar 9 digitos</span>
                         </div>
-                        <div class="col-md-6">
+                        <div id="edad" class="col-md-6">
                             <label for="">Edad</label><br>
                             <input type="number" name="edad">
+                            <span class="oculto">Edad Invalida. Debe ser mayor de edad</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div id="direccion" class="col-md-6">
                             <label for="">Dirección</label>
                             <input type="text" name="direccion">
+                            <span class="oculto">Dirección Invalida. Debe ingresar mnimo ...</span>
                         </div>
-                        <div class="col-md-6">
+                        <div id="comuna" class="col-md-6">
                             <label for="">Comuna</label><br>
                             <select name="comuna">
                                 <option value="">--------</option>
                                 <option value="valparaiso">V Región</option>
                                 <option value="metropolitana">Metropolitana</option>
                             </select>
+                            <span class="oculto">Debe Seleccionar una Opción</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div id="perfil" class="col-md-6">
                             <label for="">Perfil</label><br>
                             <select name="perfil">
                                 <option value="">--------</option>
                                 <option value="cliente">Cliente</option>
                                 <option value="centro">Centro Veterinario</option>
                             </select>
+                            <span class="oculto">Debe Seleccionar una Opción</span>
                         </div>
                         <div class="col-md">
                             <button type="submit" class="btn btn-success">Registrarse</button>
