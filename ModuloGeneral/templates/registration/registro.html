@@ -1,0 +1,85 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+
+<div class="content">
+    <div class="lateral"></div>
+    <div class="tab">
+
+        <nav>
+            <img src="{% static 'img/patitas.png' %}" alt="">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active " id="nav-registro-tab" data-bs-toggle="tab" data-bs-target="#nav-registro" type="button" role="tab" aria-controls="nav-registro" aria-selected="false">Registrarse</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+
+            <div class="tab-pane fade show active p-3" id="nav-registro" role="tabpanel" aria-labelledby="nav-registro-tab">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Usuario</label>
+                            <input type="text" name="username">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Contraseña</label>
+                            <input type="password" name="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Nombe</label>
+                            <input type="text" placeholder="Jose Rojas" name="first_name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Correo</label><br>
+                            <input type="email" name="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Celular</label><br>
+                            <input type="number" placeholder="987654321" name="celular">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Edad</label><br>
+                            <input type="number" name="edad">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Dirección</label>
+                            <input type="text" name="direccion">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Comuna</label><br>
+                            <select name="comuna">
+                                <option value="">--------</option>
+                                <option value="valparaiso">V Región</option>
+                                <option value="metropolitana">Metropolitana</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Perfil</label><br>
+                            <select name="perfil">
+                                <option value="">--------</option>
+                                <option value="cliente">Cliente</option>
+                                <option value="centro">Centro Veterinario</option>
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-success">Registrarse</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

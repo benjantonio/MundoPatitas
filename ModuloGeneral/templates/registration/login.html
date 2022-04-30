@@ -1,0 +1,44 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+
+<div class="content">
+    <div class="lateral"></div>
+    <div class="tab">
+
+        <nav>
+            <img src="{% static 'img/patitas.png' %}" alt="">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active " id="nav-registro-tab" data-bs-toggle="tab" data-bs-target="#nav-registro" type="button" role="tab" aria-controls="nav-registro" aria-selected="false">Iniciar Sesión</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+
+            <div class="tab-pane fade show active p-3" id="nav-registro" role="tabpanel" aria-labelledby="nav-registro-tab">
+                {% if form.errors %}
+                <p>Usuario y/o Contraseña Incorrectas. Vuelva a Intentarlo</p>
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="">Usuario</label>
+                            <input type="text" name="username">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Contraseña</label>
+                            <input type="password" name="password">
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success">Entrar</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

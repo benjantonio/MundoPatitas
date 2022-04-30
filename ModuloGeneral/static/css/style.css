@@ -14,6 +14,26 @@ html {
 }
 
 
+/*FUENTE ICONOS*/
+
+@font-face {
+    font-family: "Font-Icon";
+    src: url('fonts/websymbols-regular-webfont.eot');
+    src: url('fonts/websymbols-regular-webfont.eot?#iefix') format('embedded.opentype'), url('fonts/websymbols-regular-webfont.woff') format('woff'), url('fonts/websymbols-regular-webfont.ttf') format('truetype'), url('fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icono {
+    font-family: Font-Icon;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
 /*FIN GENERALES*/
 
 
@@ -35,11 +55,16 @@ html {
 }
 
 .ingreso {
-    text-decoration: none;
-    color: grey;
+    display: block;
+    cursor: pointer;
     margin: 0px 5px;
     padding: 4px;
     transition: all 600ms;
+}
+
+.ingreso a {
+    text-decoration: none;
+    color: grey;
 }
 
 .ingreso:hover {
@@ -81,81 +106,19 @@ html {
 
 /*LOGIN*/
 
-.login {
-    display: block;
-    width: 50%;
-    height: 300px;
-    border-radius: 6px;
-    float: left;
-    margin: auto 25%;
-    margin-top: 100px;
-    background: rgba(253, 254, 254, 0.8);
+.usuario {
+    margin: 0px 15px;
+    transition: all 500ms;
 }
 
-.form-login {
-    width: 60%;
-    height: auto;
-    float: left;
-    padding-top: 50px;
+.usuario img {
+    width: 25px;
+    height: 25px;
 }
 
-.form-login form {
-    width: 60%;
-    margin: 0px auto;
-}
-
-.form-login label {
-    display: block;
-    width: 24%;
-    margin: 0px auto;
-    margin-top: 10px;
-}
-
-.form-login label:first-child {
-    width: 14%;
-    margin-top: 0px;
-}
-
-.form-login input[type=text] {
-    width: 84%;
-}
-
-.form-login input[type=password] {
-    width: 74%;
-}
-
-.form-login input[type=text],
-.form-login input[type=password] {
-    width: 80%;
-    display: block;
-    margin: 0px auto;
-    margin-top: 10px;
-    border: 1px solid grey;
-    border-radius: 6px;
-    background: rgba(253, 254, 254, 0.7);
-}
-
-.form-login button {
-    display: block;
-    margin: 0px auto;
-    margin-top: 25px;
-    padding: 4px;
-    border-radius: 15px;
-    border: 2px solid rgb(39, 174, 96);
-    background: rgba(253, 254, 254, 0.7);
-}
-
-.img-login {
-    width: 40%;
-    height: 300px;
-    display: block;
-    float: left;
-}
-
-.img-login img {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
+.usuario span {
+    text-decoration: none;
+    color: grey;
 }
 
 
@@ -164,66 +127,48 @@ html {
 
 /*REGISTRO*/
 
-.cont-re {
+.content {
     width: 60%;
-    height: 450px;
+    height: 500px;
+    float: left;
+    margin: 0% 20%;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.lateral {
+    width: 40%;
+    height: 90%;
+    float: left;
+    background: rgb(26, 188, 156);
+    border-radius: 6px;
+}
+
+.tab {
+    width: 60%;
+    height: 100%;
+    float: left;
+    background: white;
+    border-radius: 6px;
+}
+
+.tab img {
     display: block;
     margin: 0px auto;
-    margin-top: 120px;
-    margin-bottom: 120px;
-}
-
-.cont-re .cliente {
-    width: 50%;
-    height: 100%;
-    float: left;
-}
-
-.cont-re .vet {
-    width: 50%;
-    height: 100%;
-    float: left;
-}
-
-.cont-re img {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    transition: all 1000ms;
-}
-
-.cont-re img:hover {
-    transform: scale(1.2)
-}
-
-.btn-cli {
-    font-size: 22px;
-    position: absolute;
-    left: 435px;
-    top: 420px;
-    border: 1px solid grey;
-    border-radius: 6px;
-    background: rgba(253, 254, 254, 0.5);
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.btn-vet {
-    font-size: 22px;
-    position: absolute;
-    right: 435px;
-    top: 420px;
-    border: 1px solid grey;
-    border-radius: 6px;
-    background: rgba(253, 254, 254, 0.5);
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.moodal .row:first-child {
-    margin-top: 0px;
-}
-
-.modal .row {
     margin-top: 5px;
+    margin-bottom: 5px;
+    width: 300px;
+    height: 100px;
+}
+
+.tab-pane form {
+    display: block;
+    margin-left: 40px;
+}
+
+.btn {
+    margin-top: 25px;
+    width: 190px;
 }
 
 
@@ -235,6 +180,7 @@ html {
 .footer {
     background-color: white;
     margin: 0px;
+    margin-top: 50px;
     width: 100%;
     height: 65px;
     border-top: 5px solid rgb(39, 174, 96);

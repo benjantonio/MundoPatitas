@@ -29,8 +29,8 @@
                 <!-- ARREGLAR IMAGEN -->
                 <a class="navbar-logo" href="#"><img class="logo-nav" src='{% static "img/patitas.png" %}' alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -52,8 +52,28 @@
                             <a class="nav-link">Ayuda</a>
                         </li>
                     </ul>
-                    <a class="ingreso" href="{% url 'login'%}">Iniciar Sesión</a>
-                    <a class="ingreso" href="{% url 'registro'%}">Registrarse</a>
+                    <!-- <div class="ingreso">
+                        <a class=" icono" href="{% url 'registro'%}">U</a>
+                        <span>Usuario</span>
+                    </div> -->{% if user.is_authenticated %}
+                    <span>{{ user.username }}</span>
+                    <a class="usuario" href="{% url 'logout'%}">
+                        <img src='{% static "img/apagado.png" %}' alt="">
+                        <span>Cerrar Sesión</span>
+                    </a>
+                    {% else %}
+                    <a class="usuario" href="{% url 'login'%}">
+                        <img src='{% static "img/usuario.png" %}' alt="">
+                        <span>Iniciar Sesión</span>
+                    </a>
+                    <a class="usuario" href="{% url 'registro'%}">
+                        <img src='{% static "img/registro.png" %}' alt="">
+                        <span>Registrarse</span>
+                    </a>
+                    {% endif %}
+
+
+
                 </div>
             </div>
         </nav>
@@ -67,9 +87,6 @@
     <div class="contenedor">
         {% block content %} {% endblock %}
     </div>
-
-
-
 
 
     <!--INICIO FOOTER-->
