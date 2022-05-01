@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+.container {
+    /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
+    margin: auto;
+    padding: 0;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.img-inicio {
+    margin: 0;
+    padding: 30px;
+    display: block;
+}
+
+.img-inicio .imagen {
+    display: block;
+}
+
+.img-inicio .imagen img {
+    width: 100%;
+    height: 100%;
+    box-shadow: 5;
+    border-radius: 30px;
+}

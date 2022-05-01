@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-
 /*GENERALES*/
 
 body {
@@ -76,7 +73,6 @@ body {
     margin: auto;
     background-color: white;
     padding: 30px;
-    /* padding-top: 120px; */
 }
 
 
@@ -238,10 +234,8 @@ body {
 
 footer {
     background-color: white;
-    margin: 0px;
+    margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
     border-top: 5px solid rgb(39, 174, 96);
 }
 
