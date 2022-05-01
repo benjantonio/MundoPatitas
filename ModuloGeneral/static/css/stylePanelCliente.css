@@ -1,0 +1,533 @@
+
+/* >>>>>>> Benja <<<<<<<<< */
+/* ############################################### PANEL CLIENTE ##########################################*/
+
+
+
+.container-panelcli{
+    font-family: 'Poppins', sans-serif;
+    background-color: #f6f6f9;
+    user-select: none;
+    overflow-x: hidden;
+    appearance: none;
+    box-sizing: border-box;
+
+    display: grid;
+    width: 96%;
+    height: 80%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto ;
+
+    border-radius: 0 0 40px 40px;
+    padding: 30px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.zonas{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.formatoZona{
+    display: grid;
+    grid-template-columns: 30rem 20rem auto ;
+    height: 40rem;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 30px;
+}
+
+.zonaAdopcion{
+    background-image: url("../img/adopciones.png");
+    background-size: cover;
+}
+
+.textoAdopcion{
+    background: #22c4b6;
+    border-radius: 50px;
+    padding: 20px;
+    color: white;
+}
+
+.btnAdopciones{
+    background: #22c4b6;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 5rem;
+    border-radius: 50px;
+    color: rgb(238, 238, 238);
+    padding: 10px;
+    box-shadow: 0rem 0rem 4rem 3rem #0000000a;
+}
+
+.zonaMiCuenta{
+    background-image: url("../img/carusel2.png");
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+.cont-menuaside{
+    display: none;
+}
+
+.a-sidebar {
+    text-decoration: none;
+    list-style: none;
+    appearance: none;
+    color: #303030;
+}
+
+.img-aside {
+    display: block;
+    width: 100%;
+}
+
+.h1-aside{
+    font-size: 1.8rem;
+}
+
+.h2-aside{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.h3-aside{
+    font-size: 0.87rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.h4-aside{
+    font-size: 0.8rem;
+}
+.h5-aside{
+    font-size: 0.77rem;
+}
+
+.small-aside{
+    font-size: 0.75rem;
+}
+
+.imagen-perfil{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.texto-silenciado{
+    color: #7d8da1;
+}
+
+.p-aside{
+    color: #677483;
+}
+
+.b-aside{
+    color: #363949;
+}
+
+
+.success{
+    color: #09d882;
+}
+
+
+.icon-mismascotas{
+    color: #ff7782;
+}
+
+.icon-yo{
+    color: #4eca63;
+}
+
+.icon-historialcitas{
+    color: #ffbb55;
+}
+
+.icon-misadopciones{
+    color: #7380ec;
+}
+
+.icon-micementerio{
+    color: #659bd4;
+}
+
+.icon-cerrarsesion{
+    color: #e42b3b;
+}
+
+aside{
+    height: 100%;
+    padding-bottom: 60px;
+    background: white;
+    border-radius: 50px;
+
+}
+
+aside .top{ /* contenedor PANEL CLIENTE*/
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+    margin-left: 0.3rem;
+    border-radius: 500px;
+}
+
+.top2-aside{ /* CONTENEDOR IN PANEL */
+    display: flex;
+    gap: 0.4rem;
+}
+
+.img-aside{ /* LOGO PANEL */
+    object-fit: cover;
+    width: 3.7rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.titulo-panelcliente{ /* TITULO "PANEL CLIENTE"*/
+    margin-top: 1.3rem;
+}
+
+aside .close{ /* BOTON CERRAR PANEL*/
+    display: none;
+}
+
+.saludo-cliente{
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 600;
+    font-size: 1.3rem;
+    background: white;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1.4rem;
+    text-align: center;
+}
+
+/* ============== SIDEBAR ============== */
+aside .sidebar{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+aside .sidebar a{
+    display: flex;
+    color: #616161;
+    margin: 2rem;
+    gap:0.8rem;
+    align-items: center;
+    height: 3.7rem;
+    position: relative;
+    transition: all 300ms ease;
+    margin: 0;
+    padding: 2rem auto 2rem auto;
+
+}
+
+aside .sidebar a span{
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    transition: all 400ms ease;
+
+}
+
+aside .sidebar a:focus {
+    background: #7fd8a4;
+    color: #ffffff;
+}
+
+
+
+aside .sidebar a:focus:before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: #38bb64;
+}
+
+aside .sidebar a:hover{
+    color: #09d882;
+
+}
+
+aside .sidebar a:focus{
+    color: #ffffff;
+
+}
+
+aside .sidebar a:hover span{
+    margin-left: 3rem;
+    transition: all 600ms ease;
+}
+
+aside .sidebar a:focus span{
+    color: #ffffff;
+    margin-left: 1.84rem;
+    transition: all 0ms ease;
+
+}
+
+aside .sidebar .a-cerrarsesion:hover{
+    color: #e42b3b;
+    }
+
+aside .sidebar .a-cerrarsesion:focus{
+    color: #ffffff;
+    transition: all 150ms ease;
+    background: #e05050;
+    }
+
+aside .sidebar .a-cerrarsesion:focus:before{
+    background: #a81313;
+    }
+
+
+/* ========================= TABS ===================== */
+
+.texto-info-PC{
+    font-size: 16px;
+    color: #1d1d1d;
+    font-style: normal;
+}
+
+.tabYo{
+    background: white;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.card{
+    height: auto;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    border: 1px solid #00000017;
+    box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
+}
+
+
+/* TAB YO */
+.cardYo{
+    align-items: center;
+    text-align: center;
+}
+
+.cardYo .img-perfil-aside{
+    margin-top: 10px;
+    object-fit: cover;
+    width: 8rem;
+    border-radius: 50%;
+    box-shadow: 0.8rem 0.5rem 2rem 0.7rem #00000015;
+}
+
+.cardYo .btn-modificarImagen{
+    background: #20d0dd;
+    color: white;
+    border-radius: 50px;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #00000015;
+}
+
+.cardYo .contenido{
+    margin-top: 20px;
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: 14px;
+    color: #8a8a8a;
+    font-style: italic;
+    background: #f5f5f5;
+    border-radius: 50px;
+    padding: 33px;
+    box-shadow: 0.4rem 0.2rem 2rem 0.7rem #00000015;
+}
+
+.cardYo .btns{
+    margin-top: 30px;
+}
+
+.cardYo .btns .btn-modificar{
+    background: #09d882;
+    color: white;
+    border-radius: 50px;
+    padding: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
+}
+
+/* ======= TAB MIS MASCOTAS ========== */
+.tabSection{
+    background: white;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.cardMisMascotas{
+    text-align: center;
+    align-items: center;
+}
+
+.cardMisMascotas .contenido{
+    height: auto;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    border: 1px solid #00000017;
+    box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+.tabMisMascotas{
+    display: none;
+}
+
+.tabHistorialCitas{
+    display: none;
+}
+
+.tabMisAdopciones{
+    display: none;
+}
+
+.tabMiCementerio{
+    display: none;
+}
+
+.tabAyuda{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================================== MEDIA QUERYS CELULAR =================================*/
+
+@media screen and (max-width: 767px) {
+    .container-panelcli{
+        grid-template-columns: auto ;
+        display: flex;
+        width: 100%;
+        padding: 15px;
+        height:100%
+        }
+
+    .top2-aside h2{
+        display: inline;
+        position: relative;
+        }
+
+    aside .sidebar h3{
+        display: inline;
+        }
+
+    aside .sidebar a{
+        width: 5.6rem;
+        }
+
+    .img-aside{
+    margin-left: 0.4rem;
+        }
+
+    aside{
+        position: fixed;
+        left: -100%;
+        background-color: #ffffff;
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 0.5rem 1rem 4rem 1rem #00000018;
+        height: 70vh;
+        padding-right: 1.8rem;
+        border-radius: 20px;
+        height: auto;
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu{
+        to{
+            left: 0;
+        }
+    }
+
+    aside .sidebar a{
+        width: 100%;
+        height: 2.6rem;
+        }
+
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+        }
+
+    .cont-menuaside{
+        margin: 10px;
+        position: fixed;
+        cursor: pointer;
+        background: #09d882;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        border-radius: 50px;
+        color: #ffffff;
+        display: block;
+    }
+
+    .menuaside{
+        margin-top: 18px;
+        }
+
+    .tabYo .card{
+        margin: 15px;
+        box-shadow: none;
+        border-width: 0;
+    }
+
+    .cardYo .contenido{
+        grid-template-columns: auto ;
+        padding: 10px;
+    }
+}
