@@ -1,5 +1,6 @@
-/* Importación de letras desde API de Google (en este link van solo 5 letras seleccionadas en elección en https://fonts.google.com/)*/
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Importación de letras desde API de Google */
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
 /* CSS PAGINA HOME */
 
 /*GENERALES*/
@@ -19,38 +20,217 @@ html {
 /*FIN GENERALES*/
 
 
+.bannerTop{
+  width: 100%;
+  height: 2.1rem;
+  background: rgb(58, 74, 80);
+  position: fixed;
+  top: 0;
+  color: white;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-align: center;
+}
+
+.bannerTop p{
+  margin: 0;
+  font-size: 14px;
+}
+
+.bannerTop .contacto{
+  display: flex;
+  
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  width: 100%;
+}
+
+.bannerTop .contacto .iconContacto{
+  font-size: 24px;
+}
+
+
 /*MENU*/
-
-.logo-nav {
-    /* LOGO MENU */
-    height: 40px;
+.menuContent{
+  background: #2ac465;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 80px;
+  transition: 0.6s;
+  margin-top: 33px;
 }
 
-.navbar {
-    /* position: fixed; */
-    padding: 20px;
-    /* z-index: 2; */
-    /* transition: all 0.3s ease; */
-    width: 100%;
-    height: 80px;
-    border-bottom: 5px solid rgb(39, 174, 96);
-}
-
-.ingreso {
+  .menuContent.down{
+    background: #179447;
+    padding: 15px 80px;
+    transition: all 1000ms ease;
+  }
+  .menuContent .brand{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
-    color: grey;
-    margin: 0px 5px;
-    padding: 4px;
-    transition: all 600ms;
-}
+    letter-spacing: 2px;
+    margin-left: 60px;
+  }
 
-.ingreso:hover {
-    color: grey;
-    border: 2px solid rgb(39, 174, 96);
-    border-radius: 6px;
-    transform: scale(1.2);
-}
+  .menuContent .brand .logo {
+    display: grid;
+    align-items: center;
+  }
 
+  .menuContent .brand .logo img{
+    height: 50px;
+  }
+
+  .menuContent .logo .description{
+
+    margin: 0;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 55px;
+    font-size: 13px;
+    color: #f3f3f3;
+    font-family: 'Kalam', cursive;
+    font-weight: 600;
+    border-left: 2px solid #f3f3f3;
+    letter-spacing: .04em;
+    line-height: 16px;
+    padding: 0 0 0 12px;
+  }
+
+  .menuContent .logo .description .icon{
+    height: 0px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .menuContent .menu{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .menuContent .menu ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .menuContent .menu ul li{
+      list-style: none;
+  }
+  
+  .menuContent .menu .ulLogin{
+  background: white;
+}
+  .menuContent .menu a{
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0 8px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+    transition-property: color, background;
+  }
+  
+  .menuContent .menu a:hover{
+    color: #000;
+    background: #fff;
+  }
+
+  .menuContent .navLogin{
+    background: red;
+    background-color: red;
+    height: 100%;
+  }
+  
+  .section-two{
+    padding: 20px;
+  }
+  
+  .menuContent .btn{
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media (max-width: 991px){
+    .menuContent .brand{
+    margin-left: 15px;   
+    }
+
+    .menuContent .brand .logo .description{
+      height: auto;
+      margin-left: 45px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    .menuContent, .hed.down{
+        padding: 20px 40px;
+    }
+    .menuContent .btn{
+      display: block;
+    }
+  
+    .menuContent .menu{
+      position: fixed;
+      background: #1483D5;
+      min-width: 330px;
+      height: 100vh;
+      top: 0;
+      right: -100%;
+      padding: 80px 50px;
+      transition: 0.5s;
+      transition-property: right;
+    }
+  
+    .menuContent .menu ul{
+        flex-direction: column;
+      }
+  
+      .menuContent .menu.active{
+      right: 0;
+    }
+  
+    .menuContent .menu .close-btn{
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 25px;
+    }
+  
+    .menuContent .menu a{
+      display: block;
+      font-size: 20px;
+      margin: 20px;
+      padding: 0 15px;
+    }
+  }
 
 /*FIN MENU*/
 
@@ -58,6 +238,7 @@ html {
 /*CONTENEDOR*/
 
 .contenedor {
+    margin-top: 109px;
     width: 100%;
     min-height: calc(100vh - 80px - 60px);
 }
