@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
+
 class UsuarioManager(BaseUserManager):
     def cretae_user(self,email,username, nombres, apellidos, password=None ):
         if not email:
