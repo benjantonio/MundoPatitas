@@ -19,7 +19,7 @@
                     <div class="row">
                         <div id="usuario" class="col-md-6">
                             <label for="">Usuario</label>
-                            <input type="text" name="username">
+                            <input id="user" type="text" name="username">
                             <span class="oculto">Usuario Invalido. Debe ingresar minimo 4 caracteres</span>
                         </div>
                         <div id="password" class="col-md-6">
@@ -31,8 +31,21 @@
                     <div class="row">
                         <div id="nombre" class="col-md-6">
                             <label for="">Nombe</label>
-                            <input type="text" placeholder="Jose Rojas" name="first_name">
-                            <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres</span>
+                            <input type="text" placeholder="" name="nombres">
+                            <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres, sin numeros</span>
+                        </div>
+                        <div id="apellido" class="col-md-6">
+                            <label for="">Apellido</label>
+                            <input type="text" placeholder="" name="apellidos">
+                            <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres, sin numeros</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div id="celular" class="col-md-6">
+                            <label for="">Celular</label><br>
+                            <input type="number" placeholder="987654321" name="celular">
+                            <span class="oculto">Celular Invalido. Debe ingresar 9 digitos</span>
                         </div>
                         <div id="correo" class="col-md-6">
                             <label for="">Correo</label><br>
@@ -41,36 +54,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div id="celular" class="col-md-6">
-                            <label for="">Celular</label><br>
-                            <input type="number" placeholder="987654321" name="celular">
-                            <span class="oculto">Celular Invalido. Debe ingresar 9 digitos</span>
-                        </div>
                         <div id="edad" class="col-md-6">
                             <label for="">Edad</label><br>
                             <input type="number" name="edad">
                             <span class="oculto">Edad Invalida. Debe ser mayor de edad</span>
                         </div>
-                    </div>
-                    <div class="row">
                         <div id="direccion" class="col-md-6">
                             <label for="">Dirección</label>
                             <input type="text" name="direccion">
                             <span class="oculto">Dirección Invalida. Debe ingresar mnimo ...</span>
                         </div>
-                        <div id="comuna" class="col-md-6">
-                            <label for="">Comuna</label><br>
-                            <select name="comuna">
-                                <option value="">--------</option>
-                                <option value="valparaiso">V Región</option>
-                                <option value="metropolitana">Metropolitana</option>
-                            </select>
-                            <span class="oculto">Debe Seleccionar una Opción</span>
-                        </div>
                     </div>
                     <div class="row">
                         <div id="perfil" class="col-md-6">
-                            <label for="">Perfil</label><br>
+                            <label for="">Tipo de Uso</label><br>
                             <select name="perfil">
                                 <option value="">--------</option>
                                 <option value="cliente">Cliente</option>
@@ -78,17 +75,37 @@
                             </select>
                             <span class="oculto">Debe Seleccionar una Opción</span>
                         </div>
-                        <div class="col-md">
-                            <button type="submit" class="btn btn-success">Registrarse</button>
+                        <div id="comuna" class="col-md-6">
+                            <label for="">Comuna</label><br>
+                            <select id="se-co" name="comuna">
+                                <option value="">--------</option>
+                                <option value="valparaiso">V Región</option>
+                                <option value="metropolitana">Metropolitana</option>
+                            </select>
+                            <span class="oculto">Debe Seleccionar una Opción</span>
                         </div>
-                    </div>
+                        <!-- {{usuario_form}} -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="checkbox" id="cbox" onClick="habilitarBtn()">
+                                <label for="cbox">Confirmar Registro</label>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="enviar" type="submit" class="btn btn-success" disabled>Registrarse</button>
+                            </div>
+                        </div>
+
+
+
+
 
                 </form>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-{% endblock %}
+    {% endblock %}

@@ -1,9 +1,6 @@
-from re import template
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import RegistroUsuario
-
-from .models import UsuarioPerfil
 
 def home(request):
     return render(request, 'home.html', {})

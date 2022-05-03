@@ -106,6 +106,15 @@ a {
 
 /*LOGIN*/
 
+.content-login {
+    width: 60%;
+    height: 500px;
+    float: left;
+    margin: 0% 20%;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
 .usuario {
     margin: 0px 15px;
 }
@@ -128,11 +137,19 @@ a {
 
 .content {
     width: 60%;
-    height: 500px;
+    height: 550px;
     float: left;
     margin: 0% 20%;
     margin-top: 40px;
     border-radius: 10px;
+}
+
+select {
+    width: 190px;
+}
+
+input[type="checkbox"] {
+    margin-top: 40px;
 }
 
 .lateral {
@@ -162,7 +179,7 @@ a {
 
 .tab-pane form {
     display: block;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 .btn {

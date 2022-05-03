@@ -36,6 +36,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
                         </li>
+                        {% if request.user.is_authenticated == False%}
                         <li class="nav-item">
                             <a class="nav-link" href="#">Veterinarios</a>
                         </li>
@@ -51,12 +52,17 @@
                         <li class="nav-item">
                             <a class="nav-link">Ayuda</a>
                         </li>
+                        {% elif request.user.perfil == 'centro' %}
+                        <li class="nav-item">
+                            <a class="nav-link">Agregar Veterinario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Lista Veterinarios</a>
+                        </li>
+                        {% endif %}
                     </ul>
-                    <!-- <div class="ingreso">
-                        <a class=" icono" href="{% url 'registro'%}">U</a>
-                        <span>Usuario</span>
-                    </div> -->{% if user.is_authenticated %}
-                    <span>{{ user.username }}</span>
+                    {% if user.is_authenticated %}
+                    <span>{{user.username}} || {{user.nombres}} {{user.apellidos}}</span>
                     <a class="usuario" href="{% url 'logout'%}">
                         <img src='{% static "img/apagado.png" %}' alt="">
                         <span>Cerrar Sesión</span>
