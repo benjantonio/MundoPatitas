@@ -27,12 +27,14 @@
     <header>
       <!-- BANNER -->
       <div class="bannerTop">
-          <p>¿Tienes un centro médico?: ¡Trabaja con mundopatitas!</p>
+          <p class="pnormal">¿Tienes un centro médico?: ¡Trabaja con <span class="mundopatitas">Mundo Patitas</span>!</p>
+          <p class="presponsivo">¡Tu Centro Médico en <span class="mundopatitas">Mundo Patitas!</p>
           <div class="contacto">
             <span class="iconContacto material-symbols-outlined">
               contact_support
             </span>
-            <p class="contacto">(+569 82047779 | mundopatitas@gmail.com)</p>
+            <p class="contactonormal">(+569 82047779 | mundopatitas@gmail.com)</p>
+            <p class="contactoresponsivo">(mundopatitas@gmail.com)</p>
           </div>
       </div>
       <!-- FIN BANNER -->
@@ -49,10 +51,8 @@
         </a>
 
         <nav class="menu">
-          <div class="btn">
-            <i class="fas fa-times close-btn"></i>
-          </div>
-          <ul>
+          
+          <ul class="ulBotones">
               <li><a href="#">Adoptar</a></li>
               <li><a href="#">Cementerio</a></li>
               <li><a href="#">Foro</a></li>
@@ -67,7 +67,15 @@
               <li><a href="#">Registrarse</a></li>
             </div>
           </ul>
+
+          <div class="btn">
+            <i class="fas fa-times close-btn"></i>
+          </div>
+
+
         </nav>
+
+        
         <div class="btn">
           <i class="fas fa-bars menu-btn"></i>
         </div>
@@ -88,48 +96,79 @@
 
     <!--INICIO FOOTER-->
     <footer>
-        <div class="footer">
-            <img src='{% static "img/patitas.png" %}' alt="logo-footer">
 
+      <!--█████ FOOTER INFERIOR █████-->
+
+      <div class="main-content">
+        <div class="left box">
+            <!--NOSOTROS-->
+          <h2 class="titulofooter">Nosotros</h2>
+          <div class="content">
+            <p class="textofooter">Contamos con más de <strong>25 años</strong> de experencia, con un equipo capacitado profesionalmente en el rubro. <br> <br>Nuestro OBJETIVO está enfocado en apoyar el sistema de gestión del área de mantención de nuestros clientes.</p>
+            <div class="social">
+              <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
+              <a href="#"><span class="fab fa-twitter"></span></a>
+              <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
+              <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
+            </div>
+          </div>
         </div>
-
-
+        <!--UBICACIÓN-->
+        <div class="right box">
+          <h2 class="titulofooter">TOP VETERINARIO</h2>
+          <div class="content">
+            <p><span>es es el veterinario mejor valorado de todos los Centros Medicos de Mundo Patitas</p>
+            <div class="bloque1dolar">
+            <h3 class="titulodolar">VALOR DOLAR</h3>
+            <div class="bloque2dolar">
+              <p id="dolar"></p>
+            </div>
+            <p class="textvalordia">Valor del día:</p>
+            <p id="fechadolar"></p>
+          </div>
+          </div>
+          
+        </div>
+        <!--VALOR MONEDA-->
+        <div class="center box">
+          <h2 class="titulofooter">Ubicación</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Valparaíso, Chile.</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">+569 82047779</span>
+            </div>
+            <div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">mundopatitas@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="bottoncenter">
+          <span class="credit">Creado por <a class="losfrozenteam" href="https://www.concierto.cl/wp-content/uploads/2020/10/174a3f4fa44c7bb22b3b6429cb4ea44c-768x432.png">LOS FROZEN TEAM</a> | </span>
+          <span class="far fa-copyright"></span><span> 2022 Todos los derechos reservados uwu.</span>
+        </div>
+      </div><!-----FIN---->
 
     </footer>
     <!--FIN FOOTER-->
 
     <script type="text/javascript">
         //javascript for navigation bar effect on scroll
-        window.addEventListener("scroll", function(){
-          var header = document.querySelector(".menuContent");
-          header.classList.toggle('down', window.scrollY > 0);
-    
-            //change logo
-            var logo = document.querySelector(".brand img");
-            if (window.scrollY>0) {
-                logo.setAttribute('src', '{% static "img/logonew.png" %}');
-            }else{
-                logo.setAttribute('src', '{% static "img/logonew.png" %}');
-            }
-    
-        });
-    
-        //javascript for responsive navigation sidebar menu
-        var menu = document.querySelector('.menu');
-        var menuBtn = document.querySelector('.menu-btn');
-        var closeBtn = document.querySelector('.close-btn');
-    
-        menuBtn.addEventListener("click", () => {
-          menu.classList.add('active');
-        });
-    
-        closeBtn.addEventListener("click", () => {
-          menu.classList.remove('active');
-        });
+        
+
         </script>
+        
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{% static 'js/form.js' %}"></script>
+    
     <script src="{% static 'js/menuPanelCliente.js' %}"></script>
+    <script src="{% static 'js/planilla.js' %}"></script>
     
 
 </body>
