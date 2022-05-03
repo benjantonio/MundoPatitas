@@ -1,0 +1,164 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+
+
+<link rel="stylesheet" type="text/css" href='{% static "css/stylePanelCliente.css" %}'>
+
+<!-- div "sidebar" | contenedores de los a -->
+<!-- a | botones-->
+<!-- span | iconos-->
+<!-- h3 | texto menu (Yo, Mis Mascotas, Historial, etc)-->
+
+
+<div class="container-panelcli container" >
+
+    <aside>
+        <div class="top">
+            <div class="top2-aside">
+                <img class="img-aside" src='{% static "img/logo-panelcliente.png" %}' alt="">
+                <h2 class="h2-aside titulo-panelcliente">PANEL<span class="success">CLIENTE</h2>
+            </div>
+            <div class="close" id="close-btncli">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+        </div>
+
+        <div>
+            <h5 class="saludo-cliente"><span class="success">¡Hola </span>Marcelo!</h2>
+        </div>
+
+        <div class="sidebar">
+            <a id="yo-btn" class="a-sidebar" href="#">
+                <span class="material-symbols-outlined icon-yo">person</span>
+                <h3 class="h3-aside">Yo</h3>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a id="misMascotas-btn" class="a-sidebar" href="#">
+                <span class="material-symbols-outlined icon-mismascotas">pets</span>
+                <h3 class="h3-aside">Mis Mascotas</h3>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a class="a-sidebar" href="#">
+                <span class="material-symbols-outlined icon-historialcitas" >description</span>
+                <h3 class="h3-aside">Historial Citas</h3>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a class="a-sidebar" href="#">
+                <span class="material-symbols-outlined icon-misadopciones">volunteer_activism</span>
+                <h3 class="h3-aside">Mis Adopciones</h3>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a class="a-sidebar" href="#">
+                <span class="material-symbols-outlined icon-micementerio">
+                    filter_drama
+                    </span>
+                <h3 class="h3-aside">Mi Cementerio</h3>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a class="a-sidebar" href="#">
+                <span class="material-symbols-outlined icon-ayuda">contact_support</span>
+                <h3 class="h3-aside">Ayuda</h3>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a class="a-sidebar a-cerrarsesion" href="#">
+                <span class="material-symbols-outlined icon-cerrarsesion">logout</span>
+                <h3 class="h3-aside">Cerrar Sesión</h3>
+            </a>
+        </div>
+    </aside>
+
+
+    <div class="tabSection">
+        <div id="menu-btncli" class="cont-menuaside">
+            <span class="material-symbols-outlined menuaside">menu</span>
+        </div>
+        <div id="tabYo">
+            <div class="cardYo card">
+                <h4>Tu Información</h4>
+                <img class="img-perfil-aside" src='{% static "img/foto_perfil.jpg" %}' alt="">
+                <p class="btn-modificarImagen">+Modificar Imágen</p>
+
+                <div class="contenido">
+                    <p>Nombre: <br><span class="texto-info-PC">Marcelo Caceres Riquelme</span></p>
+                    <p>Correo: <br><span class="texto-info-PC">marc_caceres1987@gmail.com</span></p>
+                    <p>Fecha de Nacimiento: <br><span class="texto-info-PC">29-04-1987</span></p>
+                    <p>Celular: <br><span class="texto-info-PC" style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span class="texto-info-PC">82655349</span></p>
+                    <p>Mascotas: <br><span class="texto-info-PC">2</span></p>
+                </div>
+
+                <div class="btns">
+                    <p class="btn-modificar">Modificar Datos</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tabMisMascotas">
+            <div class="cardMisMascotas card">
+                <h3 style="text-align: center;">Mis Mascotas</h3>
+                <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
+                <div class="zona-mascotas">
+                    <div class="card-mascota">
+                        <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
+                        <h5>Pelusa</h5>
+                        <p>Gato</p>
+                        <div class="btns">
+                            <p class="btn-modificar">Modificar</p>
+                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                        </div>
+                    </div>
+                    <div class="card-mascota">
+                        <img class="img-perfil-aside" src='{% static "img/perroCoco.jpg" %}' alt="">
+                        <h5>Coco</h5>
+                        <p>Perro</p>
+                        <div class="btns">
+                            <p class="btn-modificar">Modificar</p>
+                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                        </div>
+                    </div>
+                    <div class="card-mascota-nueva">
+                        <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
+                        <img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tabHistorialCitas tabPanelCliente">
+            <h3 style="text-align: center;">Historial Citas</h3>
+            <p>el historial citas</p>
+        </div>
+
+        <div class="tabMisAdopciones tabPanelCliente">
+            <h3 style="text-align: center;">Adopciones</h3>
+            <p>asdasd</p>
+        </div>
+
+        <div class="tabMiCementerio tabPanelCliente">
+            <h3 style="text-align: center;">Cementerio</h3>
+            <p>el cementerio</p>
+        </div>
+
+        <div class="tabAyuda tabPanelCliente">
+            <h3 style="text-align: center;">Ayuda</h3>
+            <p>la ayuda</p>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
