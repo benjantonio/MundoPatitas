@@ -108,15 +108,32 @@
             <div class="cardMisMascotas card">
                 <h3 style="text-align: center;">Mis Mascotas</h3>
 
-                <div class="contenido">
-                    <div class="card">asd</div>
-                    <div class="card">asd</div>
-                    <div class="card">asd</div>
-                    <div    class="card">asd</div>
+                <div class="zona-mascotas">
+                    <div class="card-mascota">
+                        <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
+                        <h5>Pelusa</h5>
+                        <p>Gato</p>
+                        <div class="btns">
+                            <p class="btn-modificar">Modificar</p>
+                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                        </div>
+                    </div>
+                    <div class="card-mascota">
+                        <img class="img-perfil-aside" src='{% static "img/perroCoco.jpg" %}' alt="">
+                        <h5>Coco</h5>
+                        <p>Perro</p>
+                        <div class="btns">
+                            <p class="btn-modificar">Modificar</p>
+                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                        </div>
+                    </div>
+                    <div class="card-mascota-nueva">
+                        <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
+                        <img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt="">
+                    </div>
                 </div>
 
             </div>
-            
         </div>
 
         <div class="tabHistorialCitas tabPanelCliente">

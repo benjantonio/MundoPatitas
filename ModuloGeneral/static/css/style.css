@@ -608,7 +608,7 @@ position: absolute;
 content: '';
 height: 2px;
 width: 15%;
-background: #f5d000;
+background: #179447;
 top: -10px;
 }
 .left .content p{
@@ -635,7 +635,7 @@ background: #c9c8c7; /* COLOR MOUSE EN REDES SOCIALES */
 }
 .center .content .fas{
 font-size: 1.4375rem;
-background: #f5d000;
+background: #179447;
 height: 45px;
 width: 45px;
 line-height: 45px;
@@ -645,7 +645,7 @@ transition: 0.3s;
 cursor: pointer;
 }
 .center .content .fas:hover{
-background: #fff5bf; /* COLOR MOUSE EN ICONOS CONTACTO */
+background: #3eb36b; /* COLOR MOUSE EN ICONOS CONTACTO */
 }
 .center .content .text{
 font-size: 1.0625rem;
@@ -686,14 +686,14 @@ height: 40px;
 width: 100%;
 border: none;
 outline: none;
-background: #f5d000; /* COLOR BOTÓN SEND */
+background: #179447; /* COLOR BOTÓN SEND */
 font-size: 1.0625rem;
 font-weight: 500;
 cursor: pointer;
 transition: .3s;
 }
 .right form .btn button:hover{
-background: rgb(255, 235, 181);  /* COLOR MOUSE BOTÓN SEND */
+background: #ffebb5;  /* COLOR MOUSE BOTÓN SEND */
 }
 .bottom center{
 padding: 5px;
@@ -704,7 +704,7 @@ background: #151515;
 color: #656565;
 }
 .bottom center a{
-color: #f5d000; /* COLOR CRÉDITOS */
+color: #179447; /* COLOR CRÉDITOS */
 text-decoration: none;
 }
 .bottom center a:hover{
@@ -718,51 +718,13 @@ color: #696969;
 }
 
 .losfrozenteam{
-color: #f5d000;
+color: #5de691;
 }
 
 .content{
 color: white;
 }
 
-.bloque1dolar{
-background-color: rgb(26, 26, 26);
-padding-bottom: 3px;
-padding-left: 30px;
-padding-right: 30px;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.199);
-}
-
-.titulodolar{
-text-align: center;
-font-family: PoetsenOne;
-font-size: 22px;
-}
-
-.bloque2dolar{
-color: white;
-text-align: center;
-background: linear-gradient(to bottom, #58cc41, #21a507);
-box-shadow: 0 0 2px rgba(0,0,0,0.3);
-}
-
-#dolar{
-margin-bottom: 5px;
-}
-
-.textvalordia{
-text-align: center;
-margin: 0;
-font-size: 14px;
-color: #808080;
-}
-
-#fechadolar{
-text-align: center;
-margin-bottom: 2px;
-color: #808080;
-font-size: 12px;
-}
 
 @media screen and (max-width: 900px) {
 footer{

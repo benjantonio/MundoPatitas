@@ -403,7 +403,12 @@ aside .sidebar .a-cerrarsesion:focus:before{
     align-items: center;
 }
 
-.cardMisMascotas .contenido{
+.cardMisMascotas .zona-mascotas{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.cardMisMascotas .zona-mascotas .card-mascota{
     height: auto;
     padding: 10px;
     margin: 30px;
@@ -411,11 +416,83 @@ aside .sidebar .a-cerrarsesion:focus:before{
     border: 1px solid #00000017;
     box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
 }
 
+.cardMisMascotas .card-mascota img{
+    margin-top: 10px;
+    object-fit: cover;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 20px;
+    box-shadow: 0.8rem 0.5rem 2rem 0.7rem #00000015;
+}
 
-.tabMisMascotas{
+.cardMisMascotas .card-mascota h5{
+    margin-top: 10px;
+}
+
+.cardMisMascotas .card-mascota p{
+    color: #5a5a5a;
+    font-size: 15px;
+}
+
+.cardMisMascotas .card-mascota .btns{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px;
+    vertical-align: middle;
+    align-items: center;
+ }
+
+.cardMisMascotas .card-mascota .btn-modificar{
+    background: #09d882;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+ }
+
+.cardMisMascotas .card-mascota .btn-eliminar{
+    background: #e42b3b;
+    color: white;
+    padding: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cardMisMascotas .card-mascota-nueva{
+    height: auto;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    border: 1px solid #00000017;
+    box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.cardMisMascotas .card-mascota-nueva .imgAddPet{
+    margin-top: 10px;
+    margin-bottom: 12px;
+    object-fit: cover;
+    width: 12rem;
+    height: 16rem;
+    border-radius: 20px;
+}
+
+.cardMisMascotas .card-mascota-nueva .btnAddPet{
+    object-fit: cover;
+    width: 4rem;
+    height: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+#tabMisMascotas{
     display: none;
 }
 
@@ -522,6 +599,11 @@ aside .sidebar .a-cerrarsesion:focus:before{
         margin-top: 18px;
         }
 
+
+}
+
+
+@media screen and (max-width: 992px) {
     .tabYo .card{
         margin: 15px;
         box-shadow: none;
@@ -532,4 +614,14 @@ aside .sidebar .a-cerrarsesion:focus:before{
         grid-template-columns: auto ;
         padding: 10px;
     }
+
+    .cardMisMascotas .zona-mascotas{
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cardMisMascotas .zona-mascotas{
+        grid-template-columns: auto ;
+    }
+
 }
