@@ -1,23 +1,23 @@
- {% extends 'planilla.html' %} {% load static %} {% block content %}
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+
+<div class="container lienzo">
 
 
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href='{% static "css/stylehome.css" %}'>
+    <div class="zonas">
 
-<!--ICONOS BONITOS-->
-<script src="https://kit.fontawesome.com/74f6d8d34f.js" crossorigin="anonymous"></script>
-
-
-<body>
-    <div class="contenedor">
-        <figure>
-            <img src='{% static "img/imghome.png" %}' alt="">
-            <div class="capa">
-                <h3>Hola</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum maxime omnis consectetur vero repellat, reiciendis ipsa, nobis laboriosam perferendis dolore officia quidem eaque autem nam dolorum adipisci recusandae maiores et!</p>
+        <div class="zonaAdopcion formatoZona">
+            <p class="textoAdopcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptatibus ipsum, velit voluptates et eligendi ullam odio eaque quia magni impedit nihil perferendis aliquam autem ratione reiciendis deleniti distinctio animi?</p>
+            <div class="btnAdopciones">
+                <h3 >Adoptar</h3>
             </div>
-        </figure>
-    </div>
-</body>
+        </div>
+
+        <div class="zonaMiCuenta formatoZona">
+            
+        </div>
+
+    
+
+</div>
 
 {% endblock %}

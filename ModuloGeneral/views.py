@@ -10,3 +10,6 @@ def login(request):
 
 def registro(request):
     return render(request,'registro.html', {})
+
+def panelcli(request):
+    return render(request,'panelcli.html', {})
