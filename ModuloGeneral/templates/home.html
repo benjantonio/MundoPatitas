@@ -1,23 +1,21 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
 
-<div class="container lienzo">
+<link rel="stylesheet" type="text/css" href='{% static "css/styleHome.css" %}'>
 
+<section class="home-banner" id="home">
 
-    <div class="zonas">
-
-        <div class="zonaAdopcion formatoZona">
-            <p class="textoAdopcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptatibus ipsum, velit voluptates et eligendi ullam odio eaque quia magni impedit nihil perferendis aliquam autem ratione reiciendis deleniti distinctio animi?</p>
-            <div class="btnAdopciones">
-                <h3 >Adoptar</h3>
-            </div>
-        </div>
-
-        <div class="zonaMiCuenta formatoZona">
-            
-        </div>
+    <div class="contenedor-banner">
+        <h3> ¡Bienvenido a <span>Mundo Patitas</span>!</h3>
+    </div>
 
     
+    <img src='{% static "img/home-banner-curvas.png" %}' class="wave" alt="">
+</section>
 
-</div>
+<section class="home-">
+
+    <h3>Sección 2</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed fugit, fugiat sunt dolorem animi veniam at voluptatem cum laboriosam modi quos reprehenderit maiores quas aut eveniet? Placeat excepturi obcaecati officiis.</p>
+</section>
 
 {% endblock %}
