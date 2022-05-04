@@ -6,44 +6,37 @@
         <div class="lateral">
             <img src="{% static 'img/perro.png' %}" alt="">
         </div>
-        <div class="tab">
+        <div class="inicio">
+            <p>Inicio Sesión MundoPatitas</p>
 
-            <nav>
-                <p>Inicio Sesión MundoPatitas</p>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active " id="nav-registro-tab" data-bs-toggle="tab" data-bs-target="#nav-registro" type="button" role="tab" aria-controls="nav-registro" aria-selected="false">Iniciar Sesión</button>
-                </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-
-
-                <div class="tab-pane fade show active p-3" id="nav-registro" role="tabpanel" aria-labelledby="nav-registro-tab">
-                    {% if form.errors %}
-                    <p>Usuario y/o Contraseña Incorrectas. Vuelva a Intentarlo</p>
-                    {% endif %}
-                    <form id="form" method="POST">
-                        {% csrf_token %}
-                        <div class="row g-3">
-                            <div class="col">
-                                <label class="form-label" for="">Usuario</label>
-                                <input class="form-control" type="text" name="username">
-                            </div>
-
-                            <div class="col">
-                                <label class="form-label" for="">Contraseña</label>
-                                <input class="form-control" type="password" name="password">
-                            </div>
-
-                            <div class="col">
-                                <button type="submit" class="btn btn-success ">Entrar</button>
-                            </div>
+            <div class="form">
+                {% if form.errors %}
+                <p>Usuario y/o Contraseña Incorrectas. Vuelva a Intentarlo</p>
+                {% endif %}
+                <form id="form" method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col">
+                            <label class="form-label" for="">Usuario</label>
+                            <input class="form-control" type="text" name="username">
                         </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
+                            <label class="form-label" for="">Contraseña</label>
+                            <input class="form-control" type="password" name="password">
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success ">Entrar</button>
+                        </div>
+                    </div>
 
 
 
 
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>

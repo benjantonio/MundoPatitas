@@ -115,11 +115,11 @@
 
                 <ul class="ulBotones">
                     <li><a href="{% url 'home' %}">Inicio</a></li>
-                    {% if request.user.is_authenticated == False%}
+
                     <li><a href="#">Adoptar</a></li>
                     <li><a href="#">Cementerio</a></li>
                     <li><a href="#">Foro</a></li>
-                    {% elif request.user.perfil == 'cliente' %}
+                    {% if request.user.perfil == 'cliente' %}
                     <li><a href="#">Agendar Hora</a></li>
                     <li><a href="{% url 'panelcli' %}">Mi Panel</a></li>
                     {% elif request.user.perfil == 'centro' %}
@@ -130,7 +130,7 @@
                 <ul class="ulLogin">
 
                     {% if user.is_authenticated %}
-                    <p>{{user.username}}</p>
+                    <p class="username">{{user.username}}</p>
                     {% else %}
                     <p>¿Tienes una cuenta?</p>
                     <div class="contenedorLiLogin">

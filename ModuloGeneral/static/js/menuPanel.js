@@ -36,7 +36,7 @@ misMascotasBtn.addEventListener('click', () => {
 });
 
 btnMisVeterinarios.addEventListener('click', () => {
-    btnYoCen.style = 'display:none;'
+    yoTabVet.style = 'display:none;'
     VeterinarioTab.style = 'display:block;';
 });
 
