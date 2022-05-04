@@ -165,6 +165,8 @@ html {
   padding: 0px;
   border-radius: 10px;
   display: grid;/* <---- temporal*/
+  margin:0;
+  padding: 0;
 }
 
 .menuContent .menu .ulLogin p{
@@ -230,7 +232,34 @@ html {
     display: none;
   }
   
-  @media (max-width: 991px){
+  @media (max-width: 1355px){
+    .menuContent .brand{
+      margin-left: -10px;
+    }
+
+  }
+
+  @media (max-width: 1228px){
+    .menuContent .brand{
+      padding: 0;
+    }
+
+    .menuContent .brand .logo img{
+      height: 38px;
+    }
+
+    .menuContent .menu .ulBotones  {
+      gap: 10px;
+    }
+
+    .menuContent .menu .ulBotones li a{
+      margin: 0;
+      padding: 5px;
+    }
+
+  }
+
+  @media (max-width: 1115px){
     .bannerTop{
       font-size: 10px;
       font-weight: 700;
@@ -257,12 +286,13 @@ html {
     }
 
     .menuContent{
-      padding: 20px 40px;
+      padding: 21px 80px;
+      transition: none;
     }
 
     .menuContent.down{
 
-      padding: 15px 40px;
+      padding: 27px 80px;
     }
 
     .menuContent .brand{
@@ -357,6 +387,7 @@ html {
       font-weight: 800;
     }
   }
+  
 
 /* ######### FIN MENU ########## */
 
