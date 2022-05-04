@@ -63,8 +63,43 @@
     }
 }
 
-.home- {
+.home-about {
     height: 100vh;
     background: white;
     text-align: center;
+}
+
+.home-about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.imagen-about {
+    flex: 1 1 40rem;
+}
+
+.imagen-about img {
+    width: 100%;
+}
+
+.contenedor-home {
+    flex: 1 1 40rem;
+}
+
+.contenedor-home h3 {
+    color: black;
+    font-size: 4rem;
+}
+
+.contenedor-home span {
+    color: #2ae471;
+}
+
+.contenedor-home p {
+    font-size: 1.6rem;
+    color: darkgrey;
+    padding: 1rem 0;
+    line-height: 2;
 }
