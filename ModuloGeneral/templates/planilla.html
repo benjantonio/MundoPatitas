@@ -19,7 +19,7 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <link rel="stylesheet" type="text/css" href='{% static "css/stylePanel.css" %}'>
 </head>
 
 <body onload="enviarAnchoWeb();" onresize="enviarAnchoWeb();">
@@ -114,21 +114,32 @@
             <nav class="menu">
 
                 <ul class="ulBotones">
-                    <li><a href="../">Inicio</a></li>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    {% if request.user.is_authenticated == False%}
                     <li><a href="#">Adoptar</a></li>
                     <li><a href="#">Cementerio</a></li>
                     <li><a href="#">Foro</a></li>
+                    {% elif request.user.perfil == 'cliente' %}
                     <li><a href="#">Agendar Hora</a></li>
+                    <li><a href="{% url 'panelcli' %}">Mi Panel</a></li>
+                    {% elif request.user.perfil == 'centro' %}
+                    <li><a href="{% url 'panelcentro' %}">Mi Panel</a></li>
+                    {% endif %}
                 </ul>
 
                 <ul class="ulLogin">
+
+                    {% if user.is_authenticated %}
+                    <p>{{user.username}}</p>
+                    {% else %}
                     <p>¿Tienes una cuenta?</p>
                     <div class="contenedorLiLogin">
-                        <li><a href="panelcliente">Iniciar Sesion</a></li>
+                        <li><a href="{% url 'login'%}">Iniciar Sesion</a></li>
                         <p>o</p>
-                        <li><a href="#">Registrarse</a></li>
+                        <li><a href="{% url 'registro'%}">Registrarse</a></li>
 
                     </div>
+                    {% endif %}
                 </ul>
 
                 <div class="btn">
@@ -226,7 +237,7 @@
 
     <script src="{% static 'js/form.js' %}"></script>
 
-    <script src="{% static 'js/menuPanelCliente.js' %}"></script>
+    <script src="{% static 'js/menuPanel.js' %}"></script>
     <script src="{% static 'js/planilla.js' %}"></script>
 
 

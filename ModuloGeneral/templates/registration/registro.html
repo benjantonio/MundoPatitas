@@ -1,111 +1,109 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
 
-<div class="content">
-    <div class="lateral"></div>
-    <div class="tab">
-
-        <nav>
-            <img src="{% static 'img/patitas.png' %}" alt="">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active " id="nav-registro-tab" data-bs-toggle="tab" data-bs-target="#nav-registro" type="button" role="tab" aria-controls="nav-registro" aria-selected="false">Registrarse</button>
-            </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-
-
-            <div class="tab-pane fade show active p-3" id="nav-registro" role="tabpanel" aria-labelledby="nav-registro-tab">
-                <form id="form" method="POST">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div id="usuario" class="col-md-6">
-                            <label for="">Usuario</label>
-                            <input id="user" type="text" name="username">
-                            <span class="oculto">Usuario Invalido. Debe ingresar minimo 4 caracteres</span>
-                        </div>
-                        <div id="password" class="col-md-6">
-                            <label for="">Contraseña</label>
-                            <input type="password" name="password">
-                            <span class="oculto">Contraseña Invalida. Debe ingresar minimo 8 caracteres e incluir numeros</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="nombre" class="col-md-6">
-                            <label for="">Nombe</label>
-                            <input type="text" placeholder="" name="nombres">
-                            <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres, sin numeros</span>
-                        </div>
-                        <div id="apellido" class="col-md-6">
-                            <label for="">Apellido</label>
-                            <input type="text" placeholder="" name="apellidos">
-                            <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres, sin numeros</span>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div id="celular" class="col-md-6">
-                            <label for="">Celular</label><br>
-                            <input type="number" placeholder="987654321" name="celular">
-                            <span class="oculto">Celular Invalido. Debe ingresar 9 digitos</span>
-                        </div>
-                        <div id="correo" class="col-md-6">
-                            <label for="">Correo</label><br>
-                            <input type="email" name="email">
-                            <span class="oculto">Correo Invalido. Debe ingresar un correo con el formato correcto</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="edad" class="col-md-6">
-                            <label for="">Edad</label><br>
-                            <input type="number" name="edad">
-                            <span class="oculto">Edad Invalida. Debe ser mayor de edad</span>
-                        </div>
-                        <div id="direccion" class="col-md-6">
-                            <label for="">Dirección</label>
-                            <input type="text" name="direccion">
-                            <span class="oculto">Dirección Invalida. Debe ingresar mnimo ...</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="perfil" class="col-md-6">
-                            <label for="">Tipo de Uso</label><br>
-                            <select name="perfil">
-                                <option value="">--------</option>
-                                <option value="cliente">Cliente</option>
-                                <option value="centro">Centro Veterinario</option>
-                            </select>
-                            <span class="oculto">Debe Seleccionar una Opción</span>
-                        </div>
-                        <div id="comuna" class="col-md-6">
-                            <label for="">Comuna</label><br>
-                            <select id="se-co" name="comuna">
-                                <option value="">--------</option>
-                                <option value="valparaiso">V Región</option>
-                                <option value="metropolitana">Metropolitana</option>
-                            </select>
-                            <span class="oculto">Debe Seleccionar una Opción</span>
-                        </div>
-                        <!-- {{usuario_form}} -->
+<div class="container-fluid">
+    <div class="content">
+        <div class="lateral-res">
+            <img src="{% static  'img/mascotas.jpg' %}" alt="">
+        </div>
+        <div class="tab-res">
+            <nav>
+                <p>Registro MundoPatitas</p>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active " id="nav-registro-tab" data-bs-toggle="tab" data-bs-target="#nav-registro" type="button" role="tab" aria-controls="nav-registro" aria-selected="false">Registrarse</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active p-3" id="nav-registro" role="tabpanel" aria-labelledby="nav-registro-tab">
+                    <form id="form" method="POST">
+                        {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-6">
-                                <input type="checkbox" id="cbox" onClick="habilitarBtn()">
-                                <label for="cbox">Confirmar Registro</label>
+                            <div id="usuario" class="col-md-6">
+                                <label for="">Usuario</label>
+                                <input id="user" type="text" name="username">
+                                <span class="oculto">Usuario Invalido. Debe ingresar minimo 4 caracteres</span>
                             </div>
-                            <div class="col-md-6">
-                                <button id="enviar" type="submit" class="btn btn-success" disabled>Registrarse</button>
+                            <div id="password" class="col-md-6">
+                                <label for="">Contraseña</label>
+                                <input type="password" name="password">
+                                <span class="oculto">Contraseña Invalida. Debe ingresar minimo 8 caracteres e incluir numeros</span>
                             </div>
                         </div>
+                        <div class="row">
+                            <div id="nombre" class="col-md-6">
+                                <label for="">Nombe</label>
+                                <input type="text" placeholder="" name="nombres">
+                                <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres, sin numeros</span>
+                            </div>
+                            <div id="apellido" class="col-md-6">
+                                <label for="">Apellido</label>
+                                <input type="text" placeholder="" name="apellidos">
+                                <span class="oculto">Nombre Invalido. Debe ingresar minimo 3 caracteres, sin numeros</span>
+                            </div>
 
-
-
-
-
-                </form>
-
+                        </div>
+                        <div class="row">
+                            <div id="celular" class="col-md-6">
+                                <label for="">Celular</label><br>
+                                <input type="number" placeholder="987654321" name="celular">
+                                <span class="oculto">Celular Invalido. Debe ingresar 9 digitos</span>
+                            </div>
+                            <div id="correo" class="col-md-6">
+                                <label for="">Correo</label><br>
+                                <input type="email" name="email">
+                                <span class="oculto">Correo Invalido. Debe ingresar un correo con el formato correcto</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="edad" class="col-md-6">
+                                <label for="">Edad</label><br>
+                                <input type="number" name="edad">
+                                <span class="oculto">Edad Invalida. Debe ser mayor de edad</span>
+                            </div>
+                            <div id="direccion" class="col-md-6">
+                                <label for="">Dirección</label>
+                                <input type="text" name="direccion">
+                                <span class="oculto">Dirección Invalida. Debe ingresar mnimo ...</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="perfil" class="col-md-6">
+                                <label for="">Tipo de Uso</label><br>
+                                <select name="perfil">
+                                    <option value="">--------</option>
+                                    <option value="cliente">Cliente</option>
+                                    <option value="centro">Centro Veterinario</option>
+                                </select>
+                                <span class="oculto">Debe Seleccionar una Opción</span>
+                            </div>
+                            <div id="comuna" class="col-md-6">
+                                <label for="">Comuna</label><br>
+                                <select id="se-co" name="comuna">
+                                    <option value="">--------</option>
+                                    <option value="valparaiso">V Región</option>
+                                    <option value="metropolitana">Metropolitana</option>
+                                </select>
+                                <span class="oculto">Debe Seleccionar una Opción</span>
+                            </div>
+                            <!-- {{usuario_form}} -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="checkbox" id="cbox" onClick="habilitarBtn()">
+                                    <label for="cbox">Confirmar Registro</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="enviar" type="submit" class="btn btn-success" disabled>Registrarse</button>
+                                </div>
+                            </div>
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
+    <div class="clear-fix"></div>
+</div>
 
 
-    {% endblock %}
+{% endblock %}

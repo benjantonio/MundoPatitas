@@ -21,3 +21,6 @@ def registro(request):
 def panelcli(request):
     return render(request,'panelcli.html', {})
 
+def panelcenvet(request):
+    return render(request,'centro.html', {})
+
