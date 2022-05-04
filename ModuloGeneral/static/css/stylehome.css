@@ -1,68 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-.contenedor {
-    width: 100%;
+.home-banner {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-.contenedor figure {
+    justify-content: flex-end;
+    background: url("../img/home_bg_img.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
     position: relative;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
-    cursor: pointer;
 }
 
-.contenedor figure img {
-    width: 100%;
-    height: 100%;
-    transition: all 500ms ease-out;
+.home-banner .contenedor-banner {
+    width: 50rem;
 }
 
-.contenedor figure .capa {
+.home-banner .contenedor-banner h3 {
+    font-size: 6rem;
+    color: rgb(255, 255, 255);
+    padding-bottom: 13rem;
+}
+
+.home-banner .contenedor-banner span {
+    color: #2ae471;
+}
+
+.wave {
     position: absolute;
-    top: 0;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(11, 103, 123, 0.7);
-    transition: all 500ms ease-out;
-    opacity: 0;
-    visibility: hidden;
+}
+
+@media (max-width: 1650px) {
+    .home-banner {
+        background-position: right;
+    }
+    .home-banner .contenedor-banner h3 {
+        padding-left: 8rem;
+        padding-right: 6rem;
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-banner {
+        justify-content: center;
+    }
+    .home-banner .contenedor-banner {
+        text-align: center;
+    }
+    .home-banner .contenedor-banner h3 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .home-banner .contenedor-banner h3 {
+        padding-left: 0rem;
+        padding-right: 0rem;
+        font-size: 2rem;
+    }
+}
+
+.home- {
+    height: 100vh;
+    background: white;
     text-align: center;
-}
-
-.contenedor figure:hover>.capa {
-    opacity: 1;
-    visibility: visible;
-}
-
-.contenedor figure:hover>.capa h3 {
-    margin-top: 70px;
-    margin-bottom: 15px;
-}
-
-.contenedor figure .capa h3 {
-    color: #fff;
-    font-weight: 400;
-    margin-bottom: 129px;
-    transition: all 500ms ease-out;
-    margin-top: 30px;
-}
-
-.contenedor figure .capa img {
-    transform: scale(1.3);
-}
-
-.contenedor figure .capa p {
-    color: #fff;
-    font-size: 15px;
-    line-height: 1.5;
-    width: 100%;
-    max-width: 220px;
-    margin: auto;
 }
