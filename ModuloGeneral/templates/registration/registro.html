@@ -56,7 +56,7 @@
                         <div id="direccion" class="col">
                             <label class="form-label" for="">Dirección</label>
                             <input class="form-control" type="text" name="direccion">
-                            <span class="oculto">Dirección Invalida. Debe ingresar mnimo ...</span>
+                            <span class="oculto">Dirección Invalida. Debe ingresar minimo ...</span>
                         </div>
                     </div>
                     <div class="row g-3">
@@ -67,16 +67,22 @@
                                 <option value="cliente">Cliente</option>
                                 <option value="centro">Centro Veterinario</option>
                             </select>
-                            <span class="oculto">Debe Seleccionar una Opción</span>
+                            <span class="oculto">Debe seleccionar una Opción</span>
                         </div>
                         <div id="comuna" class="col">
                             <label class="form-label" for="">Comuna</label><br>
                             <select class="form-control" id="se-co" name="comuna">
-                                <option value="">--------</option>
-                                <option value="valparaiso">V Región</option>
-                                <option value="metropolitana">Metropolitana</option>
+                                <option value="">----------------</option>
+                                <optgroup label="V Región">
+                                    <option value="valparaiso">Viña del Mar</option>
+                                    <option value="metropolitana">Casablanca</option>
+                                </optgroup>
+                                <optgroup label="Metropolitana">
+                                    <option value="valparaiso">Vitacura</option>
+                                    <option value="metropolitana">Puente Alto</option>
+                                </optgroup>
                             </select>
-                            <span class="oculto">Debe Seleccionar una Opción</span>
+                            <span class="oculto">Debe seleccionar una Opción</span>
                         </div>
                         <!-- {{usuario_form}} -->
                         <div class="row g-3">
