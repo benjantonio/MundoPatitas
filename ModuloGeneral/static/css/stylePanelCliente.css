@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap');
 /* >>>>>>> Benja <<<<<<<<< */
 /* ############################################### PANEL CLIENTE ##########################################*/
 
@@ -245,15 +245,9 @@ aside .sidebar .a-cerrarsesion:focus:before{
     }
 
 
-/* ========================= TABS ===================== */
+/* ========================= TABS-CARDS CONFIGURACIÓN GENERAL ===================== */
 
-.texto-info-PC{
-    font-size: 16px;
-    color: #1d1d1d;
-    font-style: normal;
-}
-
-.tabYo{
+.tabSection{
     background: white;
     border-radius: 50px;
     width: 100%;
@@ -268,8 +262,15 @@ aside .sidebar .a-cerrarsesion:focus:before{
     box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
 }
 
-
 /* ======================= TAB YO ================== */
+
+#tabYo{
+    background: white;
+    border-radius: 50px;
+    width: 100%;
+    display: none;
+}
+
 .cardYo{
     align-items: center;
     text-align: center;
@@ -323,11 +324,18 @@ aside .sidebar .a-cerrarsesion:focus:before{
     box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
 }
 
+.texto-info-PC{
+    font-size: 16px;
+    color: #1d1d1d;
+    font-style: normal;
+}
+/* ===== FIN - Tab Yo ===== */
+
+
 /* ================== TAB MIS MASCOTAS ==================== */
-.tabSection{
-    background: white;
-    border-radius: 50px;
-    width: 100%;
+
+#tabMisMascotas{
+    display: none;
 }
 
 .cardMisMascotas{
@@ -424,15 +432,149 @@ aside .sidebar .a-cerrarsesion:focus:before{
     cursor: pointer;
 }
 
-#tabMisMascotas{
-    display: none;
-}
+/* ===== FIN - Tab Mis Mascotas ===== */
 
+/* ================== TAB HISTORIAL CITAS ==================== */
 
-/* ================== TAB MIS MASCOTAS ==================== */
 #tabHistorialCitas{
-    display: none;
+    display: block;
 }
+
+.cardHistorialCitas{
+    text-align: center;
+}
+
+.cardHistorialCitas .info{
+    text-align: center;
+    padding: 15px 80px 10px 80px;
+    color: #a3a3a3;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.top-HistorialCitas{
+    display: grid;
+    grid-template-columns: auto 0.13rem auto;
+    text-align: center;
+    align-items: center;
+    height: 8rem;
+    background: #ffffff;
+    gap: 2rem;
+}
+
+.top-HistorialCitas .top-seccion{
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 10px 0px;
+    box-shadow: 0.2rem 0.2rem 1rem 0.08rem #0000001a;
+}
+
+.top-HistorialCitas .titulo-cant{
+    font-size: 16px;
+    font-weight: 450;
+    color: #747474;
+    margin: 0;
+    padding: 0;
+}
+
+.top-HistorialCitas .cant-citas{
+    margin: -5px;
+    padding: 0;
+    font-size: 50px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.top-HistorialCitas .enEspera{
+    color: #ff925f;
+}
+
+.top-HistorialCitas .concluidas{
+    color: #27e065;
+}
+
+.top-HistorialCitas .separador-top{
+    background: #b9b9b9;
+    color: #ca000000;
+    height: 4rem;
+    width: 0.13rem;
+}
+
+.lista-historial{
+    background: #ebebeb;
+    display: grid;
+    grid-template-columns: auto;
+    border-radius: 10px;display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.lista-historial .historial{
+    display: grid;
+    grid-template-columns: 3rem auto auto auto 3.3rem;
+}
+
+.lista-historial .formato{
+    align-items: center;
+    margin: 0.2rem 0.1rem;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    font-size: 14px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.lista-historial .historial .id{
+    color: #e7e7e7;
+    background: #ebebeb;
+    font-size: 16px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.lista-historial p{
+    margin: 5px 0 0 0;
+    color: #727272;
+}
+
+.lista-historial .historial .p-id{
+    margin: 0;
+    color: #6e6e6e;
+    font-size: 20px;
+    font-family: 'Poppins', cursive;
+    font-weight: 400;
+}
+
+.lista-historial .formato span{
+    margin-right: 6px;
+}
+
+.lista-historial .formato .date {
+    color: #5f5f5f;
+}
+
+.lista-historial .formato .doctor {
+    color: #3198ec;
+}
+
+.lista-historial .historial .cuadro-ver{
+    cursor:pointer;
+    padding: 0.5rem 0.25rem;
+}
+
+.lista-historial .formato .ver {
+    color: #ffffff;
+    font-size: 2.3rem;
+    background: #3acf85;
+    border-radius: 10px;
+    padding: 2.5px;
+    margin: 0;
+}
+
+
+/* ===== FIN - Tab Historial Citas ===== */
 
 .tabMisAdopciones{
     display: none;
