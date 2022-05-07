@@ -11,7 +11,9 @@
 
 <div class="container-panelcli container" >
 
+    <!-- ZONA MENÚ -->
     <aside>
+        <!-- Logo y Titulo Panel Cliente-->
         <div class="top">
             <div class="top2-aside">
                 <img class="img-aside" src='{% static "img/logo-panelcliente.png" %}' alt="">
@@ -21,11 +23,12 @@
                 <span class="material-symbols-outlined">close</span>
             </div>
         </div>
-
         <div>
             <h5 class="saludo-cliente"><span class="success">¡Hola </span>Marcelo!</h2>
         </div>
+        <!--Fin - Logo y Titulo -->
 
+        <!-- Botones Menú -->
         <div class="sidebar">
             <a id="yo-btn" class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-yo">person</span>
@@ -41,29 +44,27 @@
         </div>
 
         <div class="sidebar">
-            <a class="a-sidebar" href="#">
+            <a id="historialCitas-btn" class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-historialcitas" >description</span>
                 <h3 class="h3-aside">Historial Citas</h3>
             </a>
         </div>
 
         <div class="sidebar">
-            <a class="a-sidebar" href="#">
+            <a id="misAdopciones-btn" class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-misadopciones">volunteer_activism</span>
                 <h3 class="h3-aside">Mis Adopciones</h3>
             </a>
         </div>
 
-        <div class="sidebar">
+        <div id="miCementerio-btn" class="sidebar">
             <a class="a-sidebar" href="#">
-                <span class="material-symbols-outlined icon-micementerio">
-                    filter_drama
-                    </span>
+                <span class="material-symbols-outlined icon-micementerio">filter_drama</span>
                 <h3 class="h3-aside">Mi Cementerio</h3>
             </a>
         </div>
 
-        <div class="sidebar">
+        <div id="ayuda-btn" class="sidebar">
             <a class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-ayuda">contact_support</span>
                 <h3 class="h3-aside">Ayuda</h3>
@@ -76,13 +77,19 @@
                 <h3 class="h3-aside">Cerrar Sesión</h3>
             </a>
         </div>
+        <!-- FIN - Botones Menú -->
     </aside>
+    <!-- FIN - ZONA MENÚ -->
 
+    <!-- Botón Abrir MENÚ del modo Responsivo (se activa cuando esté en formato móvil)-->
+    <div id="menu-btncli" class="cont-menuaside">
+        <span class="material-symbols-outlined menuaside">menu</span>
+    </div>
 
+    <!-- CONTENIDO de los TABS-->
     <div class="tabSection">
-        <div id="menu-btncli" class="cont-menuaside">
-            <span class="material-symbols-outlined menuaside">menu</span>
-        </div>
+
+        <!-- Tab "Yo" -->
         <div id="tabYo">
             <div class="cardYo card">
                 <h4>Tu Información</h4>
@@ -103,7 +110,9 @@
 
             </div>
         </div>
+        <!-- Fin - Tab "Yo" -->
 
+        <!-- Tab "Mis Mascotas" -->
         <div id="tabMisMascotas">
             <div class="cardMisMascotas card">
                 <h3 style="text-align: center;">Mis Mascotas</h3>
@@ -135,26 +144,37 @@
 
             </div>
         </div>
+        <!-- Fin - Tab "Mis Mascotas" -->
 
-        <div class="tabHistorialCitas tabPanelCliente">
-            <h3 style="text-align: center;">Historial Citas</h3>
-            <p>el historial citas</p>
+        <!-- Tab "Historial Citas" -->
+        <div id="tabHistorialCitas">
+            <div class="cardHistorialCitas card">
+                <h3 style="text-align: center;">Historial Citas</h3>
+                <p>el historial citas</p>
+            </div>
         </div>
+        <!-- Fin - Tab "Historial Citas" -->
 
+        <!-- Tab "Adopciones" -->
         <div class="tabMisAdopciones tabPanelCliente">
             <h3 style="text-align: center;">Adopciones</h3>
             <p>asdasd</p>
         </div>
+        <!-- Fin - Tab "Adopciones" -->
 
+        <!-- Tab "Cementerio" -->
         <div class="tabMiCementerio tabPanelCliente">
             <h3 style="text-align: center;">Cementerio</h3>
             <p>el cementerio</p>
         </div>
+        <!-- Fin - Tab "Cementerio" -->
 
+        <!-- Tab "Ayuda" -->
         <div class="tabAyuda tabPanelCliente">
             <h3 style="text-align: center;">Ayuda</h3>
             <p>la ayuda</p>
         </div>
+        <!-- Fin - Tab "Aayuda" -->
 
     </div>
 </div>
