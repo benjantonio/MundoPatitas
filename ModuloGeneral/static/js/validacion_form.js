@@ -94,6 +94,7 @@ const validarEdad = (expresion, input, campo) => {
 }
 
 const validarSelect = (input, campo) => {
+    console.log("valor " + input.value)
     if (input.value !== "") {
         document.querySelector(`#${campo} select`).classList.add('border-succes')
         document.querySelector(`#${campo} select`).classList.remove('border-error')
@@ -125,11 +126,6 @@ const habilitarBtn = () => {
 
 }
 
-// const cbox = document.querySelector("#cbox")
-// cbox.addEventListener('onClick', habilitarBtn)
-
-// const btn = document.querySelector("#prueba");
-// btn.addEventListener('click', habilitarBtn)
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validacion);
@@ -140,10 +136,3 @@ selects.forEach((select) => {
     select.addEventListener('blur', validacion);
     select.addEventListener('onChange', habilitarBtn)
 })
-
-// window.onload = function() {
-
-// };
-
-// $(document).ready(() => {
-// }

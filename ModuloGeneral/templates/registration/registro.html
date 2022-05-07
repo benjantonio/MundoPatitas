@@ -7,6 +7,9 @@
         </div>
         <div class="res">
             <p>Registro MundoPatitas</p>
+            <!-- {% for comuna in comunaV %}
+            <p>id comunas {{comuna.id_comuna}}</p>
+            {% endfor %} -->
             <div class="form ">
                 <form id="form" method="POST">
                     {% csrf_token %}
@@ -64,22 +67,25 @@
                             <label class="form-label" for="">Tipo de Uso</label><br>
                             <select class="form-control" name="perfil">
                                 <option value="">--------</option>
-                                <option value="cliente">Cliente</option>
-                                <option value="centro">Centro Veterinario</option>
+                                {% for perfil in perfil %}
+                                <option value="{{perfil.id_perfil}}">{{perfil.descripcion}}</option>
+                                {% endfor %}
                             </select>
                             <span class="oculto">Debe seleccionar una Opción</span>
                         </div>
                         <div id="comuna" class="col">
                             <label class="form-label" for="">Comuna</label><br>
-                            <select class="form-control" id="se-co" name="comuna">
+                            <select class="form-control" name="comuna">
                                 <option value="">----------------</option>
                                 <optgroup label="V Región">
-                                    <option value="valparaiso">Viña del Mar</option>
-                                    <option value="metropolitana">Casablanca</option>
+                                    {% for comuna in comunaV %}
+                                    <option value="{{comuna.id_comuna}}">{{comuna.nombre_comuna}}</option>
+                                    {% endfor %}
                                 </optgroup>
                                 <optgroup label="Metropolitana">
-                                    <option value="valparaiso">Vitacura</option>
-                                    <option value="metropolitana">Puente Alto</option>
+                                    {% for comuna in comunaM %}
+                                    <option value="{{comuna.id_comuna}}">{{comuna.nombre_comuna}}</option>
+                                    {% endfor %}
                                 </optgroup>
                             </select>
                             <span class="oculto">Debe seleccionar una Opción</span>
