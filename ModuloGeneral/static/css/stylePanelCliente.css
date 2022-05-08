@@ -590,6 +590,14 @@ aside .sidebar .a-cerrarsesion:focus:before{
     margin: 0;
 }
 
+.lista-historial .formato .ver:hover {
+    color: #09d882;
+    background: #ffffff;
+    transition: all 150ms ease;
+}
+
+
+
 
 #fondoDetalleCita{
     position: fixed;
@@ -624,7 +632,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     left: 30%;
     right: 30%;
     padding: 1.2rem;
-    height: 40rem;
+    min-height: 40rem;
     overflow-y: auto;
     margin: auto 20px;
     text-align: center;
@@ -651,6 +659,13 @@ aside .sidebar .a-cerrarsesion:focus:before{
     cursor: pointer;
 }
 
+.cerrar-detalle:hover{
+    color: #09d882;
+    background: #ffffff;
+    transition: all 150ms ease;
+    border: 0.1rem solid #09d882;
+}
+
 .cerrar-detalle p{
     text-align: center;
     margin: 0;
@@ -662,7 +677,6 @@ aside .sidebar .a-cerrarsesion:focus:before{
     grid-template-columns: 12rem auto;
     gap: 1rem;
     color: #3b3b3b;
-    
 }
 
 .part1-detalle{
@@ -726,6 +740,50 @@ aside .sidebar .a-cerrarsesion:focus:before{
     align-items: center;
     padding: 20px;
 }
+
+.detalle-valoracion{
+    margin-top: 15px;
+    border-radius: 10px;
+    width: auto;
+    min-height: 6rem;
+    background: #f6f6f9;
+
+}
+
+.detalle-valoracion h6{
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+
+.detalle-valoracion p{
+    font-size: 13px;
+    margin: 0;
+    color: #a1a1a1;
+    font-style: italic;
+}
+
+.patitas-valoracion{
+    display: flex;
+}
+
+.patitas-valoracion span{
+    color: #424242;
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 3rem;
+    margin: 0.5rem 1rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem #00000017;
+    cursor: pointer;
+}
+
+.patitas-valoracion span:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(255, 65, 65);
+    transition: all 300ms ease;
+}
+
+
 
 /* ===== FIN - Tab Historial Citas ===== */
 
