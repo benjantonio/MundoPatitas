@@ -209,11 +209,66 @@
 
             </div>
 
-            <div id="detalleCita" class="detalleCita">
+            <div id="fondoDetalleCita" class="fondoDetalleCita">
             </div>
 
-            <div id="contenedorCita" class="contenedor-detalle">
-                <h3>stie dolorum voluptatem debitis atque.   </H3>
+            <div id="contenedorDetalle" class="contenedorDetalle">
+                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span><p>Regresar</p></div>
+                
+                <div class="detalle-contenido">
+                    <div class="part1-detalle">
+                        <h5>Información</h5>
+                        <img src='{% static "img/informe-veterinario.png" %}' alt="">
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Fecha Cita:</p>
+                            <p>23/04/2022</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Motivo Consulta:</p>
+                            <p>Consulta General</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Nombre Mascota:</p>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Tipo:</p>
+                            <p>Perro</p>
+                        </div>
+                    </div>
+
+                    <div class="part2-detalle">
+                        <div class="sec1-detalle">
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Atendido por:</p>
+                                <p>Enrique Ominami</p>
+                            </div>
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Centro Médico:</p>
+                                <p>Farmavet</p>
+                            </div>
+                        </div>
+                        <div class="sec2-detalle">
+                            <div class="contenedor-info cont-sec2">
+                                <p class="p-subtitulos">Tratamiento:</p>
+                                <div class="p-comentarios">
+                                    <p>No Aplica.</p>
+                                </div>
+                            </div>
+                            <div class="contenedor-info cont-sec2">
+                                <p class="p-subtitulos">Comentario del Veterinario:</p>
+                                <div class="p-comentarios">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detalle-valoracion">
+
+                </div>
+
             </div>
         </div>
         <!-- Fin - Tab "Historial Citas" -->

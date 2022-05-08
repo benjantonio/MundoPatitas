@@ -19,8 +19,9 @@
     const historialCitasTab = document.querySelector("#tabHistorialCitas")
 
     const detalleCitaBtn = document.querySelector("#detalleCita-btn")
-    const detalleCita = document.querySelector("#detalleCita") /* ventana emergente del detalle de 1 cita */
-    const contDetalleCita = document.querySelector("#contenedorCita")
+    const cerrarDetalleCitaBtn = document.querySelector("#cerrar-detalle-btn")
+    const fondoDetalleCita = document.querySelector("#fondoDetalleCita") /* ventana fondo emergente del detalle de 1 cita */
+    const contDetalleCita = document.querySelector("#contenedorDetalle")
 
 /* =================================================================================================================== */
 
@@ -66,13 +67,19 @@
 /* FUNCIONES */
 
     detalleCitaBtn.addEventListener('click', () =>{
-        detalleCita.setAttribute("style", "opacity: 1; display:flex; ");
-        contDetalleCita.setAttribute("style", "opacity: 1; display:flex; top:40%; transition: all 600ms ease;");
+        fondoDetalleCita.setAttribute("style", "opacity: 1; display:block; ");
+        contDetalleCita.setAttribute("style", "opacity: 1; display:block;");
     });
 
      /* Ocultar detalle Cita con click fuera */
-    detalleCita.addEventListener('click', () =>{
-        detalleCita.setAttribute("style", "opacity: 0; display:none;");
+    fondoDetalleCita.addEventListener('click', () =>{
+        fondoDetalleCita.setAttribute("style", "opacity: 0; display:none;");
+        contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
+    });
+
+     /* Ocultar detalle Cita con click en botón Regresar */
+     cerrarDetalleCitaBtn.addEventListener('click', () =>{
+        fondoDetalleCita.setAttribute("style", "opacity: 0; display:none;");
         contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
     });
 

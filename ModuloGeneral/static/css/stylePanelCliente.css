@@ -591,9 +591,9 @@ aside .sidebar .a-cerrarsesion:focus:before{
 }
 
 
-#detalleCita{
+#fondoDetalleCita{
     position: fixed;
-    display: none;
+    display: block;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -602,7 +602,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     right: 0;
     z-index: 999;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: opacity .1s;
     will-change: opacity;
     padding-bottom: 7vh;
@@ -611,19 +611,20 @@ aside .sidebar .a-cerrarsesion:focus:before{
     background: #0000005d;
 }
 
-.contenedor-detalle{
+.contenedorDetalle{
     position: fixed;
-    display: none;
-    opacity: 0;
+    display: block;
+    opacity: 1;
     justify-content: center;
 
     transition: opacity .1s;
     will-change: opacity;
 
     top: 15%;
-    left: 20%;
-    right: 20%;
-    padding: 1.5rem;
+    left: 30%;
+    right: 30%;
+    padding: 1.2rem;
+    height: 40rem;
     overflow-y: auto;
     margin: auto 20px;
     text-align: center;
@@ -632,13 +633,99 @@ aside .sidebar .a-cerrarsesion:focus:before{
     border-radius: 50px;
     z-index: 9999;
     transition: all 2000ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
 
+.cerrar-detalle{
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #09d882;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 0 auto 16px auto;
+    cursor: pointer;
+}
 
+.cerrar-detalle p{
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
+.detalle-contenido{
+    display: grid;
+    grid-template-columns: 12rem auto;
+    gap: 1rem;
+    color: #3b3b3b;
+    
+}
+
+.part1-detalle{
+    background: #f6f6f9;
+    border-radius: 20px;
+    align-items:center ;
+    text-align: center;
+}
+
+.part1-detalle h5{
+    font-size: 17px;
+    font-weight: 800;
+    margin: 25px 0 0 0;
+}
+
+.part1-detalle img{
+    width: 100%;
+    padding: 0.7rem 4rem;
+    vertical-align: middle;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+.detalle-contenido .contenedor-info{
+    margin: 30px 0;
+}
+
+.detalle-contenido .p-subtitulos{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.detalle-contenido p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.part2-detalle{
+    background: #f6f6f9;
+    border-radius: 20px;
+}
+
+.part2-detalle .sec1-detalle{
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 
+.part2-detalle .cont-sec2{
+    background: #ffffff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem #00000017;
+}
 
-
+.part2-detalle .cont-sec2 .p-comentarios{
+    display: grid;
+    min-height: 3rem;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+}
 
 /* ===== FIN - Tab Historial Citas ===== */
 
