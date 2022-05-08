@@ -213,12 +213,12 @@
             </div>
 
             <div id="contenedorDetalle" class="contenedorDetalle">
-                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span><p>Regresar</p></div>
-                
                 <div class="detalle-contenido">
                     <div class="part1-detalle">
-                        <h5>Información</h5>
-                        <img src='{% static "img/informe-veterinario.png" %}' alt="">
+                        <div class="contenedor-info-top">
+                            <h5>Información</h5>
+                            <img src='{% static "img/informe-veterinario.png" %}' alt="">
+                        </div>
                         <div class="contenedor-info">
                             <p class="p-subtitulos">Fecha Cita:</p>
                             <p>23/04/2022</p>
@@ -266,12 +266,18 @@
                 </div>
 
                 <div class="detalle-valoracion">
-                    <h6>¿Cómo te atendió el Veterinario?</h6>
+                    <h6>¿Cómo te atendió tu Veterinario?</h6>
                     <p>Más patitas = Mejor valoración.</p>
                     <div class="patitas-valoracion">
                         <div><span class="material-symbols-outlined">pets</span><p>1</p></div>
+                        <div><span class="material-symbols-outlined">pets</span><p>2</p></div>
+                        <div><span class="material-symbols-outlined">pets</span><p>3</p></div>
+                        <div><span class="material-symbols-outlined">pets</span><p>4</p></div>
+                        <div><span class="material-symbols-outlined">pets</span><p>5</p></div>
                     </div>
                 </div>
+
+                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span><p>Regresar</p></div>
 
             </div>
         </div>

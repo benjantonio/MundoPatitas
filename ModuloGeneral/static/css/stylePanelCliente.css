@@ -268,7 +268,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     background: white;
     border-radius: 50px;
     width: 100%;
-    display: none;
+    display: block;
 }
 
 .cardYo{
@@ -437,7 +437,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 /* ================== TAB HISTORIAL CITAS ==================== */
 
 #tabHistorialCitas{
-    display: block;
+    display: none;
 }
 
 .cardHistorialCitas{
@@ -596,12 +596,9 @@ aside .sidebar .a-cerrarsesion:focus:before{
     transition: all 150ms ease;
 }
 
-
-
-
 #fondoDetalleCita{
     position: fixed;
-    display: block;
+    display: none;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -620,17 +617,17 @@ aside .sidebar .a-cerrarsesion:focus:before{
 }
 
 .contenedorDetalle{
-    position: fixed;
-    display: block;
+    position: absolute;
+    display: none;
     opacity: 1;
     justify-content: center;
 
     transition: opacity .1s;
     will-change: opacity;
 
-    top: 15%;
-    left: 30%;
-    right: 30%;
+    top: 6%;
+    left: 24%;
+    right: 24%;
     padding: 1.2rem;
     min-height: 40rem;
     overflow-y: auto;
@@ -640,7 +637,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     background: white;
     border-radius: 50px;
     z-index: 9999;
-    transition: all 2000ms ease;
+    transition: all 600ms ease;
     box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
 }
 
@@ -655,7 +652,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     height: 2.5rem;
     border-radius: 50px;
     padding-left: 6px;
-    margin: 0 auto 16px auto;
+    margin: 16px auto auto auto;
     cursor: pointer;
 }
 
@@ -674,7 +671,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 .detalle-contenido{
     display: grid;
-    grid-template-columns: 12rem auto;
+    grid-template-columns: 13rem auto;
     gap: 1rem;
     color: #3b3b3b;
 }
@@ -720,6 +717,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     border-radius: 20px;
 }
 
+
 .part2-detalle .sec1-detalle{
     display: grid;
     grid-template-columns: auto auto;
@@ -731,6 +729,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem #00000017;
+    min-height: 8rem;
 }
 
 .part2-detalle .cont-sec2 .p-comentarios{
@@ -764,6 +763,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 .patitas-valoracion{
     display: flex;
+    justify-content: center;
 }
 
 .patitas-valoracion span{
@@ -778,11 +778,15 @@ aside .sidebar .a-cerrarsesion:focus:before{
 }
 
 .patitas-valoracion span:hover{
-    color: rgb(255, 255, 255);
-    background: rgb(255, 65, 65);
+    color: #ffffff;
+    background: #ff8a75;
+    box-shadow: 0rem 0rem 0.7rem 0.2rem #fd887377;
     transition: all 300ms ease;
 }
 
+.patitas-valoracion p{
+    margin-bottom: 7px;
+}
 
 
 /* ===== FIN - Tab Historial Citas ===== */
@@ -798,7 +802,6 @@ aside .sidebar .a-cerrarsesion:focus:before{
 .tabAyuda{
     display: none;
 }
-
 
 
 
@@ -840,14 +843,57 @@ aside .sidebar .a-cerrarsesion:focus:before{
         padding: 2.5px;
         margin: 0;
     }
+
+    .cardMisMascotas .zona-mascotas{
+        grid-template-columns: auto ;
+    }
+
+    .contenedorDetalle{
+        top: 6%;
+        left: 14%;
+        right: 14%;
+        transition: all 400ms ease;
+    }
 }
 
 
-
-
-
-
 /* ================================== MEDIA QUERYS CELULAR =================================*/
+
+
+@media screen and (max-width: 992px) {
+    .tabYo .card{
+        margin: 15px;
+        box-shadow: none;
+        border-width: 0;
+    }
+
+    .cardYo .contenido{
+        grid-template-columns: auto ;
+        padding: 10px;
+    }
+
+    .cardHistorialCitas .info{
+        padding: 10px;
+    }
+
+    .top-HistorialCitas .top-seccion h6{
+        font-size: 12px;
+    }
+
+    .top-HistorialCitas .top-seccion p{
+     font-size: 2rem;
+    }
+
+    .contenedorDetalle{
+        top: 6%;
+        left: 5%;
+        right: 5%;
+        padding: 1.2rem;
+        margin: auto 20px;
+        transition: all 400ms ease;
+    }
+
+}
 
 @media screen and (max-width: 767px) {
     .container-panelcli{
@@ -923,40 +969,85 @@ aside .sidebar .a-cerrarsesion:focus:before{
     .menuaside{
         margin-top: 18px;
         }
+
+    .detalle-contenido{
+        display: grid;
+        grid-template-columns:auto;
+    }
+
+    .part1-detalle{
+        display: grid;
+        grid-template-columns:auto auto auto;
+    }
+
+
+    .part1-detalle .contenedor-info-top img{
+        margin-top: 10px;
+        min-width: 30%;
+        max-width: 50%;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .part1-detalle .contenedor-info-top h5{
+        font-size: 17px;
+    }
+
+    .detalle-contenido p{
+        font-size: 15px;
+    }
+
+    .contenedorDetalle{
+        top: 6%;
+        left: 0;
+        right: 0;
+        transition: all 400ms ease;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .patitas-valoracion span{
+        font-size: 30px;
+        margin: 0.5rem 0.4rem;
+    }
 }
 
-@media screen and (max-width: 992px) {
-    
-    .tabYo .card{
-        margin: 15px;
-        box-shadow: none;
-        border-width: 0;
+@media screen and (max-width: 530px) {
+    .detalle-contenido{
+        display: grid;
+        grid-template-columns:auto;
     }
 
-    .cardYo .contenido{
-        grid-template-columns: auto ;
-        padding: 10px;
+    .part1-detalle{
+        display: grid;
+        grid-template-columns:6rem auto auto;
     }
 
-    .cardHistorialCitas .info{
-        padding: 10px;
+
+    .part1-detalle .contenedor-info-top img{
+        margin-top: 10px;
+        min-width: 30%;
+        max-width: 50%;
+        padding: 0;
+        border-radius: 10px;
     }
 
-    .top-HistorialCitas .top-seccion h6{
+    .part1-detalle .contenedor-info-top h5{
+        font-size: 13px;
+    }
+
+    .detalle-contenido p{
         font-size: 12px;
     }
 
-    .top-HistorialCitas .top-seccion p{
-     font-size: 2rem;
+    .contenedorDetalle{
+        top: 6%;
+        left: 0;
+        right: 0;
+        transition: all 400ms ease;
+        padding: 10px;
+        border-radius: 15px;
     }
-
-}
-
-@media screen and (max-width: 1200px) {
-    .cardMisMascotas .zona-mascotas{
-        grid-template-columns: auto ;
-    }
-
 }
 
 /* Responsividad para el GalaxyFold */
@@ -975,8 +1066,6 @@ aside .sidebar .a-cerrarsesion:focus:before{
         font-size: 10px;
     }
 
-
- 
     .lista-historial .historial .cuadro-ver {
         font-size: 1.3rem;
         padding: 0 0;
@@ -999,5 +1088,10 @@ aside .sidebar .a-cerrarsesion:focus:before{
         font-size: 13px;
         font-weight: 200;
 
+    }
+
+    .patitas-valoracion span{
+        font-size: 30px;
+        margin: 0.5rem 0.15rem;
     }
 }
