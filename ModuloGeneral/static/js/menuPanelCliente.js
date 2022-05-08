@@ -23,6 +23,15 @@
     const fondoDetalleCita = document.querySelector("#fondoDetalleCita") /* ventana fondo emergente del detalle de 1 cita */
     const contDetalleCita = document.querySelector("#contenedorDetalle")
 
+    
+    const val1Btn = document.querySelector("#voto1")
+    const val2Btn = document.querySelector("#voto2")
+    const val3Btn = document.querySelector("#voto3")
+    const val4Btn = document.querySelector("#voto4")
+    const val5Btn = document.querySelector("#voto5")
+    const ventanaNoValorado = document.querySelector("#noValorado")
+    const ventanaValorado = document.querySelector("#valorado")
+
 /* =================================================================================================================== */
 
 /* BOTONES RESPONSIVOS */
@@ -66,6 +75,7 @@
 
 /* FUNCIONES */
 
+    /* Abrir detalle Cita su botón */
     detalleCitaBtn.addEventListener('click', () =>{
         fondoDetalleCita.setAttribute("style", "opacity: 1; display:block; ");
         contDetalleCita.setAttribute("style", "opacity: 1; display:block;");
@@ -83,6 +93,32 @@
         contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
     });
 
+     /* Valorar Veterinario en el Detalle */
+        /* Valoracion = 1 */
+        val1Btn.addEventListener('click', () =>{
+            ventanaNoValorado.style = 'display:none;';
+            ventanaValorado.style = 'display:block;';
+        });
+        /* Valoracion = 2 */
+        val2Btn.addEventListener('click', () =>{
+            ventanaNoValorado.style = 'display:none;';
+            ventanaValorado.style = 'display:block;';
+        });
+        /* Valoracion = 3 */
+        val3Btn.addEventListener('click', () =>{
+            ventanaNoValorado.style = 'display:none;';
+            ventanaValorado.style = 'display:block;';
+        });
+        /* Valoracion = 4 */
+        val4Btn.addEventListener('click', () =>{
+            ventanaNoValorado.style = 'display:none;';
+            ventanaValorado.style = 'display:block;';
+        });
+        /* Valoracion = 5 */
+        val5Btn.addEventListener('click', () =>{
+            ventanaNoValorado.style = 'display:none;';
+            ventanaValorado.style = 'display:block;';
+        });
 
 function enviarAnchoWeb(){
     let ancho = document.documentElement.clientWidth;

@@ -598,7 +598,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 #fondoDetalleCita{
     position: fixed;
-    display: none;
+    display: blockz;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -618,7 +618,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 .contenedorDetalle{
     position: absolute;
-    display: none;
+    display: block;
     opacity: 1;
     justify-content: center;
 
@@ -786,6 +786,26 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 .patitas-valoracion p{
     margin-bottom: 7px;
+}
+
+.detalle-valoracion .noValorado{
+    display: block;
+}
+
+.detalle-valoracion .valorado{
+    display: none;
+}
+
+.detalle-valoracion .valorado h6{
+    padding: 10px 0;
+}
+
+.detalle-valoracion .valorado img{
+    width: 3.5rem;
+}
+
+.detalle-valoracion .valorado p{
+    padding: 10px 0 10px 0;
 }
 
 

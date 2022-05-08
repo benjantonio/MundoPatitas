@@ -266,15 +266,24 @@
                 </div>
 
                 <div class="detalle-valoracion">
-                    <h6>¿Cómo te atendió tu Veterinario?</h6>
-                    <p>Más patitas = Mejor valoración.</p>
-                    <div class="patitas-valoracion">
-                        <div><span class="material-symbols-outlined">pets</span><p>1</p></div>
-                        <div><span class="material-symbols-outlined">pets</span><p>2</p></div>
-                        <div><span class="material-symbols-outlined">pets</span><p>3</p></div>
-                        <div><span class="material-symbols-outlined">pets</span><p>4</p></div>
-                        <div><span class="material-symbols-outlined">pets</span><p>5</p></div>
+                    <div id="noValorado" class="noValorado">
+                        <h6>¿Cómo te atendió tu Veterinario?</h6>
+                        <p>Más patitas = Mejor valoración.</p>
+                        <div class="patitas-valoracion">
+                            <div><span id="voto1" class="material-symbols-outlined">pets</span><p>1</p></div>
+                            <div><span id="voto2" class="material-symbols-outlined">pets</span><p>2</p></div>
+                            <div><span id="voto3" class="material-symbols-outlined">pets</span><p>3</p></div>
+                            <div><span id="voto4" class="material-symbols-outlined">pets</span><p>4</p></div>
+                            <div><span id="voto5" class="material-symbols-outlined">pets</span><p>5</p></div>
+                        </div>
                     </div>
+
+                    <div id="valorado" class="valorado">
+                        <h6>¡Gracias!</h6>
+                        <img src='{% static "img/corazon.png" %}' alt="">
+                        <p>Tu valoración ayuda a las demás personas a elegir su veterinario.</p>
+                    </div>
+                    
                 </div>
 
                 <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span><p>Regresar</p></div>
