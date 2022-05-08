@@ -576,9 +576,10 @@ aside .sidebar .a-cerrarsesion:focus:before{
 }
 
 .lista-historial .historial .cuadro-ver{
-    cursor:pointer;
     padding: 0.5rem 0.25rem;
+    cursor:pointer;
 }
+
 
 .lista-historial .formato .ver {
     color: #ffffff;
@@ -588,6 +589,55 @@ aside .sidebar .a-cerrarsesion:focus:before{
     padding: 2.5px;
     margin: 0;
 }
+
+
+#detalleCita{
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .1s;
+    will-change: opacity;
+    padding-bottom: 7vh;
+    padding-left: 2vw;
+    overflow-y: auto;
+    background: #0000005d;
+}
+
+.contenedor-detalle{
+    position: fixed;
+    display: none;
+    opacity: 0;
+    justify-content: center;
+
+    transition: opacity .1s;
+    will-change: opacity;
+
+    top: 15%;
+    left: 20%;
+    right: 20%;
+    padding: 1.5rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 2000ms ease;
+
+
+}
+
+
+
 
 
 /* ===== FIN - Tab Historial Citas ===== */
@@ -740,6 +790,10 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
     .cardYo .contenido{
         grid-template-columns: auto ;
+        padding: 10px;
+    }
+
+    .cardHistorialCitas .info{
         padding: 10px;
     }
 
