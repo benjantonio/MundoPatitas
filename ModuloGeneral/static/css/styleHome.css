@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .home-banner {
     min-height: 100vh;
     display: flex;
@@ -161,4 +165,18 @@
     .contenedor-home p {
         font-size: 1rem;
     }
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #0a9740;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
 }
