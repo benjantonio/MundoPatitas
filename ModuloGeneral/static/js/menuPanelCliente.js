@@ -28,7 +28,7 @@
 
     /* Botón Abrir Menú */
     menuBtnCli.addEventListener('click', () =>{
-        sideMenu.style = 'display:flex;';
+        sideMenu.style = 'display:block;';
     });
 
     /* Botón Cerrar Menú */
@@ -82,6 +82,9 @@ function enviarAnchoWeb(){
 
     if (ancho >=751){
         console.log("ANCHO ES MAYOR A 750")
+        sideMenu.style = 'display:block;';
+    }else{
+        sideMenu.style = 'display:none;';
     }
 
 }
