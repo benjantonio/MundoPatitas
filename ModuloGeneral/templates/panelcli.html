@@ -129,7 +129,8 @@
                     </div>
                     <div class="card-mascota-nueva">
                         <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
-                        <img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt="">
+                        <button class="btnMas" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button"><img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt=""></button>
+
                     </div>
                 </div>
 
@@ -159,7 +160,53 @@
     </div>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Mascota</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formMascota" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Tipo de Mascota</label>
+                        <select class="form-select" name="tipo" id="tipo">
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                            <option value="exotico">Exótico</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Raza</label>
+                        <input type="text" class="form-control" name="raza" id="raza">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Edad</label>
+                        <input type="number" class="form-control" name="edad" id="edad">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Numero</label>
+                        <input type="number" class="form-control" name="numero" id="numero">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="agregarMascota()">Guardar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="{% static 'js/menuPanel.js' %}"></script>
+<script src="{% static 'js/enviarMascota.js' %}"></script>
 
 
 {% endblock %}

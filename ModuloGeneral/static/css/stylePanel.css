@@ -474,6 +474,16 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
+.cardMisMascotas .card-mascota-nueva .btnMas {
+    display: block;
+    margin: 0px auto;
+    background: none;
+    width: 5rem;
+    height: 4rem;
+    border: none;
+    border-radius: 50%;
+}
+
 #tabMisMascotas {
     display: none;
 }
