@@ -394,7 +394,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
  }
 
 .cardMisMascotas .card-mascota .btn-eliminar{
-    background: #e42b3b;
+    background: #ee4f5d;
     color: white;
     padding: 8px;
     border-radius: 20px;
@@ -598,7 +598,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 #fondoDetalleCita{
     position: fixed;
-    display: blockz;
+    display: none;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -607,7 +607,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     right: 0;
     z-index: 999;
     width: 100%;
-    opacity: 1;
+    opacity: 0;
     transition: opacity .1s;
     will-change: opacity;
     padding-bottom: 7vh;
@@ -618,8 +618,8 @@ aside .sidebar .a-cerrarsesion:focus:before{
 
 .contenedorDetalle{
     position: absolute;
-    display: block;
-    opacity: 1;
+    display: none;
+    opacity: 0;
     justify-content: center;
 
     transition: opacity .1s;
@@ -767,7 +767,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
 }
 
 .patitas-valoracion span{
-    color: #424242;
+    color: #ff8a75;
     background: #ffffff;
     padding: 5px;
     border-radius: 50%;

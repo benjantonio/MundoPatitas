@@ -1,5 +1,5 @@
 /* VARIABLES DE MENU RESPONSIVO */
-    const sideMenu = document.querySelector("aside");
+const sideMenu = document.querySelector("aside");
 
     /* Botones Abrir / Cerrar Menú */
     const menuBtnCli = document.querySelector("#menu-btncli");
@@ -18,19 +18,24 @@
     const historialCitasBtn = document.querySelector("#historialCitas-btn")
     const historialCitasTab = document.querySelector("#tabHistorialCitas")
 
-    const detalleCitaBtn = document.querySelector("#detalleCita-btn")
-    const cerrarDetalleCitaBtn = document.querySelector("#cerrar-detalle-btn")
-    const fondoDetalleCita = document.querySelector("#fondoDetalleCita") /* ventana fondo emergente del detalle de 1 cita */
-    const contDetalleCita = document.querySelector("#contenedorDetalle")
+        /* Botón Abrir y Cerrar Detalle */
+        const detalleCitaBtn = document.querySelector("#detalleCita-btn")
+        const cerrarDetalleCitaBtn = document.querySelector("#cerrar-detalle-btn")
 
-    
-    const val1Btn = document.querySelector("#voto1")
-    const val2Btn = document.querySelector("#voto2")
-    const val3Btn = document.querySelector("#voto3")
-    const val4Btn = document.querySelector("#voto4")
-    const val5Btn = document.querySelector("#voto5")
-    const ventanaNoValorado = document.querySelector("#noValorado")
-    const ventanaValorado = document.querySelector("#valorado")
+        /* Contenedores */
+        const fondoDetalleCita = document.querySelector("#fondoDetalleCita") /* fondo oscuro transparente */
+        const contDetalleCita = document.querySelector("#contenedorDetalle") /* ventana del detalle */
+
+        /* Contenedor Valoración */
+        const ventanaNoValorado = document.querySelector("#noValorado")
+        const ventanaValorado = document.querySelector("#valorado")
+
+        /* Botones de Valoración */
+        const val1Btn = document.querySelector("#voto1")
+        const val2Btn = document.querySelector("#voto2")
+        const val3Btn = document.querySelector("#voto3")
+        const val4Btn = document.querySelector("#voto4")
+        const val5Btn = document.querySelector("#voto5")
 
 /* =================================================================================================================== */
 
