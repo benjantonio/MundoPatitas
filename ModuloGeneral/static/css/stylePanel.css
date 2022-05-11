@@ -16,11 +16,64 @@
     width: 96%;
     height: 80%;
     margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: 250px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto;
+
+    /* OJO CON ESTE CAMBIO */
     border-radius: 0 0 40px 40px;
     padding: 30px;
+
 }
+
+.zonas {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.formatoZona {
+    display: grid;
+    grid-template-columns: 30rem 20rem auto;
+    height: 40rem;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 30px;
+}
+
+.zonaAdopcion {
+    background-image: url("../img/adopciones.png");
+    background-size: cover;
+}
+
+.textoAdopcion {
+    background: #22c4b6;
+    border-radius: 50px;
+    padding: 20px;
+    color: white;
+}
+
+.btnAdopciones {
+    background: #22c4b6;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 5rem;
+    border-radius: 50px;
+    color: rgb(238, 238, 238);
+    padding: 10px;
+    box-shadow: 0rem 0rem 4rem 3rem #0000000a;
+}
+
+.zonaMiCuenta {
+    background-image: url("../img/carusel2.png");
+    background-size: cover;
+}
+
+/* FIN OJO CAMBIO */
 
 .cont-menuaside {
     display: none;
@@ -90,6 +143,10 @@
 
 .icon-mismascotas {
     color: #ff7782;
+}
+
+.icon-vet {
+    color: #F4D03F;
 }
 
 .icon-yo {
@@ -240,9 +297,15 @@ aside .sidebar .a-cerrarsesion:focus:before {
 }
 
 
-/* ========================= TABS-CARDS CONFIGURACIÓN GENERAL ===================== */
+/* ========================= TABS ===================== */
 
-.tabSection {
+.texto-info-PC {
+    font-size: 16px;
+    color: #1d1d1d;
+    font-style: normal;
+}
+
+.tabYo {
     background: white;
     border-radius: 50px;
     width: 100%;
@@ -334,6 +397,15 @@ aside .sidebar .a-cerrarsesion:focus:before {
 
 #tabMisMascotas {
     display: none;
+}
+
+
+/* ======= TAB MIS MASCOTAS ========== */
+
+.tabSection {
+    background: white;
+    border-radius: 50px;
+    width: 100%;
 }
 
 .cardMisMascotas {
@@ -435,6 +507,19 @@ aside .sidebar .a-cerrarsesion:focus:before {
 
 .contenedorModPet {
     position: absolute;
+     }
+
+.cardMisMascotas .card-mascota-nueva .btnMas {
+    display: block;
+    margin: 0px auto;
+    background: none;
+    width: 5rem;
+    height: 4rem;
+    border: none;
+    border-radius: 50%;
+}
+
+#tabMisMascotas {
     display: none;
     opacity: 0;
     justify-content: center;
