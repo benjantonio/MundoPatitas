@@ -1,4 +1,5 @@
 const agregarMascota = async() => {
+
     try {
         let options = {
                 method: "POST",
@@ -18,7 +19,15 @@ const agregarMascota = async() => {
 
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
         else {
-            location.reload();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Mascota agregada con exito!!',
+                showConfirmButton: false,
+                timer: 1500
+
+            })
+            setTimeout(location.reload(), 2000);
         }
     } catch (error) {
         let message = err.statusText || "Ocurrio un error"
@@ -51,3 +60,8 @@ const resetFormModal = () => {
     console.log("CERRAR")
     $("#formMascota").reset();
 }
+
+// const retrasoReload = () => {
+//     console.log("funciona")
+//     setTimeout(alert("pasaron 2 segundos"), 2000)
+// }
