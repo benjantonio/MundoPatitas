@@ -149,22 +149,29 @@
             <!--MODIFICAR INFO MASCOTA-->
             <div id="contenedorModPet" class="contenedorModPet">
                 <h3 style="color: #424242;">Modificar mascota</h3>
+
+                <!-- CONTENEDOR CUADROS PART1 PART2-->
                 <div class="contenido-modPet">
+
+                    <!-- CUADRO GRIS 1 -->
                     <div class="part1">
+
+                        <!-- IMAGEN DE MASCOTA-->
                         <div class="img-pet">
                             <img src='{% static "img/perro-cara.png" %}' class="perfilPetPerro" alt="...">
                             <img src='{% static "img/gato-cara.png" %}' class="perfilPetGato" alt="...">
                             <img src='{% static "img/erizo-cara2.png" %}' class="perfilPetExotico" alt="...">
                         </div>
+
+                        <!-- NOMBRE DE MASCOTA -->
                         <div class="form-floating txtInpNombre mb-3">
                             <input type="name" class="form-control txtNombre" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput" style="color: #04bc70;">Nombre</label>
                         </div>
 
-                        <!--TITULO BOTONES TIPO DE MASCOTA-->
+                        <!--TITULO Y BOTONES TIPO DE MASCOTA-->
                         <h5>Tipo de Mascota</h5>
                         <div class="tipoPet">
-
                             <div class="tipoPerroBtn tipoMascotaBtn">
                                 <img src='{% static "img/perro-cara.png" %}' class="imagenBtn" alt="...">
                                 <p class="p-btn">Perro</p>
@@ -181,8 +188,12 @@
                         <!--FIN BOTONES TIPO DE MASCOTA-->
 
                     </div>
+                    <!-- FIN CUADRO GRIS 1 -->
+
+                    <!-- CUADRO GRIS 2 -->
                     <div class="part2">
 
+                        <!-- LABELS INFO MASCOTA -->
                         <div class="form-floating mb-3">
                             <input type="raza" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput" style="color: #04bc70;">Raza</label>
@@ -199,16 +210,20 @@
                             <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput" style="color: #04bc70;">Número</label>
                         </div>
+                        <!-- FIN LABELS INFO MASCOTA -->
+
                     </div>
+                    <!-- FIN CUADRO GRIS 2 -->
+
                 </div>
+                <!-- FIN CONTENEDOR CUADROS PART1 PART2-->
 
-
+                <!-- SALTO DE LÍNEA -->
                 <br>
 
 
-                <!-- BOTON REGRESAR    -->
+                <!-- BOTON GUARDAR Y CANCELAR -->
                 <div class="btnAccionMod">
-
                     <div id="guardar-modPet-btn" class="guardar-modPet-btn modbtn"><span class="material-symbols-outlined">done</span>
                         <p class="p-btn">Guardar</p>
                     </div>
@@ -216,11 +231,8 @@
                     <div id="cerrar-modPet-btn" class="cancelar-modPet-btn modbtn"><span class="material-symbols-outlined">close</span>
                         <p class="p-btn">Cancelar</p>
                     </div>
-
-
                 </div>
-
-
+                <!-- FIN BOTON GUARDAR Y CANCELAR -->
 
             </div>
             <!--FIN MODIFICAR INFO MASCOTA-->
