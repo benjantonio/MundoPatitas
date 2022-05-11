@@ -13,14 +13,56 @@
     <img src='{% static "img/home-banner-curvas.png" %}' class="wave" alt="">
 
 </section>
+<!-- Fin Seccion Banner -->
 
-<!-- Sección  -->
-<section class="home-">
+<!-- Sección Home About-->
+<section class="home-about">
 
-    <h3>Sección 2</h3>
+    <div class="imagen-about  imagen-about1">
+        <img src='{% static "img/mascotasB3.jpg" %}' alt="gatoPrueba">
+    </div>
 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed fugit, fugiat sunt dolorem animi veniam at voluptatem cum laboriosam modi quos reprehenderit maiores quas aut eveniet? Placeat excepturi obcaecati officiis.</p>
+    <div class="imagen-about imagen-about2">
+        <img src='{% static "img/mascotasBnew.jpg" %}' alt="gatoPrueba">
+    </div>
+
+    <div class="contenedor-home contenedor-home1">
+        <h3>Encuentra a un <span>veterinario</span> cerca tuyo</h3>
+        <p>En la sección "veterinarios" podrás ver a las clínicas veterinarias inscritas en nuestra web! También puedes hacer Click en el botón del menú "Agendar Hora". </p>
+        <div class="d-grid contenedor-btn ap-2 col-6 mx-auto">
+            <button type="button" class="btn btn-outline-success">Ir a Veterinarios</button>
+        </div>
+    </div>
 
 </section>
+
+<section class="home-about">
+
+
+
+    <div class="contenedor-home">
+        <h3 class="h3fot">Interactua en el <span>foro</span> con la comunidad</h3>
+        <p>Si tienes alguna dudas, puedes preguntar a otros dueños de mascotas. Los veterinarios también pueden responder!</p>
+        <div class="d-grid contenedor-btn ap-2 col-6 mx-auto">
+            <button type="button" class="btn btn-outline-success">Ir a Foro</button>
+        </div>
+    </div>
+    <div class="imagen-about">
+        <img src='{% static "img/mascotasB2.png" %}' alt="gatoPrueba">
+    </div>
+
+
+</section>
+<!--Fin Sección Home About-->
+
+<!-- Botón go top -->
+
+<a class="gotopbtn" href=""><span class="material-symbols-outlined">
+    arrow_upward
+    </span></a>
+
+
+<!-- Fin Boton go top -->
+
 
 {% endblock %}
