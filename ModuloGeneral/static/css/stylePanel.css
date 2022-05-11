@@ -396,7 +396,24 @@ aside .sidebar .a-cerrarsesion:focus:before {
 /* ================== TAB MIS MASCOTAS ==================== */
 
 #tabMisMascotas {
-    display: none;
+    display: block;
+    opacity: 1;
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    top: 6%;
+    left: 14%;
+    right: 14%;
+    padding: 1.2rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
 }
 
 
@@ -519,26 +536,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
     border-radius: 50%;
 }
 
-#tabMisMascotas {
-    display: none;
-    opacity: 0;
-    justify-content: center;
-    transition: opacity .1s;
-    will-change: opacity;
-    top: 6%;
-    left: 14%;
-    right: 14%;
-    padding: 1.2rem;
-    overflow-y: auto;
-    margin: auto 20px;
-    text-align: center;
-    align-items: center;
-    background: white;
-    border-radius: 50px;
-    z-index: 9999;
-    transition: all 600ms ease;
-    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
-}
+
 
 .contenido-modPet {
     display: grid;

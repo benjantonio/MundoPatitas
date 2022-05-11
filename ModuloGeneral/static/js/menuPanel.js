@@ -82,7 +82,7 @@ yoBtn.addEventListener('click', () => {
 
 /* Ventana "Mis Mascotas" */
 misMascotasBtn.addEventListener('click', () => {
-    misMascotasTab.style = 'display:block;';
+    misMascotasTab.style = 'display:block; ';
     yoTab.style = 'display:none;'
     historialCitasTab.style = 'display:none;';
 });
