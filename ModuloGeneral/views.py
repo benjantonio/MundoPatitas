@@ -24,7 +24,9 @@ def registro(request):
 
 
 def panelcli(request):
-    return render(request,'panelcli.html', {})
+    mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
+
+    return render(request,'panelcli.html', {'mascotas': mascotas})
 
 def panelcenvet(request):
     return render(request,'centro.html', {})

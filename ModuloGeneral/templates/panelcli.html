@@ -109,27 +109,25 @@
                 <h3 style="text-align: center;">Mis Mascotas</h3>
                 <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
                 <div class="zona-mascotas">
+                    {% if mascotas %} {% for mascota in mascotas %}
                     <div class="card-mascota">
-                        <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
-                        <h5>Pelusa</h5>
-                        <p>Gato</p>
+                        {% if mascota.tipo == 'perro' %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-perro.png" %}' alt=""> {% elif mascota.tipo == 'gato' %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-gato.png" %}' alt=""> {% else %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-exotico.png" %}' alt=""> {% endif %}
+                        <h5>{{mascota.nombre}}</h5>
+                        <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
                         <div class="btns">
                             <p class="btn-modificar">Modificar</p>
-                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
                         </div>
                     </div>
-                    <div class="card-mascota">
-                        <img class="img-perfil-aside" src='{% static "img/perroCoco.jpg" %}' alt="">
-                        <h5>Coco</h5>
-                        <p>Perro</p>
-                        <div class="btns">
-                            <p class="btn-modificar">Modificar</p>
-                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
-                        </div>
-                    </div>
+                    {% endfor %} {% else %}
+                    <p>No tiene mascotas registradas!!</p>
+                    {% endif %}
                     <div class="card-mascota-nueva">
                         <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
-                        <button class="btnMas" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button"><img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt=""></button>
+                        <button class="btnMas" data-bs-toggle="modal" data-bs-target="#mascotaModal" type="button"><img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt=""></button>
 
                     </div>
                 </div>
@@ -160,7 +158,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="mascotaModal" tabindex="-1" aria-labelledby="mascotaModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -191,14 +189,17 @@
                         <input type="number" class="form-control" name="edad" id="edad">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="">Numero</label>
-                        <input type="number" class="form-control" name="numero" id="numero">
+                        <label class="form-label" for="">Dueño</label>
+                        <select name="dueño" id="dueño">
+                            <option value="5" selected="selected">{{user.nombres}} {{user.apellidos}}</option>
+                        </select>
                     </div>
-                    <button type="button" class="btn btn-success" onclick="agregarMascota()">Guardar</button>
+
                 </form>
             </div>
             <div class="modal-footer">
-
+                <button type="button" class="btn btn-success" onclick="agregarMascota()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetFormModal()">Cancelar</button>
             </div>
         </div>
     </div>
