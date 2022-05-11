@@ -264,7 +264,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
     background: white;
     border-radius: 50px;
     width: 100%;
-    display: none;
+    display: block;
 }
 
 .cardYo {
@@ -333,7 +333,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
 /* ================== TAB MIS MASCOTAS ==================== */
 
 #tabMisMascotas {
-    display: block;
+    display: none;
 }
 
 .cardMisMascotas {
@@ -435,8 +435,8 @@ aside .sidebar .a-cerrarsesion:focus:before {
 
 .contenedorModPet {
     position: absolute;
-    display: block;
-    opacity: 1;
+    display: none;
+    opacity: 0;
     justify-content: center;
     transition: opacity .1s;
     will-change: opacity;
@@ -762,7 +762,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
 
 #fondoNegroBlur {
     position: fixed;
-    display: block;
+    display: none;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -771,7 +771,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
     right: 0;
     z-index: 999;
     width: 100%;
-    opacity: 1;
+    opacity: 0;
     transition: opacity .1s;
     will-change: opacity;
     padding-bottom: 7vh;
