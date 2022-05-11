@@ -9,7 +9,7 @@
 <!-- h3 | texto menu (Yo, Mis Mascotas, Historial, etc)-->
 
 
-<div class="container-panelcli container" >
+<div class="container-panelcli container">
 
     <!-- ZONA MENÚ -->
     <aside>
@@ -45,7 +45,7 @@
 
         <div class="sidebar">
             <a id="historialCitas-btn" class="a-sidebar" href="#">
-                <span class="material-symbols-outlined icon-historialcitas" >description</span>
+                <span class="material-symbols-outlined icon-historialcitas">description</span>
                 <h3 class="h3-aside">Historial Citas</h3>
             </a>
         </div>
@@ -100,7 +100,9 @@
                     <p>Nombre: <br><span class="texto-info-PC">Marcelo Caceres Riquelme</span></p>
                     <p>Correo: <br><span class="texto-info-PC">marc_caceres1987@gmail.com</span></p>
                     <p>Fecha de Nacimiento: <br><span class="texto-info-PC">29-04-1987</span></p>
-                    <p>Celular: <br><span class="texto-info-PC" style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span class="texto-info-PC">82655349</span></p>
+                    <p>Celular: <br><span class="texto-info-PC"
+                            style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span
+                            class="texto-info-PC">82655349</span></p>
                     <p>Mascotas: <br><span class="texto-info-PC">2</span></p>
                 </div>
 
@@ -116,31 +118,45 @@
         <div id="tabMisMascotas">
             <div class="cardMisMascotas card">
                 <h3>Mis Mascotas</h3>
-                <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
+                <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es
+                    necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
                 <div class="zona-mascotas">
                     <div class="card-mascota">
                         <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
                         <h5>Pelusa</h5>
                         <p>Gato</p>
                         <div class="btns">
-                            <p class="btn-modificar">Modificar</p>
-                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
+                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined"
+                                    style="vertical-align: middle; margin-top: 2px;">close</span></p>
                         </div>
                     </div>
-                    
+
                     <div class="card-mascota">
                         <img class="img-perfil-aside" src='{% static "img/perroCoco.jpg" %}' alt="">
                         <h5>Coco</h5>
                         <p>Perro</p>
                         <div class="btns">
-                            <p class="btn-modificar">Modificar</p>
-                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
+                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined"
+                                    style="vertical-align: middle; margin-top: 2px;">close</span></p>
                         </div>
                     </div>
                     <div class="card-mascota-nueva">
                         <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
                         <img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt="">
                     </div>
+                </div>
+
+            </div>
+
+
+            <div id="contenedorModPet" class="contenedorModPet">
+                <p>asdsad</p>
+
+                <div id="cerrar-modPet-btn" class="cerrar-modPet-btn"><span
+                        class="material-symbols-outlined">arrow_back</span>
+                    <p>Regresar</p>
                 </div>
 
             </div>
@@ -152,12 +168,13 @@
             <div class="cardHistorialCitas card">
                 <h3>Historial Citas</h3>
 
-                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes hacerlo al momento de agendar una hora > ANULAR HORA.</p>
+                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes
+                    hacerlo al momento de agendar una hora > ANULAR HORA.</p>
 
                 <div class="top-HistorialCitas">
                     <div class="top-seccion">
                         <h6 class="titulo-cant ">En Espera</h5>
-                        <p class="cant-citas enEspera">0</p>
+                            <p class="cant-citas enEspera">0</p>
                     </div>
                     <p class="separador-top">|</p>
                     <div class="top-seccion">
@@ -172,45 +189,92 @@
 
                 <div class="lista-historial">
                     <div class="historial">
-                        <div class="formato id"><p class="p-id">1</p></div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span><p>23/04/2022</p></div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span><p>Pelusa</p></div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span><p style="margin-right: 3px;">Centro</p><p>Farmavet</p></div>
-                        <div  id="detalleCita-btn" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div class="formato id">
+                            <p class="p-id">1</p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>23/04/2022</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">Centro</p>
+                            <p>Farmavet</p>
+                        </div>
+                        <div id="detalleCita-btn" class="formato cuadro-ver"><span
+                                class="ver material-symbols-outlined">find_in_page</span></div>
                     </div>
                     <div class="historial">
-                        <div class="formato id"><p class="p-id">2</p></div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span><p>19/03/2022</p></div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span><p>MicaelaGenial</p></div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span><p style="margin-right: 3px;">Centro</p><p>Farmavet</p></div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div class="formato id">
+                            <p class="p-id">2</p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>19/03/2022</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>MicaelaGenial</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">Centro</p>
+                            <p>Farmavet</p>
+                        </div>
+                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
+                        </div>
                     </div>
                     <div class="historial">
-                        <div class="formato id"><p class="p-id">3</p></div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span><p>07/01/2022</p></div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span><p>Pelusa</p></div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span><p style="margin-right: 3px;">Centro</p><p>Farmavet</p></div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div class="formato id">
+                            <p class="p-id">3</p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>07/01/2022</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">Centro</p>
+                            <p>Farmavet</p>
+                        </div>
+                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
+                        </div>
                     </div>
                     <div class="historial">
-                        <div class="formato id"><p class="p-id">4</p></div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span><p>07/01/2022</p></div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span><p>Pelusa</p></div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span><p style="margin-right: 3px;">Centro</p><p>Farmavet</p></div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div class="formato id">
+                            <p class="p-id">4</p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>07/01/2022</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">Centro</p>
+                            <p>Farmavet</p>
+                        </div>
+                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
+                        </div>
                     </div>
                     <div class="historial">
-                        <div class="formato id"><p class="p-id">5</p></div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span><p>07/01/2022</p></div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span><p>Pelusa</p></div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span><p style="margin-right: 3px;">Centro</p><p>Farmavet</p></div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div class="formato id">
+                            <p class="p-id">5</p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>07/01/2022</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">Centro</p>
+                            <p>Farmavet</p>
+                        </div>
+                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
+                        </div>
                     </div>
                 </div>
 
-            </div>
-
-            <div id="fondoDetalleCita" class="fondoDetalleCita">
             </div>
 
             <div id="contenedorDetalle" class="contenedorDetalle">
@@ -259,7 +323,9 @@
                             <div class="contenedor-info cont-sec2">
                                 <p class="p-subtitulos">Comentario del Veterinario:</p>
                                 <div class="p-comentarios">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit
+                                        vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores
+                                        molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
                                 </div>
                             </div>
                         </div>
@@ -271,11 +337,21 @@
                         <h6>¿Cómo te atendió tu Veterinario?</h6>
                         <p>Más patitas = Mejor valoración.</p>
                         <div class="patitas-valoracion">
-                            <div><span id="voto1" class="material-symbols-outlined">pets</span><p>1</p></div>
-                            <div><span id="voto2" class="material-symbols-outlined">pets</span><p>2</p></div>
-                            <div><span id="voto3" class="material-symbols-outlined">pets</span><p>3</p></div>
-                            <div><span id="voto4" class="material-symbols-outlined">pets</span><p>4</p></div>
-                            <div><span id="voto5" class="material-symbols-outlined">pets</span><p>5</p></div>
+                            <div><span id="voto1" class="material-symbols-outlined">pets</span>
+                                <p>1</p>
+                            </div>
+                            <div><span id="voto2" class="material-symbols-outlined">pets</span>
+                                <p>2</p>
+                            </div>
+                            <div><span id="voto3" class="material-symbols-outlined">pets</span>
+                                <p>3</p>
+                            </div>
+                            <div><span id="voto4" class="material-symbols-outlined">pets</span>
+                                <p>4</p>
+                            </div>
+                            <div><span id="voto5" class="material-symbols-outlined">pets</span>
+                                <p>5</p>
+                            </div>
                         </div>
                     </div>
 
@@ -284,10 +360,13 @@
                         <img src='{% static "img/corazon.png" %}' alt="">
                         <p>Tu valoración ayuda a las demás personas a elegir su veterinario.</p>
                     </div>
-                    
+
                 </div>
 
-                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span><p>Regresar</p></div>
+                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span
+                        class="material-symbols-outlined">arrow_back</span>
+                    <p>Regresar</p>
+                </div>
 
             </div>
         </div>
@@ -314,8 +393,11 @@
         </div>
         <!-- Fin - Tab "Aayuda" -->
 
+        <!-- FONDO NEGRO BLUR TAPA TODA LA PANTALLA -->
+        <div id="fondoNegroBlur" class="fondoNegroBlur">
+        </div>
     </div>
-    
+
 </div>
 
 {% endblock %}

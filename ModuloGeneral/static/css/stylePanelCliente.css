@@ -385,7 +385,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     align-items: center;
  }
 
-.cardMisMascotas .card-mascota .btn-modificar{
+.cardMisMascotas .card-mascota .modificar-mascota-btn{
     background: #09d882;
     color: white;
     padding: 10px;
@@ -393,7 +393,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     cursor: pointer;
  }
 
-.cardMisMascotas .card-mascota .btn-eliminar{
+.cardMisMascotas .card-mascota .btn-eliminar-mascota{
     background: #ee4f5d;
     color: white;
     padding: 8px;
@@ -430,6 +430,59 @@ aside .sidebar .a-cerrarsesion:focus:before{
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+}
+
+.contenedorModPet{
+    position: absolute;
+    display: none;
+    opacity: 0;
+    justify-content: center;
+
+    transition: opacity .1s;
+    will-change: opacity;
+
+    top: 6%;
+    left: 24%;
+    right: 24%;
+    padding: 1.2rem;
+    min-height: 40rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
+
+.cerrar-modPet-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #09d882;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto auto auto;
+    cursor: pointer;
+}
+
+.cerrar-modPet-btn:hover{
+    color: #09d882;
+    background: #ffffff;
+    transition: all 150ms ease;
+    border: 0.1rem solid #09d882;
+}
+
+.cerrar-modPet-btn p{
+    text-align: center;
+    margin: 0;
+    width: auto;
 }
 
 /* ===== FIN - Tab Mis Mascotas ===== */
@@ -596,7 +649,7 @@ aside .sidebar .a-cerrarsesion:focus:before{
     transition: all 150ms ease;
 }
 
-#fondoDetalleCita{
+#fondoNegroBlur{
     position: fixed;
     display: none;
     align-items: center;
