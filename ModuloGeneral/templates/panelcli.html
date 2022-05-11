@@ -119,7 +119,7 @@
                         <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
                         <div class="btns">
                             <p class="btn-modificar">Modificar</p>
-                            <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
+                            <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}','{{mascota.nombre}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
                         </div>
                     </div>
                     {% endfor %} {% else %}
