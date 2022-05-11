@@ -42,7 +42,7 @@ const eliminarMascota = async(id) => {
             location.reload();
         }
     } catch (error) {
-        let message = err.statusText || "Ocurrio un error"
+        console.log(err)
 
     }
 }
