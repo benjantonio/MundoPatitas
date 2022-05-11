@@ -100,9 +100,7 @@
                     <p>Nombre: <br><span class="texto-info-PC">Marcelo Caceres Riquelme</span></p>
                     <p>Correo: <br><span class="texto-info-PC">marc_caceres1987@gmail.com</span></p>
                     <p>Fecha de Nacimiento: <br><span class="texto-info-PC">29-04-1987</span></p>
-                    <p>Celular: <br><span class="texto-info-PC"
-                            style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span
-                            class="texto-info-PC">82655349</span></p>
+                    <p>Celular: <br><span class="texto-info-PC" style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span class="texto-info-PC">82655349</span></p>
                     <p>Mascotas: <br><span class="texto-info-PC">2</span></p>
                 </div>
 
@@ -118,8 +116,7 @@
         <div id="tabMisMascotas">
             <div class="cardMisMascotas card">
                 <h3>Mis Mascotas</h3>
-                <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es
-                    necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
+                <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
                 <div class="zona-mascotas">
                     <div class="card-mascota">
                         <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
@@ -127,8 +124,7 @@
                         <p>Gato</p>
                         <div class="btns">
                             <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
-                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined"
-                                    style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
                         </div>
                     </div>
 
@@ -138,8 +134,7 @@
                         <p>Perro</p>
                         <div class="btns">
                             <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
-                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined"
-                                    style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
                         </div>
                     </div>
                     <div class="card-mascota-nueva">
@@ -151,15 +146,80 @@
             </div>
 
 
+            <!--MODIFICAR INFO MASCOTA-->
             <div id="contenedorModPet" class="contenedorModPet">
-                <p>asdsad</p>
+                <h3 style="color: #424242;">Modificar mascota</h3>
+                <div class="contenido-modPet">
+                    <div class="part1">
+                        <div class="img-pet">
+                            <img src='{% static "img/gato-cara.png" %}' alt="...">
+                        </div>
+                        <div class="form-floating txtInpNombre mb-3">
+                            <input type="name" class="form-control txtNombre" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                        </div>
+                        <div class="tipoPet">
+                            <div id="cerrar-modPet-btn" class="cerrar-modPet-btn">
+                                <img src='{% static "img/perro-cara.png" %}' class="imagenBtn" alt="...">
+                                <p>Perro</p>
+                            </div>
+                            <div id="cerrar-modPet-btn" class="cerrar-modPet-btn">
+                                <img src='{% static "img/gato-cara.png" %}' class="imagenBtn" alt="...">
+                                <p>Gato</p>
+                            </div>
+                            <div id="cerrar-modPet-btn" class="cerrar-modPet-btn">
+                                <img src='{% static "img/erizo-cara2.png" %}' class="imagenBtn" alt="...">
+                                <p>Exótico</p>
+                            </div>
+                        </div>
 
-                <div id="cerrar-modPet-btn" class="cerrar-modPet-btn"><span
-                        class="material-symbols-outlined">arrow_back</span>
-                    <p>Regresar</p>
+                    </div>
+                    <div class="part2">
+
+                        <div class="form-floating mb-3">
+                            <input type="raza" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Edad</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Fecha de nacimiento</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Número</label>
+                        </div>
+                    </div>
                 </div>
 
+
+                <br>
+
+
+                <!-- BOTON REGRESAR    -->
+                <div class="btnAccionMod">
+
+                    <div id="cerrar-modPet-btn" class="guardar-modPet-btn cerrar-modPet-btn"><span class="material-symbols-outlined">done</span>
+                        <p>Guardar</p>
+                    </div>
+
+                    <div id="cerrar-modPet-btn" class="cancelar-modPet-btn cerrar-modPet-btn"><span class="material-symbols-outlined">close</span>
+                        <p>Cancelar</p>
+                    </div>
+
+
+                </div>
+
+
+
             </div>
+            <!--FIN MODIFICAR INFO MASCOTA-->
+
+
+
         </div>
         <!-- Fin - Tab "Mis Mascotas" -->
 
@@ -168,8 +228,7 @@
             <div class="cardHistorialCitas card">
                 <h3>Historial Citas</h3>
 
-                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes
-                    hacerlo al momento de agendar una hora > ANULAR HORA.</p>
+                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes hacerlo al momento de agendar una hora > ANULAR HORA.</p>
 
                 <div class="top-HistorialCitas">
                     <div class="top-seccion">
@@ -202,8 +261,7 @@
                             <p style="margin-right: 3px;">Centro</p>
                             <p>Farmavet</p>
                         </div>
-                        <div id="detalleCita-btn" class="formato cuadro-ver"><span
-                                class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div id="detalleCita-btn" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
                     </div>
                     <div class="historial">
                         <div class="formato id">
@@ -323,9 +381,7 @@
                             <div class="contenedor-info cont-sec2">
                                 <p class="p-subtitulos">Comentario del Veterinario:</p>
                                 <div class="p-comentarios">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit
-                                        vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores
-                                        molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
                                 </div>
                             </div>
                         </div>
@@ -363,8 +419,7 @@
 
                 </div>
 
-                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span
-                        class="material-symbols-outlined">arrow_back</span>
+                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span>
                     <p>Regresar</p>
                 </div>
 
