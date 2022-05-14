@@ -16,8 +16,7 @@ const yoTab = document.querySelector("#tabYo")
 const misMascotasBtn = document.querySelector("#misMascotas-btn")
 const misMascotasTab = document.querySelector("#tabMisMascotas")
 
-/* Botón Abrir y Cerrar Modificar Mascotas */
-const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
+
 const cerrarModPetBtn = document.querySelector("#cerrar-modPet-btn")
 
 /* Imagenes Perfil Modificar Mascotas */
@@ -73,12 +72,17 @@ closeBtnCli.addEventListener('click', () => {
 
 /* MOSTRAR/OCULTAR TABS PANEL CLIENTE*/
 
+
+/* ============================ YO =================================*/
+
 /* Ventana "Yo" */
 yoBtn.addEventListener('click', () => {
     yoTab.style = 'display:block;'
     misMascotasTab.style = 'display:none;';
     historialCitasTab.style = 'display:none;';
 });
+
+/* ======================= MIS MASCOTAS ============================*/
 
 /* Ventana "Mis Mascotas" */
 misMascotasBtn.addEventListener('click', () => {
@@ -87,12 +91,19 @@ misMascotasBtn.addEventListener('click', () => {
     historialCitasTab.style = 'display:none;';
 });
 
+
+/* Botón Abrir y Cerrar Modificar Mascotas */
+if(document.querySelector(".modificar-mascota-btn")){
+    const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
+    modificarPetBtn.addEventListener('click', () => {
+        contModPet.setAttribute("style", "opacity: 1; display:block;");
+        
+    });
+    
+}
+
 /* FUNCIONES */
 /* Abrir Modificar Mascota  */
-modificarPetBtn.addEventListener('click', () => {
-    fondoNegroBlur.setAttribute("style", "opacity: 1; display:block; ");
-    contModPet.setAttribute("style", "opacity: 1; display:block;");
-});
 
 /* Ocultar Modificar Mascota  */
 cerrarModPetBtn.addEventListener('click', () => {
@@ -130,13 +141,16 @@ historialCitasBtn.addEventListener('click', () => {
     yoTab.style = 'display:none;'
 });
 
-/* FUNCIONES */
 
+
+/* FUNCIONES */
 /* Abrir detalle Cita su botón */
 detalleCitaBtn.addEventListener('click', () => {
     fondoNegroBlur.setAttribute("style", "opacity: 1; display:block; ");
     contDetalleCita.setAttribute("style", "opacity: 1; display:block;");
 });
+
+
 
 /* Ocultar detalle Cita con click en botón Regresar */
 cerrarDetalleCitaBtn.addEventListener('click', () => {

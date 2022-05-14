@@ -1,7 +1,7 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
 
 
-<link rel="stylesheet" type="text/css" href='{% static "css/stylePanelCliente.css" %}'>
+
 
 <!-- div "sidebar" | contenedores de los a -->
 <!-- a | botones-->
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div>
-            <h5 class="saludo-cliente"><span class="success">¡Hola </span>Marcelo!</h2>
+            <h5 class="saludo-cliente"><span class="success">¡Hola </span>{{user.nombres}}!</h2>
         </div>
         <!--Fin - Logo y Titulo -->
 
@@ -44,7 +44,7 @@
         </div>
 
         <div class="sidebar">
-            <a id="historialCitas-btn" class="a-sidebar" href="#">
+            <a id="historialCitas-btn" class="historialCitas-btn a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-historialcitas">description</span>
                 <h3 class="h3-aside">Historial Citas</h3>
             </a>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="sidebar">
-            <a class="a-sidebar a-cerrarsesion" href="#">
+            <a class="a-sidebar a-cerrarsesion" href="{% url 'logout'%}">
                 <span class="material-symbols-outlined icon-cerrarsesion">logout</span>
                 <h3 class="h3-aside">Cerrar Sesión</h3>
             </a>
@@ -97,10 +97,10 @@
                 <p class="btn-modificarImagen">+Modificar Imágen</p>
 
                 <div class="contenido">
-                    <p>Nombre: <br><span class="texto-info-PC">Marcelo Caceres Riquelme</span></p>
-                    <p>Correo: <br><span class="texto-info-PC">marc_caceres1987@gmail.com</span></p>
-                    <p>Fecha de Nacimiento: <br><span class="texto-info-PC">29-04-1987</span></p>
-                    <p>Celular: <br><span class="texto-info-PC" style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span class="texto-info-PC">82655349</span></p>
+                    <p>Nombre: <br><span class="texto-info-PC">{{user.nombres}} {{user.apellidos}}</span></p>
+                    <p>Correo: <br><span class="texto-info-PC">{{user.email}}</span></p>
+                    <p>Edad: <br><span class="texto-info-PC">{{user.edad}}</span></p>
+                    <p>Celular: <br><span class="texto-info-PC" style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span class="texto-info-PC">{{user.celular}}</span></p>
                     <p>Mascotas: <br><span class="texto-info-PC">2</span></p>
                 </div>
 
@@ -118,28 +118,26 @@
                 <h3>Mis Mascotas</h3>
                 <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
                 <div class="zona-mascotas">
+                    {% if mascotas %} {% for mascota in mascotas %}
                     <div class="card-mascota">
-                        <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
-                        <h5>Pelusa</h5>
-                        <p>Gato</p>
+                        {% if mascota.tipo == 'perro' %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-perro.png" %}' alt=""> {% elif mascota.tipo == 'gato' %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-gato.png" %}' alt=""> {% else %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-exotico.png" %}' alt=""> {% endif %}
+                        <h5>{{mascota.nombre}}</h5>
+                        <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
                         <div class="btns">
                             <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
-                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
                         </div>
                     </div>
-
-                    <div class="card-mascota">
-                        <img class="img-perfil-aside" src='{% static "img/perroCoco.jpg" %}' alt="">
-                        <h5>Coco</h5>
-                        <p>Perro</p>
-                        <div class="btns">
-                            <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
-                            <p id="btn-eliminar-mascota" class="btn-eliminar-mascota"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
-                        </div>
-                    </div>
+                    {% endfor %} {% else %}
+                    <p>No tiene mascotas registradas!!</p>
+                    {% endif %}
                     <div class="card-mascota-nueva">
                         <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
-                        <img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt="">
+                        <button class="btnMas" data-bs-toggle="modal" data-bs-target="#mascotaModal" type="button"><img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt=""></button>
+
                     </div>
                 </div>
 
@@ -282,74 +280,7 @@
                         </div>
                         <div id="detalleCita-btn" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
                     </div>
-                    <div class="historial">
-                        <div class="formato id">
-                            <p class="p-id">2</p>
-                        </div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
-                            <p>19/03/2022</p>
-                        </div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
-                            <p>MicaelaGenial</p>
-                        </div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                            <p style="margin-right: 3px;">Centro</p>
-                            <p>Farmavet</p>
-                        </div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
-                        </div>
-                    </div>
-                    <div class="historial">
-                        <div class="formato id">
-                            <p class="p-id">3</p>
-                        </div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
-                            <p>07/01/2022</p>
-                        </div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
-                            <p>Pelusa</p>
-                        </div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                            <p style="margin-right: 3px;">Centro</p>
-                            <p>Farmavet</p>
-                        </div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
-                        </div>
-                    </div>
-                    <div class="historial">
-                        <div class="formato id">
-                            <p class="p-id">4</p>
-                        </div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
-                            <p>07/01/2022</p>
-                        </div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
-                            <p>Pelusa</p>
-                        </div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                            <p style="margin-right: 3px;">Centro</p>
-                            <p>Farmavet</p>
-                        </div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
-                        </div>
-                    </div>
-                    <div class="historial">
-                        <div class="formato id">
-                            <p class="p-id">5</p>
-                        </div>
-                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
-                            <p>07/01/2022</p>
-                        </div>
-                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
-                            <p>Pelusa</p>
-                        </div>
-                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                            <p style="margin-right: 3px;">Centro</p>
-                            <p>Farmavet</p>
-                        </div>
-                        <div class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span>
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>
@@ -473,5 +404,57 @@
     </div>
 
 </div>
+
+<div class="modal fade" id="mascotaModal" tabindex="-1" aria-labelledby="mascotaModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Mascota</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formMascota" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Tipo de Mascota</label>
+                        <select class="form-select" name="tipo" id="tipo">
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                            <option value="exotico">Exótico</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Raza</label>
+                        <input type="text" class="form-control" name="raza" id="raza">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Edad</label>
+                        <input type="number" class="form-control" name="edad" id="edad">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Dueño</label>
+                        <select name="dueño" id="dueño">
+                            <option value="{{user.id_usuario}}" selected="selected">{{user.nombres}} {{user.apellidos}}</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="agregarMascota()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetFormModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'js/menuPanel.js' %}"></script>
+<script src="{% static 'js/enviarMascota.js' %}"></script>
+
 
 {% endblock %}
