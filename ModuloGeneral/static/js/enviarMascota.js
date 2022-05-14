@@ -18,7 +18,15 @@ const agregarMascota = async() => {
 
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
         else {
-            location.reload();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Mascota Agregada con Exito!!',
+                showConfirmButton: false,
+                timer: 1500
+
+            })
+            setTimeout(retrasarReload, 1500);
         }
     } catch (error) {
         let message = err.statusText || "Ocurrio un error"
@@ -26,7 +34,26 @@ const agregarMascota = async() => {
     }
 };
 
-const eliminarMascota = async(id) => {
+const eliminarMascota = (id, nombre) => {
+    Swal.fire({
+        position: 'center',
+        icon: 'question',
+        text: `¿Desea eliminar a ${nombre}?`,
+        showCancelButton: true,
+        cancelButtonColor: '#FF3333',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, eliminar',
+        confirmButtonColor: '#09d882'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            eliminar(id)
+        }
+    })
+
+
+}
+
+const eliminar = async(id) => {
     try {
         let options = {
                 method: "DELETE",
@@ -50,4 +77,8 @@ const eliminarMascota = async(id) => {
 const resetFormModal = () => {
     console.log("CERRAR")
     $("#formMascota").reset();
+}
+
+function retrasarReload() {
+    location.reload();
 }
