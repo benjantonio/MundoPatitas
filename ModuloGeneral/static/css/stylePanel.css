@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap');
 
 /* >>>>>>> Benja <<<<<<<<< */
 
@@ -20,8 +20,11 @@
     margin-bottom: 250px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto;
-    border-radius: 25px;
+
+    /* OJO CON ESTE CAMBIO */
+    border-radius: 0 0 40px 40px;
     padding: 30px;
+
 }
 
 .zonas {
@@ -69,6 +72,8 @@
     background-image: url("../img/carusel2.png");
     background-size: cover;
 }
+
+/* FIN OJO CAMBIO */
 
 .cont-menuaside {
     display: none;
@@ -316,7 +321,14 @@ aside .sidebar .a-cerrarsesion:focus:before {
 }
 
 
-/* TAB YO */
+/* ======================= TAB YO ================== */
+
+#tabYo {
+    background: white;
+    border-radius: 50px;
+    width: 100%;
+    display: block;
+}
 
 .cardYo {
     align-items: center;
@@ -369,6 +381,38 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
+}
+
+.texto-info-PC {
+    font-size: 16px;
+    color: #1d1d1d;
+    font-style: normal;
+}
+
+
+/* ===== FIN - Tab Yo ===== */
+
+
+/* ================== TAB MIS MASCOTAS ==================== */
+
+#tabMisMascotas {
+    display: none;
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    top: 6%;
+    left: 14%;
+    right: 14%;
+    padding: 1.2rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
 }
 
 
@@ -427,7 +471,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
     align-items: center;
 }
 
-.cardMisMascotas .card-mascota .btn-modificar {
+.cardMisMascotas .card-mascota .modificar-mascota-btn {
     background: #09d882;
     color: white;
     padding: 10px;
@@ -435,8 +479,8 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
-.cardMisMascotas .card-mascota .btn-eliminar {
-    background: #e42b3b;
+.cardMisMascotas .card-mascota .btn-eliminar-mascota {
+    background: #ee4f5d;
     color: white;
     padding: 8px;
     border-radius: 20px;
@@ -474,6 +518,43 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
+.cardMisMascotas .zona-mascotas .card-mascota .btns p{
+    cursor: pointer;
+ }
+
+ .cardMisMascotas .card-mascota .btn-eliminar {
+    background: #ee4f5d;
+    color: white;
+    padding: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+/*MODIFICAR INFO MASCOTA*/
+
+.contenedorModPet {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    top: 6%;
+    left: 14%;
+    right: 14%;
+    padding: 1.2rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
+
 .cardMisMascotas .card-mascota-nueva .btnMas {
     display: block;
     margin: 0px auto;
@@ -484,17 +565,522 @@ aside .sidebar .a-cerrarsesion:focus:before {
     border-radius: 50%;
 }
 
-#tabMisMascotas {
+
+
+.contenido-modPet {
+    display: grid;
+    color: #3b3b3b;
+    grid-template-columns: auto 50%;
+    padding: 0;
+    gap: 1rem;
+}
+
+.contenido-modPet .tipoPet {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.contenido-modPet .part1 {
+    background: #f6f6f9;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.contenido-modPet .part1 .img-pet {
+    background: #ffff;
+    border-radius: 50%;
+}
+
+.contenido-modPet .part1 .img-pet img {
+    height: 100%;
+    width: 50%;
+}
+
+.contenido-modPet .part1 .img-pet .perfilPetPerro {
+    display: inline;
+    opacity: 1;
+}
+
+.contenido-modPet .part1 .img-pet .perfilPetGato {
+    display: none;
+    opacity: 0;
+}
+
+.contenido-modPet .part1 .img-pet .perfilPetExotico {
+    display: none;
+    opacity: 0;
+}
+
+.contenido-modPet .part1 .tipoPet img {
+    height: 100%;
+}
+
+.contenido-modPet .part1 .txtInpNombre {
+    margin-top: 1rem;
+}
+
+.tipoMascotaBtn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #ff7543;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+    cursor: pointer;
+}
+
+.tipoMascotaBtn:hover {
+    background: #ffff;
+    color: #1d1d1d;
+    border: 0.1rem solid #ff7543;
+    transition: all 150ms ease;
+}
+
+.contenido-modPet .part2 {
+    background: #f6f6f9;
+    height: 100%;
+    padding: 1rem 4rem 1rem 4rem;
+    border-radius: 20px;
+}
+
+.guardar-modPet-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #09d882;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+    cursor: pointer;
+}
+
+.p-btn {
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
+.guardar-modPet-btn:hover {
+    color: #09d882;
+    background: #ffffff;
+    transition: all 150ms ease;
+    border: 0.1rem solid #09d882;
+}
+
+.btnAccionMod .cancelar-modPet-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: red;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+    cursor: pointer;
+}
+
+.cancelar-modPet-btn:hover {
+    color: red;
+    background: #ffffff;
+    transition: all 150ms ease;
+    border: 0.1rem solid red;
+}
+
+.btnAccionMod {
+    display: grid;
+    grid-template-columns: auto auto;
+    background: #f6f6f9;
+    border-radius: 20px;
+}
+
+
+/* FIN MODIFICAR INFO MASCOTA*/
+
+
+/* ===== FIN - Tab Mis Mascotas ===== */
+
+
+/* ================== TAB HISTORIAL CITAS ==================== */
+
+#tabHistorialCitas {
     display: none;
 }
 
-#tabVeterinarios {
+.cardHistorialCitas {
+    text-align: center;
+}
+
+.cardHistorialCitas .info {
+    text-align: center;
+    padding: 15px 80px 10px 80px;
+    color: #a3a3a3;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.top-HistorialCitas {
+    display: grid;
+    grid-template-columns: auto 0.13rem auto;
+    text-align: center;
+    align-items: center;
+    height: 8rem;
+    background: #ffffff;
+    gap: 2rem;
+}
+
+.top-HistorialCitas .top-seccion {
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 10px 0px;
+    box-shadow: 0.2rem 0.2rem 1rem 0.08rem #0000001a;
+}
+
+.top-HistorialCitas .titulo-cant {
+    font-size: 16px;
+    font-weight: 450;
+    color: #747474;
+    margin: 0;
+    padding: 0;
+}
+
+.top-HistorialCitas .cant-citas {
+    margin: -5px;
+    padding: 0;
+    font-size: 50px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.top-HistorialCitas .enEspera {
+    color: #ff925f;
+}
+
+.top-HistorialCitas .concluidas {
+    color: #27e065;
+}
+
+.top-HistorialCitas .separador-top {
+    background: #b9b9b9;
+    color: #ca000000;
+    height: 4rem;
+    width: 0.13rem;
+}
+
+.separador-historial {
+    width: auto;
+    color: #00000000;
+    border-top: 0.125rem solid #dadada96;
+    margin: 0 100px;
+    margin-top: 15px;
+}
+
+.separador-historial p {
+    margin: 0;
+}
+
+.lista-historial {
+    background: #ebebeb;
+    display: grid;
+    grid-template-columns: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.lista-historial .historial {
+    display: grid;
+    grid-template-columns: 2rem 12rem 20rem auto 3.3rem;
+}
+
+.lista-historial .formato {
+    align-items: center;
+    margin: 0.2rem 0.1rem;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    font-size: 14px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.lista-historial .historial .id {
+    color: #e7e7e7;
+    background: #ebebeb;
+    font-size: 16px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.lista-historial p {
+    margin: 5px 0 0 0;
+    color: #727272;
+}
+
+.lista-historial .historial .p-id {
+    margin: 0;
+    color: #6e6e6e;
+    font-size: 20px;
+    font-family: 'Poppins', cursive;
+    font-weight: 400;
+}
+
+.lista-historial .formato span {
+    margin-right: 6px;
+}
+
+.lista-historial .formato .date {
+    color: #5f5f5f;
+}
+
+.lista-historial .formato .doctor {
+    color: #3198ec;
+}
+
+.lista-historial .historial .cuadro-ver {
+    padding: 0.5rem 0.25rem;
+    cursor: pointer;
+}
+
+.lista-historial .formato .ver {
+    color: #ffffff;
+    font-size: 2.3rem;
+    background: #3acf85;
+    border-radius: 10px;
+    padding: 2.5px;
+    margin: 0;
+}
+
+.lista-historial .formato .ver:hover {
+    color: #09d882;
+    background: #ffffff;
+    transition: all 150ms ease;
+}
+
+#fondoNegroBlur {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .1s;
+    will-change: opacity;
+    padding-bottom: 7vh;
+    padding-left: 2vw;
+    overflow-y: auto;
+    background: #0000005d;
+}
+
+.contenedorDetalle {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    top: 6%;
+    left: 24%;
+    right: 24%;
+    padding: 1.2rem;
+    min-height: 40rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
+
+.cerrar-detalle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #09d882;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto auto auto;
+    cursor: pointer;
+}
+
+.cerrar-detalle:hover {
+    color: #09d882;
+    background: #ffffff;
+    transition: all 150ms ease;
+    border: 0.1rem solid #09d882;
+}
+
+.cerrar-detalle p {
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
+.detalle-contenido {
+    display: grid;
+    grid-template-columns: 13rem auto;
+    gap: 1rem;
+    color: #3b3b3b;
+}
+
+.part1-detalle {
+    background: #f6f6f9;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.part1-detalle h5 {
+    font-size: 17px;
+    font-weight: 800;
+    margin: 25px 0 0 0;
+}
+
+.part1-detalle img {
+    width: 100%;
+    padding: 0.7rem 4rem;
+    vertical-align: middle;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+.detalle-contenido .contenedor-info {
+    margin: 30px 0;
+}
+
+.detalle-contenido .p-subtitulos {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.detalle-contenido p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.part2-detalle {
+    background: #f6f6f9;
+    border-radius: 20px;
+}
+
+.part2-detalle .sec1-detalle {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.part2-detalle .cont-sec2 {
+    background: #ffffff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem #00000017;
+    min-height: 8rem;
+}
+
+.part2-detalle .cont-sec2 .p-comentarios {
+    display: grid;
+    min-height: 3rem;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.detalle-valoracion {
+    margin-top: 15px;
+    border-radius: 10px;
+    width: auto;
+    min-height: 6rem;
+    background: #f6f6f9;
+}
+
+.detalle-valoracion h6 {
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+
+.detalle-valoracion p {
+    font-size: 13px;
+    margin: 0;
+    color: #a1a1a1;
+    font-style: italic;
+}
+
+.patitas-valoracion {
+    display: flex;
+    justify-content: center;
+}
+
+.patitas-valoracion span {
+    color: #ff8a75;
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 3rem;
+    margin: 0.5rem 1rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem #00000017;
+    cursor: pointer;
+}
+
+.patitas-valoracion span:hover {
+    color: #ffffff;
+    background: #ff8a75;
+    box-shadow: 0rem 0rem 0.7rem 0.2rem #fd887377;
+    transition: all 300ms ease;
+}
+
+.patitas-valoracion p {
+    margin-bottom: 7px;
+}
+
+.detalle-valoracion .noValorado {
+    display: block;
+}
+
+.detalle-valoracion .valorado {
     display: none;
 }
 
-.tabHistorialCitas {
-    display: none;
+.detalle-valoracion .valorado h6 {
+    padding: 10px 0;
 }
+
+.detalle-valoracion .valorado img {
+    width: 3.5rem;
+}
+
+.detalle-valoracion .valorado p {
+    padding: 10px 0 10px 0;
+}
+
+
+/* ===== FIN - Tab Historial Citas ===== */
 
 .tabMisAdopciones {
     display: none;
@@ -508,8 +1094,99 @@ aside .sidebar .a-cerrarsesion:focus:before {
     display: none;
 }
 
+@media screen and (max-width: 1200px) {
+    .card {
+        margin: 0;
+    }
+    .cardMisMascotas .zona-mascotas {
+        grid-template-columns: auto;
+    }
+    .contenido-modPet .tipoPet {
+        grid-template-columns: auto auto;
+    }
+    .contenido-modPet .part2 {
+        padding: 1rem;
+    }
+    .lista-historial .historial {
+        display: grid;
+        grid-template-columns: 1.3rem auto auto auto 3.3rem;
+    }
+    .lista-historial .historial .formato {
+        display: grid;
+        grid-template-columns: auto;
+        padding: 0 0.5rem;
+    }
+    .lista-historial .historial .p-id {
+        font-size: 17px;
+        font-weight: 300;
+        padding: 0;
+        margin: 0;
+    }
+    .lista-historial .formato span {
+        font-size: 16px;
+    }
+    .lista-historial p {
+        margin: 0;
+        font-size: 11px;
+    }
+    .lista-historial .formato .ver {
+        font-size: 1.8rem;
+        border-radius: 10px;
+        padding: 2.5px;
+        margin: 0;
+    }
+    .contenedorDetalle {
+        top: 6%;
+        left: 14%;
+        right: 14%;
+        transition: all 400ms ease;
+    }
+}
+
 
 /* ================================== MEDIA QUERYS CELULAR =================================*/
+
+@media screen and (max-width: 992px) {
+    .tabYo .card {
+        margin: 15px;
+        box-shadow: none;
+        border-width: 0;
+    }
+    .cardYo .contenido {
+        grid-template-columns: auto;
+        padding: 10px;
+    }
+    .tipoMascotaBtn {
+        width: 6rem;
+        margin: 10px auto 10px auto;
+    }
+    .tipoMascotaBtn p {
+        font-size: 13.4px;
+    }
+    .tipoMascotaBtn img {
+        font-size: 13.4px;
+    }
+    .contenido-modPet .part1 .tipoPet img {
+        height: 80%;
+    }
+    .cardHistorialCitas .info {
+        padding: 10px;
+    }
+    .top-HistorialCitas .top-seccion h6 {
+        font-size: 12px;
+    }
+    .top-HistorialCitas .top-seccion p {
+        font-size: 2rem;
+    }
+    .contenedorDetalle {
+        top: 6%;
+        left: 5%;
+        right: 5%;
+        padding: 1.2rem;
+        margin: auto 20px;
+        transition: all 400ms ease;
+    }
+}
 
 @media screen and (max-width: 767px) {
     .container-panelcli {
@@ -575,23 +1252,139 @@ aside .sidebar .a-cerrarsesion:focus:before {
     .menuaside {
         margin-top: 18px;
     }
-}
-
-@media screen and (max-width: 992px) {
-    .tabYo .card {
-        margin: 15px;
-        box-shadow: none;
-        border-width: 0;
+    .contenedorModPet {
+        left: 6%;
+        right: 6%;
     }
-    .cardYo .contenido {
+    .contenido-modPet {
         grid-template-columns: auto;
+    }
+    .contenido-modPet .tipoPet {
+        grid-template-columns: auto auto auto;
+    }
+    .contenido-modPet .part2 {
+        padding: 0.2rem;
+    }
+    .detalle-contenido {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .part1-detalle {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    .part1-detalle .contenedor-info-top img {
+        margin-top: 10px;
+        min-width: 30%;
+        max-width: 50%;
+        padding: 0;
+        border-radius: 10px;
+    }
+    .part1-detalle .contenedor-info-top h5 {
+        font-size: 17px;
+    }
+    .detalle-contenido p {
+        font-size: 15px;
+    }
+    .contenedorDetalle {
+        top: 6%;
+        left: 0;
+        right: 0;
+        transition: all 400ms ease;
         padding: 10px;
+        border-radius: 15px;
     }
-    .cardMisMascotas .zona-mascotas {}
+    .patitas-valoracion span {
+        font-size: 30px;
+        margin: 0.5rem 0.4rem;
+    }
 }
 
-@media screen and (max-width: 1200px) {
-    .cardMisMascotas .zona-mascotas {
+@media screen and (max-width: 530px) {
+    .contenedorModPet {
+        left: 0;
+        right: 0;
+    }
+    .contenido-modPet .tipoPet {
         grid-template-columns: auto;
+    }
+    .tipoMascotaBtn {
+        width: 8rem;
+    }
+    .tipoMascotaBtn p {
+        font-size: 20px;
+    }
+    .btnAccionMod .modbtn {
+        width: 6rem;
+        font-size: 13px;
+    }
+    .detalle-contenido {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .part1-detalle {
+        display: grid;
+        grid-template-columns: 6rem auto auto;
+    }
+    .part1-detalle .contenedor-info-top img {
+        margin-top: 10px;
+        min-width: 30%;
+        max-width: 50%;
+        padding: 0;
+        border-radius: 10px;
+    }
+    .part1-detalle .contenedor-info-top h5 {
+        font-size: 13px;
+    }
+    .detalle-contenido p {
+        font-size: 12px;
+    }
+    .contenedorDetalle {
+        top: 6%;
+        left: 0;
+        right: 0;
+        transition: all 400ms ease;
+        padding: 10px;
+        border-radius: 15px;
+    }
+}
+
+
+/* Responsividad para el GalaxyFold */
+
+@media screen and (max-width: 360px) {
+    .lista-historial {
+        margin: auto -10px;
+    }
+    .lista-historial .historial {
+        grid-template-columns: 1.3rem auto auto auto 1.3rem;
+    }
+    .lista-historial p {
+        margin: 0;
+        padding: 0;
+        font-size: 10px;
+    }
+    .lista-historial .historial .cuadro-ver {
+        font-size: 1.3rem;
+        padding: 0 0;
+        margin: 0;
+    }
+    .lista-historial .formato {
+        padding: 1.5px 0;
+        margin: 0;
+    }
+    .lista-historial .formato .ver {
+        font-size: 1.3rem;
+        border-radius: 10px;
+        padding: 4.5px 0;
+        margin: 0;
+    }
+    .lista-historial .historial .p-id {
+        font-size: 13px;
+        font-weight: 200;
+    }
+    .patitas-valoracion span {
+        font-size: 30px;
+        margin: 0.5rem 0.15rem;
     }
 }

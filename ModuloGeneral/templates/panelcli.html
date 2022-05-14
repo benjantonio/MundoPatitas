@@ -11,7 +11,9 @@
 
 <div class="container-panelcli container">
 
+    <!-- ZONA MENÚ -->
     <aside>
+        <!-- Logo y Titulo Panel Cliente-->
         <div class="top">
             <div class="top2-aside">
                 <img class="img-aside" src='{% static "img/logo-panelcliente.png" %}' alt="">
@@ -21,11 +23,12 @@
                 <span class="material-symbols-outlined">close</span>
             </div>
         </div>
-
         <div>
             <h5 class="saludo-cliente"><span class="success">¡Hola </span>{{user.nombres}}!</h2>
         </div>
+        <!--Fin - Logo y Titulo -->
 
+        <!-- Botones Menú -->
         <div class="sidebar">
             <a id="yo-btn" class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-yo">person</span>
@@ -41,29 +44,27 @@
         </div>
 
         <div class="sidebar">
-            <a class="a-sidebar" href="#">
+            <a id="historialCitas-btn" class="historialCitas-btn a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-historialcitas">description</span>
                 <h3 class="h3-aside">Historial Citas</h3>
             </a>
         </div>
 
         <div class="sidebar">
-            <a class="a-sidebar" href="#">
+            <a id="misAdopciones-btn" class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-misadopciones">volunteer_activism</span>
                 <h3 class="h3-aside">Mis Adopciones</h3>
             </a>
         </div>
 
-        <div class="sidebar">
+        <div id="miCementerio-btn" class="sidebar">
             <a class="a-sidebar" href="#">
-                <span class="material-symbols-outlined icon-micementerio">
-                    filter_drama
-                    </span>
+                <span class="material-symbols-outlined icon-micementerio">filter_drama</span>
                 <h3 class="h3-aside">Mi Cementerio</h3>
             </a>
         </div>
 
-        <div class="sidebar">
+        <div id="ayuda-btn" class="sidebar">
             <a class="a-sidebar" href="#">
                 <span class="material-symbols-outlined icon-ayuda">contact_support</span>
                 <h3 class="h3-aside">Ayuda</h3>
@@ -76,13 +77,19 @@
                 <h3 class="h3-aside">Cerrar Sesión</h3>
             </a>
         </div>
+        <!-- FIN - Botones Menú -->
     </aside>
+    <!-- FIN - ZONA MENÚ -->
 
+    <!-- Botón Abrir MENÚ del modo Responsivo (se activa cuando esté en formato móvil)-->
+    <div id="menu-btncli" class="cont-menuaside">
+        <span class="material-symbols-outlined menuaside">menu</span>
+    </div>
 
+    <!-- CONTENIDO de los TABS-->
     <div class="tabSection">
-        <div id="menu-btncli" class="cont-menuaside">
-            <span class="material-symbols-outlined menuaside">menu</span>
-        </div>
+
+        <!-- Tab "Yo" -->
         <div id="tabYo">
             <div class="cardYo card">
                 <h4>Tu Información</h4>
@@ -103,10 +110,12 @@
 
             </div>
         </div>
+        <!-- Fin - Tab "Yo" -->
 
+        <!-- Tab "Mis Mascotas" -->
         <div id="tabMisMascotas">
             <div class="cardMisMascotas card">
-                <h3 style="text-align: center;">Mis Mascotas</h3>
+                <h3>Mis Mascotas</h3>
                 <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p>
                 <div class="zona-mascotas">
                     {% if mascotas %} {% for mascota in mascotas %}
@@ -118,8 +127,9 @@
                         <h5>{{mascota.nombre}}</h5>
                         <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
                         <div class="btns">
-                            <p class="btn-modificar">Modificar</p>
+                            <p id="modificar-mascota-btn" class="modificar-mascota-btn">Modificar</p>
                             <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}','{{mascota.nombre}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
+
                         </div>
                     </div>
                     {% endfor %} {% else %}
@@ -133,29 +143,255 @@
                 </div>
 
             </div>
-        </div>
 
-        <div class="tabHistorialCitas tabPanelCliente">
-            <h3 style="text-align: center;">Historial Citas</h3>
-            <p>el historial citas</p>
-        </div>
 
+            <!--MODIFICAR INFO MASCOTA-->
+            <div id="contenedorModPet" class="contenedorModPet">
+                <h3 style="color: #424242;">Modificar mascota</h3>
+                <div class="contenido-modPet">
+                    <div class="part1">
+                        <div class="img-pet">
+                            <img src='{% static "img/perro-cara.png" %}' class="perfilPetPerro" alt="...">
+                            <img src='{% static "img/gato-cara.png" %}' class="perfilPetGato" alt="...">
+                            <img src='{% static "img/erizo-cara2.png" %}' class="perfilPetExotico" alt="...">
+                        </div>
+                        <div class="form-floating txtInpNombre mb-3">
+                            <input type="name" class="form-control txtNombre" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                        </div>
+
+                        <!--TITULO BOTONES TIPO DE MASCOTA-->
+                        <h5>Tipo de Mascota</h5>
+                        <div class="tipoPet">
+
+                            <div class="tipoPerroBtn tipoMascotaBtn">
+                                <img src='{% static "img/perro-cara.png" %}' class="imagenBtn" alt="...">
+                                <p class="p-btn">Perro</p>
+                            </div>
+                            <div class="tipoGatoBtn tipoMascotaBtn">
+                                <img src='{% static "img/gato-cara.png" %}' class="imagenBtn" alt="...">
+                                <p class="p-btn">Gato</p>
+                            </div>
+                            <div class="tipoExoticoBtn tipoMascotaBtn">
+                                <img src='{% static "img/erizo-cara2.png" %}' class="imagenBtn" alt="...">
+                                <p class="p-btn">Exótico</p>
+                            </div>
+                        </div>
+                        <!--FIN BOTONES TIPO DE MASCOTA-->
+
+                    </div>
+                    <div class="part2">
+
+                        <div class="form-floating mb-3">
+                            <input type="raza" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Edad</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Nacimiento</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Número</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <br>
+
+
+                <!-- BOTON REGRESAR    -->
+                <div class="btnAccionMod">
+
+                    <div id="guardar-modPet-btn" class="guardar-modPet-btn modbtn"><span class="material-symbols-outlined">done</span>
+                        <p class="p-btn">Guardar</p>
+                    </div>
+
+                    <div id="cerrar-modPet-btn" class="cancelar-modPet-btn modbtn"><span class="material-symbols-outlined">close</span>
+                        <p class="p-btn">Cancelar</p>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+            <!--FIN MODIFICAR INFO MASCOTA-->
+
+
+
+        </div>
+        <!-- Fin - Tab "Mis Mascotas" -->
+
+        <!-- Tab "Historial Citas" -->
+        <div id="tabHistorialCitas">
+            <div class="cardHistorialCitas card">
+                <h3>Historial Citas</h3>
+
+                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes hacerlo al momento de agendar una hora > ANULAR HORA.</p>
+
+                <div class="top-HistorialCitas">
+                    <div class="top-seccion">
+                        <h6 class="titulo-cant ">En Espera</h5>
+                            <p class="cant-citas enEspera">0</p>
+                    </div>
+                    <p class="separador-top">|</p>
+                    <div class="top-seccion">
+                        <h6 class="titulo-cant">Concluidas</h6>
+                        <p class="cant-citas concluidas">5</p>
+                    </div>
+                </div>
+
+                <div class="separador-historial">
+                    <p>_</p>
+                </div>
+
+                <div class="lista-historial">
+                    <div class="historial">
+                        <div class="formato id">
+                            <p class="p-id">1</p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>23/04/2022</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">Centro</p>
+                            <p>Farmavet</p>
+                        </div>
+                        <div id="detalleCita-btn" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="contenedorDetalle" class="contenedorDetalle">
+                <div class="detalle-contenido">
+                    <div class="part1-detalle">
+                        <div class="contenedor-info-top">
+                            <h5>Información</h5>
+                            <img src='{% static "img/informe-veterinario.png" %}' alt="">
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Fecha Cita:</p>
+                            <p>23/04/2022</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Motivo Consulta:</p>
+                            <p>Consulta General</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Nombre Mascota:</p>
+                            <p>Pelusa</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Tipo:</p>
+                            <p>Perro</p>
+                        </div>
+                    </div>
+
+                    <div class="part2-detalle">
+                        <div class="sec1-detalle">
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Atendido por:</p>
+                                <p>Enrique Ominami</p>
+                            </div>
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Centro Médico:</p>
+                                <p>Farmavet</p>
+                            </div>
+                        </div>
+                        <div class="sec2-detalle">
+                            <div class="contenedor-info cont-sec2">
+                                <p class="p-subtitulos">Tratamiento:</p>
+                                <div class="p-comentarios">
+                                    <p>No Aplica.</p>
+                                </div>
+                            </div>
+                            <div class="contenedor-info cont-sec2">
+                                <p class="p-subtitulos">Comentario del Veterinario:</p>
+                                <div class="p-comentarios">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detalle-valoracion">
+                    <div id="noValorado" class="noValorado">
+                        <h6>¿Cómo te atendió tu Veterinario?</h6>
+                        <p>Más patitas = Mejor valoración.</p>
+                        <div class="patitas-valoracion">
+                            <div><span id="voto1" class="material-symbols-outlined">pets</span>
+                                <p>1</p>
+                            </div>
+                            <div><span id="voto2" class="material-symbols-outlined">pets</span>
+                                <p>2</p>
+                            </div>
+                            <div><span id="voto3" class="material-symbols-outlined">pets</span>
+                                <p>3</p>
+                            </div>
+                            <div><span id="voto4" class="material-symbols-outlined">pets</span>
+                                <p>4</p>
+                            </div>
+                            <div><span id="voto5" class="material-symbols-outlined">pets</span>
+                                <p>5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="valorado" class="valorado">
+                        <h6>¡Gracias!</h6>
+                        <img src='{% static "img/corazon.png" %}' alt="">
+                        <p>Tu valoración ayuda a las demás personas a elegir su veterinario.</p>
+                    </div>
+
+                </div>
+
+                <div id="cerrar-detalle-btn" class="cerrar-detalle"><span class="material-symbols-outlined">arrow_back</span>
+                    <p>Regresar</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- Fin - Tab "Historial Citas" -->
+
+        <!-- Tab "Adopciones" -->
         <div class="tabMisAdopciones tabPanelCliente">
             <h3 style="text-align: center;">Adopciones</h3>
             <p>asdasd</p>
         </div>
+        <!-- Fin - Tab "Adopciones" -->
 
+        <!-- Tab "Cementerio" -->
         <div class="tabMiCementerio tabPanelCliente">
             <h3 style="text-align: center;">Cementerio</h3>
             <p>el cementerio</p>
         </div>
+        <!-- Fin - Tab "Cementerio" -->
 
+        <!-- Tab "Ayuda" -->
         <div class="tabAyuda tabPanelCliente">
             <h3 style="text-align: center;">Ayuda</h3>
             <p>la ayuda</p>
         </div>
+        <!-- Fin - Tab "Aayuda" -->
 
+        <!-- FONDO NEGRO BLUR TAPA TODA LA PANTALLA -->
+        <div id="fondoNegroBlur" class="fondoNegroBlur">
+        </div>
     </div>
+
 </div>
 
 <div class="modal fade" id="mascotaModal" tabindex="-1" aria-labelledby="mascotaModal" aria-hidden="true">
@@ -191,7 +427,7 @@
                     <div class="mb-3">
                         <label class="form-label" for="">Dueño</label>
                         <select name="dueño" id="dueño">
-                            <option value="5" selected="selected">{{user.nombres}} {{user.apellidos}}</option>
+                            <option value="{{user.id_usuario}}" selected="selected">{{user.nombres}} {{user.apellidos}}</option>
                         </select>
                     </div>
 
