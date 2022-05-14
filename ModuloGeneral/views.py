@@ -31,3 +31,5 @@ def panelcli(request):
 def panelcenvet(request):
     return render(request,'centro.html', {})
 
+def panelvet(request):
+    return render(request, 'veterinario.html', {})

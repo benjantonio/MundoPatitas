@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap');
+
+body{
+    background-image: url("../img/fondo-veterinario.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.container {
+    /* CONTAINER DE CUADRO BLANCO DE FONDO DEL DIV DE BODY */
+    
+    margin-bottom: 300px;
+    /* padding-top: 120px; */
+}
+
+.container-panelvet{
+    margin: 4rem auto 0 auto;
+    padding: 0;
+    max-width: 90%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    width: 180rem;
+    background: #ffffff;
+
+    /* OJO CON ESTE CAMBIO */
+    border-radius: 40px;
+    padding: 30px;
+}
