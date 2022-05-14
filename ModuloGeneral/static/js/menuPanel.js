@@ -88,110 +88,113 @@ yoBtn.addEventListener('click', () => {
 misMascotasBtn.addEventListener('click', () => {
     misMascotasTab.style = 'display:block;';
     yoTab.style = 'display:none;'
-    historialCitasTab.style = 'display:none;';
+
 });
 
 
 /* Botón Abrir y Cerrar Modificar Mascotas */
-if(document.querySelector(".modificar-mascota-btn")){
-    const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
-    modificarPetBtn.addEventListener('click', () => {
-        contModPet.setAttribute("style", "opacity: 1; display:block;");
-        
+if (document.querySelector(".modificar-mascota-btn")) {
+    // const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
+    const modificarPetBtns = document.querySelectorAll(".modificar-mascota-btn")
+    modificarPetBtns.forEach(modificarPetBtn => {
+        modificarPetBtn.addEventListener('click', () => {
+            contModPet.setAttribute("style", "opacity: 1; display:block;");
+        });
     });
-    
+
+
 }
 
 /* FUNCIONES */
 /* Abrir Modificar Mascota  */
 
 /* Ocultar Modificar Mascota  */
-cerrarModPetBtn.addEventListener('click', () => {
-    fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
-    contModPet.setAttribute("style", "opacity: 0; display:none;");
-});
+// cerrarModPetBtn.addEventListener('click', () => {
+//     fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
+//     contModPet.setAttribute("style", "opacity: 0; display:none;");
+// });
 
 /* Cambiar imagen tipo de mascota con botones */
-tipoPetPerroBtn.addEventListener('click', () => {
-    perfilPerroImg.setAttribute("style", "opacity: 1; display:inline; ");
-    perfilGatoImg.setAttribute("style", "opacity: 0; display:none; ");
-    perfilExoticoImg.setAttribute("style", "opacity: 0; display:none; ");
-});
+// tipoPetPerroBtn.addEventListener('click', () => {
+//     perfilPerroImg.setAttribute("style", "opacity: 1; display:inline; ");
+//     perfilGatoImg.setAttribute("style", "opacity: 0; display:none; ");
+//     perfilExoticoImg.setAttribute("style", "opacity: 0; display:none; ");
+// });
 
-tipoPetGatoBtn.addEventListener('click', () => {
-    perfilGatoImg.setAttribute("style", "opacity: 1; display:inline; ");
-    perfilPerroImg.setAttribute("style", "opacity: 0; display:none; ");
-    perfilExoticoImg.setAttribute("style", "opacity: 0; display:none; ");
-});
+// tipoPetGatoBtn.addEventListener('click', () => {
+//     perfilGatoImg.setAttribute("style", "opacity: 1; display:inline; ");
+//     perfilPerroImg.setAttribute("style", "opacity: 0; display:none; ");
+//     perfilExoticoImg.setAttribute("style", "opacity: 0; display:none; ");
+// });
 
-tipoPetExoticoBtn.addEventListener('click', () => {
-    perfilExoticoImg.setAttribute("style", "opacity: 1; display:inline; ");
-    perfilPerroImg.setAttribute("style", "opacity: o; display:none; ");
-    perfilGatoImg.setAttribute("style", "opacity: 0; display:none; ");
+// tipoPetExoticoBtn.addEventListener('click', () => {
+//     perfilExoticoImg.setAttribute("style", "opacity: 1; display:inline; ");
+//     perfilPerroImg.setAttribute("style", "opacity: o; display:none; ");
+//     perfilGatoImg.setAttribute("style", "opacity: 0; display:none; ");
 
-});
-
-
-/* ======================= HISTORIAL DE CITAS ============================*/
-
-/* Ventana "Historial Citas" */
-historialCitasBtn.addEventListener('click', () => {
-    historialCitasTab.style = 'display:block;';
-    misMascotasTab.style = 'display:none;';
-    yoTab.style = 'display:none;'
-});
+// });
 
 
+// /* ======================= HISTORIAL DE CITAS ============================*/
 
-/* FUNCIONES */
-/* Abrir detalle Cita su botón */
-detalleCitaBtn.addEventListener('click', () => {
-    fondoNegroBlur.setAttribute("style", "opacity: 1; display:block; ");
-    contDetalleCita.setAttribute("style", "opacity: 1; display:block;");
-});
+// /* Ventana "Historial Citas" */
+// historialCitasBtn.addEventListener('click', () => {
+//     historialCitasTab.style = 'display:block;';
+//     misMascotasTab.style = 'display:none;';
+//     yoTab.style = 'display:none;'
+// });
 
 
 
-/* Ocultar detalle Cita con click en botón Regresar */
-cerrarDetalleCitaBtn.addEventListener('click', () => {
-    fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
-    contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
-});
+// /* FUNCIONES */
+// /* Abrir detalle Cita su botón */
+// detalleCitaBtn.addEventListener('click', () => {
+//     fondoNegroBlur.setAttribute("style", "opacity: 1; display:block; ");
+//     contDetalleCita.setAttribute("style", "opacity: 1; display:block;");
+// });
 
-/* Valorar Veterinario en el Detalle */
-/* Valoracion = 1 */
-val1Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 2 */
-val2Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 3 */
-val3Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 4 */
-val4Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 5 */
-val5Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
+
+
+// /* Ocultar detalle Cita con click en botón Regresar */
+// cerrarDetalleCitaBtn.addEventListener('click', () => {
+//     fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
+//     contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
+// });
+
+// /* Valorar Veterinario en el Detalle */
+// /* Valoracion = 1 */
+// val1Btn.addEventListener('click', () => {
+//     ventanaNoValorado.style = 'display:none;';
+//     ventanaValorado.style = 'display:block;';
+// });
+// /* Valoracion = 2 */
+// val2Btn.addEventListener('click', () => {
+//     ventanaNoValorado.style = 'display:none;';
+//     ventanaValorado.style = 'display:block;';
+// });
+// /* Valoracion = 3 */
+// val3Btn.addEventListener('click', () => {
+//     ventanaNoValorado.style = 'display:none;';
+//     ventanaValorado.style = 'display:block;';
+// });
+// /* Valoracion = 4 */
+// val4Btn.addEventListener('click', () => {
+//     ventanaNoValorado.style = 'display:none;';
+//     ventanaValorado.style = 'display:block;';
+// });
+// /* Valoracion = 5 */
+// val5Btn.addEventListener('click', () => {
+//     ventanaNoValorado.style = 'display:none;';
+//     ventanaValorado.style = 'display:block;';
+// });
 
 
 /* Ocultar ventanas emergentes con click en FONDO NEGRO BLUR */
-fondoNegroBlur.addEventListener('click', () => {
-    fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
-    contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
-    contModPet.setAttribute("style", "opacity: 0; display:none;");
-});
+// fondoNegroBlur.addEventListener('click', () => {
+//     fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
+//     contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
+//     contModPet.setAttribute("style", "opacity: 0; display:none;");
+// });
 
 function enviarAnchoWeb() {
     let ancho = document.documentElement.clientWidth;

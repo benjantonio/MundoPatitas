@@ -1,3 +1,4 @@
+from pyexpat import model
 from django import forms
 from .models import *
 
@@ -30,3 +31,4 @@ class RegistroUsuario(forms.ModelForm):
         if commit:
             user.save()
         return user
+
