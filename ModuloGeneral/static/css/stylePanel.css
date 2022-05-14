@@ -396,8 +396,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
 /* ================== TAB MIS MASCOTAS ==================== */
 
 #tabMisMascotas {
-    display: block;
-    opacity: 1;
+    display: none;
     justify-content: center;
     transition: opacity .1s;
     will-change: opacity;
@@ -519,12 +518,42 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
+.cardMisMascotas .zona-mascotas .card-mascota .btns p{
+    cursor: pointer;
+ }
+
+ .cardMisMascotas .card-mascota .btn-eliminar {
+    background: #ee4f5d;
+    color: white;
+    padding: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
 
 /*MODIFICAR INFO MASCOTA*/
 
 .contenedorModPet {
     position: absolute;
-     }
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    top: 6%;
+    left: 14%;
+    right: 14%;
+    padding: 1.2rem;
+    overflow-y: auto;
+    margin: auto 20px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
 
 .cardMisMascotas .card-mascota-nueva .btnMas {
     display: block;
