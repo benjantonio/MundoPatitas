@@ -40,3 +40,5 @@ def agendarHora(request):
 
     return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro})
     
+def agendarVeterinario(request):
+    return render(request,'agendarVeterinario.html', {})

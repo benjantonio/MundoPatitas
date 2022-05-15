@@ -23,4 +23,4 @@ console.log(idCentro.value)
 
 /* Botones Volver / Siguiente */
 
-const menuBtnCli = document.querySelector("#menu-btncli");
+/* Funciones para botones */

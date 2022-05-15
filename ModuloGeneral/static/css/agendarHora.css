@@ -37,7 +37,7 @@ header {
     gap: 1rem;
 }
 
-.cuadrito .btnSiguiente {
+.cuadrito .btnContinuar {
     position: relative;
     display: flex;
     align-items: center;
@@ -70,14 +70,14 @@ header {
 
 /*Animacion de botones*/
 
-.cuadrito .btnSiguiente:hover {
+.cuadrito .btnContinuar:hover {
     background: #ffff;
     color: #1d1d1d;
     border: 0.1rem solid #068e53;
     transition: all 150ms ease;
 }
 
-.cuadrito .btnSiguiente .p-btn {
+.cuadrito .btnContinuar .p-btn {
     text-align: center;
     margin: 0;
     width: auto;

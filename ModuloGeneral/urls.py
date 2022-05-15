@@ -25,5 +25,6 @@ urlpatterns = [
     path('panel-cliente/', panelcli, name='panelcli'),
     path('panel-centro-vet/', panelcenvet, name='panelcentro'),
     path('agendarHora/', agendarHora, name='agendarHora'),
+    path('agendarVeterinario/', agendarVeterinario, name='agendarVeterinario'),
 
 ]

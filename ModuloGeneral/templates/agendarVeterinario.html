@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Hora / Veterinarios</title>
+    <title>Agendar Veterinario</title>
 
     <!-- LINK CSS HOME -->
     <link rel="stylesheet" type="text/css" href='{% static "css/agendarHora.css" %}'>
@@ -22,6 +24,39 @@
 </head>
 
 <body>
+
+    <br>
+
+    <nav class="menu">
+        <div class="btnVolver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <p class="p-btn">Volver</p>
+        </div>
+    </nav>
+
+
+    <br>
+
+    <section class="contenedor">
+        <div class="cuadrito">
+
+            <div class="cuadroFondo">
+                <h2>Agendar Hora</h2>
+                <h5>Ingresa los siguientes datos para buscar una hora</h5>
+                <a class="menu-logo" href="{% url 'home' %}"><img src='{% static "img/Patitas.png" %}' alt="Logo"></a>
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <script src="{% static 'js/validacion_form.js' %}"></script>
+
 
 </body>
 
