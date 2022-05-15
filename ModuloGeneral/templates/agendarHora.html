@@ -18,6 +18,8 @@
     <!--Boostrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
 </head>
 
@@ -27,8 +29,9 @@
 
     <header>
         <nav class="menu">
-            <div class="container-fluid">
+            <div class="btnVolver">
                 <span class="material-symbols-outlined">arrow_back</span>
+                <p class="p-btn">Volver</p>
             </div>
         </nav>
     </header>
@@ -37,50 +40,30 @@
 
     <section class="contenedor">
         <div class="cuadrito">
+
             <div class="cuadroFondo">
                 <h2>Agendar Hora</h2>
                 <h5>Ingresa los siguientes datos para buscar una hora</h5>
-                <a class="menu-logo" href=""><img src='{% static "img/Patitas.png" %}' alt="Logo"></a>
+                <a class="menu-logo" href="{% url 'home' %}"><img src='{% static "img/Patitas.png" %}' alt="Logo"></a>
             </div>
+
+
+
             <div class="cuadroInfo">
-                <div id="comuna" class="col">
-                    <label class="form-label" for="">Comuna</label><br>
-                    <select class="form-control" name="comuna">
-                        <option value="">Selecciona una comuna</option>
-                        <optgroup label="V Región">
-                            {% for comuna in comunaV %}
-                            <option value="{{comuna.id_comuna}}">{{comuna.nombre_comuna}}</option>
-                            {% endfor %}
-                        </optgroup>
-                        <optgroup label="Region Metropolitana">
-                            {% for comuna in comunaM %}
-                            <option value="{{comuna.id_comuna}}">{{comuna.nombre_comuna}}</option>
-                            {% endfor %}
-                        </optgroup>
-                    </select>
-                    <span class="oculto">Debe seleccionar una Opción</span>
-                </div>
-
-                <br>
-
                 <div id="centro" class="col">
-                    <label class="form-label" for="">Centro médico</label><br>
                     <select class="form-control" name="centro">
-                        <option value="">Selecciona un centro médico</option>                       
-                        <optgroup label="Centro">
-
-                            <!--AVERIGUAR COMO HACER QUE APAREZCAN LOS CENTROS MÉDICOS DE LA COMUNA SELECCIONADA-->
-                            {% if comuna == comunaV %}
+                        <option selected disabled>Selecciona un centro</option>                       
+                        <optgroup label="Centros Veterinarios disponibles"> 
                                 {% for centro in centro %}
-                                <option value="{{centro.id_usuario}}">{{centro.nombres}}</option>
+                                <option id="idCentro" value="{{centro.id_usuario}}">{{centro.nombres}}</option>
                                 {% endfor %}
-                                
-                            {% endif %}
-
-
                         </optgroup>
                     </select>
-                    <span class="oculto">Debe seleccionar una Opción</span>
+                </div>
+                <!--BOTON CONTINUAR-->
+                <div class="btnSiguiente">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                    <p class="p-btn">Continuar</p>
                 </div>
             </div>
         </div>

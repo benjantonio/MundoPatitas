@@ -120,7 +120,7 @@
                     <li><a href="#">Cementerio</a></li>
                     <li><a href="#">Foro</a></li>
                     {% if request.user.perfil_id == 2 %}
-                    <li><a href="#">Agendar Hora</a></li>
+                    <li><a href="{% url 'agendarHora' %}">Agendar Hora</a></li>
                     <li><a href="{% url 'panelcli' %}">Mi Panel</a></li>
                     {% elif request.user.perfil_id == 3 %}
                     <li><a href="{% url 'panelcentro' %}">Mi Panel</a></li>

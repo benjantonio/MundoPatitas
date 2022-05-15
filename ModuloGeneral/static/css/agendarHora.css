@@ -1,3 +1,5 @@
+/* >>>>>>>>> Joce <<<<<<<<<<*/
+
 body {
     background: url("../img/fondo.jpg");
 }
@@ -33,4 +35,63 @@ header {
     grid-template-columns: auto 50%;
     padding: 0;
     gap: 1rem;
+}
+
+.cuadrito .btnSiguiente {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #068e53;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+    cursor: pointer;
+}
+
+.btnVolver {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #068e53;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+    cursor: pointer;
+}
+
+
+/*Animacion de botones*/
+
+.cuadrito .btnSiguiente:hover {
+    background: #ffff;
+    color: #1d1d1d;
+    border: 0.1rem solid #068e53;
+    transition: all 150ms ease;
+}
+
+.cuadrito .btnSiguiente .p-btn {
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
+.btnVolver:hover {
+    background: #ffff;
+    color: #1d1d1d;
+    border: 0.1rem solid #068e53;
+    transition: all 150ms ease;
+}
+
+.btnVolver .p-btn {
+    text-align: center;
+    margin: 0;
+    width: auto;
 }

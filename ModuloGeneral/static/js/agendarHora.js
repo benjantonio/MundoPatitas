@@ -16,3 +16,11 @@ const listarComuna = (id, nombre_comuna => {
 
     }
 })
+
+let idCentro = document.getElementById("#idComuna");
+
+console.log(idCentro.value)
+
+/* Botones Volver / Siguiente */
+
+const menuBtnCli = document.querySelector("#menu-btncli");
