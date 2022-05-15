@@ -25,27 +25,37 @@
 
 <body>
 
-    <br>
-
-    <nav class="menu">
-        <div class="btnVolver">
-            <span class="material-symbols-outlined">arrow_back</span>
+    <div class="btnVolver">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <a class="btnA" href="{% url 'agendarHora' %}" style="text-decoration: none;">
             <p class="p-btn">Volver</p>
-        </div>
-    </nav>
-
+        </a>
+    </div>
 
     <br>
 
     <section class="contenedor">
         <div class="cuadrito">
 
-            <div class="cuadroFondo">
+            <div class="cuadroFondo1">
                 <h2>Agendar Hora</h2>
-                <h5>Ingresa los siguientes datos para buscar una hora</h5>
-                <a class="menu-logo" href="{% url 'home' %}"><img src='{% static "img/Patitas.png" %}' alt="Logo"></a>
+                <br>
+                <h5>Selecciona a un veterinario</h5>
+                <br>
+                <a class="menu-logo" href="{% url 'agendarHora' %}"><img src='{% static "img/Patitas.png" %}' alt="Logo"></a>
             </div>
-
+            <div class="cuadroFondo2">
+                <div id="centro" class="col formulario">
+                    <select class="form-control" name="veterinario">
+                        <option selected disabled>Selecciona un veterinario</option>                       
+                        <optgroup label="Veterinarios disponibles"> 
+                            <!--{% for centro in centro %}
+                                <option id="idCentro" value="{{centro.id_usuario}}">{{centro.nombres}}</option>
+                                {% endfor %}-->
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
 
 
         </div>

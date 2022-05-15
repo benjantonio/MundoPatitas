@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar Hora</title>
 
-    <!-- LINK CSS HOME -->
+    <!-- LINK CSS agendarHora -->
     <link rel="stylesheet" type="text/css" href='{% static "css/agendarHora.css" %}'>
 
     <!--ICONOS GOOGLE FONT-->
@@ -27,12 +27,13 @@
 
     <br>
 
-    <nav class="menu">
-        <div class="btnVolver">
-            <span class="material-symbols-outlined">arrow_back</span>
+    <div class="btnVolver">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <a class="btnA" href="{% url 'home' %}" style="text-decoration: none;">
             <p class="p-btn">Volver</p>
-        </div>
-    </nav>
+        </a>
+    </div>
+
 
 
     <br>
@@ -40,16 +41,16 @@
     <section class="contenedor">
         <div class="cuadrito">
 
-            <div class="cuadroFondo">
+            <div class="cuadroFondo1">
                 <h2>Agendar Hora</h2>
                 <h5>Ingresa los siguientes datos para buscar una hora</h5>
-                <a class="menu-logo" href="{% url 'home' %}"><img src='{% static "img/Patitas.png" %}' alt="Logo"></a>
+                <img src='{% static "img/Patitas.png" %}' alt="Logo">
             </div>
 
 
 
-            <div class="cuadroInfo">
-                <div id="centro" class="col">
+            <div class="cuadroFondo2">
+                <div class="col formulario">
                     <select class="form-control" name="centro">
                         <option selected disabled>Selecciona un centro</option>                       
                         <optgroup label="Centros Veterinarios disponibles"> 
@@ -62,7 +63,10 @@
                 <!--BOTON CONTINUAR-->
                 <div class="btnContinuar">
                     <span class="material-symbols-outlined">chevron_right</span>
-                    <p class="p-btn">Continuar</p>
+                    <a href="{% url 'agendarVeterinario' %}">
+                        <p class="p-btn">Continuar</p>
+                    </a>
+
                 </div>
             </div>
         </div>
