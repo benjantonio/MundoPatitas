@@ -72,6 +72,28 @@ header {
     cursor: pointer;
 }
 
+.cuadrito .btnContinuarApagado {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #5ac898;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+}
+
+#btnContinuar {
+    display: none;
+}
+
+.cuadrito a {
+    text-decoration: none;
+}
+
 .btnVolver {
     position: relative;
     display: flex;
@@ -91,6 +113,18 @@ header {
     color: white;
 }
 
+.cuadrito .btnContinuar .p-btn {
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
+.cuadrito .btnContinuarApagado .p-btn {
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
 
 /*Animacion de botones*/
 
@@ -99,12 +133,6 @@ header {
     color: #1d1d1d;
     border: 0.1rem solid #068e53;
     transition: all 150ms ease;
-}
-
-.cuadrito .btnContinuar .p-btn {
-    text-align: center;
-    margin: 0;
-    width: auto;
 }
 
 .btnVolver .p-btn {

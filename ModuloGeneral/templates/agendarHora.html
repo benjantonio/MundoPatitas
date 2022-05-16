@@ -51,23 +51,40 @@
 
             <div class="cuadroFondo2">
                 <div class="col formulario">
-                    <select class="form-control" name="centro">
-                        <option selected disabled>Selecciona un centro</option>                       
-                        <optgroup label="Centros Veterinarios disponibles"> 
+                    <select id="centroA" class="form-control" name="centroA">
+                        <option selected disabled>Selecciona un centro</option>
+
                                 {% for centro in centro %}
-                                <option id="idCentro" value="{{centro.id_usuario}}">{{centro.nombres}}</option>
+                                <option value="{{centro.id_usuario}}">{{centro.nombres}}</option>
                                 {% endfor %}
-                        </optgroup>
                     </select>
                 </div>
-                <!--BOTON CONTINUAR-->
-                <div class="btnContinuar">
-                    <span class="material-symbols-outlined">chevron_right</span>
-                    <a href="{% url 'agendarVeterinario' %}">
-                        <p class="p-btn">Continuar</p>
-                    </a>
 
+                <div class="col formulario">
+                    <select id="veterinario" class="form-control" name="veterinario">
+                        <option selected disabled>Selecciona un veterinario</option>
+
+                            {% for veterinario in veterinario %}
+                                <option value="{{veterinario.id_veterinario}}">{{veterinario.nombre_completo}}</option>
+                                {% endfor %}
+                    </select>
                 </div>
+
+
+                <!--BOTON CONTINUAR-->
+                <div class="btnContinuarApagado">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                    <p class="p-btn">Continuar</p>
+                </div>
+
+                <a id="btnContinuar" href="{% url 'agendarVeterinario' %}">
+                    <div class="btnContinuar">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                        <p class="p-btn">Continuar</p>
+                    </div>
+                </a>
+
+
             </div>
         </div>
 
@@ -76,7 +93,7 @@
 
 
 
-    <script src="{% static 'js/validacion_form.js' %}"></script>
+    <script src="{% static 'js/agendarHora.js' %}"></script>
 
 
 </body>
