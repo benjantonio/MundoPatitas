@@ -34,7 +34,7 @@ def panelcenvet(request):
 def agendarHora(request):
     comunaV = Comuna.objects.filter(id_region=3)
     comunaM =  Comuna.objects.filter(id_region=2)
-    centro = Usuario.objects.filter(perfil=3)
+    centro = Usuario.objects.filter(perfil=3, comuna_id = request.user.comuna_id)
     
     return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro})
     
