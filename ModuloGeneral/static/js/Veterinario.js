@@ -1,3 +1,23 @@
+window.addEventListener('load', () => {
+    obtenerVeterinarios()
+})
+
+const obtenerVeterinarios = async() => {
+    try {
+        res = await fetch(`http://localhost:3000/lista_veterinario`),
+            json = await res.json();
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+
+        console.log(json);
+
+    } catch (error) {
+        let message = err.statusText || "Ocurrio un error"
+
+    }
+}
+
+
 const agregarVeterinario = async() => {
     try {
         let options = {
@@ -80,14 +100,13 @@ const obtenerVet = async(id) => {
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
 
         console.log(json);
-        document.querySelector(".txtNombre").value = json.nombre
-        document.querySelector(".txtRaza").value = json.raza
-        document.querySelector(".txtEdad").value = json.edad
-        document.querySelector(".txtTipo").value = json.tipo
+        document.querySelector(".txtNombre").value = json.nombre_completo
+        document.querySelector(".txtCorreo").value = json.correo
+        document.querySelector(".txtCelular").value = json.celular
         document.querySelector(".txtIdCli").value = json.id_cliente_id
 
     } catch (error) {
-        let message = err.statusText || "Ocurrio un error"
+        console.log(error)
 
     }
 }

@@ -20,11 +20,9 @@
     margin-bottom: 250px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto;
-
     /* OJO CON ESTE CAMBIO */
     border-radius: 0 0 40px 40px;
     padding: 30px;
-
 }
 
 .zonas {
@@ -72,6 +70,7 @@
     background-image: url("../img/carusel2.png");
     background-size: cover;
 }
+
 
 /* FIN OJO CAMBIO */
 
@@ -153,8 +152,8 @@
     color: #4eca63;
 }
 
-.icon-historialcitas {
-    color: #ffbb55;
+.icon-addvet {
+    color: #659bd4;
 }
 
 .icon-misadopciones {
@@ -518,16 +517,17 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
-.cardMisMascotas .zona-mascotas .card-mascota .btns p{
+.cardMisMascotas .zona-mascotas .card-mascota .btns p {
     cursor: pointer;
- }
+}
 
- .cardMisMascotas .card-mascota .btn-eliminar {
+.cardMisMascotas .card-mascota .btn-eliminar {
     background: #ee4f5d;
     color: white;
     padding: 8px;
     border-radius: 20px;
     cursor: pointer;
+    border: none;
 }
 
 
@@ -555,6 +555,17 @@ aside .sidebar .a-cerrarsesion:focus:before {
     box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
 }
 
+#btnModificarVet {
+    background: #09d882;
+    color: white;
+    border-radius: 50px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
+    border: none;
+}
+
 .cardMisMascotas .card-mascota-nueva .btnMas {
     display: block;
     margin: 0px auto;
@@ -564,8 +575,6 @@ aside .sidebar .a-cerrarsesion:focus:before {
     border: none;
     border-radius: 50%;
 }
-
-
 
 .contenido-modPet {
     display: grid;
@@ -711,6 +720,54 @@ aside .sidebar .a-cerrarsesion:focus:before {
 
 
 /* ===== FIN - Tab Mis Mascotas ===== */
+
+
+/*TAB VETERINARIOS*/
+
+#tabVeterinarios {
+    display: none;
+}
+
+.tabAgregarVet {
+    /* position: absolute; */
+    display: none;
+    /* opacity: 0; */
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    /* top: 6%;
+    left: 14%;
+    right: 14%; */
+    padding: 1.5rem;
+    width: 80%;
+    overflow-y: auto;
+    margin: auto 10%;
+    margin-top: 5%;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
+
+.tabAgregarVet label {
+    margin-top: 2%;
+}
+
+.tabAgregarVet input {
+    text-align: center;
+}
+
+.tabAgregarVet button {
+    margin-top: 2%;
+    color: #ffffff;
+    background: #09d882;
+    transition: all 150ms ease;
+    border: 0.1rem solid #09d882;
+    border-radius: 50px;
+}
 
 
 /* ================== TAB HISTORIAL CITAS ==================== */
