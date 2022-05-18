@@ -136,8 +136,9 @@ class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=100)
     correo = models.CharField(max_length=50)
-    celular = models.IntegerField()
-    valoracion = models.IntegerField()
+    celular = models.IntegerField(blank=True, null=True)
+    valoracion = models.IntegerField(blank=True, null=True)
+    id_perfil = models.ForeignKey(Perfil,blank=True, null=True, on_delete=models.CASCADE)
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):

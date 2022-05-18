@@ -9,7 +9,6 @@ def home(request):
 def registro(request):
     comunaV = Comuna.objects.filter(id_region=3)
     comunaM =  Comuna.objects.filter(id_region=2)
-    perfil = Perfil.objects.exclude(descripcion="Generico")
     
     
     if request.method == 'POST':
@@ -19,7 +18,7 @@ def registro(request):
             return redirect('login')
     else:
         usuario_form = RegistroUsuario()
-    return render(request, 'registration/registro.html', {'usuario_form': usuario_form, 'comunaV': comunaV, 'comunaM':comunaM, 'perfil': perfil})
+    return render(request, 'registration/registro.html', {'usuario_form': usuario_form, 'comunaV': comunaV, 'comunaM':comunaM})
     
 
 
@@ -29,5 +28,6 @@ def panelcli(request):
     return render(request,'panelcli.html', {'mascotas': mascotas})
 
 def panelcenvet(request):
-    return render(request,'centro.html', {})
+    veterinarios = Veterinario.objects.filter(id_cliente_id = request.user.id_usuario)
+    return render(request,'centro.html', {'veterinarios': veterinarios})
 

@@ -67,9 +67,8 @@
                             <label class="form-label" for="">Tipo de Uso</label><br>
                             <select class="form-control" name="perfil">
                                 <option value="">--------</option>
-                                {% for perfil in perfil %}
-                                <option value="{{perfil.id_perfil}}">{{perfil.descripcion}}</option>
-                                {% endfor %}
+                                <option value="2">Dueño Mascota</option>
+                                <option value="3">Centro Veterinario</option>
                             </select>
                             <span class="oculto">Debe seleccionar una Opción</span>
                         </div>

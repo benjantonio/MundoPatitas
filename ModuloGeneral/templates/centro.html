@@ -101,28 +101,19 @@
                 <h3 style="text-align: center;">Mis Veterinarios</h3>
                 <!-- <p style="color: rgb(112, 112, 112); font-size: 15px;">Para poder realizar una consulta veterinaria es necesario que agregues a una mascota con la mayor cantidad de información posible.</p> -->
                 <div class="zona-mascotas">
+                    {% if veterinarios %} {% for veterinario in veterinarios %}
                     <div class="card-mascota">
-                        <img class="img-perfil-aside" src='{% static "img/gatoPelusa.jpg" %}' alt="">
-                        <h5>Pelusa</h5>
-                        <p>Gato</p>
+                        <img class="img-perfil-aside" src='{% static "img/vet.png" %}' alt="">
+                        <h5>{{veterinario.nombre_completo}}</h5>
+                        <p>{{veterinario.correo}}</p>
                         <div class="btns">
                             <p class="btn-modificar">Modificar</p>
-                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
+                            <button class="btn-eliminar" onclick="eliminarVet('{{veterinario.id_veterinario}}', '{{veterinario.nombre_completo}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
                         </div>
                     </div>
-                    <div class="card-mascota">
-                        <img class="img-perfil-aside" src='{% static "img/perroCoco.jpg" %}' alt="">
-                        <h5>Coco</h5>
-                        <p>Perro</p>
-                        <div class="btns">
-                            <p class="btn-modificar">Modificar</p>
-                            <p class="btn-eliminar"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></p>
-                        </div>
-                    </div>
-                    <div class="card-mascota-nueva">
-                        <img class="img-perfil-aside imgAddPet" src='{% static "img/addPet.jpg" %}' alt="">
-                        <img class="img-perfil-aside btnAddPet" src='{% static "img/btnAdd.png" %}' alt="">
-                    </div>
+                    {% endfor %} {% else %}
+                    <p>No tiene veterinarios registrados, favor agregar</p>
+                    {% endif %}
                 </div>
 
             </div>
@@ -133,28 +124,20 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="row">
-                    <label for="username" class="form-label">Usuario</label>
+                    <label for="nombres" class="form-label">Nombre Completo</label>
                     <input type="text" class="form-control" name="nombre" id="nombre">
                 </div>
                 <div class="row">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                <div class="row">
                     <label for="email" class="form-label">Correo</label>
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email" id="email">
                 </div>
                 <div class="row">
-                    <label for="nombres" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombres">
+                    <label for="email" class="form-label">Celular</label>
+                    <input type="number" class="form-control" name="celular" id="celular">
                 </div>
-                <div class="row">
-                    <label for="apellidos" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" name="apellidos">
-                </div>
-                <input type="text" value="1" name="comuna" style="display: none;">
-                <input type="text" value="4" name="perfil" style="display: none;">
-                <button type="button">Agregar</button>
+                <input type="text" value="{{user.id_usuario}}" id="id_cli" style="display: none;">
+                <input type="text" value="4" name="perfil" id="perfil" style="display: none;">
+                <button type="button" onclick="agregarVeterinario()">Agregar</button>
             </form>
         </div>
         <!--
@@ -177,5 +160,6 @@
 </div>
 
 <script src="{% static 'js/menuCentro.js' %}"></script>
+<script src="{% static 'js/Veterinario.js' %}"></script>
 
 {% endblock %}
