@@ -38,6 +38,13 @@ header {
     gap: 1rem;
 }
 
+.cuadrito2 {
+    display: grid;
+    color: #3b3b3b;
+    padding: 0;
+    gap: 1rem;
+}
+
 .cuadrito .cuadroFondo1 {
     background: #f6f6f9;
     height: 100%;
@@ -54,7 +61,20 @@ header {
 }
 
 .cuadrito .cuadroFondo2 .formulario {
-    margin-top: 6rem;
+    margin-top: 2rem;
+}
+
+.cuadrito2 .cuadro3 {
+    background: #f6f6f9;
+    height: 100%;
+    padding: 4rem 1rem;
+    margin: 0;
+    border-radius: 20px;
+}
+
+.cuadrito2 .cuadro3 .formulario {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .cuadrito .btnContinuar {

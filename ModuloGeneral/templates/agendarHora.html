@@ -53,31 +53,35 @@
 
 
             <div class="cuadroFondo2">
-                <div class="col formulario">
+
+                <!--SELECTOR CENTRO MEDICO VETERINARIO-->
+                <div class="form-floating col formulario">
                     <select id="centroA" class="form-control" name="centroA">
-                        <option selected disabled>Selecciona un centro</option>
+                        <option selected disabled></option>
 
                                 {% for centro in centro %}
                                 <option value="{{centro.id_usuario}}">{{centro.nombres}}</option>
                                 {% endfor %}
                     </select>
+                    <label for="floatingSelect">Selecciona un centro médico</label>
                 </div>
 
-                <div class="col formulario">
-                    <select id="veterinario" class="form-control" name="veterinario">
-                        <option selected disabled>Selecciona un veterinario</option>
-
-                             
+                <!--SELECTOR VETERINARIO-->
+                <div class="form-floating col formulario">
+                    <select disabled id="veterinario" class="form-control" name="veterinario">
+                        <option selected disabled></option>
+                        <!--Lo de aqui viene de la base de datos-->  
                     </select>
+                    <label for="floatingSelect">Selecciona un Veterinario</label>
                 </div>
 
 
-                <!--BOTON CONTINUAR-->
+                <!--BOTON CONTINUAR DESHABILITADO-->
                 <div class="btnContinuarApagado">
                     <span class="material-symbols-outlined">chevron_right</span>
                     <p class="p-btn">Continuar</p>
                 </div>
-
+                <!--BOTON CONTINUAR HABILITADO-->
                 <a id="btnContinuar" href="{% url 'agendarVeterinario' %}">
                     <div class="btnContinuar">
                         <span class="material-symbols-outlined">chevron_right</span>
@@ -85,6 +89,36 @@
                     </div>
                 </a>
 
+
+            </div>
+        </div>
+
+        <br>
+
+        <div class="cuadrito2">
+            <div class="cuadro3">
+
+                <!--SELECT MASCOTAS-->
+                <div class="form-floating col formulario2">
+                    <select id="mascota" class="form-control" name="mascota">
+                        <option selected disabled></option>
+                        {% for mascotas in mascotas %}
+                                <option value="{{mascotas.id_mascota}}">{{mascotas.nombre}}</option>
+                                {% endfor %}
+                    </select>
+                    <label for="floatingSelect">Selecciona una mascota</label>
+                </div>
+
+                <!--SELECT MOTIVO DE CONSULTA-->
+                <div class="form-floating col formulario">
+                    <select id="veterinario" class="form-control" name="veterinario">
+                        <option selected disabled></option>
+                        <option value="General">General</option>
+                        <option value="Urgencia">Urgencia</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <label for="floatingSelect">Motivo Consulta</label>
+                </div>
 
             </div>
         </div>

@@ -35,8 +35,9 @@ def agendarHora(request):
     comunaV = Comuna.objects.filter(id_region=3)
     comunaM =  Comuna.objects.filter(id_region=2)
     centro = Usuario.objects.filter(perfil=3, comuna_id = request.user.comuna_id)
+    mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
     
-    return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro})
+    return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro, 'mascotas':mascotas})
     
 def agendarVeterinario(request):
     return render(request,'agendarVeterinario.html', {})
