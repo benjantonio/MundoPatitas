@@ -32,3 +32,4 @@ class RegistroUsuario(forms.ModelForm):
             user.save()
         return user
 
+
