@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime, date
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
@@ -135,32 +136,42 @@ class Mascota(models.Model):
 class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=100)
+    tipo_atencion = models.CharField(max_length=11, default="")
     correo = models.CharField(max_length=50)
     celular = models.IntegerField()
-    valoracion = models.IntegerField()
-    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    id_centro = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombre_completo    
+        return self.nombre_completo
 
-class CitaMedica(models.Model):
+class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField(auto_now_add=True)
-    motivo_consulta = models.CharField(max_length=1000)
-    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
+    fecha = models.DateField(auto_now_add=False, auto_now=False)
+    hora = models.DateField(auto_now_add=False, auto_now=False)
+    estado = models.CharField(max_length=10, default="LIBRE")
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.fecha
 
-class ResultadoCita(models.Model):
-    id_cita = models.ForeignKey(CitaMedica, primary_key=True, on_delete=models.CASCADE)
+class CitaTomada(models.Model):
+
+    id_cita_tomada = models.AutoField(primary_key=True)
+    id_cita_disponible = models.ForeignKey(CitaDisponible, on_delete=models.CASCADE)
+    motivo_consulta = models.CharField(max_length=1000)
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
+
+
+
+class CitaConcluida(models.Model):
+    id_cita = models.ForeignKey(CitaTomada, primary_key=True, on_delete=models.CASCADE)
     # id_cita = models.OneToOneField(CitaMedica, on_delete=models.CASCADE)
-    comentario = models.CharField(max_length=500)
+    tratamiento = models.CharField(max_length=600)
+    comentario = models.CharField(max_length=1000)
+    valoracion = models.IntegerField()
 
     def __str__(self):
         return self.id_cita
-
 
 
 
