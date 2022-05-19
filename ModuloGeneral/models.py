@@ -148,7 +148,6 @@ class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
     fecha = models.DateField(auto_now_add=False, auto_now=False)
     hora = models.DateField(auto_now_add=False, auto_now=False)
-    estado = models.CharField(max_length=10, default="LIBRE")
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
     def __str__(self):
