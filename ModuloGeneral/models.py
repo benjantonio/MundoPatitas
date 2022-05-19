@@ -137,30 +137,37 @@ class Veterinario(models.Model):
     nombre_completo = models.CharField(max_length=100)
     correo = models.CharField(max_length=50)
     celular = models.IntegerField()
-    valoracion = models.IntegerField()
     id_centro = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre_completo    
 
-class CitaMedica(models.Model):
+class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField(auto_now_add=True)
-    motivo_consulta = models.CharField(max_length=1000)
-    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
+    estado = models.CharField(max_length=10)
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.fecha
 
-class ResultadoCita(models.Model):
-    id_cita = models.ForeignKey(CitaMedica, primary_key=True, on_delete=models.CASCADE)
+class CitaTomada(models.Model):
+
+    id_cita_tomada = models.AutoField(primary_key=True)
+    id_cita_disponible = models.ForeignKey(CitaDisponible, on_delete=models.CASCADE)
+    motivo_consulta = models.CharField(max_length=1000)
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
+
+
+
+class CitaConcluida(models.Model):
+    id_cita = models.ForeignKey(CitaTomada, primary_key=True, on_delete=models.CASCADE)
     # id_cita = models.OneToOneField(CitaMedica, on_delete=models.CASCADE)
-    comentario = models.CharField(max_length=500)
+    tratamiento = models.CharField(max_length=600)
+    comentario = models.CharField(max_length=1000)
+    valoracion = models.IntegerField()
 
     def __str__(self):
         return self.id_cita
-
 
 
 

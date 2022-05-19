@@ -171,3 +171,12 @@ header {
 .btnVolver:hover p {
     color: #1d1d1d;
 }
+
+
+/*PUDIN PUDIN*/
+
+@media (max-width: 1115px) {
+    .contenedor {
+        margin: 0;
+    }
+}
