@@ -112,6 +112,8 @@
                             <button class="btn-eliminar" onclick="eliminarVet('{{vet.id_veterinario}}', '{{vet.nombre_completo}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
                         </div>
                     </div>
+
+
                     {% endfor %} {% else %}
                     <p>No tiene veterinarios registrados, favor agregar</p>
                     {% endif %}
@@ -119,29 +121,6 @@
 
             </div>
         </div>
-
-        <div class="tabAgregarVet">
-            <h3 style="text-align: center;">Agregar Veterinarios</h3>
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="row">
-                    <label for="nombres" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre">
-                </div>
-                <div class="row">
-                    <label for="email" class="form-label">Correo</label>
-                    <input type="email" class="form-control" name="email" id="email">
-                </div>
-                <div class="row">
-                    <label for="email" class="form-label">Celular</label>
-                    <input type="number" class="form-control" name="celular" id="celular">
-                </div>
-                <input type="text" value="{{user.id_usuario}}" id="id_cli" style="display: none;">
-                <input type="text" value="4" name="perfil" id="perfil" style="display: none;">
-                <button type="button" onclick="agregarVeterinario()">Agregar</button>
-            </form>
-        </div>
-
         <div class="modal fade" id="modVetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -157,25 +136,54 @@
                                 <label for="floatingInput" style="color: #04bc70;">Nombre</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control txtCorreo" id="floatingInput" name="correoM">
+                                <input type="text" class="form-control txtCorreo" id="floatingInput" name="correoM">
                                 <label for="floatingInput" style="color: #04bc70;">Correo</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control txtCelular" id="floatingInput" name="celularM">
+                                <input type="tel" class="form-control txtCelular" id="floatingInput" name="celularM">
                                 <label for="floatingInput" style="color: #04bc70;">Celular</label>
                             </div>
                             <input type="text" name=" " class="txtIdCli " style="display: none;">
+                            <input type="text" name=" " class="txtIdV " style="display: none;">
                         </div>
 
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button class="btn btn-success " onclick="actualizarMascota( '{{mascota.id_mascota}}') ">Guardar</button>
+                        <button class="btn btn-success " onclick="actualizarVet() ">Guardar</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="tabAgregarVet">
+            <h3 style="text-align: center;">Agregar Veterinarios</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <label for="nombres" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre">
+                </div>
+                <div class="row">
+                    <label for="email" class="form-label">Clave</label>
+                    <input type="password" class="form-control" name="clave" id="clave">
+                </div>
+                <div class="row">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+                <div class="row">
+                    <label for="email" class="form-label">Celular</label>
+                    <input type="number" class="form-control" name="celular" id="celular">
+                </div>
+
+                <input type="text" value="{{user.id_usuario}}" id="id_cli" style="display: none;">
+                <input type="text" value="4" name="perfil" id="perfil" style="display: none;">
+                <button type="button" onclick="agregarVeterinario()">Agregar</button>
+            </form>
+        </div>
+
 
 
 

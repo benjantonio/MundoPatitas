@@ -123,6 +123,7 @@
                     <li><a href="#">Agendar Hora</a></li>
                     <li><a href="{% url 'panelcli' %}">Mi Panel</a></li>
                     {% elif request.user.perfil_id == 3 %}
+                    <li><a href="{% url 'veterinarios' %}">Veterinarios</a></li>
                     <li><a href="{% url 'panelcentro' %}">Mi Panel</a></li>
                     {% endif %}
                 </ul>
@@ -232,14 +233,17 @@
         //javascript for navigation bar effect on scroll
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="{% static 'js/validacion_form.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" type="text/javascript"></script>
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script> -->
 
     <script src="{% static 'js/planilla.js' %}"></script>
-
+    <script src="{% static 'js/validacion_form.js' %}"></script>
+    <script src="{% static 'js/datatable.js' %}"></script>
 
 
 </body>

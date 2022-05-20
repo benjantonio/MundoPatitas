@@ -30,7 +30,8 @@ const agregarVeterinario = async() => {
                     correo: document.querySelector("#email").value,
                     celular: document.querySelector("#celular").value,
                     id_perfil: document.querySelector("#perfil").value,
-                    id_cli: document.querySelector("#id_cli").value
+                    id_cli: document.querySelector("#id_cli").value,
+                    clave: document.querySelector("#clave").value,
                 })
             },
             res = await fetch("http://localhost:3000/enviar_veterinario", options),
@@ -100,11 +101,48 @@ const obtenerVet = async(id) => {
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
 
         console.log(json);
+        document.querySelector(".txtIdV").value = json.id_veterinario
         document.querySelector(".txtNombre").value = json.nombre_completo
         document.querySelector(".txtCorreo").value = json.correo
         document.querySelector(".txtCelular").value = json.celular
         document.querySelector(".txtIdCli").value = json.id_cliente_id
 
+    } catch (error) {
+        console.log(error)
+
+    }
+}
+
+const actualizarVet = async() => {
+    id = document.querySelector(".txtIdV").value;
+    try {
+        let options = {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    nombre: document.querySelector(".txtNombre").value,
+                    correo: document.querySelector(".txtCorreo").value,
+                    celular: document.querySelector(".txtCelular").value,
+                    id_cli: document.querySelector(".txtIdCli").value
+                })
+            },
+            res = await fetch(`http://localhost:3000/actualizar_veterinario/${id}`, options),
+            json = await res.json();
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+        else {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Veterinario Actualizado con Exito!!',
+                showConfirmButton: false,
+                timer: 1500
+
+            })
+            setTimeout(retrasarReload, 1500);
+        }
     } catch (error) {
         console.log(error)
 

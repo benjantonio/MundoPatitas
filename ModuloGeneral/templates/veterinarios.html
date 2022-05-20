@@ -1,0 +1,52 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+<div class="tituloVets">
+    <h1>Veterinarios <span class="username">{{user.username}}</span></h1>
+</div>
+<div class="container">
+    <table id="tablaVets" class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Contraseña</th>
+            </tr>
+        </thead>
+
+        {% for vet in veterinarios %}
+        <tbody>
+            <tr>
+                <td>{{vet.nombre_completo}}</td>
+                <td>{{vet.correo}}</td>
+                <td>
+                    <form><input type="text" value="{{vet.id_veterinario}}" class="idV" style="display: none;"><input type="password" class="passwordVet"></form>
+
+                </td>
+                <td><span class="aviso">Clave Incorrecta!!</span></td>
+                <td><button class="entrarVet"><a id="verMas" class="desahabilitado" href="{% url 'vetSelect' vet.id_veterinario %}">Ver más</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Ingrese su clave</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<script src="{% static 'js/vet.js' %}"></script>
+
+{% endblock %}

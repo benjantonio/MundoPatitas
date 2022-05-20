@@ -133,80 +133,7 @@
                         </div>
                     </div>
 
-                    <!--MODIFICAR INFO MASCOTA-->
-                    <div id="contenedorModPet" class="contenedorModPet">
-                        <h3 style="color: #424242;">Modificar mascota</h3>
-                        <div class="contenido-modPet">
-                            <div class="part1">
-                                <div class="img-pet">
-                                    <img src='{% static "img/perro-cara.png" %}' class="perfilPetPerro" alt="...">
-                                    <img src='{% static "img/gato-cara.png" %}' class="perfilPetGato" alt="...">
-                                    <img src='{% static "img/erizo-cara2.png" %}' class="perfilPetExotico" alt="...">
-                                </div>
-                                <div class="form-floating txtInpNombre mb-3">
-                                    <input type="text" class="form-control txtNombre" id="floatingInput" name="nombreM" placeholder="name@example.com">
-                                    <label for="floatingInput" style="color: #04bc70;">Nombre</label>
-                                </div>
 
-                                <!-- TITULO BOTONES TIPO DE MASCOTA -->
-                                <h5>Tipo de Mascota</h5>
-                                <div class="tipoPet">
-
-                                    <div class="tipoPerroBtn tipoMascotaBtn">
-                                        <img src='{% static "img/perro-cara.png" %}' class="imagenBtn" alt="...">
-                                        <p class="p-btn">Perro</p>
-                                    </div>
-                                    <div class="tipoGatoBtn tipoMascotaBtn">
-                                        <img src='{% static "img/gato-cara.png" %}' class="imagenBtn" alt="...">
-                                        <p class="p-btn">Gato</p>
-                                    </div>
-                                    <div class="tipoExoticoBtn tipoMascotaBtn">
-                                        <img src='{% static "img/erizo-cara2.png" %}' class="imagenBtn" alt="...">
-                                        <p class="p-btn">Exótico</p>
-                                    </div>
-                                </div>
-                                <!-- FIN BOTONES TIPO DE MASCOTA -->
-
-                            </div>
-                            <div class="part2">
-
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control txtRaza" id="floatingInput" name="razaM" placeholder="name@example.com">
-                                    <label for="floatingInput" style="color: #04bc70;">Raza</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control txtEdad" id="floatingInput" name="edadM" placeholder="name@example.com">
-                                    <label for="floatingInput" style="color: #04bc70;">Edad</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com">
-                                    <label for="floatingInput" style="color: #04bc70;">Tipo</label>
-                                </div>
-                                <input type="text" name=" " class="txtIdCli " style="display: none;">
-                            </div>
-                        </div>
-
-
-                        <br>
-
-
-                        <!-- BOTON REGRESAR     -->
-                        <div class="btnAccionMod ">
-
-                            <div id="guardar-modPet-btn " class="guardar-modPet-btn modbtn "><span class="material-symbols-outlined ">done</span>
-                                <button class="p-btn " onclick="actualizarMascota( '{{mascota.id_mascota}}') ">Guardar</button>
-                            </div>
-
-                            <div id="cerrar-modPet-btn " class="cancelar-modPet-btn modbtn "><span class="material-symbols-outlined ">close</span>
-                                <p class="p-btn ">Cancelar</p>
-                            </div>
-
-
-                        </div>
-
-
-
-                    </div>
                     <!-- -FIN MODIFICAR INFO MASCOTA -->
                     {% endfor %} {% else %}
                     <p>No tiene mascotas registradas!!</p>
@@ -221,11 +148,74 @@
             </div>
 
 
+            <!--MODIFICAR INFO MASCOTA-->
+            <div id="contenedorModPet" class="contenedorModPet">
+                <h3 style="color: #424242;">Modificar mascota</h3>
+                <div class="contenido-modPet">
+                    <div class="part1">
+                        <div class="img-pet">
+                            <img src='{% static "img/perro-cara.png" %}' class="perfilPetPerro" alt="...">
+                            <img src='{% static "img/gato-cara.png" %}' class="perfilPetGato" alt="...">
+                            <img src='{% static "img/erizo-cara2.png" %}' class="perfilPetExotico" alt="...">
+                        </div>
+                        <div class="form-floating txtInpNombre mb-3">
+                            <input type="text" class="form-control txtNombre" id="floatingInput" name="nombreM" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                        </div>
+
+                        <!-- TITULO BOTONES TIPO DE MASCOTA -->
+                        <h5>Tipo de Mascota</h5>
+                        <div class="tipoPet">
+
+                            <div class="tipoPerroBtn tipoMascotaBtn">
+                                <img src='{% static "img/perro-cara.png" %}' class="imagenBtn" alt="...">
+                                <p class="p-btn">Perro</p>
+                            </div>
+                            <div class="tipoGatoBtn tipoMascotaBtn">
+                                <img src='{% static "img/gato-cara.png" %}' class="imagenBtn" alt="...">
+                                <p class="p-btn">Gato</p>
+                            </div>
+                            <div class="tipoExoticoBtn tipoMascotaBtn">
+                                <img src='{% static "img/erizo-cara2.png" %}' class="imagenBtn" alt="...">
+                                <p class="p-btn">Exótico</p>
+                            </div>
+                        </div>
+                        <!-- FIN BOTONES TIPO DE MASCOTA -->
+
+                    </div>
+                    <div class="part2">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control txtRaza" id="floatingInput" name="razaM" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control txtEdad" id="floatingInput" name="edadM" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Edad</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com">
+                            <label for="floatingInput" style="color: #04bc70;">Tipo</label>
+                        </div>
+                        <input type="text" name=" " class="txtIdCli " style="display: none;">
+                        <input type="text" name="" class="txtIdM" style="display: none;">
+                    </div>
+                </div>
+                <br>
+                <!-- BOTON REGRESAR     -->
+                <div class="btnAccionMod ">
+                    <div id="guardar-modPet-btn " class="guardar-modPet-btn modbtn "><span class="material-symbols-outlined ">done</span>
+                        <button class="p-btn " onclick="actualizarMascota() ">Guardar</button>
+                    </div>
+                    <div id="cerrar-modPet-btn " class="cancelar-modPet-btn modbtn "><span class="material-symbols-outlined ">close</span>
+                        <p class="p-btn ">Cancelar</p>
+                    </div>
+                </div>
+            </div>
 
 
 
-
-        </div> -->
+        </div>
         <!-- Fin - Tab "Mis Mascotas " -->
 
         <!-- Tab "Historial Citas " -->

@@ -1,23 +1,3 @@
-const obtenerMascota = async(id) => {
-    try {
-        res = await fetch(`http://localhost:3000/mascota/${id}`),
-            json = await res.json();
-
-        if (!res.ok) throw { status: res.status, statusText: res.statusText }
-
-        console.log(json);
-        document.querySelector(".txtNombre").value = json.nombre
-        document.querySelector(".txtRaza").value = json.raza
-        document.querySelector(".txtEdad").value = json.edad
-        document.querySelector(".txtTipo").value = json.tipo
-        document.querySelector(".txtIdCli").value = json.id_cliente_id
-
-    } catch (error) {
-        let message = err.statusText || "Ocurrio un error"
-
-    }
-}
-
 window.addEventListener('load', () => {
     obtenerMascotas()
 })
@@ -68,7 +48,7 @@ const agregarMascota = async() => {
             setTimeout(retrasarReload, 1500);
         }
     } catch (error) {
-        let message = err.statusText || "Ocurrio un error"
+        console.log(error)
 
     }
 };
@@ -113,7 +93,29 @@ const eliminar = async(id) => {
     }
 }
 
-const actualizarMascota = async(id) => {
+const obtenerMascota = async(id) => {
+    try {
+        res = await fetch(`http://localhost:3000/mascota/${id}`),
+            json = await res.json();
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+
+        console.log(json);
+        document.querySelector(".txtIdM").value = json.id_mascota
+        document.querySelector(".txtNombre").value = json.nombre
+        document.querySelector(".txtRaza").value = json.raza
+        document.querySelector(".txtEdad").value = json.edad
+        document.querySelector(".txtTipo").value = json.tipo
+        document.querySelector(".txtIdCli").value = json.id_cliente_id
+
+    } catch (error) {
+        let message = err.statusText || "Ocurrio un error"
+
+    }
+}
+
+const actualizarMascota = async() => {
+    id = document.querySelector(".txtIdM").value
     try {
         let options = {
                 method: "PUT",
@@ -128,6 +130,7 @@ const actualizarMascota = async(id) => {
                     id_cli: document.querySelector(".txtIdCli").value
                 })
             },
+
             res = await fetch(`http://localhost:3000/actualizar_mascota/${id}`, options),
             json = await res.json();
 

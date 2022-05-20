@@ -38,7 +38,10 @@ btnMisVeterinarios.addEventListener('click', () => {
 btnAddVet.addEventListener('click', () => {
     yoTabVet.style = 'display:none';
     VeterinarioTab.style = 'display:none';
-    panModificar.style = 'display:none'
+    if (panModificar) {
+        panModificar.style = 'display:none'
+    }
+
     tabAddVet.style = 'display:block'
 })
 

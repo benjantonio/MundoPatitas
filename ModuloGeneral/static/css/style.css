@@ -477,6 +477,24 @@ html {
 /*FIN LOGIN*/
 
 
+/*VETERINARIO*/
+
+#tablaVets .entrarVet .desahabilitado {
+    pointer-events: none;
+    cursor: not-allowed;
+    text-decoration: none;
+    color: black;
+}
+
+#tablaVets .aviso {
+    color: red;
+    display: none;
+}
+
+
+/*FIN VETERINARIO*/
+
+
 /*REGISTRO*/
 
 .content-res {

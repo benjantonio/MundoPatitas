@@ -31,3 +31,15 @@ def panelcenvet(request):
     veterinarios = Veterinario.objects.filter(id_cliente_id = request.user.id_usuario)
     return render(request,'centro.html', {'veterinarios': veterinarios})
 
+def vetSelect(request, id):
+    veterinario = Veterinario.objects.filter(id_veterinario = id)
+    print(veterinario)
+    return render(request,'prueba_vet.html', {'vet': veterinario})
+
+def veterinarios(request):
+    veterinarios = Veterinario.objects.filter(id_cliente_id = request.user.id_usuario)
+
+    return render(request,'veterinarios.html', {'veterinarios': veterinarios})
+
+
+
