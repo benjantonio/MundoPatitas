@@ -144,12 +144,7 @@ class Veterinario(models.Model):
 
 class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
-<<<<<<< HEAD
-    fecha = models.DateField(auto_now_add=False, auto_now=False)
-    hora = models.TimeField(auto_now_add=False, auto_now=False)
-=======
     estado = models.CharField(max_length=10)
->>>>>>> parent of c03b534 (models)
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -169,11 +164,7 @@ class CitaConcluida(models.Model):
     # id_cita = models.OneToOneField(CitaMedica, on_delete=models.CASCADE)
     tratamiento = models.CharField(max_length=600)
     comentario = models.CharField(max_length=1000)
-<<<<<<< HEAD
-    valoracion = models.IntegerField(default=0)
-=======
     valoracion = models.IntegerField()
->>>>>>> parent of c03b534 (models)
 
     def __str__(self):
         return self.id_cita
