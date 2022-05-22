@@ -136,38 +136,33 @@ class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=100)
     correo = models.CharField(max_length=50)
-    celular = models.IntegerField()
-    id_centro = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    celular = models.IntegerField(blank=True, null=True)
+    clave = models.CharField(max_length=50,blank=True, null=True)
+    valoracion = models.IntegerField(blank=True, null=True)
+    id_perfil = models.ForeignKey(Perfil,blank=True, null=True, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre_completo    
 
-class CitaDisponible(models.Model):
+class CitaMedica(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    estado = models.CharField(max_length=10)
+    fecha = models.DateTimeField(auto_now_add=True)
+    motivo_consulta = models.CharField(max_length=1000)
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.fecha
 
-class CitaTomada(models.Model):
-
-    id_cita_tomada = models.AutoField(primary_key=True)
-    id_cita_disponible = models.ForeignKey(CitaDisponible, on_delete=models.CASCADE)
-    motivo_consulta = models.CharField(max_length=1000)
-    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
-
-
-
-class CitaConcluida(models.Model):
-    id_cita = models.ForeignKey(CitaTomada, primary_key=True, on_delete=models.CASCADE)
+class ResultadoCita(models.Model):
+    id_cita = models.ForeignKey(CitaMedica, primary_key=True, on_delete=models.CASCADE)
     # id_cita = models.OneToOneField(CitaMedica, on_delete=models.CASCADE)
-    tratamiento = models.CharField(max_length=600)
-    comentario = models.CharField(max_length=1000)
-    valoracion = models.IntegerField()
+    comentario = models.CharField(max_length=500)
 
     def __str__(self):
         return self.id_cita
+
 
 
 
