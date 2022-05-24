@@ -146,7 +146,7 @@ class Veterinario(models.Model):
 
 class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.DateField(auto_now_add=False, auto_now=False)
+    fecha = models.CharField(max_length=11)
     hora = models.CharField(max_length=5)
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
