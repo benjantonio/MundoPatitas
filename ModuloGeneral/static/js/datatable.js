@@ -1,3 +1,4 @@
-// $(document).ready(function() {
-//     $('#tablaVets').DataTable();
-// });
+$(document).ready(function() {
+    $('#tablaVets').DataTable();
+    console.log("funciona")
+});

@@ -486,8 +486,11 @@ html {
     color: black;
 }
 
-#tablaVets .aviso {
+#tablaVets #red {
     color: red;
+}
+
+#tablaVets .aviso {
     display: none;
 }
 

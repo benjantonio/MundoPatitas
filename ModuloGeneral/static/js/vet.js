@@ -9,8 +9,12 @@ window.addEventListener('load', () => {
         i.addEventListener('blur', () => {
             comprobarClaves()
         })
-    });
+    })
+
+    // $('#tablaVets').DataTable();
 })
+
+
 
 var id = document.querySelectorAll(".idV")
 var inputPAss = document.querySelectorAll(".passwordVet")
@@ -43,61 +47,10 @@ const comprobarClaves = () => {
     for (let i = 0; i < clave.length; i++) {
         if (inputPAss[i].value == clave[i]) {
             btns[i].removeAttribute("class");
-            spans[i].style = 'display:none'
+            spans[i].setAttribute("class", "aviso");
         } else {
             btns[i].setAttribute("class", "desahabilitado");
-            spans[i].style = 'display:block'
+            spans[i].removeAttribute("class");
         }
     }
 }
-
-// id.forEach(async i => {
-//     try {
-//         res = await fetch(`http://localhost:3000/veterinario/${i.value}`),
-//             json = await res.json();
-
-//         if (!res.ok) throw { status: res.status, statusText: res.statusText }
-
-
-//         var clave = []
-//         clave.push(json.clave)
-//         console.log(clave)
-
-//     } catch (error) {
-//         console.log(error)
-
-//     }
-
-// inputPAss.forEach(p => {
-//     p.addEventListener('blur', function() {
-//         var claveP = p.value
-//         console.log(claveP)
-//         id.forEach(i => {
-//             console.log("for " + clave)
-//             if (i.value == claveP) {
-//                 var boton = document.querySelector("#verMas")
-//                 boton.removeAttribute("class");
-//                 console.log("son iguales")
-//             }
-//         });
-
-//     })
-// })
-
-
-
-
-
-
-
-// document.querySelector(".passwordVet").addEventListener('blur', () => {
-//     var claveP = document.querySelector(".passwordVet").value
-//     id.forEach(i => {
-//         if (i.value == claveP) {
-//             var boton = document.querySelector("#verMas")
-//             boton.removeAttribute("class");
-//             console.log("son iguales")
-//         }
-//     });
-
-// })

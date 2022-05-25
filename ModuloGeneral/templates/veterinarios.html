@@ -21,7 +21,7 @@
                     <form><input type="text" value="{{vet.id_veterinario}}" class="idV" style="display: none;"><input type="password" class="passwordVet"></form>
 
                 </td>
-                <td><span class="aviso">Clave Incorrecta!!</span></td>
+                <td><span id="red" class="aviso">Clave Incorrecta!!</span></td>
                 <td><button class="entrarVet"><a id="verMas" class="desahabilitado" href="{% url 'vetSelect' vet.id_veterinario %}">Ver más</a></button></td>
             </tr>
             {% endfor %}
@@ -47,6 +47,11 @@
     </div>
 </div> -->
 
+<script type="text/javascript" charset="utf8" src="https:////cdn.datatables.net/v/bs4/dt-1.10.20.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
 <script src="{% static 'js/vet.js' %}"></script>
+
+
 
 {% endblock %}
