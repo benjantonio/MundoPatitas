@@ -74,27 +74,47 @@ const mostrar = (datos) => {
   let noviembre = 0;
   let diciembre = 0;
 
-/* Recorro la API con las citas del veterinario logeado */
+  /* Recorro la API con las citas del veterinario logeado */
   datos.forEach(element => {
-    if (element.fecha.slice(0,7) == "2022-05") {
-      mayo++;
-    } else if (element.fecha.slice(0,7) == "2022-04") {
+    if (element.fecha.slice(0, 7) == "2022-01") {
+      enero++;
+    } else if (element.fecha.slice(0, 7) == "2022-02") {
+      febrero++;
+    } else if (element.fecha.slice(0, 7) == "2022-03") {
+      marzo++;
+    } else if (element.fecha.slice(0, 7) == "2022-04") {
       abril++;
+    } else if (element.fecha.slice(0, 7) == "2022-05") {
+      mayo++;
+    } else if (element.fecha.slice(0, 7) == "2022-06") {
+      junio++;
+    } else if (element.fecha.slice(0, 7) == "2022-07") {
+      julio++;
+    } else if (element.fecha.slice(0,7) == "2022-08") {
+      agosto++;
+    } else if (element.fecha.slice(0,7) == "2022-09") {
+      septiembre++;
+    } else if (element.fecha.slice(0,7) == "2022-10") {
+      octubre++;
+    } else if (element.fecha.slice(0,7) == "2022-11") {
+      noviembre++;
+    } else if (element.fecha.slice(0,7) == "2022-12") {
+      diciembre++;
     }
   });
 
-    myAreaChart.data['datasets'][0].data.push(enero)
-    myAreaChart.data['datasets'][0].data.push(febrero)
-    myAreaChart.data['datasets'][0].data.push(marzo)
-    myAreaChart.data['datasets'][0].data.push(abril)
-    myAreaChart.data['datasets'][0].data.push(mayo)
-    myAreaChart.data['datasets'][0].data.push(junio)
-    myAreaChart.data['datasets'][0].data.push(julio)
-    myAreaChart.data['datasets'][0].data.push(agosto)
-    myAreaChart.data['datasets'][0].data.push(septiembre)
-    myAreaChart.data['datasets'][0].data.push(octubre)
-    myAreaChart.data['datasets'][0].data.push(noviembre)
-    myAreaChart.data['datasets'][0].data.push(diciembre)
+  myAreaChart.data['datasets'][0].data.push(enero)
+  myAreaChart.data['datasets'][0].data.push(febrero)
+  myAreaChart.data['datasets'][0].data.push(marzo)
+  myAreaChart.data['datasets'][0].data.push(abril)
+  myAreaChart.data['datasets'][0].data.push(mayo)
+  myAreaChart.data['datasets'][0].data.push(junio)
+  myAreaChart.data['datasets'][0].data.push(julio)
+  myAreaChart.data['datasets'][0].data.push(agosto)
+  myAreaChart.data['datasets'][0].data.push(septiembre)
+  myAreaChart.data['datasets'][0].data.push(octubre)
+  myAreaChart.data['datasets'][0].data.push(noviembre)
+  myAreaChart.data['datasets'][0].data.push(diciembre)
 }
 
 
