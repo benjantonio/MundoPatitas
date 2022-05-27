@@ -37,8 +37,10 @@ def panelvet(request):
 
 #### PANEL VETERINARIO ####
 def plantillaPanelVeterinario(request):
-    mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
-    return render(request, 'panelVeterinario/plantillaPanelVet.html', {'mascotas': mascotas})
+    return render(request, 'panelVeterinario/plantillaPanelVet.html',{})
+
+def panelVeterinario(request):
+    return render(request,'panelVeterinario/inicio.html',{})
 
 def moduloCrearCita(request):
     return render(request,'panelVeterinario/crear.html',{})
