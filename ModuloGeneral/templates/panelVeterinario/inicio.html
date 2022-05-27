@@ -109,36 +109,21 @@
                     <thead>
                         <tr>
                             <th>Hora</th>
-                            <th>Fecha</th>
-                            <th>Mascota</th>
-                            <th>Motivo</th>
-                            <th>Dueño</th>
+                          
                             <th>Acción</th>
                         </tr>
                     </thead>
+                    {% if citasPendientes %} {% for citaPendiente in citasPendientes %}
                     <tbody>
                         <tr>
-                            <td>14:30</td>
-                            <td>14-05-2022</td>
-                            <td>Pelusa</td>
-                            <td>General</td>
-                            <td>Benjamín Navarro</td>
+                            <td>{{citaPendiente.hora}}</td>
+                            
                             <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button
                                     style="background: #ca2424; color: white;">Cancelar</button></td>
                         </tr>
-                        <tr>
-                            <td>14:00</td>
-                            <td>22-04-2022</td>
-                            <td>Coco</td>
-                            <td>General</td>
-                            <td>Jocelyn Riquelme</td>
-                            <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button
-                                    style="background: #ca2424; color: white;">Cancelar</button></td>
-
-                        </tr>
-
                     </tbody>
-
+                    {% endfor %} {% else %}
+                    {% endif %}
                 </table>
             </div>
         </div>
