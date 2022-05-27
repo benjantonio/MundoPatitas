@@ -29,8 +29,7 @@ var myAreaChart = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          min: 0,
-          max: 30,
+
           maxTicksLimit: 12
         },
         gridLines: {
@@ -45,12 +44,7 @@ var myAreaChart = new Chart(ctx, {
 });
 
 
-/* Llamo a la API */
-let url = `http://localhost:3000/citas_concluidas/${1}`
-fetch(url)
-  .then(response => response.json())
-  .then(datos => mostrar(datos))
-  .catch(error => console.log(error))
+
 
 
 /*
@@ -59,6 +53,13 @@ const mostrar = (datos) =>{
     myAreaChart.data['datasets'][0].data.push(element.id_veterinario_id)
   }); */
 
+  var calculoFinal;
+/* Llamo a la API */
+let url = `http://localhost:3000/citas_concluidas/${1}`
+fetch(url)
+  .then(response => response.json())
+  .then(datos => mostrar(datos))
+  .catch(error => console.log(error))
 
 const mostrar = (datos) => {
   let enero = 0;
@@ -90,15 +91,15 @@ const mostrar = (datos) => {
       junio++;
     } else if (element.fecha.slice(0, 7) == "2022-07") {
       julio++;
-    } else if (element.fecha.slice(0,7) == "2022-08") {
+    } else if (element.fecha.slice(0, 7) == "2022-08") {
       agosto++;
-    } else if (element.fecha.slice(0,7) == "2022-09") {
+    } else if (element.fecha.slice(0, 7) == "2022-09") {
       septiembre++;
-    } else if (element.fecha.slice(0,7) == "2022-10") {
+    } else if (element.fecha.slice(0, 7) == "2022-10") {
       octubre++;
-    } else if (element.fecha.slice(0,7) == "2022-11") {
+    } else if (element.fecha.slice(0, 7) == "2022-11") {
       noviembre++;
-    } else if (element.fecha.slice(0,7) == "2022-12") {
+    } else if (element.fecha.slice(0, 7) == "2022-12") {
       diciembre++;
     }
   });
@@ -115,9 +116,14 @@ const mostrar = (datos) => {
   myAreaChart.data['datasets'][0].data.push(octubre)
   myAreaChart.data['datasets'][0].data.push(noviembre)
   myAreaChart.data['datasets'][0].data.push(diciembre)
+
+   update(); //actualizo el grafico
+   
 }
 
-
-
+//función para actualizar el grafico
+function update(){
+  myAreaChart.update();
+}
 
 
