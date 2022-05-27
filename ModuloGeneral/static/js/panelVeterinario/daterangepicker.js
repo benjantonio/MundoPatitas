@@ -1492,6 +1492,7 @@
                                     var fechaIngresar = start.format('YYYY-MM-DD')
                                     var horaIngresar = start.format('HH:mm')
                                     var existe = unaListaX.some(cita => cita.fecha === fechaIngresar && cita.hora === horaIngresar);
+                                    var horaActual = moment().format('DD-MM-YYYY')+' '+moment().format('LT')+' hrs. '
     
                                     ///////////////////////////////////////////////////////////////////////
                                     // POST CREAR HORA
@@ -1505,8 +1506,8 @@
                                                 body: JSON.stringify({
                                                     fecha: fechaIngresar,
                                                     hora: horaIngresar,
-                                                    id_vet: 1, // AQUI VA EL ID DEL VETERINARIO LOGEADO
-                                                    actualizacion: horaIngresar
+                                                    id_vet: 1,
+                                                    actualizacion: horaActual
                                                 })
                                             },
                                                 res = fetch(`http://localhost:3000/agregar_Cita/`, options),
