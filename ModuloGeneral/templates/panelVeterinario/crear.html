@@ -1,0 +1,93 @@
+{% extends 'panelVeterinario/plantillaPanelVet.html' %} {% load static %} {% block content %}
+<!--<link href="../../static/css/panelVeterinario/styles.css" rel="stylesheet" />-->
+<link rel="stylesheet" type="text/css" media="all" href="../../static/css/panelVeterinario/daterangepicker.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+<script type="text/JavaScript" src="https://MomentJS.com/downloads/moment-with-locales.js"></script>
+
+<script type="text/javascript" src="../../static/js/panelVeterinario/daterangepicker.js"></script>
+
+<!--Contenedor Crear Citas-->
+<div class="container">
+
+    <div class="well configurator">
+
+        <form style="text-align: center;">
+            <div class="form-group">
+                <label for="timePickerIncrement">Intervalos</label>
+                <select class="form-control" id="timePickerIncrement">
+                    <option value="10">10</option>
+                    <option value="15" selected>15</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                </select>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-2 demo">
+            <h4 style="text-align: center;">Rango de fecha</h4>
+            <center>
+                <input type="text" id="config-demo" class="form-control">
+            </center>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="../../static/js/panelVeterinario/crearHoraVeterinario.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        moment.locale('es') // idioma moment
+
+        $('.demo i').click(function () {
+            $(this).parent().find('input').click();
+        });
+
+        var options = {};
+
+        options.locale = {
+            direction: $('#rtl').is(':checked') ? 'rtl' : 'ltr',
+            format: 'DD-MM-YYYY HH:mm',
+            separator: ' - ',
+            applyLabel: 'Aceptar',
+            cancelLabel: 'Cancelar',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            firstDay: 1
+        };
+
+
+
+
+
+        $('#config-demo').daterangepicker(options, function (start, end, label) {
+
+
+        }).click();;
+
+
+
+    });
+
+    function retrasarReload() {
+        location.reload();
+    }
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% endblock %}

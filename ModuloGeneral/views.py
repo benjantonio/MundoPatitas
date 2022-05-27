@@ -38,6 +38,20 @@ def agendarHora(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
     
     return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro, 'mascotas':mascotas})
-    
-def agendarVeterinario(request):
-    return render(request,'agendarVeterinario.html', {})
+
+def panelvet(request):
+    return render(request, 'veterinario.html', {})
+
+
+#### PANEL VETERINARIO ####
+def plantillaPanelVeterinario(request):
+    return render(request, 'panelVeterinario/plantillaPanelVet.html',{})
+
+def panelVeterinario(request):
+    return render(request,'panelVeterinario/inicio.html',{})
+
+def moduloCrearCita(request):
+    return render(request,'panelVeterinario/crear.html',{})
+
+
+#### FIN PANEL VETERINARIO ####

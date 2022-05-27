@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime, date
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
@@ -133,33 +134,51 @@ class Mascota(models.Model):
 class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=100)
+    tipo_atencion = models.CharField(max_length=11, default="")
     correo = models.CharField(max_length=50)
-    celular = models.IntegerField(blank=True, null=True)
-    clave = models.CharField(max_length=50,blank=True, null=True)
-    valoracion = models.IntegerField(blank=True, null=True)
-    id_perfil = models.ForeignKey(Perfil,blank=True, null=True, on_delete=models.CASCADE)
-    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    celular = models.IntegerField()
+    id_centro = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombre_completo    
+        return self.nombre_completo
 
-class CitaMedica(models.Model):
+class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    motivo_consulta = models.CharField(max_length=1000)
-    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
-    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
+    fecha = models.CharField(max_length=11, default='')
+    hora = models.CharField(max_length=5, default='')
+    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
+    actualizacion = models.CharField(max_length=30, default='', null=False)
 
     def __str__(self):
         return self.motivo_consulta
 
-class ResultadoCita(models.Model):
-    id_cita = models.ForeignKey(CitaMedica, primary_key=True, on_delete=models.CASCADE)
-    # id_cita = models.OneToOneField(CitaMedica, on_delete=models.CASCADE)
-    comentario = models.CharField(max_length=500)
+class CitaTomada(models.Model):
+
+    id_cita = models.AutoField(primary_key=True)
+    fecha = models.CharField(max_length=11, default='')
+    hora = models.CharField(max_length=5, default='')
+    motivo_consulta = models.CharField(max_length=1000, default='')
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
+    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
+
+def __str__(self):
+        return self.fecha
+
+
+class CitaConcluida(models.Model):
+    id_cita = models.AutoField(primary_key=True)
+    fecha = models.CharField(max_length=11, default='')
+    hora = models.CharField(max_length=5, default='')
+    motivo_consulta = models.CharField(max_length=1000, default='')
+    tratamiento = models.CharField(max_length=600, default='')
+    comentario = models.CharField(max_length=1000, default='')
+    valoracion = models.IntegerField(default=0, )
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
+    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
+    
 
     def __str__(self):
         return self.id_cita
-
 
 
 
