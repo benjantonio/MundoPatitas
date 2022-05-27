@@ -1505,7 +1505,8 @@
                                                 body: JSON.stringify({
                                                     fecha: fechaIngresar,
                                                     hora: horaIngresar,
-                                                    id_vet: 1 // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                                                    id_vet: 1, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                                                    actualizacion: horaIngresar
                                                 })
                                             },
                                                 res = fetch(`http://localhost:3000/agregar_Cita/`, options),

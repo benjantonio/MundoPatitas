@@ -52,6 +52,7 @@ fetch(url)
   .then(datos => mostrar(datos))
   .catch(error => console.log(error))
 
+
 /*
 const mostrar = (datos) =>{
   datos.forEach(element => {
@@ -95,6 +96,7 @@ const mostrar = (datos) => {
     myAreaChart.data['datasets'][0].data.push(noviembre)
     myAreaChart.data['datasets'][0].data.push(diciembre)
 }
+
 
 
 

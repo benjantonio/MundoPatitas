@@ -1,130 +1,160 @@
 {% extends 'panelVeterinario/plantillaPanelVet.html' %} {% load static %} {% block content %}
 
 
-        <div class="container-fluid px-4">
-            <h1 class="mt-4">Panel Centro Veterinario</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-            <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4">
-                        <div class="card-body">MODULO CITAS</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">Acceder</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-warning text-white mb-4">
-                        <div class="card-body">ESTADISTICAS</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">Acceder</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-success text-white mb-4">
-                        <div class="card-body">MIS VALORACIONES</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">Acceder</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">MI CUENTA</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">Acceder</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Total Citas Mensuales
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Gráfico Barras
-                        </div>
-                        <div class="card-body card-valoracion">
-                            <h5>Tus Valoraciones</h5>
-                            <div class="patitas-valoracion">
-                                    <img id="huellaActiva1" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario.png" %}'/>
-                                    <img id="huellaActiva2" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario.png" %}'/>
-                                    <img id="huellaActiva3" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario.png" %}'/>
-                                    <img id="huellaActiva4" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario.png" %}'/>
-                                    <img id="huellaActiva5" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario.png" %}'/>
-                                    <img id="huellaInactiva1" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'/>
-                                    <img id="huellaInactiva2" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'/>
-                                    <img id="huellaInactiva3" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'/>
-                                    <img id="huellaInactiva4" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'/>
-                                    <img id="huellaInactiva5" class="img-huella" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'/>
-                            </div>
-                            <h6 style="margin-top: 2rem; text-align:center;"> ¡Tienes <span id="cantPatitas">0</span> patitas!</h6>
-                            <p style="text-align:center; font-size: 13px;">Nada mal pero puede ser mejor...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Contenedor Citas Pendientes-->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Citas Pendientes
-                </div>
-                <div class="card-body">
-                    <table id="example" class="table table-bordered  display nowrap" cellspacing="0"
-                        width="100%">
-                        <thead>
-                            <tr>
-                                <th>Hora</th>
-                                <th>Fecha</th>
-                                <th>Mascota</th>
-                                <th>Motivo</th>
-                                <th>Dueño</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>14:30</td>
-                                <td>14-05-2022</td>
-                                <td>Pelusa</td>
-                                <td>General</td>
-                                <td>Benjamín Navarro</td>
-                                <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button style="background: #ca2424; color: white;">Cancelar</button></td>
-                            </tr>
-                            <tr>
-                                <td>14:00</td>
-                                <td>22-04-2022</td>
-                                <td>Coco</td>
-                                <td>General</td>
-                                <td>Jocelyn Riquelme</td>
-                                <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button style="background: #ca2424; color: white;">Cancelar</button></td>
-                                
-                            </tr>
-
-                        </tbody>
-
-                    </table>
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Panel Centro Veterinario</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">MODULO CITAS</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">Acceder</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">ESTADISTICAS</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">Acceder</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">MIS VALORACIONES</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">Acceder</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">MI CUENTA</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">Acceder</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Total Citas Mensuales
+                </div>
+                <div class="card-body">
+                    <canvas id="myAreaChart" width="100%" height="40">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Gráfico Barras
+                </div>
+                <div class="card-body card-valoracion">
+                    <h5>Tus Valoraciones</h5>
+                    <div class="patitas-valoracion">
+                        <img id="huellaActiva1" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' />
+                        <img id="huellaActiva2" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' />
+                        <img id="huellaActiva3" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' />
+                        <img id="huellaActiva4" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' />
+                        <img id="huellaActiva5" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' />
+                        <img id="huellaInactiva1" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' />
+                        <img id="huellaInactiva2" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' />
+                        <img id="huellaInactiva3" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' />
+                        <img id="huellaInactiva4" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' />
+                        <img id="huellaInactiva5" class="img-huella"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' />
+                    </div>
+                    <h6 style="margin-top: 2rem; text-align:center;"> ¡Tienes <span id="cantPatitas">0</span> patitas!
+                    </h6>
+                    <p style="text-align:center; font-size: 13px;">Nada mal pero puede ser mejor...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Contenedor Citas Pendientes-->
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Citas Pendientes
+        </div>
+        <div class="card-body">
+            <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Fecha</th>
+                        <th>Mascota</th>
+                        <th>Motivo</th>
+                        <th>Dueño</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>14:30</td>
+                        <td>14-05-2022</td>
+                        <td>Pelusa</td>
+                        <td>General</td>
+                        <td>Benjamín Navarro</td>
+                        <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button
+                                style="background: #ca2424; color: white;">Cancelar</button></td>
+                    </tr>
+                    <tr>
+                        <td>14:00</td>
+                        <td>22-04-2022</td>
+                        <td>Coco</td>
+                        <td>General</td>
+                        <td>Jocelyn Riquelme</td>
+                        <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button
+                                style="background: #ca2424; color: white;">Cancelar</button></td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Configuracion Valoración Patitas -->
+<script src="../../static/js/panelVeterinario/valoracion.js"></script>
+
+<!-- Import Datatables -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+<!-- Import Datetables extension responsive -->
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<!-- Configuracion Date Tables (Citas disponibles, pendientes y concluidas) -->
+<script type="text/javascript" src="../../static/js/panelVeterinario/dateTables.js"></script>
+
+<!-- Import Gráfico Chart -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<!-- Configuracion Gráfico Chart Total citas (azúl) -->
+<script src="../../static/js/panelVeterinario/graficoTotalCitas.js"></script>
 {% endblock %}
