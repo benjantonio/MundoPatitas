@@ -146,28 +146,37 @@ class Veterinario(models.Model):
 
 class CitaDisponible(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.CharField(max_length=11)
-    hora = models.CharField(max_length=5)
-    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
+    fecha = models.CharField(max_length=11, default='')
+    hora = models.CharField(max_length=5, default='')
+    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
 
     def __str__(self):
         return self.fecha
 
 class CitaTomada(models.Model):
 
-    id_cita_tomada = models.AutoField(primary_key=True)
-    id_cita_disponible = models.ForeignKey(CitaDisponible, on_delete=models.CASCADE)
-    motivo_consulta = models.CharField(max_length=1000)
-    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
+    id_cita = models.AutoField(primary_key=True)
+    fecha = models.CharField(max_length=11, default='')
+    hora = models.CharField(max_length=5, default='')
+    motivo_consulta = models.CharField(max_length=1000, default='')
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
+    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
 
+def __str__(self):
+        return self.fecha
 
 
 class CitaConcluida(models.Model):
-    id_cita = models.ForeignKey(CitaTomada, primary_key=True, on_delete=models.CASCADE)
-    # id_cita = models.OneToOneField(CitaMedica, on_delete=models.CASCADE)
-    tratamiento = models.CharField(max_length=600)
-    comentario = models.CharField(max_length=1000)
-    valoracion = models.IntegerField(default=0)
+    id_cita = models.AutoField(primary_key=True)
+    fecha = models.CharField(max_length=11, default='')
+    hora = models.CharField(max_length=5, default='')
+    motivo_consulta = models.CharField(max_length=1000, default='')
+    tratamiento = models.CharField(max_length=600, default='')
+    comentario = models.CharField(max_length=1000, default='')
+    valoracion = models.IntegerField(default=0, )
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
+    id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
+    
 
     def __str__(self):
         return self.id_cita
