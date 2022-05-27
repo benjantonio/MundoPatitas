@@ -92,7 +92,6 @@ class Usuario(AbstractBaseUser):
 class PublicacionForo(models.Model):
     id_publicacion = models.AutoField(primary_key=True, verbose_name="Id Publicación")
     categoria = models.CharField(max_length=100, verbose_name="Categoria Publicación")
-    fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha")
     mensaje = models.CharField(max_length=1000, verbose_name="Mensaje")
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
@@ -101,14 +100,13 @@ class PublicacionForo(models.Model):
 
 class RespuestaForo(models.Model):
     id_respuesta = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField(auto_now_add=True)
     comentario = models.CharField(max_length=1000)
     valoracion = models.IntegerField()
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     id_publicacion = models.ForeignKey(PublicacionForo, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.fecha
+        return self.valoracion
 
 class PublicacionAdopcion(models.Model):
     id_publicacion = models.AutoField(primary_key=True, verbose_name="Id Publicación")
@@ -147,13 +145,12 @@ class Veterinario(models.Model):
 
 class CitaMedica(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField(auto_now_add=True)
     motivo_consulta = models.CharField(max_length=1000)
     id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.fecha
+        return self.motivo_consulta
 
 class ResultadoCita(models.Model):
     id_cita = models.ForeignKey(CitaMedica, primary_key=True, on_delete=models.CASCADE)

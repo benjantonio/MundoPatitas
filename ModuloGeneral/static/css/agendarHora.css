@@ -180,3 +180,26 @@ header {
         margin: 0;
     }
 }
+
+@media (max-width: 992px) {
+    .contenedor {
+        margin: 0;
+    }
+
+    .cuadrito{
+        display: grid;
+        grid-template-columns:40% 60%;
+    }
+
+    .cuadrito .cuadroFondo1 {
+        padding: 3rem 1rem;
+    }
+
+    .cuadrito .cuadroFondo2 {
+        margin-right: 20px;
+    }
+
+    .cuadrito .cuadroFondo1 img {
+        width: auto;
+    }
+}
