@@ -25,5 +25,7 @@ urlpatterns = [
     path('panel-cliente/', panelcli, name='panelcli'),
     path('panel-centro-vet/', panelcenvet, name='panelcentro'),
     path('panel-veterinario/', panelvet, name='panelveterinario'),
+    path('panel-veterinario/plantillaPanelVet/', plantillaPanelVeterinario, name='plantillaPanelVet'),
+    path('panel-veterinario/crear/', moduloCrearCita, name='crear'),
 
 ]
