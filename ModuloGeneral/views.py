@@ -48,7 +48,8 @@ def plantillaPanelVeterinario(request):
     return render(request, 'panelVeterinario/plantillaPanelVet.html',{})
 
 def panelVeterinario(request):
-    return render(request,'panelVeterinario/inicio.html',{})
+    citasPendientes = CitaDisponible.objects.filter(id_veterinario = 1)
+    return render(request,'panelVeterinario/inicio.html',{'citasPendientes': citasPendientes})
 
 def moduloCrearCita(request):
     return render(request,'panelVeterinario/crear.html',{})

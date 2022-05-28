@@ -1489,7 +1489,7 @@
                                 var hora = start.format('HH:mm');
                                 if (between(hora, hora_inicio, hora_final)) {
     
-                                    var fechaIngresar = start.format('YYYY-MM-DD')
+                                    var fechaIngresar = start.format('DD-MM-YYYY')
                                     var horaIngresar = start.format('HH:mm')
                                     var existe = unaListaX.some(cita => cita.fecha === fechaIngresar && cita.hora === horaIngresar);
                                     var horaActual = moment().format('DD-MM-YYYY')+' '+moment().format('LT')+' hrs. '
