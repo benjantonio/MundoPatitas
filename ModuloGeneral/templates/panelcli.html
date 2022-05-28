@@ -126,14 +126,13 @@
                         <img class="img-perfil-aside" src='{% static "img/icono-exotico.png" %}' alt=""> {% endif %}
                         <h5>{{mascota.nombre}}</h5>
                         <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
+
                         <div class="btns">
                             <button id="modificar-mascota-btn" class="modificar-mascota-btn" onclick="obtenerMascota('{{mascota.id_mascota}}')">Modificar</button>
                             <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}','{{mascota.nombre}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
-
+                            <!-- <button class="subirImg" data-bs-toggle="modal" data-bs-target="#subirImagen">Subir Imagen</button> -->
                         </div>
                     </div>
-
-
                     <!-- -FIN MODIFICAR INFO MASCOTA -->
                     {% endfor %} {% else %}
                     <p>No tiene mascotas registradas!!</p>
@@ -217,6 +216,30 @@
 
         </div>
         <!-- Fin - Tab "Mis Mascotas " -->
+
+        <!-- <div class="modal fade" id="subirImagen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" value="{{mascota.id_mascota}}">
+                            <label for="">Imagen de su mascota</label>
+                            <input type="file" name="imagen">
+                            <button type="submit">Subir Imagen</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
         <!-- Tab "Historial Citas " -->
         <div id="tabHistorialCitas ">

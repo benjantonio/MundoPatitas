@@ -1,5 +1,8 @@
+from typing import cast
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db.models.base import ModelBase
+from django.db.models.fields import NullBooleanField
 
 
 class Region(models.Model):
@@ -131,6 +134,11 @@ class Mascota(models.Model):
 
     def __str__(self):
         return f'{self.nombre},{self.tipo}'
+
+class ImagenMascota(models.Model):
+    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, blank=True, null=True)
+    id_adopcion = models.ForeignKey(PublicacionAdopcion, on_delete=models.CASCADE, blank=True, null=True)
+    imagen = models.ImageField(upload_to="mascotas", null=True)
 
 class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
