@@ -77,29 +77,29 @@ const mostrar = (datos) => {
 
   /* Recorro la API con las citas del veterinario logeado */
   datos.forEach(element => {
-    if (element.fecha.slice(0, 7) == "2022-01") {
+    if (element.fecha.slice(3) == "01-2022") {
       enero++;
-    } else if (element.fecha.slice(0, 7) == "2022-02") {
+    } else if (element.fecha.slice(3) == "02-2022") {
       febrero++;
-    } else if (element.fecha.slice(0, 7) == "2022-03") {
+    } else if (element.fecha.slice(3) == "03-2022") {
       marzo++;
-    } else if (element.fecha.slice(0, 7) == "2022-04") {
+    } else if (element.fecha.slice(3) == "04-2022") {
       abril++;
-    } else if (element.fecha.slice(0, 7) == "2022-05") {
+    } else if (element.fecha.slice(3) == "05-2022") {
       mayo++;
-    } else if (element.fecha.slice(0, 7) == "2022-06") {
+    } else if (element.fecha.slice(3) == "06-2022") {
       junio++;
-    } else if (element.fecha.slice(0, 7) == "2022-07") {
+    } else if (element.fecha.slice(3) == "07-2022") {
       julio++;
-    } else if (element.fecha.slice(0, 7) == "2022-08") {
+    } else if (element.fecha.slice(3) == "08-2022") {
       agosto++;
-    } else if (element.fecha.slice(0, 7) == "2022-09") {
+    } else if (element.fecha.slice(3) == "09-2022") {
       septiembre++;
-    } else if (element.fecha.slice(0, 7) == "2022-10") {
+    } else if (element.fecha.slice(3) == "10-2022") {
       octubre++;
-    } else if (element.fecha.slice(0, 7) == "2022-11") {
+    } else if (element.fecha.slice(3) == "11-2022") {
       noviembre++;
-    } else if (element.fecha.slice(0, 7) == "2022-12") {
+    } else if (element.fecha.slice(3) == "12-2022") {
       diciembre++;
     }
   });

@@ -12948,3 +12948,25 @@ body {
   cursor: pointer;
   font-family: 'Heebo', sans-serif;
   }
+
+  .card-tabla-pendientes{
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 1.25rem;
+      margin: 5px;
+      padding-left: 50px;
+
+  }
+
+
+  .dataTables_filter{
+    transition-duration: 500ms;
+    -webkit-transition: width 1s ease-in-out 0s, height 1s ease-in-out 0s;
+  }
+
+  @media screen and (max-width: 1199px) {
+    .dataTables_filter{
+      display: grid;
+    }
+  }

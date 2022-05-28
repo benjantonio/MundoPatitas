@@ -1,4 +1,7 @@
 {% extends 'panelVeterinario/plantillaPanelVet.html' %} {% load static %} {% block content %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+<script type="text/JavaScript" src="https://MomentJS.com/downloads/moment-with-locales.js"></script>
 
 
     <div class="container-fluid px-4">
@@ -97,7 +100,6 @@
                 </div>
             </div>
         </div>
-        <canvas id="myAreaChart" width="200%" height="40"></canvas>
         <!--Contenedor Citas Pendientes-->
         <div class="card mb-4">
             <div class="card-header">
@@ -105,24 +107,40 @@
                 Citas Pendientes
             </div>
             <div class="card-body">
+                
                 <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
+                            <th>id</th>
                             <th>Hora</th>
-                          
+                            <th>Fecha</th>
+                            <th>Motivo Consulta</th>
+                            <th>Mascota</th>
+                            <th>Dueño</th>
+                            <th>Estado</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
-                    {% if citasPendientes %} {% for citaPendiente in citasPendientes %}
-                    <tbody>
-                        <tr>
+                    {% if citasPendientes %} 
+                    <tbody >
+                        {% for citaPendiente in citasPendientes %}
+                        <tr style="text-align: center;">
+                            <td>{{citaPendiente.id_cita}}</td>
                             <td>{{citaPendiente.hora}}</td>
+                            <td>{{citaPendiente.fecha}}</td>
+                            <td>{{citaPendiente.motivo_consulta}}</td>
+                            <td>{{citaPendiente.id_mascota.nombre}}</td>
+                            <td>{{citaPendiente.id_mascota.id_cliente.nombres}} {{citaPendiente.id_mascota.id_cliente.apellidos}}</td>
+                            {% if citaPendiente.estado == 'Atrasada' %}<td style="color: #ff9100; background: #ffa1273b;">{{citaPendiente.estado}}</td>
+                            {% else %}<td style="color: #058111; background: #1fbc4621;">{{citaPendiente.estado}}</td>
+                            {% endif %}
                             
-                            <td><button style="background: rgb(63, 221, 84); color: white;">Ver</button><button
-                                    style="background: #ca2424; color: white;">Cancelar</button></td>
-                        </tr>
+                            <td style="text-align: center;"><button style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 0 8px; border: 0px; border-radius: 5px; margin-right: 3px; background: rgb(46, 181, 64); color: white;">Ver</button><button
+                                    style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 0 8px; border: 0px; border-radius: 5px; background: #ca2424; color: white;">Eliminar</button></td>
+                        </tr>{% endfor %}
                     </tbody>
-                    {% endfor %} {% else %}
+                    
+                     {% else %}
                     {% endif %}
                 </table>
             </div>
@@ -141,7 +159,7 @@
 <!-- Import Gráfico Chart -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <!-- Configuracion Gráfico Chart Total citas (azúl) -->
-<script src="../../static/js/panelVeterinario/graficoTotalCitas.js"></script>
+<script type="text/javascript" src="../../static/js/panelVeterinario/graficoTotalCitas.js"></script>
 
 
 {% endblock %}

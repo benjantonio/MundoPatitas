@@ -160,6 +160,7 @@ class CitaTomada(models.Model):
     fecha = models.CharField(max_length=11, default='')
     hora = models.CharField(max_length=5, default='')
     motivo_consulta = models.CharField(max_length=1000, default='')
+    estado = models.CharField(max_length=20, default='En Espera')
     id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
 

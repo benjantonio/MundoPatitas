@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import  *
 from .forms import RegistroUsuario
+import time
 
 def home(request):
     return render(request, 'home.html', {})
@@ -40,8 +41,8 @@ def plantillaPanelVeterinario(request):
     return render(request, 'panelVeterinario/plantillaPanelVet.html',{})
 
 def panelVeterinario(request):
-    citasPendientes = CitaDisponible.objects.filter(id_veterinario = 1)
-    return render(request,'panelVeterinario/inicio.html',{'citasPendientes': citasPendientes})
+    citasPendientes = CitaTomada.objects.filter(id_veterinario_id = 1)
+    return render(request,'panelVeterinario/inicio.html',{'citasPendientes':citasPendientes})
 
 def moduloCrearCita(request):
     return render(request,'panelVeterinario/crear.html',{})
