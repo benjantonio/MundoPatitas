@@ -127,6 +127,7 @@ class PublicacionAdopcion(models.Model):
 class Mascota(models.Model):
     id_mascota = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
+    img = models.CharField(max_length=1000, blank=True, null=True)
     tipo = models.CharField(max_length=50)
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
@@ -135,10 +136,7 @@ class Mascota(models.Model):
     def __str__(self):
         return f'{self.nombre},{self.tipo}'
 
-class ImagenMascota(models.Model):
-    id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, blank=True, null=True)
-    id_adopcion = models.ForeignKey(PublicacionAdopcion, on_delete=models.CASCADE, blank=True, null=True)
-    imagen = models.ImageField(upload_to="mascotas", null=True)
+
 
 class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)

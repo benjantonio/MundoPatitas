@@ -32,9 +32,4 @@ class RegistroUsuario(forms.ModelForm):
             user.save()
         return user
 
-class SubirImagen(forms.ModelForm):
-    class Meta:
-        model = ImagenMascota
-        fields = [
-            'imagen'
-        ]
+

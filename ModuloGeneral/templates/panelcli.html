@@ -120,17 +120,18 @@
                 <div class="zona-mascotas">
                     {% if mascotas %} {% for mascota in mascotas %}
                     <div class="card-mascota">
-                        {% if mascota.tipo == 'perro' %}
+                        <!-- {% if mascota.tipo == 'perro' %}
                         <img class="img-perfil-aside" src='{% static "img/icono-perro.png" %}' alt=""> {% elif mascota.tipo == 'gato' %}
                         <img class="img-perfil-aside" src='{% static "img/icono-gato.png" %}' alt=""> {% else %}
-                        <img class="img-perfil-aside" src='{% static "img/icono-exotico.png" %}' alt=""> {% endif %}
+                        <img class="img-perfil-aside" src='{% static "img/icono-exotico.png" %}' alt=""> {% endif %} -->
+                        <img class="img-perfil-aside" src='{{mascota.img}}' alt="">
                         <h5>{{mascota.nombre}}</h5>
                         <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
 
                         <div class="btns">
                             <button id="modificar-mascota-btn" class="modificar-mascota-btn" onclick="obtenerMascota('{{mascota.id_mascota}}')">Modificar</button>
                             <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}','{{mascota.nombre}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
-                            <!-- <button class="subirImg" data-bs-toggle="modal" data-bs-target="#subirImagen">Subir Imagen</button> -->
+
                         </div>
                     </div>
                     <!-- -FIN MODIFICAR INFO MASCOTA -->
@@ -139,13 +140,67 @@
                     {% endif %}
                     <div class="card-mascota-nueva ">
                         <img class="img-perfil-aside imgAddPet " src='{% static "img/addPet.jpg " %}' alt=" ">
-                        <button class="btnMas " data-bs-toggle="modal " data-bs-target="#mascotaModal " type="button "><img class="img-perfil-aside btnAddPet " src='{% static "img/btnAdd.png " %}' alt=" "></button>
+                        <!-- <button class="btnMas " data-bs-toggle="modal " data-bs-target="#mascotaModal " type="button "><img class="img-perfil-aside btnAddPet " src='{% static "img/btnAdd.png " %}' alt=" "></button>
+                        <button class="btnMas " data-bs-toggle="modal " data-bs-target="#mascotaModal " type="button ">MAs</button> -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Launch demo modal
+                          </button>
 
                     </div>
                 </div>
 
             </div>
 
+            <div class="modal fade " id="mascotaModal " tabindex="-1 " aria-labelledby="mascotaModal " aria-hidden="true ">
+                <div class="modal-dialog ">
+                    <div class="modal-content ">
+                        <div class="modal-header ">
+                            <h5 class="modal-title " id="exampleModalLabel ">Agregar Mascota</h5>
+                            <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
+                        </div>
+                        <div class="modal-body ">
+                            <form id="formMascota " method="post " enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3 ">
+                                    <label class="form-label ">Nombre</label>
+                                    <input type="text " id="nombre " name="nombre " class="form-control ">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label class="form-label ">Imagen</label>
+                                    <input type="file" id="imagen " name="imagen " class="form-control ">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label class="form-label " for=" ">Tipo de Mascota</label>
+                                    <select class="form-select " name="tipo " id="tipo ">
+                                        <option value="perro ">Perro</option>
+                                        <option value="gato ">Gato</option>
+                                        <option value="exotico ">Exótico</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 ">
+                                    <label class="form-label " for=" ">Raza</label>
+                                    <input type="text " class="form-control " name="raza " id="raza ">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label class="form-label " for=" ">Edad</label>
+                                    <input type="number " class="form-control " name="edad " id="edad ">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label class="form-label " for=" ">Dueño</label>
+                                    <select name="dueño " id="dueño ">
+                                        <option value="{{user.id_usuario}} " selected="selected ">{{user.nombres}} {{user.apellidos}}</option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button>
+                            <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--MODIFICAR INFO MASCOTA-->
             <div id="contenedorModPet" class="contenedorModPet">
@@ -217,29 +272,59 @@
         </div>
         <!-- Fin - Tab "Mis Mascotas " -->
 
-        <!-- <div class="modal fade" id="subirImagen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <h5 class="modal-title " id="exampleModalLabel ">Agregar Mascota</h5>
+                        <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
                     </div>
-                    <div class="modal-body">
-                        <form method="POST" enctype="multipart/form-data">
+                    <div class="modal-body ">
+                        <form id="formMascota " method="post " enctype="multipart/form-data">
                             {% csrf_token %}
-                            <input type="text" value="{{mascota.id_mascota}}">
-                            <label for="">Imagen de su mascota</label>
-                            <input type="file" name="imagen">
-                            <button type="submit">Subir Imagen</button>
+                            <div class="mb-3 ">
+                                <label class="form-label ">Nombre</label>
+                                <input type="text " id="nombre " name="nombre " class="form-control ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label ">Imagen</label>
+                                <input type="file" id="imagen " name="imagen " class="form-control ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Tipo de Mascota</label>
+                                <select class="form-select " name="tipo " id="tipo ">
+                                    <option value="perro ">Perro</option>
+                                    <option value="gato ">Gato</option>
+                                    <option value="exotico ">Exótico</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Raza</label>
+                                <input type="text " class="form-control " name="raza " id="raza ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Edad</label>
+                                <input type="number " class="form-control " name="edad " id="edad ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Dueño</label>
+                                <select name="dueño " id="dueño ">
+                                    <option value="{{user.id_usuario}} " selected="selected ">{{user.nombres}} {{user.apellidos}}</option>
+                                </select>
+                            </div>
+
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button>
+                        <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- Tab "Historial Citas " -->
         <div id="tabHistorialCitas ">
@@ -406,52 +491,9 @@
 
 </div>
 
-<div class="modal fade " id="mascotaModal " tabindex="-1 " aria-labelledby="mascotaModal " aria-hidden="true ">
-    <div class="modal-dialog ">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                <h5 class="modal-title " id="exampleModalLabel ">Agregar Mascota</h5>
-                <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
-            </div>
-            <div class="modal-body ">
-                <form id="formMascota " method="post ">
-                    {% csrf_token %}
-                    <div class="mb-3 ">
-                        <label class="form-label ">Nombre</label>
-                        <input type="text " id="nombre " name="nombre " class="form-control ">
-                    </div>
-                    <div class="mb-3 ">
-                        <label class="form-label " for=" ">Tipo de Mascota</label>
-                        <select class="form-select " name="tipo " id="tipo ">
-                            <option value="perro ">Perro</option>
-                            <option value="gato ">Gato</option>
-                            <option value="exotico ">Exótico</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 ">
-                        <label class="form-label " for=" ">Raza</label>
-                        <input type="text " class="form-control " name="raza " id="raza ">
-                    </div>
-                    <div class="mb-3 ">
-                        <label class="form-label " for=" ">Edad</label>
-                        <input type="number " class="form-control " name="edad " id="edad ">
-                    </div>
-                    <div class="mb-3 ">
-                        <label class="form-label " for=" ">Dueño</label>
-                        <select name="dueño " id="dueño ">
-                            <option value="{{user.id_usuario}} " selected="selected ">{{user.nombres}} {{user.apellidos}}</option>
-                        </select>
-                    </div>
 
-                </form>
-            </div>
-            <div class="modal-footer ">
-                <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button>
-                <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 
 
 <script src="{% static 'js/menuPanel.js' %} "></script>

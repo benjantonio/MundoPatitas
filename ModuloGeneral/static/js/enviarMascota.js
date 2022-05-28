@@ -22,14 +22,15 @@ const agregarMascota = async() => {
         let options = {
                 method: "POST",
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "multipart/form-data"
                 },
                 body: JSON.stringify({
                     nombre: document.querySelector("#nombre").value,
                     tipo: document.querySelector("#tipo").value,
                     raza: document.querySelector("#raza").value,
                     edad: document.querySelector("#edad").value,
-                    id_cli: document.querySelector("#dueño").value
+                    id_cli: document.querySelector("#id_cli").value,
+                    url: document.querySelector("#imagen").value,
                 })
             },
             res = await fetch("http://localhost:3000/enviar_mascota", options),

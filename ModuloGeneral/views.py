@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import  *
-from .forms import RegistroUsuario, SubirImagen
+from .forms import RegistroUsuario
 
 def home(request):
     return render(request, 'home.html', {})
@@ -25,15 +25,9 @@ def registro(request):
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
     
-    if request.method == 'POST':
-        imagen_form = SubirImagen(request.POST)
-        if imagen_form.is_valid():
-            imagen_form.save()
-            return redirect('home')
-    else:
-        imagen_form = SubirImagen()
+    
 
-    return render(request,'panelcli.html', {'mascotas': mascotas, 'form': imagen_form})
+    return render(request,'panelcli.html', {'mascotas': mascotas})
 
 def panelcenvet(request):
     veterinarios = Veterinario.objects.filter(id_cliente_id = request.user.id_usuario)
