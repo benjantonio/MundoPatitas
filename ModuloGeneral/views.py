@@ -41,7 +41,7 @@ def plantillaPanelVeterinario(request):
     return render(request, 'panelVeterinario/plantillaPanelVet.html',{})
 
 def panelVeterinario(request):
-    citasPendientes = CitaTomada.objects.filter(id_veterinario_id = 1)
+    citasPendientes = CitaTomada.objects.order_by('fecha', 'hora').filter(id_veterinario_id = 1)
     return render(request,'panelVeterinario/inicio.html',{'citasPendientes':citasPendientes})
 
 def moduloCrearCita(request):

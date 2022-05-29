@@ -12968,5 +12968,6 @@ body {
   @media screen and (max-width: 1199px) {
     .dataTables_filter{
       display: grid;
+      grid-template-columns: auto;
     }
   }

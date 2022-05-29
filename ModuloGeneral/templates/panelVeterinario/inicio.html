@@ -111,7 +111,7 @@
                 <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
                     <thead>
                         <tr style="text-align: center;">
-                            <th>id</th>
+                            <th>Id</th>
                             <th>Hora</th>
                             <th>Fecha</th>
                             <th>Motivo Consulta</th>
@@ -131,12 +131,12 @@
                             <td>{{citaPendiente.motivo_consulta}}</td>
                             <td>{{citaPendiente.id_mascota.nombre}}</td>
                             <td>{{citaPendiente.id_mascota.id_cliente.nombres}} {{citaPendiente.id_mascota.id_cliente.apellidos}}</td>
-                            {% if citaPendiente.estado == 'Atrasada' %}<td style="color: #ff9100; background: #ffa1273b;">{{citaPendiente.estado}}</td>
-                            {% else %}<td style="color: #058111; background: #1fbc4621;">{{citaPendiente.estado}}</td>
+                            {% if citaPendiente.estado == 'Atrasada' %}<td style="color: #ff8827; background: #ffa1273b;">{{citaPendiente.estado}}</td>
+                            {% else %}<td style="color: #0ac175; background: #09d88218;">{{citaPendiente.estado}}</td>
                             {% endif %}
                             
-                            <td style="text-align: center;"><button style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 0 8px; border: 0px; border-radius: 5px; margin-right: 3px; background: rgb(46, 181, 64); color: white;">Ver</button><button
-                                    style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 0 8px; border: 0px; border-radius: 5px; background: #ca2424; color: white;">Eliminar</button></td>
+                            <td style="text-align: center;"><button style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; margin-right: 3px; background: #09d882; color: white;">Ver</button>
+                                <button onclick="eliminarCita('{{citaPendiente.id_cita}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}')" style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; background: #FF3333; color: white;">Eliminar</button></td>
                         </tr>{% endfor %}
                     </tbody>
                     
@@ -161,5 +161,7 @@
 <!-- Configuracion Gráfico Chart Total citas (azúl) -->
 <script type="text/javascript" src="../../static/js/panelVeterinario/graficoTotalCitas.js"></script>
 
+<!-- Alertas SWAL ALERT 2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 {% endblock %}
