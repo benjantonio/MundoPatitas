@@ -58,13 +58,52 @@
                 <div class="form-floating col formulario">
                     <select id="centroA" class="form-control" name="centroA">
                         <option selected disabled></option>
-
+                        <optgroup label="V Región">
+                          
+                            {% for comuna in comunaV %}
                                 {% for centro in centro %}
-                                <option value="{{centro.id_usuario}}">{{centro.nombres}}</option>
-                                {% endfor %}
+                                    {% if centro.comuna_id == comuna.id_comuna %}
+
+                                        <optgroup style="color: rgb(88, 88, 88); font-weight: bolder; font-size: 15px;" label="&nbsp;&nbsp;&nbsp;{{comuna.nombre_comuna}}">
+                                            {% if centro %} 
+
+                                                    {% if centro.comuna_id == comuna.id_comuna %}
+                                                        <option value="{{centro.id_usuario}}">&nbsp;&nbsp;&nbsp; {{centro.nombres}} </option>
+                                                    {% endif %}
+                                                
+                                            {% endif %}
+                                        </optgroup>
+                                        
+                                    {% endif %}
+                                {% endfor %}                              
+                            {% endfor %}
+                            
+                        </optgroup>
+
+                        <optgroup label="Metropolitana">
+                            {% for comuna in comunaM %}
+                                {% for centro in centro %}
+                                    {% if centro.comuna_id == comuna.id_comuna %}
+
+                                        <optgroup style="color: rgb(88, 88, 88); font-weight: bolder; font-size: 15px;" 
+                                        label="&nbsp;&nbsp;&nbsp;{{comuna.nombre_comuna}}">
+                                            {% if centro %} 
+
+                                                    {% if centro.comuna_id == comuna.id_comuna %}
+                                                        <option value="{{centro.id_usuario}}">&nbsp;&nbsp;&nbsp; {{centro.nombres}} </option>
+                                                    {% endif %}
+                                                
+                                            {% endif %}
+                                        </optgroup>
+                                        
+                                    {% endif %}
+                                {% endfor %}                              
+                            {% endfor %}
+                        </optgroup>
                     </select>
-                    <label for="floatingSelect">Selecciona un centro médico</label>
+                    <label for="floatingSelect">Selecciona un centro veterinario</label>
                 </div>
+
 
                 <!--SELECTOR VETERINARIO-->
                 <div class="form-floating col formulario">
@@ -79,13 +118,13 @@
                 <!--BOTON CONTINUAR DESHABILITADO-->
                 <div class="btnContinuarApagado">
                     <span class="material-symbols-outlined">chevron_right</span>
-                    <p class="p-btn">Continuar</p>
+                    <p class="p-btn">Buscar Hora</p>
                 </div>
                 <!--BOTON CONTINUAR HABILITADO-->
-                <a id="btnContinuar" href="{% url 'agendarVeterinario' %}">
+                <a id="btnContinuar">
                     <div class="btnContinuar">
                         <span class="material-symbols-outlined">chevron_right</span>
-                        <p class="p-btn">Continuar</p>
+                        <p class="p-btn">Buscar Hora</p>
                     </div>
                 </a>
 
@@ -132,5 +171,9 @@
 
 
 </body>
+<!--<optgroup label="&nbsp;&nbsp;&nbsp;mmmm">
+    <option value="">&nbsp;&nbsp;&nbsp;Nombre centro</option>
+</optgroup>-->
+
 
 </html>

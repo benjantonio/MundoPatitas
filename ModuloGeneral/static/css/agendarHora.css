@@ -39,7 +39,7 @@ header {
 }
 
 .cuadrito2 {
-    display: grid;
+    display: none;
     color: #3b3b3b;
     padding: 0;
     gap: 1rem;
@@ -84,7 +84,7 @@ header {
     vertical-align: middle;
     color: #ffffff;
     background: #068e53;
-    width: 7rem;
+    width: 8rem;
     height: 2.5rem;
     border-radius: 50px;
     padding-left: 6px;
@@ -99,7 +99,7 @@ header {
     vertical-align: middle;
     color: #ffffff;
     background: #5ac898;
-    width: 7rem;
+    width: 8rem;
     height: 2.5rem;
     border-radius: 50px;
     padding-left: 6px;

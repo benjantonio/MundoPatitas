@@ -1,11 +1,14 @@
+var comuna = document.getElementById("comuna");
 var centros = document.getElementById("centroA");
 var veterinarios = document.getElementById("veterinario")
 var btnContinuarApagado = document.querySelector(".btnContinuarApagado");
 var btnContinuar = document.querySelector("#btnContinuar");
+var mostrarcuadrito = document.querySelector(".cuadrito2");
 
 let idCentroSelect;
+let idComunaSelect;
 
-
+/*
 $(document).ready(function() {
     if (centros.length == 1) {
         centros.options[0].text = "¡Oh!, Aún no hay centros en tu comuna.";
@@ -14,19 +17,23 @@ $(document).ready(function() {
         centros.options[0].setAttribute("style", "display: none; ");
     }
 });
-
+*/
 
 centros.addEventListener('change', () => {
 
+     console.log(centros.value);
+     
     idCentroSelect = centros.value;
     veterinarios.disabled = false;
+    
 
     btnContinuar.setAttribute("style", "display:block; ");
     btnContinuarApagado.setAttribute("style", "display:none; ");
 
 
-    /* FUNCIONES CON AJAX:
-    Llamar a los veteriarios segun centro médico*/
+    /* FUNCIONES CON AJAX*/
+
+    /*Llamar a los veteriarios segun centro médico*/
     $(function() {
         $.ajax({
             type: 'GET',
@@ -43,4 +50,16 @@ centros.addEventListener('change', () => {
             }
         })
     })
+
+    function mostrarcuadrito2(){
+        mostrarcuadrito.setAttribute("style", "display:block; ");
+        console.log("se esta mostrando la funcion btnContinuar")
+    }
+    
+    btnContinuar.addEventListener('click', () =>{
+        mostrarcuadrito2();
+    })
+    
+
+
 });
