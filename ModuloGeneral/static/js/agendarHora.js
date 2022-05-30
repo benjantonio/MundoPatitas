@@ -16,11 +16,6 @@ centros.addEventListener('change', () => {
 
     idCentroSelect = centros.value;
     veterinarios.disabled = false;
-    
-
-    btnContinuar.setAttribute("style", "display:flex; ");
-    btnContinuarApagado.setAttribute("style", "display:none; ");
-
 
     function limpiarSelectVeterinarios(){ 
     const elements = document.getElementById("veterinario").getElementsByTagName("option");
@@ -51,18 +46,24 @@ centros.addEventListener('change', () => {
 
                 if( response.length == 0){
                     $('#veterinario').append("<option value='sinVet'>" + "No existen veterinarios" + "</option>")
+                    
+                    btnContinuar.setAttribute("style", "display:none; ");
+                    btnContinuarApagado.setAttribute("style", "display:flex; ");
+
+                    mostrarcuadrito.setAttribute("style", "display:none; ");
+
+                }else{
+                    btnContinuar.setAttribute("style", "display:flex; ");
+                    btnContinuarApagado.setAttribute("style", "display:none; ");
                 }
             }
         })
     })
 
-    function mostrarcuadrito2(){
-        mostrarcuadrito.setAttribute("style", "display:block; ");
-        console.log("se esta mostrando la funcion btnContinuar")
-    }
+    
     
     btnContinuar.addEventListener('click', () =>{
-        mostrarcuadrito2();
+        mostrarcuadrito.setAttribute("style", "display:block; ");
     })
     
 
