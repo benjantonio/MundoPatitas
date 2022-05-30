@@ -79,7 +79,7 @@ header {
 
 .cuadrito .btnContinuar {
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     vertical-align: middle;
     color: #ffffff;
@@ -106,9 +106,7 @@ header {
     margin: 16px auto 16px auto;
 }
 
-#btnContinuar {
-    display: none;
-}
+
 
 .cuadrito a {
     text-decoration: none;

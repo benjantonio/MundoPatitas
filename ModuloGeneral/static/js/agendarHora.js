@@ -2,38 +2,36 @@ var comuna = document.getElementById("comuna");
 var centros = document.getElementById("centroA");
 var veterinarios = document.getElementById("veterinario")
 var btnContinuarApagado = document.querySelector(".btnContinuarApagado");
-var btnContinuar = document.querySelector("#btnContinuar");
+var btnContinuar = document.querySelector(".btnContinuar");
 var mostrarcuadrito = document.querySelector(".cuadrito2");
 
 let idCentroSelect;
 let idComunaSelect;
 
-/*
-$(document).ready(function() {
-    if (centros.length == 1) {
-        centros.options[0].text = "¡Oh!, Aún no hay centros en tu comuna.";
-        veterinarios.options[0].text = "Sin Veterinarios.";
-    } else {
-        centros.options[0].setAttribute("style", "display: none; ");
-    }
-});
-*/
+
+
+
 
 centros.addEventListener('change', () => {
 
-     console.log(centros.value);
-     
     idCentroSelect = centros.value;
     veterinarios.disabled = false;
     
 
-    btnContinuar.setAttribute("style", "display:block; ");
+    btnContinuar.setAttribute("style", "display:flex; ");
     btnContinuarApagado.setAttribute("style", "display:none; ");
 
 
+    function limpiarSelectVeterinarios(){ 
+    const elements = document.getElementById("veterinario").getElementsByTagName("option");
+        while(elements.length > 0){
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    }
+
     /* FUNCIONES CON AJAX*/
 
-    /*Llamar a los veteriarios segun centro médico*/
+    /*Llamar a los veterinarios segun centro médico*/
     $(function() {
         $.ajax({
             type: 'GET',
@@ -44,9 +42,16 @@ centros.addEventListener('change', () => {
                         veterinarios.remove(i)
                     }
                 }
+
+                limpiarSelectVeterinarios();
+
                 $.each(response, function(indice, fila) {
                     $('#veterinario').append("<option value='" + fila.id_veterinario + "'>" + fila.nombre_completo + "</option>")
                 });
+
+                if( response.length == 0){
+                    $('#veterinario').append("<option value='sinVet'>" + "No existen veterinarios" + "</option>")
+                }
             }
         })
     })
