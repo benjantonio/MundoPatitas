@@ -178,9 +178,47 @@ const eliminar = async(id) => {
     }
 }
 
+/* ========== FUNCION VER CITA ============= */
 
+/* TEXTOS VER CITA */
+const ultimaCitaConcluida = document.querySelector('.ultimaCitaConcluida')
 
+/* VENTANA VER CITA */
+const fondoNegroBlur = document.querySelector("#fondoNegroBlur") /* fondo oscuro transparente */
+const contenedorVerCita = document.querySelector(".contenedorDetalle") /* fondo oscuro transparente */
 
+function cambiarUltimaCita(id_cliente, id_veterinario){
+    $(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: `http://localhost:3000/ultima_cita_concluida/${id_veterinario}/${id_cliente}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                    success: function (response) {
+                        var ultimaCita = null;
+                        ultimaCita = response[0].fecha+' '+response[0].hora+'hrs'
+                        if(ultimaCita != null){
+                            ultimaCitaConcluida.innerHTML = ultimaCita;
+                        }
+                    }
+                })
+            });
+}
+
+function verCita(id_cliente, id_veterinario){
+    /* TEXTOS */
+    cambiarUltimaCita(id_cliente, id_veterinario);
+
+    /* VENTANA */
+    fondoNegroBlur.setAttribute("style", "opacity: 1; display:block;");
+    contenedorVerCita.setAttribute("style", "opacity: 1; display:block;");
+}
+
+/* Ocultar ventanas emergentes con click en FONDO NEGRO BLUR */
+fondoNegroBlur.addEventListener('click', () => {
+    fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
+    contenedorVerCita.setAttribute("style", "opacity: 0; display:none;");
+});
+
+/* ============= FIN ============= */
 
 
 

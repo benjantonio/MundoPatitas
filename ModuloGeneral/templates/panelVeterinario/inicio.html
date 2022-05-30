@@ -4,6 +4,7 @@
 <script type="text/JavaScript" src="https://MomentJS.com/downloads/moment-with-locales.js"></script>
 
 
+
     <div class="container-fluid px-4">
         <h1 class="mt-4">Panel Centro Veterinario</h1>
         <ol class="breadcrumb mb-4">
@@ -111,7 +112,7 @@
                 <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
                     <thead>
                         <tr style="text-align: center;">
-                            <th>Id</th>
+                            <th style="color:#7e7e7e;">Id</th>
                             <th>Hora</th>
                             <th>Fecha</th>
                             <th>Motivo Consulta</th>
@@ -121,11 +122,11 @@
                             <th>Acción</th>
                         </tr>
                     </thead>
-                    {% if citasPendientes %} 
+                    {% if citasPendientes %}
                     <tbody >
                         {% for citaPendiente in citasPendientes %}
                         <tr style="text-align: center;">
-                            <td>{{citaPendiente.id_cita}}</td>
+                            <td style="color:#ababab;">{{citaPendiente.id_cita}}</td>
                             <td>{{citaPendiente.hora}}</td>
                             <td>{{citaPendiente.fecha}}</td>
                             <td>{{citaPendiente.motivo_consulta}}</td>
@@ -135,8 +136,10 @@
                             {% else %}<td style="color: #0ac175; background: #09d88218;">{{citaPendiente.estado}}</td>
                             {% endif %}
                             
-                            <td style="text-align: center;"><button style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; margin-right: 3px; background: #09d882; color: white;">Ver</button>
-                                <button onclick="eliminarCita('{{citaPendiente.id_cita}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}')" style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; background: #FF3333; color: white;">Eliminar</button></td>
+                            <td style="text-align: center;">
+                                <button onclick="verCita('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_veterinario_id}}')" style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; margin-right: 3px; background: #09d882; color: white;">Ver</button>
+                                <button onclick="eliminarCita('{{citaPendiente.id_cita}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}')" style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; background: #FF3333; color: white;">Eliminar</button>
+                            </td>
                         </tr>{% endfor %}
                     </tbody>
                     
@@ -144,8 +147,99 @@
                     {% endif %}
                 </table>
             </div>
+
+
+
+
+            <div id="contenedorDetalle" class="contenedorDetalle">
+                <div class="detalle-contenido">
+                    <div class="part1-detalle">
+                        <div class="contenedor-info-top">
+                            <h5>Información</h5>
+                            <img src='{% static "img/informe-veterinario.png" %}' alt="">
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Fecha Cita:</p>
+                            <p class="fechaCitaPendiente">23/04/2022</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Motivo Consulta:</p>
+                            <p class="motivoConsultaPendiente">Consulta General</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Nombre Dueño:</p>
+                            <p class="nombreMascotaPendiente">Pelusa</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Contacto:</p>
+                            <p class="tipoMascotaPendiente">9182829</p>
+                        </div>
+                        <div class="contenedor-info">
+                            <p class="p-subtitulos">Última Cita:</p>
+                            <p class="ultimaCitaConcluida">Primera vez que viene</p>
+                        </div>
+                    </div>
+
+                    <div class="part2-detalle">
+                        <div class="sec1-detalle">
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Nombre Mascota:</p>
+                                <p class="nombreMascotaPendiente">Pelusa</p>
+                            </div>
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Tipo:</p>
+                                <p class="tipoMascotaPendiente">Perro</p>
+                            </div>
+                            <div class="contenedor-info">
+                                <p class="p-subtitulos">Raza:</p>
+                                <p class="razaMascotaPendiente">Quiltro</p>
+                            </div>
+                        </div>
+                        <div class="sec2-detalle">
+                            <div class="contenedor-info cont-sec2">
+                                <p class="p-subtitulos">Tratamiento:</p>
+                                <div class="p-comentarios">
+                                    <p class="tratamientoPendiente">Debes iniciar la consulta para escribir un tratamiento.</p>
+                                </div>
+                            </div>
+                            <div class="contenedor-info cont-sec2">
+                                <p class="p-subtitulos">Comentario del Veterinario:</p>
+                                <div class="p-comentarios">
+                                    <p class="comentarioPendiente">Debes iniciar la consulta para escribir un comentario.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion-iniciar">
+                    
+                    <div id="contenido-iniciar" class="contenido-iniciar">
+                        <h6 style="margin-top:20px;">¿Desea comenzar con la Cita?</h6>
+                        <p>Si tu cliente ha llegado presione el botón <span style="color: #09c577; font-weight:500; font-size: 18px;">Iniciar</span></p>
+
+                        <div id="comenzar-pendiente-btn" class="comenzar-pendiente-btn">
+                            <span class="material-symbols-outlined">play_circle</span>
+                            <p>Iniciar</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+
+                
+
+            </div>
+
+
+
+
         </div>
     </div>
+    
+    <div id="fondoNegroBlur" class="fondoNegroBlur"></div>
+
 <!-- Configuracion Valoración Patitas -->
 <script src="../../static/js/panelVeterinario/valoracion.js"></script>
 
