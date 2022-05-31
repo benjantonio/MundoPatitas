@@ -96,24 +96,24 @@
   max-height: 90%;
 }
 
-.comenzar-pendiente-btn {
+.comenzar-pendiente-btn, .finalizar-cita-btn {
   position: relative;
   display: flex;
   align-items: center;
   vertical-align: middle;
   color: #ffffff;
   background: #09d882;
-  width: 7.8rem;
+  width: 8.4rem;
   height: 4rem;
   border-radius: 50px;
   justify-content: center;
-  margin: 16px auto auto auto;
+  margin: 10px auto auto auto;
   cursor: pointer;
   border: 0.1rem solid #ffffff00;
   transition: all 150ms ease;
 }
 
-.comenzar-pendiente-btn:hover {
+.comenzar-pendiente-btn:hover, .finalizar-cita-btn:hover  {
   width: 14rem;
   color: #09d882;
   background: #ffffff;
@@ -122,7 +122,7 @@
 }
 
 
-.comenzar-pendiente-btn p {
+.comenzar-pendiente-btn p, .finalizar-cita-btn p{
   text-align: center;
   width: auto;
   margin: 0 0 3px 4px;
@@ -131,6 +131,52 @@
 
 }
 
+.contenidoIniciando{
+  display: none;
+  opacity: 0;
+}
+
+.contenidoEnMarcha{
+  display: none;
+  opacity: 0;
+}
+
+.cancelar-cita-btn{
+  position: relative;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  color: #d82929;
+  background: rgba(0, 0, 0, 0);
+  width: 7rem;
+  height: 2rem;
+  border-radius: 50px;
+  justify-content: center;
+  margin: auto auto auto auto;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  border: 0.1rem solid #ffffff00;
+  transition: all 150ms ease;
+}
+
+.cancelar-cita-btn:hover  {
+  color: #ffffff;
+  background: #d82929;
+  transition: all 150ms ease;
+  border: 0.1rem solid #d82929;
+}
+
+.cancelar-cita-btn p{
+  text-align: center;
+  width: auto;
+  margin: 0 0 3px 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.crono_wrapper{
+  margin-top: 1.7rem;
+}
 
 .detalle-contenido {
   display: grid;
@@ -164,6 +210,15 @@
   margin: 30px 0;
 }
 
+
+.detalle-contenido .primer-contenedor-info{
+  margin-top: 10px;
+}
+
+.detalle-contenido .ultimo-contenedor-info{
+  margin-bottom: 10px;
+}
+
 .detalle-contenido .p-subtitulos {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -182,7 +237,7 @@
 
 .part2-detalle .sec1-detalle {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
 }
 
 .part2-detalle .cont-sec2 {
@@ -193,29 +248,98 @@
   min-height: 8rem;
 }
 
-.part2-detalle .cont-sec2 .p-comentarios {
-  display: grid;
-  min-height: 3rem;
-  text-align: center;
-  align-items: center;
-  padding: 20px;
-  color: #9b9b9b;
-}
-
 .seccion-iniciar {
-  margin-top: 15px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin-top: 8px;
+  padding-bottom: 13px;
   border-radius: 10px;
   width: auto;
-  min-height: 6rem;
+  min-height: 5.3rem;
   background: #f6f6f9;
 }
 
+.seccion-iniciar .contenido-iniciar .textDescription{
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 0;
+}
 
 .seccion-iniciar .contenido-iniciar h6{
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  margin-top:20px;
 }
+
+.seccion-iniciar .contenidoIniciando h6{
+  padding-top: 10px;
+  margin-bottom: 0;
+  margin-top:20px;
+  font-weight: 650;
+  color: #818181;
+  font-size: 26px;
+}
+
+.contenidoEnMarcha{
+  grid-template-columns: auto auto auto;
+  height: 100%;
+}
+
+.zona-block-textarea{
+  position: relative;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  color: #b3b3b3;
+  border-radius: 10px;
+  justify-content: center;
+  margin: 0;
+  border: 0.1rem solid #ffffff00;
+  transition: all 150ms ease;
+}
+
+.zona-block-textarea p, .zona-block-textarea span{
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 4px 30px 20px;
+  box-shadow: 8px 8px 10px rgba(0,0,0,0.06);
+}
+
+.wrapper .titulo-wrapper{
+  color: #888888;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.wrapper textarea{
+  width: 100%;
+  resize: none;
+  height: 59px;
+  outline: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  max-height: 330px;
+  caret-color: #047043;
+  border: 1px solid #bfbfbf;
+}
+textarea::placeholder{
+  color: #b3b3b3;
+}
+textarea:is(:focus, :valid){
+  padding: 14px;
+  border: 2px solid #09d882;
+}
+textarea::-webkit-scrollbar{
+  width: 0px;
+}
+
+
 
 @media screen and (max-width: 1200px) {
 
@@ -301,6 +425,14 @@
 
   .part1-detalle .contenedor-info-top h5 {
     font-size: 13px;
+  }
+
+  .part1-detalle  {
+    grid-template-columns: auto auto ;
+  }
+
+  .part2-detalle .sec1-detalle {
+    grid-template-columns: auto auto ;
   }
 
   .detalle-contenido p {

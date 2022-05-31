@@ -178,6 +178,7 @@ class CitaConcluida(models.Model):
     valoracion = models.IntegerField(default=0, )
     id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
+    duracion = models.CharField(max_length=5, default='?')
     
 
     def __str__(self):
