@@ -60,6 +60,7 @@ $(document).ready(function () {
 
 
     function fechaMenor(fechaMenor, fechaMayor){
+        fechaMenor.add(1, 'minutes')
         if ( fechaMenor < fechaMayor){
             return true;
         }else{
