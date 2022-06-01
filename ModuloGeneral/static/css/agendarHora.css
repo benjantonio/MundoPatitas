@@ -41,9 +41,11 @@ header {
 
 .cuadrito2 {
     display: none;
+    background: #f6f6f9;
     color: #3b3b3b;
     padding: 0;
-    gap: 1rem;
+    grid-template-columns: auto auto;
+    border-radius: 20px;
 }
 
 .cuadrito .cuadroFondo1 {
@@ -71,23 +73,27 @@ header {
 }
 
 .cuadrito2 .cuadro3 {
-    background: #f6f6f9;
     height: 100%;
     padding: 4rem 2rem;
     margin: 0;
-    border-radius: 20px;
 }
 
-.cuadrito2 .cuadro3 .cuadroFormulario{
+.cuadrito2 .cuadro4{
+    height: 100%;
+    padding: 4rem 2rem;
+    margin: 0;
+}
+
+.cuadrito2 .cuadro4 .cuadroFormulario{
     display: flex;
     align-items: center;
 }
 
-.cuadrito2 .cuadro3 h3{
+.cuadrito2 .cuadro4 h3{
     align-items: center;
 }
 
-.cuadrito2 .cuadro3 .formulario {
+.cuadrito2 .cuadro4 .formulario {
     margin-top: 2rem;
     margin-bottom: 2rem;
     justify-content: center;

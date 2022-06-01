@@ -4,6 +4,8 @@ var veterinarios = document.getElementById("veterinario")
 var btnContinuarApagado = document.querySelector(".btnContinuarApagado");
 var btnContinuar = document.querySelector(".btnContinuar");
 var mostrarcuadrito = document.querySelector(".cuadrito2");
+var nombreVet = document.querySelector(".nombreVet");
+
 
 var diaConsulta = document.getElementById("diaConsulta");
 var horaConsulta = document.getElementById("horaConsulta");
@@ -75,7 +77,9 @@ function limpiarSelectFecha() {
 };
 
 btnContinuar.addEventListener('click', () => {
-    mostrarcuadrito.setAttribute("style", "display:block; ");
+    var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
+    nombreVet.innerHTML=vetSeleccionado;
+    mostrarcuadrito.setAttribute("style", "display:grid; ");
     limpiarSelectFecha();
     buscarFechas();
 });
@@ -91,6 +95,10 @@ btnContinuar.addEventListener('click', () => {
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "veterinarios"*/
 veterinarios.addEventListener('change', () => {
     console.log("CHANGE VETERINARIO ACTIVO")
+    
+    var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
+    nombreVet.innerHTML=vetSeleccionado;
+
     limpiarSelectFecha();
     limpiarSelectHoras();
     buscarFechas();
