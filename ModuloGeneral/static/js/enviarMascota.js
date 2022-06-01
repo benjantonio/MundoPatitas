@@ -18,6 +18,7 @@ const obtenerMascotas = async() => {
 }
 
 const agregarMascota = async() => {
+
     try {
         let options = {
                 method: "POST",
@@ -30,7 +31,7 @@ const agregarMascota = async() => {
                     raza: document.querySelector("#raza").value,
                     edad: document.querySelector("#edad").value,
                     id_cli: document.querySelector("#id_cli").value,
-                    url: document.querySelector("#imagen").value,
+                    url: document.querySelector("#imagen").files[0]
                 })
             },
             res = await fetch("http://localhost:3000/enviar_mascota", options),
