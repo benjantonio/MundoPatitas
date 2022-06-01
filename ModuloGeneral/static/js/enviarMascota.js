@@ -2,6 +2,17 @@ window.addEventListener('load', () => {
     obtenerMascotas()
 })
 
+const recargar = () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mascota agregada con exito!!',
+        showConfirmButton: false,
+        timer: 1500
+    })
+    setTimeout(retrasarReload, 1500)
+}
+
 const obtenerMascotas = async() => {
     try {
         res = await fetch(`http://localhost:3000/lista_mascota`),
@@ -17,43 +28,58 @@ const obtenerMascotas = async() => {
     }
 }
 
-const agregarMascota = async() => {
+var form = document.querySelector("#formMascota")
 
-    try {
-        let options = {
-                method: "POST",
-                headers: {
-                    "Content-type": "multipart/form-data"
-                },
-                body: JSON.stringify({
-                    nombre: document.querySelector("#nombre").value,
-                    tipo: document.querySelector("#tipo").value,
-                    raza: document.querySelector("#raza").value,
-                    edad: document.querySelector("#edad").value,
-                    id_cli: document.querySelector("#id_cli").value,
-                    url: document.querySelector("#imagen").files[0]
-                })
-            },
-            res = await fetch("http://localhost:3000/enviar_mascota", options),
-            json = await res.json();
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        if (!res.ok) throw { status: res.status, statusText: res.statusText }
-        else {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Mascota Agregada con Exito!!',
-                showConfirmButton: false,
-                timer: 1500
+    const formData = new FormData(e.currentTarget)
 
-            })
-            setTimeout(retrasarReload, 1500);
-        }
-    } catch (error) {
-        console.log(error)
+    fetch("http://localhost:3000/enviar_mascota", {
+            method: 'POST',
+            body: formData
+        })
+        .then((res) => recargar())
+        .catch((err) => ("Erorr ", err))
+})
 
-    }
-};
+// const agregarMascota = async() => {
+
+//     try {
+//         let options = {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-type": "multipart/form-data"
+//                 },
+//                 body: JSON.stringify({
+//                     nombre: document.querySelector("#nombre").value,
+//                     tipo: document.querySelector("#tipo").value,
+//                     raza: document.querySelector("#raza").value,
+//                     edad: document.querySelector("#edad").value,
+//                     id_cli: document.querySelector("#id_cli").value,
+//                     url: document.querySelector("#imagen").files[0]
+//                 })
+//             },
+//             res = await fetch("http://localhost:3000/enviar_mascota", options),
+//             json = await res.json();
+
+//         if (!res.ok) throw { status: res.status, statusText: res.statusText }
+//         else {
+//             Swal.fire({
+//                 position: 'center',
+//                 icon: 'success',
+//                 title: 'Mascota Agregada con Exito!!',
+//                 showConfirmButton: false,
+//                 timer: 1500
+
+//             })
+//             setTimeout(retrasarReload, 1500);
+//         }
+//     } catch (error) {
+//         console.log(error)
+
+//     }
+// };
 
 const eliminarMascota = (id, nombre) => {
     Swal.fire({

@@ -283,11 +283,11 @@
                         <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
                     </div>
                     <div class="modal-body ">
-                        <form id="formMascota " method="post " enctype="multipart/form-data">
+                        <form id="formMascota" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="mb-3 ">
                                 <label class="form-label ">Nombre</label>
-                                <input type="text " id="nombre" name="nombre " class="form-control ">
+                                <input type="text " id="nombre" name="nombre" class="form-control ">
                             </div>
                             <div class="mb-3 ">
                                 <label class="form-label ">Imagen</label>
@@ -311,15 +311,15 @@
                             </div>
                             <div class="mb-3 ">
                                 <label class="form-label " for=" ">Dueño</label>
-                                <select name="dueño" id="id_cli">
+                                <select name="id_cli" id="id_cli">
                                     <option value="{{user.id_usuario}}" selected="selected">{{user.nombres}} {{user.apellidos}}</option>
                                 </select>
                             </div>
-
+                            <button type="submit" class="btn btn-success">Guardar</button>
                         </form>
                     </div>
                     <div class="modal-footer ">
-                        <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button>
+                        <!-- <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button> -->
                         <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
                     </div>
                 </div>
