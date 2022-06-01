@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 
     function fechaMenor(fechaMenor, fechaMayor){
-        fechaMenor.add(1, 'minutes')
+        
         if ( fechaMenor < fechaMayor){
             return true;
         }else{
@@ -99,11 +99,12 @@ $(document).ready(function () {
 
 
 
-                    if ( fechaMenor(fechaCita, fechaActual) && citaPendiente.estado === 'En Espera') {
+                    if ( fechaMenor(fechaCita.add(1, 'minutes'), fechaActual) && citaPendiente.estado === 'En Espera') {
                                         $.ajax({
                                             type: 'GET',
                                             url: `http://localhost:3000/actualizar_Horas_Pendientes/${id_cita_pendiente}`,
                                             success: function (response) {
+                                                fechaCita.add(-1, 'minutes')
                                                 console.log("HE CAMBIADO EL ESTADO DE LA CITA ID:", citaPendiente.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
                                                 btnActualizar.setAttribute("style", "display: flex;");
                                                 buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto auto auto; ")
@@ -112,6 +113,7 @@ $(document).ready(function () {
                                         });
 
                     }else{
+                        fechaCita.add(-1, 'minutes')
                         console.log("En Espera: ", fechaCita.format('DD-MM-YYYY HH:mm'))
                     }
 
