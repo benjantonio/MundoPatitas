@@ -339,7 +339,11 @@ textarea::-webkit-scrollbar{
   width: 0px;
 }
 
-
+.contenedor-titulo-pendiente{
+  text-align: center;
+  margin: 20px 300px;
+  color: rgb(92, 92, 92);
+}
 
 @media screen and (max-width: 1200px) {
 

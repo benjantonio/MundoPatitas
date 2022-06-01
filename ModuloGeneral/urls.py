@@ -27,6 +27,7 @@ urlpatterns = [
     path('panel-veterinario/', panelVeterinario, name='panelVeterinario'),
     path('panel-veterinario/plantillaPanelVet/', plantillaPanelVeterinario, name='plantillaPanelVet'),
     path('panel-veterinario/crear/', moduloCrearCita, name='crear'),
+    path('panel-veterinario/pendientes/', moduloPendientesCita, name='pendientes'),
 
 
 ]
