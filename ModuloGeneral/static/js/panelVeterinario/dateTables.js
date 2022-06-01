@@ -59,6 +59,14 @@ $(document).ready(function () {
     });
 
 
+    function fechaMenor(fechaMenor, fechaMayor){
+        if ( fechaMenor < fechaMayor){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     activo = false;
     contador = 0;
     contador2 = 0
@@ -88,20 +96,25 @@ $(document).ready(function () {
                     var fechaActual = moment();
                     var id_cita_pendiente = citaPendiente.id_cita;
 
-                    if (fechaCita.format('DD-MM-YYYY HH:mm') < fechaActual.format('DD-MM-YYYY HH:mm') && citaPendiente.estado === 'En Espera') {
-                        $.ajax({
-                            type: 'GET',
-                            url: `http://localhost:3000/actualizar_Horas_Pendientes/${id_cita_pendiente}`,
-                            success: function (response) {
-                                console.log("HE CAMBIADO EL ESTADO DE LA CITA ID:", citaPendiente.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
-                                btnActualizar.setAttribute("style", "display: flex;");
-                                buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto auto auto; ")
-                                activo = true;
-                            }
-                        })
-                    } else {
+
+
+                    if ( fechaMenor(fechaCita, fechaActual) && citaPendiente.estado === 'En Espera') {
+                                        $.ajax({
+                                            type: 'GET',
+                                            url: `http://localhost:3000/actualizar_Horas_Pendientes/${id_cita_pendiente}`,
+                                            success: function (response) {
+                                                console.log("HE CAMBIADO EL ESTADO DE LA CITA ID:", citaPendiente.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
+                                                btnActualizar.setAttribute("style", "display: flex;");
+                                                buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto auto auto; ")
+                                                activo = true;
+                                            }
+                                        });
+
+                    }else{
                         console.log("En Espera: ", fechaCita.format('DD-MM-YYYY HH:mm'))
                     }
+
+
 
                 });
 
@@ -267,17 +280,17 @@ function comenzarCita() {
             empezarDetener("Empezar");
             contenidoIniciando.setAttribute("style", "opacity: 0; display:0;");
             contenidoEnMarcha.setAttribute("style", "opacity: 1; display:grid;");
-            textoBloqueado1.innerHTML="Desbloqueado"
-            textoBloqueado2.innerHTML="Desbloqueado"
+            textoBloqueado1.innerHTML = "Desbloqueado"
+            textoBloqueado2.innerHTML = "Desbloqueado"
             titulo1.setAttribute("style", "color:#09d882;");
             titulo2.setAttribute("style", "color:#09d882;");
-            textAreaTratamiento.disabled=false;
-            textAreaComentario.disabled=false;
-            textAreaTratamiento.placeholder="Escribe un tratamiento...";
-            textAreaComentario.placeholder="Escribe un comentario..."
-            candado1.innerHTML="lock_open"
-            candado2.innerHTML="lock_open"
-            
+            textAreaTratamiento.disabled = false;
+            textAreaComentario.disabled = false;
+            textAreaTratamiento.placeholder = "Escribe un tratamiento...";
+            textAreaComentario.placeholder = "Escribe un comentario..."
+            candado1.innerHTML = "lock_open"
+            candado2.innerHTML = "lock_open"
+
         }
     }
     /* FIN MARCHA */
