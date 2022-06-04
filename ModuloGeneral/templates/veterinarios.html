@@ -1,33 +1,37 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
-<div class="tituloVets">
-    <h1>Veterinarios <span class="username">{{user.username}}</span></h1>
-</div>
-<div class="container">
-    <table id="tablaVets" class="table table-striped ">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Contraseña</th>
-            </tr>
-        </thead>
+<div class="vets">
+    <div class="tituloVets">
+        <h2>Veterinarios <span class="username">{{user.username}}</span></h2>
+    </div>
+    <div class="container">
+        <table id="tablaVets">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
 
-        {% for vet in veterinarios %}
-        <tbody>
-            <tr>
-                <td>{{vet.nombre_completo}}</td>
-                <td>{{vet.correo}}</td>
-                <td>
-                    <form><input type="text" value="{{vet.id_veterinario}}" class="idV" style="display: none;"><input type="password" class="passwordVet"></form>
+            {% for vet in veterinarios %}
+            <tbody>
+                <tr>
+                    <td>{{vet.nombre_completo}}</td>
+                    <td>{{vet.correo}}</td>
+                    <td>
+                        <form><input type="text" value="{{vet.id_veterinario}}" class="idV" style="display: none;"><input type="password" class="passwordVet"></form>
 
-                </td>
-                <td><span id="red" class="aviso">Clave Incorrecta!!</span></td>
-                <td><button class="entrarVet"><a id="verMas" class="desahabilitado" href="{% url 'vetSelect' vet.id_veterinario %}">Ver más</a></button></td>
-            </tr>
-            {% endfor %}
-        </tbody>
+                    </td>
+                    <td><span id="red" class="aviso">Clave Incorrecta!!</span></td>
+                    <td><button class="entrarVet"><a id="verMas" class="desahabilitado" href="{% url 'vetSelect' vet.id_veterinario %}">Ver más</a></button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
-    </table>
+        </table>
+    </div>
 </div>
 <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
