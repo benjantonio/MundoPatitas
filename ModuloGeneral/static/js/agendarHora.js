@@ -23,8 +23,10 @@ var mascota = document.getElementById("mascota");
 
 /*CUANDO HAYA UN CAMBIO EN SELECT MOTIVO CONSULTA*/
 motivoConsulta.addEventListener('change', () => {
+    var hola = "hola mundo";
+
     mascota.disabled = false;
-    console.log("hola");
+    console.log(hola.slice(1, 6));
 })
 
 /*CUANDO HAYA UN CAMBIO EN SELECT MASCOTA*/
@@ -85,6 +87,7 @@ centros.addEventListener('change', () => {
     })
 
 });
+
 /* Limpiar Fechas */
 function limpiarSelectFecha() {
     const elements = document.getElementById("diaConsulta").getElementsByTagName("option");
@@ -94,7 +97,6 @@ function limpiarSelectFecha() {
 };
 
 btnContinuar.addEventListener('click', () => {
-
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
     nombreVet.innerHTML = vetSeleccionado;
 
@@ -106,17 +108,62 @@ btnContinuar.addEventListener('click', () => {
 /****************************************************************************************************************************/
 /************************************************** FECHAS Y HORAS **********************************************************/
 /****************************************************************************************************************************/
+function fechaMenor(fechaMenor, fechaMayor){
+      
+    if ( fechaMenor < fechaMayor){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function eliminarFechasVencidas() {
+    const listaCitasDisponibles = [];
+
+    $(function () {
+        $.ajax({
+            type: 'GET',
+            url: `http://localhost:3000/fechasDisponibles/${idVeterinarioSelect}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+            success: function (response) {
+                $.each(response, function (indice, filaA) {
+                    listaCitasDisponibles.push(filaA)
+                });
+                eliminarFecha(listaCitasDisponibles);
+            }
+        })
+    });
+
+    function eliminarFecha(unaListaX) {
+        unaListaX.forEach(citaDisponible => {
+            var fechaCita = moment(citaDisponible.fecha, "DD-MM-YYYY HH:mm").add(citaDisponible.hora.slice(0, 2), 'hours').add(citaDisponible.hora.slice(3), 'minutes');
+            var fechaActual = moment();
+            var id_cita_disponible = citaDisponible.id_cita;
 
 
 
+            if (fechaMenor(fechaCita.add(1, 'minutes'), fechaActual)) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: `http://localhost:3000/eliminar_cita_disponible/${id_cita_disponible}`,
+                    success: function (response) {
+                        fechaCita.add(-1, 'minutes')
+                        console.log("HE ELIMINADO LA CITA ID:", citaDisponible.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
+                    }
+                });
+
+            } else {
+                fechaCita.add(-1, 'minutes')
+                console.log("No eliminé: ", fechaCita.format('DD-MM-YYYY HH:mm'))
+            }
+        });
+    }
+}
 
 
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "veterinarios"*/
 veterinarios.addEventListener('change', () => {
-
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
     nombreVet.innerHTML = vetSeleccionado;
-
     limpiarSelectFecha();
     limpiarSelectHoras();
     buscarFechas();
@@ -124,6 +171,8 @@ veterinarios.addEventListener('change', () => {
 
 
 function buscarFechas() {
+
+    eliminarFechasVencidas();
 
     const listaFechasDisponibles = [];
 
@@ -136,10 +185,11 @@ function buscarFechas() {
             type: 'GET',
             url: `http://localhost:3000/fechasDisponibles/${idVeterinarioSelect}`,
             success: function (response) {
-
+                console.log("RESCATE LAS HORAS DISPONIBLES")
                 var fechaNueva;
 
                 $.each(response, function (indice, fila) {
+
                     if (fila.fecha.slice(3, 5) == "01") {
                         fechaNueva = fila.fecha.slice(0, 3) + "enero" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "02") {
@@ -168,9 +218,15 @@ function buscarFechas() {
 
 
                     var existe = listaFechasDisponibles.some(fechaIn => fechaIn === fila.fecha);
+
+                    /* extraigo fecha actual */
+                    let date = new Date();
+                    let output = String(date.getDate()).padStart(2, '0') + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getFullYear();
+                    console.log(output);
+
                     if (!existe) {
                         listaFechasDisponibles.push(fila.fecha)
-                        console.log("AGREGUE OPTION: -value:", fila.id_cita, "-fecha:", fechaNueva)
+                        console.log("AÑADI AL SELECT LA FECHA: ", fila.fecha)
                         $('#diaConsulta').append("<option value='" + fila.fecha + "'>" + fechaNueva + "</option>")
                     }
                 });
