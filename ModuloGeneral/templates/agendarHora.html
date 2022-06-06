@@ -80,9 +80,9 @@
 
                 <br>
 
-                <!--SELECT MASCOTAS-->
+                <!--SELECT MASCOTA-->
                 <div class="form-floating col formulario2">
-                    <select id="mascota" class="form-control mascota" name="mascota">
+                    <select disabled id="mascota" class="form-control mascota" name="mascota">
                         <option selected disabled></option>
                         {% for mascotas in mascotas %}
                         <option value="{{mascotas.id_mascota}}">{{mascotas.nombre}}</option>
@@ -93,7 +93,7 @@
 
                 <!--SELECTOR CENTRO MEDICO VETERINARIO-->
                 <div class="form-floating col formulario">
-                    <select id="centroA" class="form-control centroA" name="centroA">
+                    <select disabled id="centroA" class="form-control centroA" name="centroA">
                         <option selected disabled></option>
                         <optgroup label="V Región">
 
@@ -159,7 +159,7 @@
                     <p class="p-btn">Buscar Hora</p>
                 </div>
                 <!--BOTON CONTINUAR - HABILITADO -->
-                <a id="btnContinuar">
+                <a id="btnContinuar" type="submit">
                     <div class="btnContinuar">
                         <span class="material-symbols-outlined">chevron_right</span>
                         <p class="p-btn">Buscar Hora</p>
@@ -174,36 +174,32 @@
         <br>
 
         <div class="cuadrito2">
-            <div class="cuadro3">
 
-                <h5 class="nombreVet"></h5>
+            <h5>Seleccionar hora</h5>
 
 
-            </div>
+            <h6>Viendo horas de:<h6 class="nombreVet"></h6></h6>
 
-            <div class="cuadro4">
-                <h5>Seleccionar hora</h5>
+            <div class="cuadroFormulario">
 
-                <div class="cuadroFormulario">
-
-                    <div class="form-floating col formulario">
-                        <select id="diaConsulta" class="form-control diaConsulta" name="diaConsulta">
-                            <option selected disabled></option>
-                            <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
-                        </select>
-                        <label for="floatingSelect">Selecciona una fecha</label>
-                    </div>
-
-                    <div class="form-floating col formulario">
-                        <select disabled id="horaConsulta" class="form-control horaConsulta" name="horaConsulta">
-                            <option selected disabled></option>
-                            <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
-                        </select>
-                        <label for="floatingSelect">Selecciona una hora</label>
-                    </div>
-
+                <div class="form-floating col formulario">
+                    <select id="diaConsulta" class="form-control diaConsulta" name="diaConsulta">
+                        <option selected disabled></option>
+                        <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
+                    </select>
+                    <label for="floatingSelect">Selecciona una fecha</label>
                 </div>
+
+                <div class="form-floating col formulario">
+                    <select disabled id="horaConsulta" class="form-control horaConsulta" name="horaConsulta">
+                        <option selected disabled></option>
+                        <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
+                    </select>
+                    <label for="floatingSelect">Selecciona una hora</label>
+                </div>
+
             </div>
+
         </div>
 
 

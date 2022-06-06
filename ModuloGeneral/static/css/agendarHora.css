@@ -72,28 +72,16 @@ header {
     margin-top: 2rem;
 }
 
-.cuadrito2 .cuadro3 {
-    height: 100%;
-    padding: 4rem 2rem;
-    margin: 0;
-}
-
-.cuadrito2 .cuadro4{
-    height: 100%;
-    padding: 4rem 2rem;
-    margin: 0;
-}
-
-.cuadrito2 .cuadro4 .cuadroFormulario{
+.cuadrito2 .cuadroFormulario{
     display: flex;
     align-items: center;
 }
 
-.cuadrito2 .cuadro4 h3{
+.cuadrito2 h3{
     align-items: center;
 }
 
-.cuadrito2 .cuadro4 .formulario {
+.cuadrito2 .formulario {
     margin-top: 2rem;
     margin-bottom: 2rem;
     justify-content: center;

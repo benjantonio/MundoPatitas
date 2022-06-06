@@ -5,7 +5,8 @@ var btnContinuarApagado = document.querySelector(".btnContinuarApagado");
 var btnContinuar = document.querySelector(".btnContinuar");
 var mostrarcuadrito = document.querySelector(".cuadrito2");
 var nombreVet = document.querySelector(".nombreVet");
-
+var clinicaVet = document.querySelector(".clinicaVet");
+var cantPatitas = document.querySelector(".cantPatitas");
 
 var diaConsulta = document.getElementById("diaConsulta");
 var horaConsulta = document.getElementById("horaConsulta");
@@ -14,6 +15,22 @@ let idCentroSelect;
 let idComunaSelect;
 let idVeterinarioSelect;
 let idDiaConsulta;
+
+var motivoConsulta = document.getElementById("consulta");
+var mascota = document.getElementById("mascota");
+
+
+
+/*CUANDO HAYA UN CAMBIO EN SELECT MOTIVO CONSULTA*/
+motivoConsulta.addEventListener('change', () => {
+    mascota.disabled = false;
+    console.log("hola");
+})
+
+/*CUANDO HAYA UN CAMBIO EN SELECT MASCOTA*/
+mascota.addEventListener('change', () => {
+    centros.disabled = false;
+})
 
 /****************************************************************************************************************************/
 /********************************************** CENTROS Y VETERINARIOS ******************************************************/
@@ -77,9 +94,11 @@ function limpiarSelectFecha() {
 };
 
 btnContinuar.addEventListener('click', () => {
+
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
-    nombreVet.innerHTML=vetSeleccionado;
-    mostrarcuadrito.setAttribute("style", "display:grid; ");
+    nombreVet.innerHTML = vetSeleccionado;
+
+    mostrarcuadrito.setAttribute("style", "display:block; ");
     limpiarSelectFecha();
     buscarFechas();
 });
@@ -94,16 +113,14 @@ btnContinuar.addEventListener('click', () => {
 
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "veterinarios"*/
 veterinarios.addEventListener('change', () => {
-    console.log("CHANGE VETERINARIO ACTIVO")
-    
+
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
-    nombreVet.innerHTML=vetSeleccionado;
+    nombreVet.innerHTML = vetSeleccionado;
 
     limpiarSelectFecha();
     limpiarSelectHoras();
     buscarFechas();
 });
-
 
 
 function buscarFechas() {
@@ -157,8 +174,6 @@ function buscarFechas() {
                         $('#diaConsulta').append("<option value='" + fila.fecha + "'>" + fechaNueva + "</option>")
                     }
                 });
-
-                console.log("La lista es", listaFechasDisponibles)
 
                 if (response.length == 0) {
                     $('#diaConsulta').append("<option value='sinFechas'>" + "No hay fechas disponibles" + "</option>")
