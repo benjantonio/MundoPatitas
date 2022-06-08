@@ -130,10 +130,11 @@ const obtenerMascota = async(id) => {
 
         console.log(json);
         document.querySelector(".txtIdM").value = json.id_mascota
+        document.querySelector(".perfilPet").src = json.img
         document.querySelector(".txtNombre").value = json.nombre
         document.querySelector(".txtRaza").value = json.raza
         document.querySelector(".txtEdad").value = json.edad
-        document.querySelector(".txtTipo").value = json.tipo
+        document.querySelector("#selectTipo").value = json.tipo
         document.querySelector(".txtIdCli").value = json.id_cliente_id
 
     } catch (error) {

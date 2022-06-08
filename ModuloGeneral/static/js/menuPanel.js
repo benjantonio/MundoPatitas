@@ -17,7 +17,7 @@ const misMascotasBtn = document.querySelector("#misMascotas-btn")
 const misMascotasTab = document.querySelector("#tabMisMascotas")
 
 
-const cerrarModPetBtn = document.querySelector("#cerrar-modPet-btn")
+const cerrarModPetBtn = document.querySelector(".btnModCerrar")
 
 /* Imagenes Perfil Modificar Mascotas */
 const perfilPerroImg = document.querySelector(".perfilPetPerro")
@@ -109,10 +109,14 @@ if (document.querySelector(".modificar-mascota-btn")) {
 /* Abrir Modificar Mascota  */
 
 /* Ocultar Modificar Mascota  */
-// cerrarModPetBtn.addEventListener('click', () => {
-//     fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
-//     contModPet.setAttribute("style", "opacity: 0; display:none;");
-// });
+if (cerrarModPetBtn) {
+    cerrarModPetBtn.addEventListener('click', () => {
+        console.log("Cerrar")
+            // fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
+        contModPet.setAttribute("style", "opacity: 0; display:none;");
+    });
+}
+
 
 /* Cambiar imagen tipo de mascota con botones */
 // tipoPetPerroBtn.addEventListener('click', () => {
