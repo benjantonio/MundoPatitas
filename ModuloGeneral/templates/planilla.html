@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href='{% static "css/stylePanel.css" %}'>
 </head>
 
-<body onload="enviarAnchoWeb();" onresize="enviarAnchoWeb();">
+<body >
     <!--Estos 2 metodos envian el ancho del html a un javascript, con el cual se necesita leer en el panel cliente (para una aniamción)-->
     <!--INICIO HEADER-->
     <header>
@@ -142,7 +142,7 @@
                     {% endif %}
                 </ul>
 
-                <div class="btn">
+                <div class="btn ">
                     <i class="fas fa-times close-btn"></i>
                 </div>
 
@@ -150,7 +150,7 @@
             </nav>
 
 
-            <div class="btn">
+            <div class="btn btn-abrir-menu">
                 <i class="fas fa-bars menu-btn"></i>
             </div>
         </div>
@@ -239,7 +239,6 @@
 
 
     <script src="{% static 'js/planilla.js' %}"></script>
-
 
 
 </body>

@@ -202,5 +202,4 @@ function enviarAnchoWeb() {
     } else {
         sideMenu.style = 'display:none;';
     }
-
 }

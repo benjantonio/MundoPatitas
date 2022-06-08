@@ -6,7 +6,7 @@ window.addEventListener("scroll", function(){
 
   //javascript for responsive navigation sidebar menu
   var menu = document.querySelector('.menu');
-  var menuBtn = document.querySelector('.menu-btn');
+  var menuBtn = document.querySelector('.btn-abrir-menu');
   var closeBtn = document.querySelector('.close-btn');
 
   menuBtn.addEventListener("click", () => {
@@ -15,3 +15,5 @@ window.addEventListener("scroll", function(){
   closeBtn.addEventListener("click", () => {
     menu.classList.remove('active');
   });
+
+  
