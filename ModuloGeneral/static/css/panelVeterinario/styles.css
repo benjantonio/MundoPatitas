@@ -139,6 +139,8 @@
 .contenidoEnMarcha{
   display: none;
   opacity: 0;
+  grid-template-columns: auto auto auto;
+  height: 100%;
 }
 
 .cancelar-cita-btn{
@@ -276,11 +278,6 @@
   font-weight: 650;
   color: #818181;
   font-size: 26px;
-}
-
-.contenidoEnMarcha{
-  grid-template-columns: auto auto auto;
-  height: 100%;
 }
 
 .zona-block-textarea{
@@ -450,6 +447,11 @@ textarea::-webkit-scrollbar{
     transition: all 400ms ease;
     padding: 10px;
     border-radius: 15px;
+  }
+
+  .contenidoEnMarcha{
+    grid-template-columns: auto;
+    margin: 10px 0;
   }
 }
 
