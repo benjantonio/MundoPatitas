@@ -99,7 +99,6 @@ function limpiarSelectFecha() {
 btnContinuar.addEventListener('click', () => {
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
     nombreVet.innerHTML = vetSeleccionado;
-
     mostrarcuadrito.setAttribute("style", "display:block; ");
     limpiarSelectFecha();
     buscarFechas();
@@ -108,54 +107,12 @@ btnContinuar.addEventListener('click', () => {
 /****************************************************************************************************************************/
 /************************************************** FECHAS Y HORAS **********************************************************/
 /****************************************************************************************************************************/
-function fechaMenor(fechaMenor, fechaMayor){
-      
-    if ( fechaMenor < fechaMayor){
+function fechaMenor(fechaMenor, fechaMayor) {
+
+    if (fechaMenor < fechaMayor) {
         return true;
-    }else{
+    } else {
         return false;
-    }
-}
-
-function eliminarFechasVencidas() {
-    const listaCitasDisponibles = [];
-
-    $(function () {
-        $.ajax({
-            type: 'GET',
-            url: `http://localhost:3000/fechasDisponibles/${idVeterinarioSelect}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
-            success: function (response) {
-                $.each(response, function (indice, filaA) {
-                    listaCitasDisponibles.push(filaA)
-                });
-                eliminarFecha(listaCitasDisponibles);
-            }
-        })
-    });
-
-    function eliminarFecha(unaListaX) {
-        unaListaX.forEach(citaDisponible => {
-            var fechaCita = moment(citaDisponible.fecha, "DD-MM-YYYY HH:mm").add(citaDisponible.hora.slice(0, 2), 'hours').add(citaDisponible.hora.slice(3), 'minutes');
-            var fechaActual = moment();
-            var id_cita_disponible = citaDisponible.id_cita;
-
-
-
-            if (fechaMenor(fechaCita.add(1, 'minutes'), fechaActual)) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: `http://localhost:3000/eliminar_cita_disponible/${id_cita_disponible}`,
-                    success: function (response) {
-                        fechaCita.add(-1, 'minutes')
-                        console.log("HE ELIMINADO LA CITA ID:", citaDisponible.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
-                    }
-                });
-
-            } else {
-                fechaCita.add(-1, 'minutes')
-                console.log("No eliminé: ", fechaCita.format('DD-MM-YYYY HH:mm'))
-            }
-        });
     }
 }
 
@@ -166,7 +123,6 @@ veterinarios.addEventListener('change', () => {
     nombreVet.innerHTML = vetSeleccionado;
     limpiarSelectFecha();
     limpiarSelectHoras();
-    buscarFechas();
 });
 
 
@@ -224,7 +180,10 @@ function buscarFechas() {
                     let output = String(date.getDate()).padStart(2, '0') + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getFullYear();
                     console.log(output);
 
-                    if (!existe) {
+                    var fechaCita = moment(fila.fecha, "DD-MM-YYYY HH:mm").add(fila.hora.slice(0, 2), 'hours').add(fila.hora.slice(3), 'minutes');
+                    var fechaActual = moment();
+
+                    if (!existe && !fechaMenor(fechaCita.add(1, 'minutes'), fechaActual)) {
                         listaFechasDisponibles.push(fila.fecha)
                         console.log("AÑADI AL SELECT LA FECHA: ", fila.fecha)
                         $('#diaConsulta').append("<option value='" + fila.fecha + "'>" + fechaNueva + "</option>")
@@ -240,6 +199,49 @@ function buscarFechas() {
             }
         })
     })
+}
+
+function eliminarFechasVencidas() {
+    const listaCitasDisponibles = [];
+
+    $(function () {
+        $.ajax({
+            type: 'GET',
+            url: `http://localhost:3000/fechasDisponibles/${idVeterinarioSelect}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+            success: function (response) {
+                $.each(response, function (indice, filaA) {
+                    listaCitasDisponibles.push(filaA)
+                });
+                eliminarFecha(listaCitasDisponibles);
+            }
+        })
+    });
+
+}
+
+function eliminarFecha(unaListaX) {
+    unaListaX.forEach(citaDisponible => {
+        var fechaCita = moment(citaDisponible.fecha, "DD-MM-YYYY HH:mm").add(citaDisponible.hora.slice(0, 2), 'hours').add(citaDisponible.hora.slice(3), 'minutes');
+        var fechaActual = moment();
+        var id_cita_disponible = citaDisponible.id_cita;
+
+
+
+        if (fechaMenor(fechaCita.add(1, 'minutes'), fechaActual)) {
+            $.ajax({
+                type: 'DELETE',
+                url: `http://localhost:3000/eliminar_cita_disponible/${id_cita_disponible}`,
+                success: function (response) {
+                    fechaCita.add(-1, 'minutes')
+                    console.log("HE ELIMINADO LA CITA ID:", citaDisponible.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
+                }
+            });
+
+        } else {
+            fechaCita.add(-1, 'minutes')
+            console.log("No eliminé: ", fechaCita.format('DD-MM-YYYY HH:mm'))
+        }
+    });
 }
 
 /* Limpiar Horas */
