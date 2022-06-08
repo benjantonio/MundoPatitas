@@ -41,6 +41,9 @@ mascota.addEventListener('change', () => {
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "CENTROS" (centroA EN HTML)*/
 centros.addEventListener('change', () => {
 
+    limpiarSelectFecha();
+    limpiarSelectHoras();
+
     /*Guardo la información que recibe el SELECT centroA y habilito el SELECT veterinarios*/
     idCentroSelect = centros.value;
     veterinarios.disabled = false;
@@ -102,6 +105,7 @@ btnContinuar.addEventListener('click', () => {
     mostrarcuadrito.setAttribute("style", "display:block; ");
     limpiarSelectFecha();
     buscarFechas();
+    mostrarValoracion();
 });
 
 /****************************************************************************************************************************/
@@ -282,4 +286,72 @@ function buscarHoras() {
             }
         })
     })
+}
+
+
+/* =================== FUNCION VALORACION VETERINARIO ============= */
+function mostrarValoracion() {
+
+    /* Llamo a la API con el ID del veterinario*/
+
+    $(function () {
+        $.ajax({
+            type: 'GET',
+            url: `http://localhost:3000/valoracion/${1}`,
+            success: function (response) {
+                
+                /* Declaro valor inicial valoración*/
+                let valoracion = 0;
+                valoracion = response[0].valoracion;
+
+                const huellaActiva1 = document.querySelector("#huellaActiva1");
+                const huellaActiva2 = document.querySelector("#huellaActiva2");
+                const huellaActiva3 = document.querySelector("#huellaActiva3");
+                const huellaActiva4 = document.querySelector("#huellaActiva4");
+                const huellaActiva5 = document.querySelector("#huellaActiva5");
+                const huellaInactiva1 = document.querySelector("#huellaInactiva1");
+                const huellaInactiva2 = document.querySelector("#huellaInactiva2");
+                const huellaInactiva3 = document.querySelector("#huellaInactiva3");
+                const huellaInactiva4 = document.querySelector("#huellaInactiva4");
+                const huellaInactiva5 = document.querySelector("#huellaInactiva5");
+
+
+                if (valoracion >= 1) {
+                    huellaActiva1.style = 'display:block;';
+                    huellaInactiva1.style = 'display:none;';
+                    if (valoracion >= 2) {
+                        huellaActiva2.style = 'display:block;';
+                        huellaInactiva2.style = 'display:none;';
+                    }
+                    if (valoracion >= 3) {
+                        huellaActiva3.style = 'display:block;';
+                        huellaInactiva3.style = 'display:none;';
+                    }
+                    if (valoracion >= 4) {
+                        huellaActiva4.style = 'display:block;';
+                        huellaInactiva4.style = 'display:none;';
+                    }
+                    if (valoracion >= 5) {
+                        huellaActiva5.style = 'display:block;';
+                        huellaInactiva5.style = 'display:none;';
+                    }
+                }
+
+            }
+        })
+
+
+
+
+
+    })
+
+
+
+
+
+
+
+
+
 }

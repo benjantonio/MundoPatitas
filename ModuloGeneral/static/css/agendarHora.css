@@ -46,6 +46,7 @@ header {
     padding: 0;
     grid-template-columns: auto auto;
     border-radius: 20px;
+    padding: 2rem;
 }
 
 .cuadrito .cuadroFondo1 {
@@ -88,6 +89,21 @@ header {
     width: 100%;
     height: 100%;
     
+}
+
+.cuadrito2 .contenedor-card{
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem #00000017;
+    min-height: 8rem;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+/*PATITAS X VETERINARIO*/
+#huellaActiva1, #huellaActiva2, #huellaActiva3, #huellaActiva4, #huellaActiva5{
+    display: none;
 }
 
 .cuadrito .btnContinuar {
