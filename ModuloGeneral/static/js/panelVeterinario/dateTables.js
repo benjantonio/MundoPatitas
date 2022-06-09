@@ -134,6 +134,7 @@ $(document).ready(function () {
 
 });
 
+
 //##############################################################################################//
 
 /* ALERTA ELIMINAR CITA PENDIENTE */
@@ -349,8 +350,9 @@ function alertaFinalizarCita() {
 }
 
 
-var id_cli, id_masc, id_vet, fech, hor, motiv;
-function rescatarIds(id_cliente, id_mascota, id_veterinario, fecha, hora, motivo) {
+var id_cit, id_cli, id_masc, id_vet, fech, hor, motiv;
+function rescatarIds(id_cita, id_cliente, id_mascota, id_veterinario, fecha, hora, motivo) {
+    id_cit = id_cita;
     id_cli = id_cliente;
     id_masc = id_mascota;
     id_vet = id_veterinario;
@@ -360,7 +362,7 @@ function rescatarIds(id_cliente, id_mascota, id_veterinario, fecha, hora, motivo
 }
 
 function finalizar() {
-    console.log("FINALIZADA")
+    empezarDetener("Detener")
     try {
         let options = {
             method: "POST",
@@ -381,11 +383,39 @@ function finalizar() {
         },
             res = fetch(`http://localhost:3000/agregar_cita_concluida/`, options),
             json = res.json();
-
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
     } catch (error) {
-        console.log("Se ha finalizado la cita con éxito.")
+        eliminarCitaRealizada(id_cit);
+    }
 
+    function eliminarCitaRealizada(id){
+        try {
+            let options = {
+                method: "DELETE",
+                headers: {
+                    "Content-type": "application/json"
+                },
+            },
+                res = fetch(`http://localhost:3000/eliminar_cita_pendiente/${id}`, options),
+                json = res.json();
+            if (!res.ok) throw { status: res.status, statusText: res.statusText }
+            else {
+            }
+        } catch (error) {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: '¡Cita finalizada con éxito!',
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#09d882'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                       location.reload();
+                    }
+                });
+        }
     }
 }
 

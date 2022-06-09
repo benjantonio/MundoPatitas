@@ -93,10 +93,20 @@
                         <img id="huellaInactiva5" class="img-huella"
                             src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' />
                     </div>
-                    <h6 style="margin-top: 2rem; text-align:center;"> ¡Tienes <span id="cantPatitas">0</span>
-                        patitas!
-                    </h6>
-                    <p style="text-align:center; font-size: 13px;">Nada mal pero puede ser mejor...</p>
+                    <div class="message-valoracion-1">
+                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Aún no tienes valoración!
+                        </h6>
+                        <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar tu atención. Entre más patitas tendrás mejor reputación.</p>
+                    </div>
+                    <div style="display: none; text-align: center;" class="message-valoracion-2" >
+                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Tienes <span id="cantPatitas">0</span>
+                            patitas!
+                        </h6>
+                        <p class="descripcion-valoracion-1" style="font-size: 13px; display: none;">¡Intenta mejorar, tú puedes!</p>
+                        <p class="descripcion-valoracion-2" style="font-size: 13px; display: none;">Nada mal pero puede ser mejor...</p>
+                        <p class="descripcion-valoracion-3" style="font-size: 13px; display: none;">¡Muy bien, sigue así!</p>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -140,7 +150,7 @@
 
                         <td style="text-align: center;">
                             <button
-                                onclick="verCita('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}','{{citaPendiente.id_mascota.id_cliente.nombres}}','{{citaPendiente.id_mascota.id_cliente.apellidos}}','{{citaPendiente.id_mascota.id_cliente.celular}}','{{citaPendiente.id_mascota.nombre}}','{{citaPendiente.id_mascota.edad}}','{{citaPendiente.id_mascota.tipo}}','{{citaPendiente.id_mascota.raza}}'), rescatarIds('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_mascota_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}')"
+                                onclick="verCita('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}','{{citaPendiente.id_mascota.id_cliente.nombres}}','{{citaPendiente.id_mascota.id_cliente.apellidos}}','{{citaPendiente.id_mascota.id_cliente.celular}}','{{citaPendiente.id_mascota.nombre}}','{{citaPendiente.id_mascota.edad}}','{{citaPendiente.id_mascota.tipo}}','{{citaPendiente.id_mascota.raza}}'), rescatarIds('{{citaPendiente.id_cita}}','{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_mascota_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}')"
                                 style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; margin-right: 3px; background: #09d882; color: white;">Ver</button>
                             <button
                                 onclick="eliminarCita('{{citaPendiente.id_cita}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}')"
