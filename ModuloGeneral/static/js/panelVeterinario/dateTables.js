@@ -58,16 +58,17 @@ $(document).ready(function () {
         location.reload();
     });
 
+    //##############################################################################################//
 
-    function fechaMenor(fechaMenor, fechaMayor){
-        
-        if ( fechaMenor < fechaMayor){
+    //CAMBIAR ESTADO CITAS ATRASADAS//
+    function fechaMenor(fechaMenor, fechaMayor) {
+
+        if (fechaMenor < fechaMayor) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-
     activo = false;
     contador = 0;
     contador2 = 0
@@ -77,7 +78,6 @@ $(document).ready(function () {
             console.log("\n[ITERACIÓN]");
 
             const listaCitasPendientes = [];
-
             $(function () {
                 $.ajax({
                     type: 'GET',
@@ -97,52 +97,46 @@ $(document).ready(function () {
                     var fechaActual = moment();
                     var id_cita_pendiente = citaPendiente.id_cita;
 
-
-
-                    if ( fechaMenor(fechaCita.add(1, 'minutes'), fechaActual) && citaPendiente.estado === 'En Espera') {
-                                        $.ajax({
-                                            type: 'GET',
-                                            url: `http://localhost:3000/actualizar_Horas_Pendientes/${id_cita_pendiente}`,
-                                            success: function (response) {
-                                                fechaCita.add(-1, 'minutes')
-                                                console.log("HE CAMBIADO EL ESTADO DE LA CITA ID:", citaPendiente.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
-                                                btnActualizar.setAttribute("style", "display: flex;");
-                                                buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto auto auto; ")
-                                                activo = true;
-                                            }
-                                        });
-
-                    }else{
+                    if (fechaMenor(fechaCita.add(1, 'minutes'), fechaActual) && citaPendiente.estado === 'En Espera') {
+                        $.ajax({
+                            type: 'GET',
+                            url: `http://localhost:3000/actualizar_Horas_Pendientes/${id_cita_pendiente}`,
+                            success: function (response) {
+                                fechaCita.add(-1, 'minutes')
+                                console.log("HE CAMBIADO EL ESTADO DE LA CITA ID:", citaPendiente.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
+                                btnActualizar.setAttribute("style", "display: flex;");
+                                buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto auto auto; ")
+                                activo = true;
+                            }
+                        });
+                    } else {
                         fechaCita.add(-1, 'minutes')
                         console.log("En Espera: ", fechaCita.format('DD-MM-YYYY HH:mm'))
                     }
-
-
-
                 });
-
             }
-
         }, contador * 3000);
         contador++
     }
+
+    //RESPONSIVIDAD CONTENIDO DATETABLE//
     const rezise = () => {
         if (activo) {
             if (innerWidth < 1199) {
                 buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto; ")
-                console.log("LLEGUÉ Y CAMBIÉ EL DISPLAY A GRID 1")
             } else {
                 buscarTabla.setAttribute("style", "display:grid; grid-template-columns: auto auto auto; ")
             }
         }
     }
-
     addEventListener('resize', rezise)
     addEventListener('DOMContentLoaded', rezise)
 
 });
 
-/* funcion alerta eliminar */
+//##############################################################################################//
+
+/* ALERTA ELIMINAR CITA PENDIENTE */
 const eliminarCita = (id, fecha, hora) => {
     Swal.fire({
         position: 'center',
@@ -159,8 +153,7 @@ const eliminarCita = (id, fecha, hora) => {
         }
     })
 }
-
-/* funcion eliminar Cita Pendiente */
+/* CRUD ELIMINAR Cita Pendiente */
 const eliminar = async (id) => {
     try {
         let options = {
@@ -191,9 +184,13 @@ const eliminar = async (id) => {
     }
 }
 
-/* ========== FUNCION VER CITA ============= */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//#############################                                    #############################///////////////////////////////////////////////////////////////////////////////////////////////
+//#########                            EJECUTAR CITA PENDIENTE                         #########///////////////////////////////////////////////////////////////////////////////////////////////
+//#############################                                    #############################///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* TEXTOS VER CITA */
+//======= ABRIR Y CARGAR CITA ======//
 const fechaCitaPendiente = document.querySelector('.fechaCitaPendiente')
 const motivoConsultaPendiente = document.querySelector('.motivoConsultaPendiente')
 const nombreDuenoPendiente = document.querySelector('.nombreDuenoPendiente')
@@ -217,33 +214,34 @@ const titulo2 = document.getElementById('titulo-wrapper2')
 const textAreaTratamiento = document.querySelector('.tratamientoVeterinario')
 const textAreaComentario = document.querySelector('.comentarioVeterinario')
 
-
-
-/* VENTANA VER CITA */
 const fondoNegroBlur = document.querySelector("#fondoNegroBlur") /* fondo oscuro transparente */
 const contenedorVerCita = document.querySelector(".contenedorDetalle") /* fondo oscuro transparente */
 
+/* === CARGAR ULTIMA CITA CLIENTE === */
 function cambiarUltimaCita(id_cliente, id_veterinario) {
     $(function () {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/ultima_cita_concluida/${id_veterinario}/${id_cliente}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
             success: function (response) {
-                var ultimaCita = null;
-                ultimaCita = response[0].fecha + ' ' + response[0].hora + 'hrs'
-                if (ultimaCita != null) {
+                if (response.length > 0) {
+                    var ultimaCita = response[0].fecha + ' ' + response[0].hora + 'hrs'
                     ultimaCitaConcluida.innerHTML = ultimaCita;
+                } else {
+                    ultimaCitaConcluida.innerHTML = "Primera vez que viene";
                 }
             }
         })
     });
 }
+/* === MOSTRAR CITA === */
 
-
-/* === MOSTRAR VER CITA === */
-estadoComenzarCita = false;
+var id_cli;
+var id_vet;
 function verCita(id_cliente, id_veterinario, fecha_cita, hora_cita, motivo_cita, nombre_dueno, apellido_dueno, contacto_dueno, nombre_mascota, edad_mascota, tipo_mascota, raza_mascota) {
 
+    id_cli = id_cli;
+    id_vet = id_vet;
     /* TEXTOS */
     cambiarUltimaCita(id_cliente, id_veterinario);
     fechaCitaPendiente.innerHTML = fecha_cita + ' | ' + hora_cita
@@ -259,10 +257,8 @@ function verCita(id_cliente, id_veterinario, fecha_cita, hora_cita, motivo_cita,
     fondoNegroBlur.setAttribute("style", "opacity: 1; display:block;");
     contenedorVerCita.setAttribute("style", "opacity: 1; display:block;");
 }
-/* === FIN VER === */
-
-
 /* === COMENZAR CITA === */
+estadoComenzarCita = false;
 function comenzarCita() {
     estadoComenzarCita = true;
     contenidoIniciar.setAttribute("style", "opacity: 0; display:none;");
@@ -293,17 +289,109 @@ function comenzarCita() {
             textAreaComentario.placeholder = "Escribe un comentario..."
             candado1.innerHTML = "lock_open"
             candado2.innerHTML = "lock_open"
-
         }
     }
     /* FIN MARCHA */
 }
-/* === FIN COMENZAR === */
+/* Cancelar Cita Activada */
+function cancelarCitaActiva() { /* Regreso para volver a Empezar */
+    Swal.fire({
+        position: 'center',
+        icon: 'question',
+        text: `¿Desea retroceder?`,
+        showCancelButton: true,
+        cancelButtonColor: '#FF3333',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, regresar',
+        confirmButtonColor: '#09d882'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            empezarDetener("Detener");
+            cronometro.innerHTML = "00:00:00";
+            contadorIniciando.innerHTML = "3";
+            estadoComenzarCita = false;
+            contenidoIniciar.setAttribute("style", "opacity: 1; display:block;");
+            contenidoIniciando.setAttribute("style", "opacity: 0; display:none;");
+            contenidoEnMarcha.setAttribute("style", "opacity: 0; display:none;");
+            textoBloqueado1.innerHTML = "Bloqueado"
+            textoBloqueado2.innerHTML = "Bloqueado"
+            titulo1.setAttribute("style", "color:#888888;");
+            titulo2.setAttribute("style", "color:#888888;");
+            textAreaTratamiento.disabled = true;
+            textAreaComentario.disabled = true;
+            textAreaTratamiento.value = "";
+            textAreaComentario.value = "";
+            textAreaTratamiento.placeholder = "Inicia para desbloquear...";
+            textAreaComentario.placeholder = "Inicia para desbloquear..."
+            textAreaTratamiento.style.height = "63px";
+            textAreaComentario.style.height = "63px";
+            candado1.innerHTML = "lock"
+            candado2.innerHTML = "lock"
+        }
+    })
+}
+
+function alertaFinalizarCita() {
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        text: `¿Desea finalizar esta cita?`,
+        showCancelButton: true,
+        cancelButtonColor: '#FF3333',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, regresar',
+        confirmButtonColor: '#09d882'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            finalizar();
+        }
+    })
+}
 
 
-/* - - - - - - - - */
+var id_cli, id_masc, id_vet, fech, hor, motiv;
+function rescatarIds(id_cliente, id_mascota, id_veterinario, fecha, hora, motivo) {
+    id_cli = id_cliente;
+    id_masc = id_mascota;
+    id_vet = id_veterinario;
+    fech = fecha;
+    hor = hora;
+    motiv = motivo;
+}
 
-/* Función Cerrar Cita */
+function finalizar() {
+    console.log("FINALIZADA")
+    try {
+        let options = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                tratamiento: textAreaTratamiento.value,
+                comentario: textAreaComentario.value,
+                fecha: fech,
+                hora: hor,
+                id_mascota: id_masc,
+                id_veterinario: id_vet,
+                motivo_consulta: motiv,
+                duracion: cronometro.innerHTML,
+                id_cliente: id_cli
+            })
+        },
+            res = fetch(`http://localhost:3000/agregar_cita_concluida/`, options),
+            json = res.json();
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+    } catch (error) {
+        console.log("Se ha finalizado la cita con éxito.")
+
+    }
+}
+
+//################################################################################################################//
+
+/* Función Cerrar Cita DESDE FONDO NEGRO BLUR*/
 function cerrarCita() {
     if (!estadoComenzarCita) {
         fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
@@ -311,13 +399,12 @@ function cerrarCita() {
     }
 }
 
-/* Ocultar ventanas emergentes con click en FONDO NEGRO BLUR */
-fondoNegroBlur.addEventListener('click', () => {
-    cerrarCita();
-});
+//##################################################################################################################################################################################//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-/* =============================== FUNCIONES CRONOMETRO ================================== */
+/* ======= INICIO CRONOMETRO ===== */
+var cronometro = document.getElementById("crono");
 var inicio = 0;
 var timeout = 0;
 
@@ -340,7 +427,6 @@ function empezarDetener(elemento) {
         timeout = 0;
     }
 }
-
 function funcionando() {
     // obteneos la fecha actual
     var actual = new Date().getTime();
@@ -355,12 +441,10 @@ function funcionando() {
     // Indicamos que se ejecute esta función nuevamente dentro de 1 segundo
     timeout = setTimeout("funcionando()", 1000);
 }
-
 /* Funcion que pone un 0 delante de un valor si es necesario */
 function LeadingZero(Time) {
     return (Time < 10) ? "0" + Time : + Time;
 }
 
-/* ======= FIN CRONOMETRO ======= */
-
+//################################################################################################################//
 

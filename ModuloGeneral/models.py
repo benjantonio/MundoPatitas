@@ -173,12 +173,13 @@ class CitaConcluida(models.Model):
     fecha = models.CharField(max_length=11, default='')
     hora = models.CharField(max_length=5, default='')
     motivo_consulta = models.CharField(max_length=1000, default='')
-    tratamiento = models.CharField(max_length=600, default='')
-    comentario = models.CharField(max_length=1000, default='')
+    tratamiento = models.CharField(max_length=600, default='No se registraron tratamientos.')
+    comentario = models.CharField(max_length=1000, default='No se registraron comentarios.')
     valoracion = models.IntegerField(default=0, )
     id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
+    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, default='')
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
-    duracion = models.CharField(max_length=5, default='?')
+    duracion = models.CharField(max_length=9, default='?')
     
 
     def __str__(self):

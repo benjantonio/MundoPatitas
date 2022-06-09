@@ -33,6 +33,11 @@
 
 /* TABLA CITAS PENDIENTES */
 
+
+.swal2-container.swal2-bottom, .swal2-container.swal2-center, .swal2-container.swal2-top {
+  z-index: 3000;
+}
+
 .card-tabla-pendientes {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;

@@ -140,7 +140,7 @@
 
                         <td style="text-align: center;">
                             <button
-                                onclick="verCita('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}','{{citaPendiente.id_mascota.id_cliente.nombres}}','{{citaPendiente.id_mascota.id_cliente.apellidos}}','{{citaPendiente.id_mascota.id_cliente.celular}}','{{citaPendiente.id_mascota.nombre}}','{{citaPendiente.id_mascota.edad}}','{{citaPendiente.id_mascota.tipo}}','{{citaPendiente.id_mascota.raza}}')"
+                                onclick="verCita('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}','{{citaPendiente.id_mascota.id_cliente.nombres}}','{{citaPendiente.id_mascota.id_cliente.apellidos}}','{{citaPendiente.id_mascota.id_cliente.celular}}','{{citaPendiente.id_mascota.nombre}}','{{citaPendiente.id_mascota.edad}}','{{citaPendiente.id_mascota.tipo}}','{{citaPendiente.id_mascota.raza}}'), rescatarIds('{{citaPendiente.id_mascota.id_cliente_id}}','{{citaPendiente.id_mascota_id}}','{{citaPendiente.id_veterinario_id}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}','{{citaPendiente.motivo_consulta}}')"
                                 style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; margin-right: 3px; background: #09d882; color: white;">Ver</button>
                             <button
                                 onclick="eliminarCita('{{citaPendiente.id_cita}}','{{citaPendiente.fecha}}','{{citaPendiente.hora}}')"
@@ -213,7 +213,7 @@
                             </div>
                             <div class="wrapper">
                                 <h2 id="titulo-wrapper" class="titulo-wrapper">Tratamiento / Dosis</h2>
-                                <textarea disabled class="tratamientoVeterinario" spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
+                                <textarea disabled class="tratamientoVeterinario" maxlength="500" spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
                               </div>
                         </div>
                         <div class="contenedor-info cont-sec2">
@@ -223,7 +223,7 @@
                             </div>
                             <div class="wrapper">
                                 <h2 id="titulo-wrapper2" class="titulo-wrapper">Comentario</h2>
-                                <textarea disabled style="overflow: auto;" class="comentarioVeterinario" spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
+                                <textarea disabled style="overflow: auto;" class="comentarioVeterinario" maxlength="350" spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
                               </div>
                         </div>
                     </div>
@@ -255,10 +255,10 @@
                     <div class="crono_wrapper">
                         <h2 id='crono'>00:00:00</h2>
                     </div>
-                    <button  id="finalizar-cita-btn" class="finalizar-cita-btn">
+                    <button  id="finalizar-cita-btn" class="finalizar-cita-btn" onclick="alertaFinalizarCita()">
                         <span class="material-symbols-outlined">check_circle</span><p>Finalizar</p>
                     </button>
-                    <button  id="cancelar-cita-btn" class="cancelar-cita-btn">
+                    <button  id="cancelar-cita-btn" class="cancelar-cita-btn" onclick="cancelarCitaActiva()">
                         <span class="material-symbols-outlined">close</span>
                         <p>Cancelar</p>
                     </button>
@@ -278,7 +278,7 @@
     </div>
 </div>
 
-<div id="fondoNegroBlur" class="fondoNegroBlur"></div>
+<div id="fondoNegroBlur" class="fondoNegroBlur" onclick="cerrarCita();"></div>
 
 
 <script>
