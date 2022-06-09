@@ -26,4 +26,6 @@ urlpatterns = [
     path('panel-centro-vet/', panelcenvet, name='panelcentro'),
     path('veterinarios', veterinarios, name='veterinarios'),
     path('prueba_vet/<id>', vetSelect, name='vetSelect'),
+    path('adopciones', adopciones, name='adopciones'),
+    path('mis-publicaciones', publicaciones, name='publicaciones'),
 ]

@@ -120,6 +120,8 @@ class PublicacionAdopcion(models.Model):
     correo = models.CharField(max_length=50)
     edad = models.IntegerField()
     comentario = models.CharField(max_length=500)
+    img = models.CharField(max_length=500,blank=True, null=True)
+    id_cliente = models.ForeignKey(Usuario,blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.tipo_animal
@@ -131,7 +133,7 @@ class Mascota(models.Model):
     tipo = models.CharField(max_length=50)
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
-    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(Usuario,  on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.nombre},{self.tipo}'

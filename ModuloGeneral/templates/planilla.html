@@ -116,10 +116,12 @@
                 <ul class="ulBotones">
                     <li><a href="{% url 'home' %}">Inicio</a></li>
 
-                    <li><a href="#">Adoptar</a></li>
+                    <li><a href="{% url 'adopciones' %}">Adoptar</a></li>
                     <li><a href="#">Cementerio</a></li>
                     <li><a href="#">Foro</a></li>
-                    {% if request.user.perfil_id == 2 %}
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'publicaciones' %}">Mis Publicaciones</a></li>
+                    {% endif %} {% if request.user.perfil_id == 2 %}
                     <li><a href="#">Agendar Hora</a></li>
                     <li><a href="{% url 'panelcli' %}">Mi Panel</a></li>
                     {% elif request.user.perfil_id == 3 %}

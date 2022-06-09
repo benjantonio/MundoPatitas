@@ -1,0 +1,107 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+<div class="adopTitulo">
+    <h1>Adopciones Mundo Patitas</h1>
+    <h5>Este apartado de la página tiene como objetivo ayudar a los animalitos a encontrar sus futuros dueños, todo esto para ayudar en la disminución de animales callejeros y/o maltrados por sus antiguos dueños. Si tienes un animalito que necesite hogar,
+        te invitamos a realizar su publicación.
+    </h5>
+</div>
+
+{% if user.is_authenticated %}
+<button class="btn-publi btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Publicar</button>{% endif %}{% if adopciones %}
+<div class="cardPublicaciones">
+    {% for adop in adopciones %}
+    <div class="card-mascota">
+        <img class="img-perfil-aside" src='{{adop.img}}' alt="">
+        <h5>{{adop.nombre}}</h5>
+        <p style="text-transform: uppercase;">{{adop.edad}}</p>
+        <p style="text-transform: uppercase;">{{adop.tipo_animal}}</p>
+        <p>{{adop.correo}}</p>
+        <p>{{adop.comentario}}</p>
+        <div class="btns">
+            {% if adop.id_cliente_id == user.id_usuario %}
+            <button class="btn btn-warning">Modificar</button>
+            <button class="btn btn-danger" onclick="eliminarPublicacion('{{adop.id_publicacion}}','{{adop.nombre}}')">Eliminar</button>{% else %}<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Contactar</button>            {% endif %}
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<span>Bienvenido a Adopciones Mundo Patitas, de momento no se han realizado publicaciones. Si necesitas publicar un animalito te invitamos a ingresar con tu cuenta <a href="{% url 'login' %}">aquí</a> para realizar la publicación</span> {% endif %}
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Publicar Adopción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formAdop" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Tipo de Animal</label>
+                        <select class="form-select" name="tipo" id="tipo">
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                            <option value="exotico">Exótico</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input type="text" id="correo" name="correo" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edad</label>
+                        <input type="text" id="edad" name="edad" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Foto</label>
+                        <input type="file" id="imagen" name="imagen" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Comentario</label>
+                        <textarea id="comentario" name="comentario" class="form-control"></textarea>
+                    </div>
+
+                    <input type="text" id="id_cli" name="id_cli" value="{{user.id_usuario}}" class="form-control" style="display: none;">
+
+                    <button type="submit" class="btn btn-success">Publicar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Publicar Adopción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Formulario de adopcion</p>
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/adopciones.js' %}"></script>
+
+{%endblock%}

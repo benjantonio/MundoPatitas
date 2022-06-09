@@ -1,0 +1,18 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %} {% if publicacion %}
+<p>hay adopciones</p>
+
+<div class="cardPublicaciones">
+    {% for publi in publicacion %}
+    <div class="card-mascota">
+        <img class="img-perfil-aside" src='{{publi.img}}' alt="">
+        <h5>{{publi.nombre}}</h5>
+
+        <div class="btns">
+            <button class="btn btn-warning">Modificar</button>
+            <button class="btn btn-danger">Eliminar</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<span>No has realizado publicaciones</span> {% endif %} {%endblock%}

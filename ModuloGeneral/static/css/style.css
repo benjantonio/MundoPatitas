@@ -587,6 +587,69 @@ tr:hover {
 /*FIN REGISTRO*/
 
 
+/*Publicaciones adopciones*/
+
+.adopTitulo {
+    display: block;
+    width: 80%;
+    margin: 0px auto;
+}
+
+.adopTitulo h1,
+h5 {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-publi {
+    display: block;
+    margin: 0px auto;
+    margin-top: 25px;
+    border: none;
+    background: #2ac465;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.cardPublicaciones {
+    height: auto;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cardPublicaciones .card-mascota {
+    height: auto;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    border: 1px solid #00000017;
+    box-shadow: 0rem 0rem 0.45rem 0.1rem #0000000c;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.cardPublicaciones .card-mascota img {
+    margin: 0pc auto;
+    margin-top: 10px;
+    object-fit: cover;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 20px;
+    box-shadow: 0.8rem 0.5rem 2rem 0.7rem #00000015;
+}
+
+.cardPublicaciones .card-mascota p {
+    color: #5a5a5a;
+    font-size: 15px;
+}
+
+
 /*FOOTER*/
 
 

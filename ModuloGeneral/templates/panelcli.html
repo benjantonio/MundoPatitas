@@ -120,10 +120,6 @@
                 <div class="zona-mascotas">
                     {% if mascotas %} {% for mascota in mascotas %}
                     <div class="card-mascota">
-                        <!-- {% if mascota.tipo == 'perro' %}
-                        <img class="img-perfil-aside" src='{% static "img/icono-perro.png" %}' alt=""> {% elif mascota.tipo == 'gato' %}
-                        <img class="img-perfil-aside" src='{% static "img/icono-gato.png" %}' alt=""> {% else %}
-                        <img class="img-perfil-aside" src='{% static "img/icono-exotico.png" %}' alt=""> {% endif %} -->
                         <img class="img-perfil-aside" src='{{mascota.img}}' alt="">
                         <h5>{{mascota.nombre}}</h5>
                         <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
@@ -159,7 +155,7 @@
                             <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
                         </div>
                         <div class="modal-body ">
-                            <form id="formMascota " method="post " enctype="multipart/form-data">
+                            <form id="formMascota" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="mb-3 ">
                                     <label class="form-label ">Nombre</label>

@@ -24,9 +24,6 @@ def registro(request):
 
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
-    
-    
-
     return render(request,'panelcli.html', {'mascotas': mascotas})
 
 def panelcenvet(request):
@@ -42,6 +39,16 @@ def veterinarios(request):
     veterinarios = Veterinario.objects.filter(id_cliente_id = request.user.id_usuario)
 
     return render(request,'veterinarios.html', {'veterinarios': veterinarios})
+
+def publicaciones(request):
+    
+    publicacion = PublicacionAdopcion.objects.filter(id_cliente_id = request.user.id_usuario)
+    return render(request,'publicaciones.html', { 'publicacion':publicacion})
+
+def adopciones(request):
+    adopciones = PublicacionAdopcion.objects.all()
+
+    return render(request,'adopciones.html', {'adopciones': adopciones})
 
 
 
