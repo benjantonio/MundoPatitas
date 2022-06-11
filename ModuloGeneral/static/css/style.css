@@ -635,10 +635,11 @@ h5 {
 }
 
 .cardPublicaciones .card-mascota img {
-    margin: 0pc auto;
+    margin: 0px auto;
     margin-top: 10px;
     object-fit: cover;
-    width: 12rem;
+    width: auto;
+    max-width: 12rem;
     height: 12rem;
     border-radius: 20px;
     box-shadow: 0.8rem 0.5rem 2rem 0.7rem #00000015;
