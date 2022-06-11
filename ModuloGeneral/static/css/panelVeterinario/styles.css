@@ -9417,6 +9417,14 @@ fieldset:disabled .btn {
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.barraSupNav{
+background: url("../../img/blur_green2.jpg");
+background-size: cover;
+width: 100%;
+box-shadow: 0.08rem 0rem 0.8rem 0.1rem #00000069;
+}
+
+
 .bg-black {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
@@ -12895,6 +12903,7 @@ body {
   transition: transform 0.15s ease-in-out;
   z-index: 1038;
   transform: translateX(-225px);
+  box-shadow: 0.08rem 0rem 0.8rem 0.1rem #00000069;
 }
 
 #layoutSidenav #layoutSidenav_content {
@@ -13032,9 +13041,9 @@ body {
 }
 
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
-  padding: 1.75rem 1rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: bold;
+  padding: 2.8rem 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 100;
   text-transform: uppercase;
 }
 
@@ -13044,6 +13053,7 @@ body {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   position: relative;
+  font-weight: 600;
 }
 
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
@@ -13071,27 +13081,47 @@ body {
 }
 
 .sb-sidenav-dark {
-  background-color: #212529;
+  
   color: rgba(255, 255, 255, 0.5);
+  background: url("../../img/blur_green.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgb(255 255 255 / 89%);
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255 255 255);
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgb(255 255 255);
+  
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
   color: rgba(255, 255, 255, 0.25);
 }
 
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover  {
+  color: #28a745;
+  background: #fff;
+}
+
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover .sb-nav-link-icon{
+  color: #28a745;
+}
+
+.sb-sidenav-dark .sb-sidenav-menu .cerrar-sesion-nav:hover{
+  color: #fff;
+  background: #FF3D3D;
+}
+
+.sb-sidenav-dark .sb-sidenav-menu .cerrar-sesion-nav:hover .sb-nav-link-icon{
   color: #fff;
 }
 
@@ -13104,7 +13134,9 @@ body {
 }
 
 .sb-sidenav-dark .sb-sidenav-footer {
-  background-color: #343a40;
+background: url("../../img/blur_green3.jpg");
+width: 100%;
+background-size: cover;
 }
 
 .sb-sidenav-light {

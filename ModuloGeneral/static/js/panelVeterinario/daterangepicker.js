@@ -1537,22 +1537,20 @@
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Éxito.',
-                                    text: 'Todas tus citas han sido creadas con éxito.',
+                                    html: `Se han agregado <span style="color:#39E343;">${contadorCorrectas}</span> citas libre con éxito.`,
                                 })
                             } else if (correct && fail) {
                                 console.log("\n------------------------------------------------")
-                                console.log(`  ${contadorCorrectas} Citas agregadas con éxito.`)
-                                console.log(`  ${contadorFallidas} Citas con [ERROR]. \n`)
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Bien, pero hay algunos problemas...',
-                                    html: `Se han agregado <span style="color:#39E343;">${contadorCorrectas}</span> |\nNo se agregaron <span style="color:red;">${contadorFallidas}</span> citas porque ya existen:\n${listaCitasFallidas}`,
+                                    html: `Se han agregado <span style="color:#39E343;">${contadorCorrectas}</span> citas |\nNo se agregaron <span style="color:red;">${contadorFallidas}</span> citas porque ya existen:<br>${listaCitasFallidas}`,
                                 })
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    html: `No se agregaron <span style="color:red;">${contadorFallidas}</span> citas porque ya existen:\n${listaCitasFallidas}`,
+                                    html: `No se agregaron <span style="color:red;">${contadorFallidas}</span> citas porque ya existen:<br>${listaCitasFallidas}`,
                                 })
                             }
                         }

@@ -122,7 +122,6 @@
             <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
                 <thead>
                     <tr style="text-align: center;">
-                        <th style="color:#7e7e7e;">Id</th>
                         <th>Hora</th>
                         <th>Fecha</th>
                         <th>Motivo Consulta</th>
@@ -136,7 +135,6 @@
                 <tbody>
                     {% for citaPendiente in citasPendientes %}
                     <tr style="text-align: center;">
-                        <td style="color:#ababab;">{{citaPendiente.id_cita}}</td>
                         <td>{{citaPendiente.hora}}</td>
                         <td>{{citaPendiente.fecha}}</td>
                         <td>{{citaPendiente.motivo_consulta}}</td>

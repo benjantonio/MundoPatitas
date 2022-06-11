@@ -157,7 +157,7 @@ class CitaDisponible(models.Model):
 class CitaTomada(models.Model):
 
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.CharField(max_length=11, default='')
+    fecha = models.DateField(max_length=11, default='')
     hora = models.CharField(max_length=5, default='')
     motivo_consulta = models.CharField(max_length=1000, default='')
     estado = models.CharField(max_length=20, default='En Espera')
