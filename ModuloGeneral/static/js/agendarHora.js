@@ -11,6 +11,8 @@ var cantPatitas = document.querySelector(".cantPatitas");
 var diaConsulta = document.getElementById("diaConsulta");
 var horaConsulta = document.getElementById("horaConsulta");
 
+var fotoVet = document.querySelector(".fotoVet");
+
 let idCentroSelect;
 let idComunaSelect;
 let idVeterinarioSelect;
@@ -43,6 +45,8 @@ centros.addEventListener('change', () => {
 
     limpiarSelectFecha();
     limpiarSelectHoras();
+    limpiarPatitas();
+    limpiarInfoVet();
 
     /*Guardo la información que recibe el SELECT centroA y habilito el SELECT veterinarios*/
     idCentroSelect = centros.value;
@@ -102,6 +106,9 @@ function limpiarSelectFecha() {
 btnContinuar.addEventListener('click', () => {
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
     nombreVet.innerHTML = vetSeleccionado;
+
+    fotoVet.setAttribute("style", "opacity: 1;");
+    
     mostrarcuadrito.setAttribute("style", "display:block; ");
     limpiarSelectFecha();
     buscarFechas();
@@ -123,11 +130,18 @@ function fechaMenor(fechaMenor, fechaMayor) {
 
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "veterinarios"*/
 veterinarios.addEventListener('change', () => {
-    var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
-    nombreVet.innerHTML = vetSeleccionado;
+
     limpiarSelectFecha();
     limpiarSelectHoras();
+    limpiarPatitas();
+    limpiarInfoVet();
 });
+
+function limpiarInfoVet(){
+    fotoVet.setAttribute("style", "opacity: 0;");
+    nombreVet.innerHTML = "";
+
+}
 
 
 function buscarFechas() {
@@ -288,8 +302,44 @@ function buscarHoras() {
     })
 }
 
-
 /* =================== FUNCION VALORACION VETERINARIO ============= */
+
+function limpiarPatitas() {
+    const huellaActiva1 = document.querySelector("#huellaActiva1");
+    const huellaActiva2 = document.querySelector("#huellaActiva2");
+    const huellaActiva3 = document.querySelector("#huellaActiva3");
+    const huellaActiva4 = document.querySelector("#huellaActiva4");
+    const huellaActiva5 = document.querySelector("#huellaActiva5");
+    const huellaInactiva1 = document.querySelector("#huellaInactiva1");
+    const huellaInactiva2 = document.querySelector("#huellaInactiva2");
+    const huellaInactiva3 = document.querySelector("#huellaInactiva3");
+    const huellaInactiva4 = document.querySelector("#huellaInactiva4");
+    const huellaInactiva5 = document.querySelector("#huellaInactiva5");
+
+
+    const cantPatitas = document.querySelector("#cantPatitas");
+    const msg1_valo = document.querySelector(".message-valoracion-1");
+    const msg2_valo = document.querySelector(".message-valoracion-2");
+    const desc1_valo = document.querySelector(".descripcion-valoracion-1");
+    const desc2_valo = document.querySelector(".descripcion-valoracion-2");
+    const desc3_valo = document.querySelector(".descripcion-valoracion-3");
+
+    huellaActiva1.setAttribute("style", "display:none; ");
+    huellaActiva2.setAttribute("style", "display:none; ");
+    huellaActiva3.setAttribute("style", "display:none; ");
+    huellaActiva4.setAttribute("style", "display:none; ");
+    huellaActiva5.setAttribute("style", "display:none; ");
+
+    huellaInactiva1.setAttribute("style", "display:none; ");
+    huellaInactiva2.setAttribute("style", "display:none; ");
+    huellaInactiva3.setAttribute("style", "display:none; ");
+    huellaInactiva4.setAttribute("style", "display:none; ");
+    huellaInactiva5.setAttribute("style", "display:none; ");
+
+    msg1_valo.setAttribute("style", "display:none; ");
+    msg2_valo.setAttribute("style", "display:none; ");
+}
+
 function mostrarValoracion() {
 
     /* Llamo a la API con el ID del veterinario*/
@@ -297,9 +347,9 @@ function mostrarValoracion() {
     $(function () {
         $.ajax({
             type: 'GET',
-            url: `http://localhost:3000/valoracion/${1}`,
+            url: `http://localhost:3000/valoracion/${idVeterinarioSelect}`,
             success: function (response) {
-                
+
                 /* Declaro valor inicial valoración*/
                 let valoracion = 0;
                 valoracion = response[0].valoracion;
@@ -316,12 +366,40 @@ function mostrarValoracion() {
                 const huellaInactiva5 = document.querySelector("#huellaInactiva5");
 
 
+                const cantPatitas = document.querySelector("#cantPatitas");
+                const msg1_valo = document.querySelector(".message-valoracion-1");
+                const msg2_valo = document.querySelector(".message-valoracion-2");
+                const desc1_valo = document.querySelector(".descripcion-valoracion-1");
+                const desc2_valo = document.querySelector(".descripcion-valoracion-2");
+                const desc3_valo = document.querySelector(".descripcion-valoracion-3");
+
+
+
+                msg1_valo.style = 'display:block;';
+                desc1_valo.setAttribute("style", "display:none; ");
+                desc2_valo.setAttribute("style", "display:none; ");
+                desc3_valo.setAttribute("style", "display:none; ");
+
+                huellaInactiva1.setAttribute("style", "display:block; ");
+                huellaInactiva2.setAttribute("style", "display:block; ");
+                huellaInactiva3.setAttribute("style", "display:block; ");
+                huellaInactiva4.setAttribute("style", "display:block; ");
+                huellaInactiva5.setAttribute("style", "display:block; ");
+
                 if (valoracion >= 1) {
                     huellaActiva1.style = 'display:block;';
                     huellaInactiva1.style = 'display:none;';
+                    cantPatitas.innerHTML = valoracion;
+
+                    msg1_valo.style = 'display:none;';
+                    msg2_valo.style = 'display:grid;';
+                    desc1_valo.style = 'display:block; text-align:center;';
+
                     if (valoracion >= 2) {
                         huellaActiva2.style = 'display:block;';
                         huellaInactiva2.style = 'display:none;';
+                        desc1_valo.style = 'display:none;';
+                        desc2_valo.style = 'display:block; text-align:center;';
                     }
                     if (valoracion >= 3) {
                         huellaActiva3.style = 'display:block;';
@@ -330,13 +408,14 @@ function mostrarValoracion() {
                     if (valoracion >= 4) {
                         huellaActiva4.style = 'display:block;';
                         huellaInactiva4.style = 'display:none;';
+                        desc2_valo.style = 'display:none;';
+                        desc3_valo.style = 'display:block; text-align:center;';
                     }
                     if (valoracion >= 5) {
                         huellaActiva5.style = 'display:block;';
                         huellaInactiva5.style = 'display:none;';
                     }
                 }
-
             }
         })
 

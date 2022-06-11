@@ -49,12 +49,15 @@
 
     <br>
 
-    <div class="btnVolver">
-        <span class="material-symbols-outlined">arrow_back</span>
-        <a class="btnA" href="{% url 'home' %}" style="text-decoration: none;">
-            <p class="p-btn">Volver</p>
-        </a>
+    <div style="display: grid; justify-content: center;">
+        <div class="btnVolver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <a class="btnA" href="{% url 'home' %}" style="text-decoration: none;">
+                <p class="p-btn">Volver</p>
+            </a>
+        </div>
     </div>
+
 
 
 
@@ -66,7 +69,7 @@
             <div class="cuadroFondo1">
                 <h2>Agendar Hora</h2>
                 <h5>Ingresa los siguientes datos para buscar una hora</h5>
-                <img src='{% static "img/Patitas.png" %}' alt="Logo">
+                <img src='{% static "img/MUNDO_PATITAS.png" %}' alt="Logo">
             </div>
 
 
@@ -183,54 +186,105 @@
             <h5>Seleccionar hora</h5>
 
             <div class="contenedor-card">
-                <div>
-                    <h6>Viendo horas de:<h6 class="nombreVet"></h6></h6>
+
+                <div class="cuadroFormulario">
+
+                    <div class="form-floating col formulario sel1">
+                        <select id="diaConsulta" class="form-control diaConsulta" name="diaConsulta">
+                            <option selected disabled></option>
+                            <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
+                        </select>
+                        <label for="floatingSelect">Selecciona una fecha</label>
+                    </div>
+
+                    <div class="form-floating col formulario sel2">
+                        <select disabled id="horaConsulta" class="form-control horaConsulta" name="horaConsulta">
+                            <option selected disabled></option>
+                            <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
+                        </select>
+                        <label for="floatingSelect">Selecciona una hora</label>
+                    </div>
                 </div>
-                
+
+
+                <div class="info_vet">
+                    <h6>Veterinario:</h6>
+                    <img class="fotoVet" src='{% static "img/medVete.png" %}' alt="">
+                    <p class="nombreVet" style="font-size: 35px; font-weight: 100;"></p>
+
+
+                </div>
+
+
                 <div>
-                    <h6>Valoracion:</h6>
-                    <div>
-                        <img class="img-huella" id="huellaActiva1" src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
-                        <img class="img-huella" id="huellaActiva2" src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
-                        <img class="img-huella" id="huellaActiva3" src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
-                        <img class="img-huella" id="huellaActiva4" src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
-                        <img class="img-huella" id="huellaActiva5" src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
-                        <img class="img-huella" id="huellaInactiva1" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' alt="patitaInactiva">
-                        <img class="img-huella" id="huellaInactiva2" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' alt="patitaInactiva">
-                        <img class="img-huella" id="huellaInactiva3" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' alt="patitaInactiva">
-                        <img class="img-huella" id="huellaInactiva4" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' alt="patitaInactiva">
-                        <img class="img-huella" id="huellaInactiva5" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' alt="patitaInactiva">
+                    <h5>Valoracion:</h5>
+
+                    <div class="contenedor-patitas">
+                        <img class="img-huella" id="huellaActiva1"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
+                        <img class="img-huella" id="huellaActiva2"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
+                        <img class="img-huella" id="huellaActiva3"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
+                        <img class="img-huella" id="huellaActiva4"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
+                        <img class="img-huella" id="huellaActiva5"
+                            src='{% static "img/panelVeterinario/huella-veterinario.png" %}' alt="patitActiva">
+
+                        <img class="img-huella" id="huellaInactiva1"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'
+                            alt="patitaInactiva">
+                        <img class="img-huella" id="huellaInactiva2"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'
+                            alt="patitaInactiva">
+                        <img class="img-huella" id="huellaInactiva3"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'
+                            alt="patitaInactiva">
+                        <img class="img-huella" id="huellaInactiva4"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'
+                            alt="patitaInactiva">
+                        <img class="img-huella" id="huellaInactiva5"
+                            src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}'
+                            alt="patitaInactiva">
+                    </div>
+                    <div class="message-valoracion-1" style="display: none;">
+                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Aún no tienes valoración!
+                        </h6>
+                        <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar tu
+                            atención. Entre más patitas tendrás mejor reputación.</p>
+                    </div>
+                    <div style="display: none; text-align: center;" class="message-valoracion-2">
+
+                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Tiene <span id="cantPatitas">0</span>
+                            patitas!</h6>
+
+                        <p class="descripcion-valoracion-1" style="font-size: 13px; display: none; margin: 0;">¡Este
+                            veterinario
+                            tiene una valoracion baja!</p>
+                        <p class="descripcion-valoracion-2" style="font-size: 13px; display: none; margin: 0;">Este
+                            veterinario
+                            tiene una valoracion regular</p>
+                        <p class="descripcion-valoracion-3" style="font-size: 13px; display: none; margin: 0;">¡Este
+                            veterinario
+                            tiene muy buena reputación!</p>
                     </div>
                 </div>
 
             </div>
-            
 
-
-            
-
-            <div class="cuadroFormulario">
-
-                <div class="form-floating col formulario">
-                    <select id="diaConsulta" class="form-control diaConsulta" name="diaConsulta">
-                        <option selected disabled></option>
-                        <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
-                    </select>
-                    <label for="floatingSelect">Selecciona una fecha</label>
-                </div>
-
-                <div class="form-floating col formulario">
-                    <select disabled id="horaConsulta" class="form-control horaConsulta" name="horaConsulta">
-                        <option selected disabled></option>
-                        <!--EL CONTENIDO VIENE DE agendarHora.js CON AJAX-->
-                    </select>
-                    <label for="floatingSelect">Selecciona una hora</label>
-                </div>
+            <!--BOTON CONTINUAR - DESHABILITADO-->
+            <div class="btnFinalApagado">
+                <span class="material-symbols-outlined">chevron_right</span>
+                <p class="p-btn">Continuar</p>
             </div>
-
-            <div class="d-grid contenedor-btn ap-2 col-6 mx-auto">
-                <button type="button" class="btn btn-outline-success">Continuar</button>
-            </div>
+            <!--BOTON CONTINUAR - HABILITADO -->
+            <a id="btnFinal" type="submit">
+                <div class="btnFinalr">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                    <p class="p-btn">Continuar</p>
+                    <!--SE HABILITA CUANDO SE REALIZA UN CAMBIO EN EL SELECT VETERINARIO-->
+                </div>
+            </a>
 
         </div>
 
