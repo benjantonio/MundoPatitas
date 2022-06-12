@@ -39,8 +39,7 @@ const obtenerMascotas = async() => {
     }
 }
 
-var form = document.querySelector("#formMascota")
-
+var form = document.querySelector(".formMascota")
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -124,7 +123,7 @@ formActMas.addEventListener('submit', function(e) {
     const formData = new FormData(e.currentTarget)
 
     fetch(`http://localhost:3000/actualizar_mascota/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             body: formData
         })
         .then((res) => {

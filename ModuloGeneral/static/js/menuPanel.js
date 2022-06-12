@@ -30,8 +30,8 @@ const tipoPetGatoBtn = document.querySelector(".tipoGatoBtn")
 const tipoPetExoticoBtn = document.querySelector(".tipoExoticoBtn")
 
 /*Mis adopciones */
-const btnAdopciones = document.querySelector(".misAdopciones-btn")
-const tabAdopciones = document.querySelector(".tabMisAdopciones")
+const btnAdopciones = document.querySelector("#misAdopciones-btn")
+const tabAdopciones = document.querySelector("#tabMisAdopciones")
 
 /* Contenedores */
 const contModPet = document.querySelector("#contenedorModPet") /* ventana del detalle */
@@ -84,6 +84,7 @@ yoBtn.addEventListener('click', () => {
     yoTab.style = 'display:block;'
     misMascotasTab.style = 'display:none;';
     historialCitasTab.style = 'display:none;';
+    tabAdopciones.style = 'display:none;'
 });
 
 /* ======================= MIS MASCOTAS ============================*/
@@ -91,6 +92,7 @@ yoBtn.addEventListener('click', () => {
 /* Ventana "Mis Mascotas" */
 misMascotasBtn.addEventListener('click', () => {
     misMascotasTab.style = 'display:block;';
+    tabAdopciones.style = 'display:none;'
     yoTab.style = 'display:none;'
 
 });
@@ -109,10 +111,12 @@ misMascotasBtn.addEventListener('click', () => {
 
 /*Funciones Adopciones */
 btnAdopciones.addEventListener('click', () => {
+    console.log("adopciones")
     tabAdopciones.style = 'display:block;'
     yoTab.style = 'display:none;'
     misMascotasTab.style = 'display:none;';
 })
+
 
 /* FUNCIONES */
 /* Abrir Modificar Mascota  */
