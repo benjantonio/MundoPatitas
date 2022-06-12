@@ -603,12 +603,12 @@ aside .sidebar .a-cerrarsesion:focus:before {
     border-radius: 20px;
 }
 
-.contenido-modPet .part1 .img-pet {
+.img-pet {
     background: #ffff;
     border-radius: 50%;
 }
 
-.contenido-modPet .part1 .img-pet img {
+.img-pet img {
     height: 90%;
     width: 50%;
     border-radius: 10px;

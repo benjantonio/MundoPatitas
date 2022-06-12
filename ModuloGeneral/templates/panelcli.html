@@ -93,8 +93,10 @@
         <div id="tabYo">
             <div class="cardYo card">
                 <h4>Tu Información</h4>
-                <img class="img-perfil-aside" src='{% static "img/foto_perfil.jpg" %}' alt="">
-                <p class="btn-modificarImagen">+Modificar Imágen</p>
+                <img class="img-perfil-aside" src='{% static "img/usuario2.png" %}' alt="">
+
+
+
 
                 <div class="contenido">
                     <p>Nombre: <br><span class="texto-info-PC">{{user.nombres}} {{user.apellidos}}</span></p>
@@ -125,7 +127,7 @@
                         <p style="text-transform: uppercase;">{{mascota.tipo}}</p>
 
                         <div class="btns">
-                            <button id="modificar-mascota-btn" class="modificar-mascota-btn" onclick="obtenerMascota('{{mascota.id_mascota}}')">Modificar</button>
+                            <button id="modificar-mascota-btn" data-bs-toggle="modal" data-bs-target="#ModalActMAs" class="modificar-mascota-btn" onclick="obtenerMascota('{{mascota.id_mascota}}')">Modificar</button>
                             <button class="btn-eliminar" onclick="eliminarMascota('{{mascota.id_mascota}}','{{mascota.nombre}}')"><span class="material-symbols-outlined" style="vertical-align: middle; margin-top: 2px;">close</span></button>
 
                         </div>
@@ -147,104 +149,39 @@
 
             </div>
 
-            <div class="modal fade " id="mascotaModal " tabindex="-1 " aria-labelledby="mascotaModal " aria-hidden="true ">
-                <div class="modal-dialog ">
-                    <div class="modal-content ">
-                        <div class="modal-header ">
-                            <h5 class="modal-title " id="exampleModalLabel ">Agregar Mascota</h5>
-                            <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
-                        </div>
-                        <div class="modal-body ">
-                            <form id="formMascota" method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <div class="mb-3 ">
-                                    <label class="form-label ">Nombre</label>
-                                    <input type="text " id="nombre " name="nombre " class="form-control ">
-                                </div>
-                                <div class="mb-3 ">
-                                    <label class="form-label ">Imagen</label>
-                                    <input type="file" id="imagen " name="imagen " class="form-control ">
-                                </div>
-                                <div class="mb-3 ">
-                                    <label class="form-label " for=" ">Tipo de Mascota</label>
-                                    <select class="form-select " name="tipo " id="tipo ">
-                                        <option value="perro ">Perro</option>
-                                        <option value="gato ">Gato</option>
-                                        <option value="exotico ">Exótico</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3 ">
-                                    <label class="form-label " for=" ">Raza</label>
-                                    <input type="text " class="form-control " name="raza " id="raza ">
-                                </div>
-                                <div class="mb-3 ">
-                                    <label class="form-label " for=" ">Edad</label>
-                                    <input type="number " class="form-control " name="edad " id="edad ">
-                                </div>
-                                <div class="mb-3 ">
-                                    <label class="form-label " for=" ">Dueño</label>
-                                    <select name="dueño " id="dueño ">
-                                        <option value="{{user.id_usuario}} " selected="selected ">{{user.nombres}} {{user.apellidos}}</option>
-                                    </select>
-                                </div>
 
-                            </form>
-                        </div>
-                        <div class="modal-footer ">
-                            <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button>
-                            <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <!-- Fin - Tab "Mis Mascotas " -->
 
-            <!--MODIFICAR INFO MASCOTA-->
-            <div id="contenedorModPet" class="contenedorModPet">
-                <h3 style="color: #424242;">Modificar mascota</h3>
-                <div class="contenido-modPet">
+        <!--MODIFICAR INFO MASCOTA-->
+        <!-- <div id="contenedorModPet" class="contenedorModPet">
+            <h3 style="color: #424242;">Modificar mascota</h3>
+            <div class="contenido-modPet">
+                <form id="modMas" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="part1">
                         <div class="img-pet">
                             <img class="perfilPet" alt="...">
-                            <input type="file">
+                            <input type="file" name="imagen">
                         </div>
                         <div class="form-floating txtInpNombre mb-3">
-                            <input type="text" class="form-control txtNombre" id="floatingInput" name="nombreM" placeholder="name@example.com">
+                            <input type="text" class="form-control txtNombre" id="floatingInput" name="nombre" placeholder="name@example.com">
                             <label for="floatingInput" style="color: #04bc70;">Nombre</label>
                         </div>
-
-                        <!-- TITULO BOTONES TIPO DE MASCOTA -->
-                        <!-- <h5>Tipo de Mascota</h5>
-                        <div class="tipoPet">
-
-                            <div class="tipoPerroBtn tipoMascotaBtn">
-                                <img src='{% static "img/perro-cara.png" %}' class="imagenBtn" alt="...">
-                                <p class="p-btn">Perro</p>
-                            </div>
-                            <div class="tipoGatoBtn tipoMascotaBtn">
-                                <img src='{% static "img/gato-cara.png" %}' class="imagenBtn" alt="...">
-                                <p class="p-btn">Gato</p>
-                            </div>
-                            <div class="tipoExoticoBtn tipoMascotaBtn">
-                                <img src='{% static "img/erizo-cara2.png" %}' class="imagenBtn" alt="...">
-                                <p class="p-btn">Exótico</p>
-                            </div>
-                        </div> -->
-                        <!-- FIN BOTONES TIPO DE MASCOTA -->
-
                     </div>
                     <div class="part2">
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control txtRaza" id="floatingInput" name="razaM" placeholder="name@example.com">
+                            <input type="text" class="form-control txtRaza" id="floatingInput" name="raza" placeholder="name@example.com">
                             <label for="floatingInput" style="color: #04bc70;">Raza</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control txtEdad" id="floatingInput" name="edadM" placeholder="name@example.com">
+                            <input type="number" class="form-control txtEdad" id="floatingInput" name="edad" placeholder="name@example.com">
                             <label for="floatingInput" style="color: #04bc70;">Edad</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <!-- <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com"> -->
-                            <select name="tipoM" class="form-control txtTipo" id="selectTipo">
+                             <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com"> 
+                            <select name="tipo" class="form-control txtTipo" id="selectTipo">
                                 <option value="perro">Perro</option>
                                 <option value="gato">Gato</option>
                                 <option value="exotico">Exótico</option>
@@ -254,25 +191,153 @@
                         <input type="text" name=" " class="txtIdCli " style="display: none;">
                         <input type="text" name="" class="txtIdM" style="display: none;">
                     </div>
-                </div>
-                <br>
-                <!-- BOTON REGRESAR     -->
-                <div class="btnAccionMod ">
-                    <div id="guardar-modPet-btn " class="guardar-modPet-btn modbtn "><span class="material-symbols-outlined ">done</span>
-                        <button class="p-btn btnModEnviar" onclick="actualizarMascota() ">Guardar</button>
+
+                    <div class="btnAccionMod ">
+                        <div id="guardar-modPet-btn " class="guardar-modPet-btn modbtn "><span class="material-symbols-outlined ">done</span>
+                            <button type="submit" class="p-btn btnModEnviar">Guardar</button>
+                        </div>
+                        <div id="cerrar-modPet-btn" class="cancelar-modPet-btn modbtn "><span class="material-symbols-outlined ">close</span>
+                            <button class="p-btn btnModCerrar">Cancelar</button>
+                        </div>
                     </div>
-                    <div id="cerrar-modPet-btn" class="cancelar-modPet-btn modbtn "><span class="material-symbols-outlined ">close</span>
-                        <button class="p-btn btnModCerrar">Cancelar</button>
+                </form>
+
+            </div>
+            <br>
+
+        </div> -->
+
+        <div class="modal fade" id="ModalActMAs" tabindex="-1" aria-labelledby="ModalActMAsLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalActMAsLabel">Modificar Mascota</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="modMas" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="img-pet mb-3">
+                                <img class="perfilPet" alt="...">
+                                <br>
+                                <input type="file" name="imagen">
+                            </div>
+                            <div class="form-floating txtInpNombre mb-3">
+                                <input type="text" class="form-control txtNombre" id="floatingInput" name="nombre" placeholder="name@example.com">
+                                <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control txtRaza" id="floatingInput" name="raza" placeholder="name@example.com">
+                                <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control txtEdad" id="floatingInput" name="edad" placeholder="name@example.com">
+                                <label for="floatingInput" style="color: #04bc70;">Edad</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <!-- <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com"> -->
+                                <select name="tipo" class="form-control txtTipo" id="selectTipo">
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="exotico">Exótico</option>
+                                </select>
+                                <label for="floatingInput" style="color: #04bc70;">Tipo</label>
+                            </div>
+                            <input type="text" name=" " class="txtIdCli " style="display: none;">
+                            <input type="text" name="" class="txtIdM" style="display: none;">
+
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div id="tabMisAdopciones">
+            <div class="cardMisMascotas card">
+                <h3>Mis Adopciones</h3>
+                <p style="color: rgb(112, 112, 112); font-size: 15px;">A continuación se muestarn todas sus publicaciones de adopciones, en caso de que alguna de estas se haya cumpletado con exitoso favor eliminar la publicación.</p>
+                <div class="zona-mascotas">
+                    {% if publicacion %} {% for publi in publicacion %}
+                    <div class="card-mascota">
+                        <img class="img-perfil-aside" src='{{publi.img}}' alt="">
+                        <h5>{{publi.edad}}</h5>
+                        <h5>{{publi.nombre}}</h5>
+                        <p style="text-transform: uppercase;">{{publicacion.tipo_animal}}</p>
+                        <p>{{publi.correo}}</p>
+                        <p>{{publi.comentario}}</p>
+
+                        <div class="btns">
+                            <button class="btn btn-warning">Modificar</button>
+                            <button class="btn btn-danger" onclick="eliminarPublicacion('{{adop.id_publicacion}}','{{adop.nombre}}')">Eliminar</button>
+
+                        </div>
+                    </div>
+                    <!-- -FIN MODIFICAR INFO MASCOTA -->
+                    {% endfor %} {% else %}
+                    <p>No ha realizado publicaciones</p>
+                    {% endif %}
+
+                </div>
+
+            </div>
 
 
         </div>
-        <!-- Fin - Tab "Mis Mascotas " -->
 
+        <div class="modal fade " id="mascotaModal " tabindex="-1 " aria-labelledby="mascotaModal " aria-hidden="true ">
+            <div class="modal-dialog ">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <h5 class="modal-title " id="exampleModalLabel ">Agregar Mascota</h5>
+                        <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
+                    </div>
+                    <div class="modal-body ">
+                        <form id="formMascota" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3 ">
+                                <label class="form-label ">Nombre</label>
+                                <input type="text " id="nombre " name="nombre " class="form-control ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label ">Imagen</label>
+                                <input type="file" id="imagen " name="imagen " class="form-control ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Tipo de Mascota</label>
+                                <select class="form-select " name="tipo " id="tipo ">
+                                    <option value="perro ">Perro</option>
+                                    <option value="gato ">Gato</option>
+                                    <option value="exotico ">Exótico</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Raza</label>
+                                <input type="text " class="form-control " name="raza " id="raza ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Edad</label>
+                                <input type="number " class="form-control " name="edad " id="edad ">
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label " for=" ">Dueño</label>
+                                <select name="dueño " id="dueño ">
+                                    <option value="{{user.id_usuario}} " selected="selected ">{{user.nombres}} {{user.apellidos}}</option>
+                                </select>
+                            </div>
 
+                        </form>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button>
+                        <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -463,11 +528,6 @@
         </div>
         <!-- Fin - Tab "Historial Citas " -->
 
-        <!-- Tab "Adopciones " -->
-        <div class="tabMisAdopciones tabPanelCliente ">
-            <h3 style="text-align: center; ">Adopciones</h3>
-            <p>asdasd</p>
-        </div>
         <!-- Fin - Tab "Adopciones " -->
 
         <!-- Tab "Cementerio " -->

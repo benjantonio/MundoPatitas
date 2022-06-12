@@ -13,6 +13,17 @@ const recargar = () => {
     setTimeout(retrasarReload, 1500)
 }
 
+const recargarAct = () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mascota actualizada con exito!!',
+        showConfirmButton: false,
+        timer: 1500
+    })
+    setTimeout(retrasarReload, 1500)
+}
+
 const obtenerMascotas = async() => {
     try {
         res = await fetch(`http://localhost:3000/lista_mascota`),
@@ -106,28 +117,17 @@ const obtenerMascota = async(id) => {
     }
 }
 
-const actualizarMascota = async() => {
+var formActMas = document.querySelector("#modMas")
+formActMas.addEventListener('submit', function(e) {
+    e.preventDefault();
     id = document.querySelector(".txtIdM").value
-    try {
-        let options = {
-                method: "PUT",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    nombre: document.querySelector(".txtNombre").value,
-                    raza: document.querySelector(".txtRaza").value,
-                    edad: document.querySelector(".txtEdad").value,
-                    tipo: document.querySelector(".txtTipo").value,
-                    id_cli: document.querySelector(".txtIdCli").value
-                })
-            },
+    const formData = new FormData(e.currentTarget)
 
-            res = await fetch(`http://localhost:3000/actualizar_mascota/${id}`, options),
-            json = await res.json();
-
-        if (!res.ok) throw { status: res.status, statusText: res.statusText }
-        else {
+    fetch(`http://localhost:3000/actualizar_mascota/${id}`, {
+            method: 'POST',
+            body: formData
+        })
+        .then((res) => {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -136,13 +136,48 @@ const actualizarMascota = async() => {
                 timer: 1500
 
             })
-            setTimeout(retrasarReload, 1500);
-        }
-    } catch (error) {
-        console.log(error)
+            setTimeout(retrasarReload, 1500)
+        })
+        .catch((err) => ("Erorr ", err))
+})
 
-    }
-}
+// const actualizarMascota = async() => {
+//     id = document.querySelector(".txtIdM").value
+//     try {
+//         let options = {
+//                 method: "PUT",
+//                 headers: {
+//                     "Content-type": "application/json"
+//                 },
+//                 body: JSON.stringify({
+//                     nombre: document.querySelector(".txtNombre").value,
+//                     raza: document.querySelector(".txtRaza").value,
+//                     edad: document.querySelector(".txtEdad").value,
+//                     tipo: document.querySelector(".txtTipo").value,
+//                     id_cli: document.querySelector(".txtIdCli").value
+//                 })
+//             },
+
+//             res = await fetch(`http://localhost:3000/actualizar_mascota/${id}`, options),
+//             json = await res.json();
+
+//         if (!res.ok) throw { status: res.status, statusText: res.statusText }
+//         else {
+//             Swal.fire({
+//                 position: 'center',
+//                 icon: 'success',
+//                 title: 'Mascota Actualizada con Exito!!',
+//                 showConfirmButton: false,
+//                 timer: 1500
+
+//             })
+//             setTimeout(retrasarReload, 1500);
+//         }
+//     } catch (error) {
+//         console.log(error)
+
+//     }
+// }
 
 const resetFormModal = () => {
     console.log("CERRAR")

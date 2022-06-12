@@ -29,6 +29,10 @@ const tipoPetPerroBtn = document.querySelector(".tipoPerroBtn")
 const tipoPetGatoBtn = document.querySelector(".tipoGatoBtn")
 const tipoPetExoticoBtn = document.querySelector(".tipoExoticoBtn")
 
+/*Mis adopciones */
+const btnAdopciones = document.querySelector(".misAdopciones-btn")
+const tabAdopciones = document.querySelector(".tabMisAdopciones")
+
 /* Contenedores */
 const contModPet = document.querySelector("#contenedorModPet") /* ventana del detalle */
 
@@ -93,29 +97,34 @@ misMascotasBtn.addEventListener('click', () => {
 
 
 /* Botón Abrir y Cerrar Modificar Mascotas */
-if (document.querySelector(".modificar-mascota-btn")) {
-    // const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
-    const modificarPetBtns = document.querySelectorAll(".modificar-mascota-btn")
-    modificarPetBtns.forEach(modificarPetBtn => {
-        modificarPetBtn.addEventListener('click', () => {
-            contModPet.setAttribute("style", "opacity: 1; display:block;");
-        });
-    });
+// if (document.querySelector(".modificar-mascota-btn")) {
+//     // const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
+//     const modificarPetBtns = document.querySelectorAll(".modificar-mascota-btn")
+//     modificarPetBtns.forEach(modificarPetBtn => {
+//         modificarPetBtn.addEventListener('click', () => {
+//             contModPet.setAttribute("style", "opacity: 1; display:block;");
+//         });
+//     });
+// }
 
-
-}
+/*Funciones Adopciones */
+btnAdopciones.addEventListener('click', () => {
+    tabAdopciones.style = 'display:block;'
+    yoTab.style = 'display:none;'
+    misMascotasTab.style = 'display:none;';
+})
 
 /* FUNCIONES */
 /* Abrir Modificar Mascota  */
 
 /* Ocultar Modificar Mascota  */
-if (cerrarModPetBtn) {
-    cerrarModPetBtn.addEventListener('click', () => {
-        console.log("Cerrar")
-            // fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
-        contModPet.setAttribute("style", "opacity: 0; display:none;");
-    });
-}
+// if (cerrarModPetBtn) {
+//     cerrarModPetBtn.addEventListener('click', () => {
+//         console.log("Cerrar")
+//             // fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
+//         contModPet.setAttribute("style", "opacity: 0; display:none;");
+//     });
+// }
 
 
 /* Cambiar imagen tipo de mascota con botones */
