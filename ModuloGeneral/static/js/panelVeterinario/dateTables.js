@@ -356,14 +356,71 @@ function alertaFinalizarCita() {
 
 var id_cit, id_cli, id_masc, id_vet, fech, hor, motiv;
 function rescatarIds(id_cita, id_cliente, id_mascota, id_veterinario, fecha, hora, motivo) {
+    var anno;
+    var mes;
+    var dia = fecha.slice(0,2).trim();
+    var fechaModificada;
+
+    if(dia.length == 1){
+        dia = "0"+dia;
+    }
+
+    if (fecha.includes("Enero")){
+        mes = "01";
+    }
+    else if(fecha.includes("Febrero")){
+        mes = "02"
+    }
+    else if(fecha.includes("Marzo")){
+        mes = "03"
+    }
+    else if(fecha.includes("Abril")){
+        mes = "04"
+    }
+    else if(fecha.includes("Mayo")){
+        mes = "05"
+    }
+    else if(fecha.includes("Junio")){
+        mes = "06"
+    }
+    else if(fecha.includes("Julio")){
+        mes = "07"
+    }
+    else if(fecha.includes("Agosto")){
+        mes = "08"
+    }
+    else if(fecha.includes("Septiembre")){
+        mes = "09"
+    }
+    else if(fecha.includes("Octubre")){
+        mes = "10"
+    }
+    else if(fecha.includes("Noviembre")){
+        mes = "11"
+    }
+    else if(fecha.includes("Diciembre")){
+        mes = "12"
+    }
+
+    if(fecha.includes("2022")){
+        anno=2022;
+    }
+    else if(fecha.includes("2023")){
+        anno=2023;
+    }
+
+    fechaModificada = anno+"-"+mes+"-"+dia
+
     id_cit = id_cita;
     id_cli = id_cliente;
     id_masc = id_mascota;
     id_vet = id_veterinario;
-    fech = fecha;
+
+    fech = fechaModificada;
     hor = hora;
     motiv = motivo;
 }
+
 
 function finalizar() {
     empezarDetener("Detener")

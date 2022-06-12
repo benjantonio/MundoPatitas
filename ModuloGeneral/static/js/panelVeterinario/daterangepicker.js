@@ -1537,21 +1537,40 @@
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Éxito.',
-                                    html: `Se han agregado <span style="color:#39E343;">${contadorCorrectas}</span> citas libre con éxito.`,
-                                })
+                                    html: `Se han agregado <span style="color:#39E343;">${contadorCorrectas}</span> citas libre/s con éxito.`,
+                                    confirmButtonText: 'Aceptar',
+                                    confirmButtonColor: '#09d882'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                       location.reload();
+                                    }
+                                });
+                                
                             } else if (correct && fail) {
                                 console.log("\n------------------------------------------------")
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Bien, pero hay algunos problemas...',
                                     html: `Se han agregado <span style="color:#39E343;">${contadorCorrectas}</span> citas |\nNo se agregaron <span style="color:red;">${contadorFallidas}</span> citas porque ya existen:<br>${listaCitasFallidas}`,
-                                })
+                                    confirmButtonText: 'Aceptar',
+                                    confirmButtonColor: '#09d882'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                       location.reload();
+                                    }
+                                });
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
                                     html: `No se agregaron <span style="color:red;">${contadorFallidas}</span> citas porque ya existen:<br>${listaCitasFallidas}`,
-                                })
+                                    confirmButtonText: 'Aceptar',
+                                    confirmButtonColor: '#09d882'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                       location.reload();
+                                    }
+                                });
                             }
                         }
                     }

@@ -96,17 +96,21 @@
                     <div class="message-valoracion-1">
                         <h6 style="margin-top: 2rem; text-align:center;"> ¡Aún no tienes valoración!
                         </h6>
-                        <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar tu atención. Entre más patitas tendrás mejor reputación.</p>
+                        <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar tu
+                            atención. Entre más patitas tendrás mejor reputación.</p>
                     </div>
-                    <div style="display: none; text-align: center;" class="message-valoracion-2" >
+                    <div style="display: none; text-align: center;" class="message-valoracion-2">
                         <h6 style="margin-top: 2rem; text-align:center;"> ¡Tienes <span id="cantPatitas">0</span>
                             patitas!
                         </h6>
-                        <p class="descripcion-valoracion-1" style="font-size: 13px; display: none;">¡Intenta mejorar, tú puedes!</p>
-                        <p class="descripcion-valoracion-2" style="font-size: 13px; display: none;">Nada mal pero puede ser mejor...</p>
-                        <p class="descripcion-valoracion-3" style="font-size: 13px; display: none;">¡Muy bien, sigue así!</p>
+                        <p class="descripcion-valoracion-1" style="font-size: 13px; display: none;">¡Intenta mejorar, tú
+                            puedes!</p>
+                        <p class="descripcion-valoracion-2" style="font-size: 13px; display: none;">Nada mal pero puede
+                            ser mejor...</p>
+                        <p class="descripcion-valoracion-3" style="font-size: 13px; display: none;">¡Muy bien, sigue
+                            así!</p>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -216,13 +220,14 @@
                     <div class="sec2-detalle">
                         <div class="contenedor-info cont-sec2">
                             <div id="zona-block-textarea" class="zona-block-textarea">
-                                <span  id="candado1" class="material-symbols-outlined">lock</span>
+                                <span id="candado1" class="material-symbols-outlined">lock</span>
                                 <p id="textoBloqueado" class="textoBloqueado">Bloqueado</p>
                             </div>
                             <div class="wrapper">
                                 <h2 id="titulo-wrapper" class="titulo-wrapper">Tratamiento / Dosis</h2>
-                                <textarea disabled class="tratamientoVeterinario" maxlength="500" spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
-                              </div>
+                                <textarea disabled class="tratamientoVeterinario" maxlength="500" spellcheck="false"
+                                    placeholder="Inicia para desbloquear." required></textarea>
+                            </div>
                         </div>
                         <div class="contenedor-info cont-sec2">
                             <div id="zona-block-textarea2" class="zona-block-textarea">
@@ -231,23 +236,23 @@
                             </div>
                             <div class="wrapper">
                                 <h2 id="titulo-wrapper2" class="titulo-wrapper">Comentario</h2>
-                                <textarea disabled style="overflow: auto;" class="comentarioVeterinario" maxlength="350" spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
-                              </div>
+                                <textarea disabled style="overflow: auto;" class="comentarioVeterinario" maxlength="350"
+                                    spellcheck="false" placeholder="Inicia para desbloquear." required></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="seccion-iniciar">
-                
+
                 <!-- CONTENIDO INICIAR -->
                 <div id="contenido-iniciar" class="contenido-iniciar">
                     <h6>¿Desea comenzar con la Cita?</h6>
                     <p class="textDescription">Si tu cliente ha llegado presione el botón <span
                             style="color: #09c577; font-weight:500; font-size: 18px;">Iniciar</span></p>
 
-                    <button onclick="comenzarCita()"
-                    id="comenzar-pendiente-btn" class="comenzar-pendiente-btn">
+                    <button onclick="comenzarCita()" id="comenzar-pendiente-btn" class="comenzar-pendiente-btn">
                         <span class="material-symbols-outlined">play_circle</span>
                         <p>Iniciar</p>
                     </button>
@@ -263,10 +268,11 @@
                     <div class="crono_wrapper">
                         <h2 id='crono'>00:00:00</h2>
                     </div>
-                    <button  id="finalizar-cita-btn" class="finalizar-cita-btn" onclick="alertaFinalizarCita()">
-                        <span class="material-symbols-outlined">check_circle</span><p>Finalizar</p>
+                    <button id="finalizar-cita-btn" class="finalizar-cita-btn" onclick="alertaFinalizarCita()">
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <p>Finalizar</p>
                     </button>
-                    <button  id="cancelar-cita-btn" class="cancelar-cita-btn" onclick="cancelarCitaActiva()">
+                    <button id="cancelar-cita-btn" class="cancelar-cita-btn" onclick="cancelarCitaActiva()">
                         <span class="material-symbols-outlined">close</span>
                         <p>Cancelar</p>
                     </button>
@@ -293,18 +299,18 @@
     const tratamientoVeterinario = document.querySelector(".tratamientoVeterinario");
     const comentarioVeterinario = document.querySelector(".comentarioVeterinario");
 
-    tratamientoVeterinario.addEventListener("keyup", e =>{
+    tratamientoVeterinario.addEventListener("keyup", e => {
         tratamientoVeterinario.style.height = "63px";
-      let scHeight = e.target.scrollHeight;
-      tratamientoVeterinario.style.height = `${scHeight}px`;
+        let scHeight = e.target.scrollHeight;
+        tratamientoVeterinario.style.height = `${scHeight}px`;
     });
 
-    comentarioVeterinario.addEventListener("keyup", e =>{
+    comentarioVeterinario.addEventListener("keyup", e => {
         comentarioVeterinario.style.height = "63px";
-      let scHeight = e.target.scrollHeight;
-      comentarioVeterinario.style.height = `${scHeight}px`;
+        let scHeight = e.target.scrollHeight;
+        comentarioVeterinario.style.height = `${scHeight}px`;
     });
-  </script>
+</script>
 <!-- Configuracion Valoración Patitas -->
 <script src="../../static/js/panelVeterinario/valoracion.js"></script>
 

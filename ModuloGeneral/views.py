@@ -52,7 +52,8 @@ def panelVeterinario(request):
 
 
 def moduloCrearCita(request):
-    return render(request,'panelVeterinario/crear.html',{})
+    citasDisponibles = CitaDisponible.objects.filter(id_veterinario_id = 1).order_by('fecha','hora') ## AQUÍ VA EL ID DEL VETERINARIO
+    return render(request,'panelVeterinario/crear.html',{'citasDisponibles':citasDisponibles})
 
 def moduloPendientesCita(request):
     citasPendientes = CitaTomada.objects.filter(id_veterinario_id = 1).order_by('fecha', 'hora') ## AQUÍ VA EL ID DEL VETERINARIO

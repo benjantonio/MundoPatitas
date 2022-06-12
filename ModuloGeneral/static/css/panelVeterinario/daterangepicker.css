@@ -424,3 +424,33 @@
     clear: none !important;
   }
 }
+
+
+.contenedor-crear{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top:2rem;
+}
+
+.contenedor-datetable-disp{
+  margin: 0 7rem 0 0;
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width:1490px){
+  .contenedor-datetable-disp{
+    margin: 0 2rem 0 0;
+  }
+}
+
+@media screen and (max-width:1300px){
+  .contenedor-crear{
+    grid-template-columns: 100%;
+    margin: auto 4rem;
+  }
+
+  .contenedor-datetable-disp{
+    margin: 21rem 0 0 0 ;
+  }
+
+}
