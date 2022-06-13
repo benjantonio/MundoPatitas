@@ -503,3 +503,82 @@ function mostrarDireccion(){
         })
     })
 }
+
+function alertaConfirmacion(){
+    Swal.fire({
+        title: 'Agendar Hora',
+        text: "¿Estas seguro que quieres agendar esta hora?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#27ba5f',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
+}
+
+
+function finalizar() {
+    try {
+        let options = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                tratamiento: textAreaTratamiento.value,
+                comentario: textAreaComentario.value,
+                fecha: fech,
+                hora: hor,
+                id_mascota: id_masc,
+                id_veterinario: id_vet,
+                motivo_consulta: motiv,
+                duracion: cronometro.innerHTML,
+                id_cliente: id_cli
+            })
+        },
+            res = fetch(`http://localhost:3000/agregar_cita_concluida/`, options),
+            json = res.json();
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+    } catch (error) {
+        eliminarCitaRealizada(id_cit);
+    }
+
+    function eliminarCitaRealizada(id){
+        try {
+            let options = {
+                method: "DELETE",
+                headers: {
+                    "Content-type": "application/json"
+                },
+            },
+                res = fetch(`http://localhost:3000/eliminar_cita_pendiente/${id}`, options),
+                json = res.json();
+            if (!res.ok) throw { status: res.status, statusText: res.statusText }
+            else {
+            }
+        } catch (error) {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: '¡Cita finalizada con éxito!',
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#09d882'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                       location.reload();
+                    }
+                });
+        }
+    }
+}

@@ -342,25 +342,24 @@
             </div>
 
             <div class="botones">
-                <!-- BOTON CANCELAR -->
-                <a id="btnCancelar" type="submit">
-                    <div class="btnCancelar">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                        <p class="p-btn">Cancelar</p>
-                    </div>
-                </a>
 
                 <!-- BOTON CONFIRMAR -->
-                <a id="btnConfirmar" type="submit">
+                <a id="btnConfirmar" type="submit" onclick="alertaConfirmacion();">
                     <div class="btnConfirmar">
                         <span class="material-symbols-outlined">chevron_right</span>
                         <p class="p-btn">Tomar Hora</p>
                     </div>
                 </a>
 
+                <!-- BOTON CANCELAR -->
+                <a id="btnCancelar" type="submit" >
+                    <div class="btnCancelar">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                        <p class="p-btn">Cancelar</p>
+                    </div>
+                </a>
+
             </div>
-
-
         </div>
 
         <!-- FONDO NEGRO BLUR TAPA TODA LA PANTALLA -->
@@ -370,8 +369,10 @@
     </section>
 
 
-
+    <!-- JAVASCRIPT AGENDARHORA.JS -->
     <script src="{% static 'js/agendarHora.js' %}"></script>
+    <!-- SWEETALERT -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </body>
