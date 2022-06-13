@@ -1,34 +1,41 @@
+var motivoConsulta = document.getElementById("consulta");
+var mascota = document.getElementById("mascota");
 var comuna = document.getElementById("comuna");
 var centros = document.getElementById("centroA");
 var veterinarios = document.getElementById("veterinario")
 var btnContinuarApagado = document.querySelector(".btnContinuarApagado");
 var btnContinuar = document.querySelector(".btnContinuar");
 var mostrarcuadrito = document.querySelector(".cuadrito2");
+
 var nombreVet = document.querySelector(".nombreVet");
 var clinicaVet = document.querySelector(".clinicaVet");
 var cantPatitas = document.querySelector(".cantPatitas");
-
 var diaConsulta = document.getElementById("diaConsulta");
 var horaConsulta = document.getElementById("horaConsulta");
-
 var fotoVet = document.querySelector(".fotoVet");
+var btnFinal = document.querySelector(".btnFinal");
+var btnCancelar = document.querySelector(".btnCancelar");
+
+
+var fondoNegroBlur = document.querySelector(".fondoNegroBlur");
+var detalleFinal = document.querySelector(".detalleFinal");
+var centroR = document.querySelector(".centroR");
+var nombreVetR = document.querySelector(".nombreVetR");
+var motivoConsultaR = document.querySelector(".motivoConsultaR");
+var mascotaR = document.querySelector(".mascotaR");
+var fechaR = document.querySelector(".fechaR");
+var horaR = document.querySelector(".horaR");
+var direccionR = document.querySelector("#direccionR");
 
 let idCentroSelect;
 let idComunaSelect;
 let idVeterinarioSelect;
 let idDiaConsulta;
-
-var motivoConsulta = document.getElementById("consulta");
-var mascota = document.getElementById("mascota");
-
-
+let idCentro
 
 /*CUANDO HAYA UN CAMBIO EN SELECT MOTIVO CONSULTA*/
 motivoConsulta.addEventListener('change', () => {
-    var hola = "hola mundo";
-
     mascota.disabled = false;
-    console.log(hola.slice(1, 6));
 })
 
 /*CUANDO HAYA UN CAMBIO EN SELECT MASCOTA*/
@@ -47,6 +54,9 @@ centros.addEventListener('change', () => {
     limpiarSelectHoras();
     limpiarPatitas();
     limpiarInfoVet();
+
+    mostrarcuadrito.setAttribute("style", "display:none;");
+
 
     /*Guardo la información que recibe el SELECT centroA y habilito el SELECT veterinarios*/
     idCentroSelect = centros.value;
@@ -108,7 +118,7 @@ btnContinuar.addEventListener('click', () => {
     nombreVet.innerHTML = vetSeleccionado;
 
     fotoVet.setAttribute("style", "opacity: 1;");
-    
+
     mostrarcuadrito.setAttribute("style", "display:block; ");
     limpiarSelectFecha();
     buscarFechas();
@@ -137,7 +147,7 @@ veterinarios.addEventListener('change', () => {
     limpiarInfoVet();
 });
 
-function limpiarInfoVet(){
+function limpiarInfoVet() {
     fotoVet.setAttribute("style", "opacity: 0;");
     nombreVet.innerHTML = "";
 
@@ -275,6 +285,7 @@ function limpiarSelectHoras() {
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "diaConsulta"*/
 diaConsulta.addEventListener('change', () => {
     buscarHoras();
+
 });
 
 function buscarHoras() {
@@ -341,6 +352,7 @@ function limpiarPatitas() {
 }
 
 function mostrarValoracion() {
+
 
     /* Llamo a la API con el ID del veterinario*/
 
@@ -433,4 +445,61 @@ function mostrarValoracion() {
 
 
 
+}
+
+btnFinal.addEventListener('click', () => {
+
+    fondoNegroBlur.setAttribute("style", "display:block; opacity: 1;");
+    detalleFinal.setAttribute("style", "position: fixed; display:block; opacity: 1;");
+
+    mostrarDireccion();
+
+    var centroSeleccionado = centros.options[centros.selectedIndex].text;
+    centroR.innerHTML = centroSeleccionado;
+
+    var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
+    nombreVetR.innerHTML = vetSeleccionado;
+
+    var motivoSeleccionado = motivoConsulta.options[motivoConsulta.selectedIndex].text;
+    motivoConsultaR.innerHTML = motivoSeleccionado;
+
+    var mascotaSeleccionado = mascota.options[mascota.selectedIndex].text;
+    mascotaR.innerHTML = mascotaSeleccionado;
+
+    var fechaSeleccionada = diaConsulta.options[diaConsulta.selectedIndex].text;
+    fechaR.innerHTML = fechaSeleccionada;
+
+    var HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
+    horaR.innerHTML = HoraSeleccionada;
+});
+
+btnCancelar.addEventListener('click', () => {
+    fondoNegroBlur.setAttribute("style", "display:none; opacity: o;");
+    detalleFinal.setAttribute("style", " display:none; opacity: o;");
+});
+
+function limpiarVentana(){
+
+}
+
+function mostrarDireccion(){
+
+    idCentroSelect = centros.value;
+
+    $(function () {
+        $.ajax({
+            type: 'GET',
+            url: `http://localhost:3000/direccion/${idCentroSelect}`,
+            success: function (response) {
+
+                console.log(response);
+                if (response.length == 0) {
+                    direccionR.innerHTML = "No tiene direccion, por favor contacte al centro veterinario."
+                }
+
+                direccionR.innerHTML = response[0].direccion;
+
+            }
+        })
+    })
 }

@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Chewy&display=swap,Titillium+Web:wght@300&display=swap,Dosis:wght@300&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <!--MOMENT-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -114,7 +114,8 @@
                             {% if centro %}
 
                             {% if centro.comuna_id == comuna.id_comuna %}
-                            <option value="{{centro.id_usuario}}">&nbsp;&nbsp;&nbsp; {{centro.nombres}} </option>
+                            <option value="{{centro.id_usuario}}">&nbsp;&nbsp;&nbsp;{{centro.nombres}}
+                                {{centro.apellidos}}</option>
                             {% endif %}
 
                             {% endif %}
@@ -136,7 +137,8 @@
                             {% if centro %}
 
                             {% if centro.comuna_id == comuna.id_comuna %}
-                            <option value="{{centro.id_usuario}}">&nbsp;&nbsp;&nbsp; {{centro.nombres}} </option>
+                            <option value="{{centro.id_usuario}}">&nbsp;&nbsp;&nbsp;{{centro.nombres}}
+                                {{centro.apellidos}}</option>
                             {% endif %}
 
                             {% endif %}
@@ -178,7 +180,7 @@
             </div>
         </div>
 
-        <!------------------------------------------------------------------------------------------------------------------------------------>
+        <!----------------------------------------------------------------------------------------------------------------------------->
         <br>
 
         <div class="cuadrito2">
@@ -186,9 +188,7 @@
             <h5>Seleccionar hora</h5>
 
             <div class="contenedor-card">
-
                 <div class="cuadroFormulario">
-
                     <div class="form-floating col formulario sel1">
                         <select id="diaConsulta" class="form-control diaConsulta" name="diaConsulta">
                             <option selected disabled></option>
@@ -206,17 +206,14 @@
                     </div>
                 </div>
 
-
                 <div class="info_vet">
                     <h6>Veterinario:</h6>
                     <img class="fotoVet" src='{% static "img/medVete.png" %}' alt="">
                     <p class="nombreVet" style="font-size: 35px; font-weight: 100;"></p>
-
-
                 </div>
 
-
                 <div>
+
                     <h5>Valoracion:</h5>
 
                     <div class="contenedor-patitas">
@@ -248,10 +245,11 @@
                             alt="patitaInactiva">
                     </div>
                     <div class="message-valoracion-1" style="display: none;">
-                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Aún no tienes valoración!
+                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Éste veterinario no tiene valoraciones!
                         </h6>
-                        <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar tu
-                            atención. Entre más patitas tendrás mejor reputación.</p>
+                        <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar la atención
+                            de un veterinario.
+                            Recuerda valorar tu consulta para ayudar a la comunidad.</p>
                     </div>
                     <div style="display: none; text-align: center;" class="message-valoracion-2">
 
@@ -269,25 +267,105 @@
                             tiene muy buena reputación!</p>
                     </div>
                 </div>
-
             </div>
 
-            <!--BOTON CONTINUAR - DESHABILITADO-->
-            <div class="btnFinalApagado">
-                <span class="material-symbols-outlined">chevron_right</span>
-                <p class="p-btn">Continuar</p>
-            </div>
-            <!--BOTON CONTINUAR - HABILITADO -->
+            <!-- BOTON CONTINUAR -->
             <a id="btnFinal" type="submit">
-                <div class="btnFinalr">
+                <div class="btnFinal">
                     <span class="material-symbols-outlined">chevron_right</span>
                     <p class="p-btn">Continuar</p>
-                    <!--SE HABILITA CUANDO SE REALIZA UN CAMBIO EN EL SELECT VETERINARIO-->
                 </div>
             </a>
+        </div>
+
+        <div class="detalleFinal">
+            <div class="fondo">
+                <div class="cardDetalle">
+                    <div class="cardDetalle1">
+                        <p class="subTitulo">Resumen</p>
+                        <img class="fotoVet" src='{% static "img/medVete.png" %}' alt="">
+
+                        <p class="subTitulo">Centro Médico</p>
+                        <p class="centroR" style="font-size: 18px; font-weight: 200;"></p>
+
+                        <p class="subTitulo">Veterinario </p>
+                        <p class="nombreVetR" style="font-size: 18px; font-weight: 200;"></p>
+
+                    </div>
+
+                    <div class="cardDetalle2">
+
+                        <div class="sec1">
+                            <div class="motivoS">
+                                <p class="subTitulo">Motivo Consulta</p>
+                                <p class="motivoConsultaR" style="font-size: 18px; font-weight: 200;"></p>
+                            </div>
+
+                            <div class="mascotaS">
+                                <p class="subTitulo">Mascota</p>
+                                <p class="mascotaR" style="font-size: 18px; font-weight: 200;"></p>
+                            </div>
+                        </div>
+                        <div class="sec2">
+                            <div>
+                                <p class="subTitulo">Día de la consulta:</p>
+                                <p class="fechaR" style="font-size: 18px; font-weight: 200;"></p>
+                            </div>
+
+                            <div>
+                                <p class="subTitulo">Hora:</p>
+                                <p class="horaR" style="font-size: 18px; font-weight: 200;"></p>
+                            </div>
+                        </div>
+                        <div class="sec3">
+                            <p class="subTitulo">Dirección:</p>
+                            <p id="direccionR" style="font-size: 18px; font-weight: 200;"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="fondo2">
+                <div class="cardfondo2">
+                    <div class="cardfondo3">
+                        <div>
+                            <p class="subTitulo">IMPORTANTE</p>
+                            <p style="font-size: 16px; font-weight: 400;">
+                                Recuerda llegar con al menos 10 minutos de anticipación,
+                                llevar el carnet de tu mascota y todos los datos necesarios
+                                para que tu veterinario pueda brindarte la mejor atención posible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="botones">
+                <!-- BOTON CANCELAR -->
+                <a id="btnCancelar" type="submit">
+                    <div class="btnCancelar">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                        <p class="p-btn">Cancelar</p>
+                    </div>
+                </a>
+
+                <!-- BOTON CONFIRMAR -->
+                <a id="btnConfirmar" type="submit">
+                    <div class="btnConfirmar">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                        <p class="p-btn">Tomar Hora</p>
+                    </div>
+                </a>
+
+            </div>
+
 
         </div>
 
+        <!-- FONDO NEGRO BLUR TAPA TODA LA PANTALLA -->
+        <div id="fondoNegroBlur" class="fondoNegroBlur">
+        </div>
 
     </section>
 
