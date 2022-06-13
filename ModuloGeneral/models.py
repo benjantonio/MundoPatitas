@@ -93,7 +93,9 @@ class Usuario(AbstractBaseUser):
 class PublicacionForo(models.Model):
     id_publicacion = models.AutoField(primary_key=True, verbose_name="Id Publicación")
     categoria = models.CharField(max_length=100, verbose_name="Categoria Publicación")
-    fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha")
+    titulo = models.CharField(max_length=1000, verbose_name="titulo", default="")
+    fecha = models.DateField(max_length=11, default='')
+    hora = models.CharField(max_length=9,verbose_name="Hora",default="")
     mensaje = models.CharField(max_length=1000, verbose_name="Mensaje")
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
@@ -102,7 +104,8 @@ class PublicacionForo(models.Model):
 
 class RespuestaForo(models.Model):
     id_respuesta = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField(auto_now_add=True)
+    fecha = models.DateField(max_length=11, default='')
+    hora = models.CharField(max_length=9,verbose_name="Hora",default="")
     comentario = models.CharField(max_length=1000)
     valoracion = models.IntegerField()
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)

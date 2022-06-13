@@ -118,7 +118,7 @@
 
                     <li><a href="#">Adoptar</a></li>
                     <li><a href="#">Cementerio</a></li>
-                    <li><a href="#">Foro</a></li>
+                    <li><a href="{% url 'foro' %}">Foro</a></li>
                     {% if request.user.perfil_id == 2 %}
                     <li><a href="#">Agendar Hora</a></li>
                     <li><a href="{% url 'panelcli' %}">Mi Panel</a></li>

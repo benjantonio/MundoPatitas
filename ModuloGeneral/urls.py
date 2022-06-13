@@ -29,6 +29,6 @@ urlpatterns = [
     path('panel-veterinario/crear/', moduloCrearCita, name='crear'),
     path('panel-veterinario/pendientes/', moduloPendientesCita, name='pendientes'),
     path('panel-veterinario/estadisticas/', moduluoEstadisticas, name='estadisticas'),
-
+    path('foro/', foro, name='foro'),
 
 ]

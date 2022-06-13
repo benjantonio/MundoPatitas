@@ -1,3 +1,4 @@
+from re import A
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import  *
@@ -21,12 +22,23 @@ def registro(request):
     else:
         usuario_form = RegistroUsuario()
     return render(request, 'registration/registro.html', {'usuario_form': usuario_form, 'comunaV': comunaV, 'comunaM':comunaM, 'perfil': perfil})
-    
 
+
+def foro(request):
+
+    try:
+        usuarioOnline = Usuario.objects.filter(id_usuario = request.user.id_usuario)
+    except:
+        usuarioOnline = 0
+
+    
+    publicacionesAll = PublicacionForo.objects.filter().order_by('fecha','hora')
+    respuestasAll = RespuestaForo.objects.filter().order_by('fecha','hora')
+    
+    return render(request,'foro.html',{'usuarioOnline': usuarioOnline,'publicacionesAll': publicacionesAll,'respuestasAll': respuestasAll})
 
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
-
     return render(request,'panelcli.html', {'mascotas': mascotas})
 
 def panelcenvet(request):

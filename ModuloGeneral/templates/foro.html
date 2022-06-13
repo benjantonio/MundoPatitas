@@ -1,0 +1,112 @@
+{% extends 'planilla.html' %} {% load static %} {% block content %}
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+<script type="text/JavaScript" src="https://MomentJS.com/downloads/moment-with-locales.js"></script>
+
+<body class="body-foro">
+
+    <div id="contenedor-foro" class="contenedor-foro container">
+        <div style="width: 1px; height: 1px;"></div>
+
+        <div class="part1-foro">
+            <div class="titulo-p1">
+                <h3>FORO</h3>
+            </div>
+
+            {% if usuarioOnline %}
+            {% for usuarioOn in usuarioOnline %}
+            <div id="card-part1" class="card card-part1">
+                <p>Logeado:  DATOS:<span>{{usuarioOn.nombres}} {{usuarioOn.apellidos}}</span>
+                </p>
+                <p> AGREGAR PUBLICACION - VER MIS PUBLICACIONES </p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="part2-foro">
+
+            <h3 style="text-align: center;">Publicaciones</h3>
+
+            <div class="contenedor-publicacion">
+                <div class="lista-historial">
+                    {% if publicacionesAll %}
+                    {% for publicacion in publicacionesAll %}
+                    <div class="historial2">
+                        <div class="formato">
+                            <p style="font-weight: 600; font-size: 20px;">Titulo:</p>
+                            <p>{{publicacion.titulo}}</p>
+                        </div>
+                        <div class="formato">
+                            <p style="font-weight: 600; font-size: 20px;">Fecha:</p>
+                            <p>{{publicacion.fecha}}</p>
+                        </div>
+                        <div class="formato">
+                            <p style="font-weight: 600; font-size: 20px;">Hora:</p>
+                            <p> {{publicacion.hora}}</p>
+                        </div>
+                        <div class="formato">
+                            <p style="font-weight: 600; font-size: 20px;">Creado por:</p>
+                            <p> {{publicacion.id_cliente.nombres}} {{publicacion.id_cliente.apellidos}}</p>
+                        </div>
+                        <div class="formato">
+                            <p style="font-weight: 600; font-size: 20px;">Respuestas: </p>
+                            <p>2</p>
+                        </div>
+
+                        <div id="detalleCita-btn" class="formato cuadro-ver"><span
+                                class="ver material-symbols-outlined">find_in_page</span></div>
+                    </div>
+
+                    {% if respuestasAll %}
+                    {% for respuesta in respuestasAll %}
+                    {% if respuesta.id_publicacion.id_publicacion == publicacion.id_publicacion  %}
+                    <div class="respuesta-publicacion" style=" margin: 3px 10px 0px 10px; height: 7rem; width: 98%; background: rgb(255, 255, 255); border-radius: 6px; display: grid; grid-template-columns: 20rem auto;">  
+                        <div style="text-align: center;">
+                            <h4>Respuesta: </h4>
+                            <p>Creado por: <span style="font-size: 16px; font-weight: 400; color: black;">{{respuesta.id_cliente.nombres}} {{respuesta.id_cliente.apellidos}}</span></p>
+                            <p>Respondido el: <span style="font-size: 16px; font-weight: 400; color: black;">{{respuesta.fecha}} {{respuesta.hora}}hrs.</span> </p>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <h4>Comentario:</h4>
+                            <p>{{respuesta.comentario}}</p>
+                        </div>
+                    </div>
+                    
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+
+
+
+                    {% if usuarioOnline %}
+            {% for usuarioOn in usuarioOnline %}
+            <div class="respuesta-publicacion" style=" text-align: center;  align-items: center; margin: 5px 10px 80px 10px; height: 10rem; width: 100%; background: rgb(255, 255, 255); border-radius: 30px; display: grid; grid-template-columns: auto;">  
+                        
+                <h5 style="padding: 0px 15px 0 15px; margin-top: 20px;">Escribir respuesta: </h5>
+                <textarea class="respuestaForo" style="margin: -15px 15px 10px 15px;"  maxlength="500" spellcheck="false" placeholder="Escribe una respuesta" required></textarea>
+                <button onclick="enviarRespuesta('{{usuarioOn.id_usuario}}','{{publicacion.id_publicacion}}');" style="margin-left: 20px; text-align: center; width: 6rem; background: rgb(63, 172, 48); color: white; border-radius: 20px;">ENVIAR</button>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+                    {% endfor %}
+                    
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+
+<script src="{% static 'js/foro.js' %}"></script>
+{% endblock %}
