@@ -132,18 +132,12 @@
 
                         </div>
                     </div>
-                    <!-- -FIN MODIFICAR INFO MASCOTA -->
                     {% endfor %} {% else %}
                     <p>No tiene mascotas registradas!!</p>
                     {% endif %}
                     <div class="card-mascota-nueva ">
                         <img class="img-perfil-aside imgAddPet " src='{% static "img/addPet.jpg " %}' alt=" ">
-                        <!-- <button class="btnMas " data-bs-toggle="modal " data-bs-target="#mascotaModal " type="button "><img class="img-perfil-aside btnAddPet " src='{% static "img/btnAdd.png " %}' alt=" "></button>
-                        <button class="btnMas " data-bs-toggle="modal " data-bs-target="#mascotaModal " type="button ">MAs</button> -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
-                          </button>
-
+                        <button class="btnMas" data-bs-toggle="modal" data-bs-target="#ModalMascota"><img class="img-perfil-aside btnAddPet " src='{% static "img/btnAdd.png " %}' alt=" "></button>
                     </div>
                 </div>
 
@@ -152,6 +146,57 @@
 
         </div>
         <!-- Fin - Tab "Mis Mascotas " -->
+        <!-- modal agregar mascota -->
+        <div class="modal fade" id="ModalMascota" tabindex="-1" aria-labelledby="ModalMascotaLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalMascotaLabel">Agregar Mascota</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+                    <div class="modal-body">
+                        <p>Debe completar todos los campos, incluyendo la foto, para poder registrar una mascota.</p>
+                        <form class="formMascota" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="imagen" style="color: #04bc70;">Foto Mascota</label>
+                                <input type="file" class="form-control fileImg" name="imagen">
+                            </div>
+                            <div class="form-floating txtInpNombre mb-3">
+                                <input type="text" class="form-control txtNombreA" id="floatingInput" name="nombre" disabled>
+                                <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control txtRazaA" id="floatingInput" name="raza" disabled>
+                                <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control txtEdadA" id="floatingInput" name="edad" disabled>
+                                <label for="floatingInput" style="color: #04bc70;">Edad</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control txtTipoA" id="floatingInput" name="tipo" style="text-transform: uppercase;" disabled>
+                                <!-- <select name="tipo" class="form-control txtTipoA" id="selectTipo" disabled>
+                                    <option value=""></option>
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="exotico">Exótico</option>
+                                </select> -->
+                                <label for="floatingInput" style="color: #04bc70;">Tipo de animal</label>
+                            </div>
+                            <input type="text" value="{{user.id_usuario}}" id="id_cli" name="id_cli" style="display: none;">
+
+
+                            <button type="submit" id="btnAgregraM" class="btn btn-success" disabled>Agregar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--MODIFICAR INFO MASCOTA-->
         <!-- <div id="contenedorModPet" class="contenedorModPet">
@@ -223,43 +268,48 @@
                                 <input type="file" name="imagen">
                             </div>
                             <div class="form-floating txtInpNombre mb-3">
-                                <input type="text" class="form-control txtNombre" id="floatingInput" name="nombre" placeholder="name@example.com">
+                                <input type="text" class="form-control txtNombre" id="floatingInput" name="nombre">
                                 <label for="floatingInput" style="color: #04bc70;">Nombre</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control txtRaza" id="floatingInput" name="raza" placeholder="name@example.com">
+                                <input type="text" class="form-control txtRaza" id="floatingInput" name="raza">
                                 <label for="floatingInput" style="color: #04bc70;">Raza</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control txtEdad" id="floatingInput" name="edad" placeholder="name@example.com">
+                                <input type="number" class="form-control txtEdad" id="floatingInput" name="edad">
                                 <label for="floatingInput" style="color: #04bc70;">Edad</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <!-- <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com"> -->
-                                <select name="tipo" class="form-control txtTipo" id="selectTipo">
+                                <input type="text" class="form-control txtTipo" id="floatingInput" name="tipo" style="text-transform: uppercase;">
+                                <!-- <select name="tipo" class="form-control txtTipo" id="selectTipo">
                                     <option value="perro">Perro</option>
                                     <option value="gato">Gato</option>
                                     <option value="exotico">Exótico</option>
-                                </select>
+                                </select> -->
                                 <label for="floatingInput" style="color: #04bc70;">Tipo</label>
                             </div>
                             <input type="text" name="id_cli" class="txtIdCli" style=" display: none;">
                             <input type="text" name="" class="txtIdM" style="display: none;">
+                            <input type="text" name="url" class="urlImgM" style="display: none;">
 
-                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <button type="submit" id="btnActMas" class="btn btn-success">Actualizar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- tab Adopciones -->
         <div id="tabMisAdopciones">
             <div class="cardMisMascotas card">
                 <h3>Mis Adopciones</h3>
-                <p style="color: rgb(112, 112, 112); font-size: 15px;">A continuación se muestarn todas sus publicaciones de adopciones, en caso de que alguna de estas se haya cumpletado con exitoso favor eliminar la publicación.</p>
+
+                <p style="color: rgb(112, 112, 112); font-size: 15px;">A continuación se muestarn todas sus publicaciones de adopciones, si completo un proceso con exitoso favor eliminar la publicación.</p>
+                <button class="btn-publi btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Publicar</button>
                 <div class="zona-mascotas">
                     {% if publicacion %} {% for publi in publicacion %}
                     <div class="card-mascota">
@@ -287,6 +337,60 @@
             </div>
 
 
+        </div>
+
+        <!-- modal agregar publicacion -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Publicar Adopción</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="formAdop" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label class="form-label">Foto</label>
+                                <input type="file" id="imagen" name="imagen" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="">Tipo de Animal</label>
+                                <select class="form-select" name="tipo" id="tipo">
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="exotico">Exótico</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Correo</label>
+                                <input type="text" id="correo" name="correo" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Edad</label>
+                                <input type="text" id="edad" name="edad" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Comentario</label>
+                                <textarea id="comentario" name="comentario" class="form-control"></textarea>
+                            </div>
+
+                            <input type="text" id="id_cli" name="id_cli" value="{{user.id_usuario}}" class="form-control" style="display: none;">
+
+                            <button type="submit" class="btn btn-success">Publicar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Modal actualizar publicacion -->
@@ -318,7 +422,6 @@
                                 <label for="floatingInput" style="color: #04bc70;">Edad</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <!-- <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com"> -->
                                 <select name="tipo" class="form-control txtTipo" id="selectTipo">
                                     <option value="perro">Perro</option>
                                     <option value="gato">Gato</option>
@@ -340,58 +443,6 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal agregar mascota -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content ">
-                    <div class="modal-header ">
-                        <h5 class="modal-title " id="exampleModalLabel ">Agregar Mascota</h5>
-                        <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
-                    </div>
-                    <div class="modal-body ">
-                        <form class="formMascota" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="mb-3 ">
-                                <label class="form-label ">Nombre</label>
-                                <input type="text " id="nombre" name="nombre" class="form-control ">
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-label ">Imagen</label>
-                                <input type="file" id="imagen" name="imagen" class="form-control ">
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-label " for=" ">Tipo de Mascota</label>
-                                <select class="form-select " name="tipo" id="tipo">
-                                    <option value="perro ">Perro</option>
-                                    <option value="gato ">Gato</option>
-                                    <option value="exotico ">Exótico</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-label " for=" ">Raza</label>
-                                <input type="text " class="form-control " name="raza" id="raza">
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-label " for=" ">Edad</label>
-                                <input type="number " class="form-control " name="edad" id="edad">
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-label " for=" ">Dueño</label>
-                                <select name="id_cli" id="id_cli">
-                                    <option value="{{user.id_usuario}}" selected="selected">{{user.nombres}} {{user.apellidos}}</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-success">Guardar</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer ">
-                        <!-- <button type="button " class="btn btn-success " onclick="agregarMascota() ">Guardar</button> -->
-                        <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="resetFormModal() ">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -563,7 +614,7 @@
 
 
 <script src="{% static 'js/menuPanel.js' %} "></script>
-<script src="{% static 'js/enviarMascota.js' %} "></script>
+<script src="{% static 'js/mascota.js' %} "></script>
 <script src="{% static 'js/adopciones.js' %}"></script>
 
 {% endblock %}

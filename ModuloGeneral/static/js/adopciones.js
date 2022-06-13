@@ -1,18 +1,18 @@
 /*Crear Publicación*/
-// var form = document.querySelector("#formAdop")
+var form = document.querySelector(".formAdop")
 
-// form.addEventListener('submit', function(e) {
-//     e.preventDefault();
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-//     const formData = new FormData(e.currentTarget)
+    const formData = new FormData(e.currentTarget)
 
-//     fetch("http://localhost:3000/enviar_adopcion", {
-//             method: 'POST',
-//             body: formData
-//         })
-//         .then((res) => recargarPag())
-//         .catch((err) => ("Erorr ", err))
-// });
+    fetch("http://localhost:3000/enviar_adopcion", {
+            method: 'POST',
+            body: formData
+        })
+        .then((res) => recargarPag())
+        .catch((err) => ("Erorr ", err))
+});
 
 /*Eliminar publicacion */
 const eliminarPublicacion = (id, nombre) => {
@@ -84,31 +84,6 @@ formActPubli.addEventListener('submit', (e) => {
     const formData = new FormData(e.currentTarget)
 
     if (!e.currentTarget.imagen.value || e.currentTarget.imagen.value == undefined || e.currentTarget.imagen.value == "") {
-        console.log("Vacio")
-            // fetch(`http://localhost:3000/actualizar_adopcion_si/${id}`, {
-            //         method: 'PUT',
-            //         body: JSON.stringify({
-            //             nombre: document.querySelector(".txtNombreAdop").value,
-            //             correo: document.querySelector(".txtCorreo").value,
-            //             edad: document.querySelector(".txtEdadPubli").value,
-            //             tipo: document.querySelector(".txtTipo").value,
-            //             id_cli: document.querySelector(".txtIdCliPubli").value,
-            //             comentario: document.querySelector(".txtComentario").value,
-            //             img: document.querySelector(".urlImg").value
-            //         })
-            //     })
-            //     .then((res) => {
-            //         Swal.fire({
-            //                 position: 'center',
-            //                 icon: 'success',
-            //                 title: 'Publicación Actualizada con Exito!!',
-            //                 showConfirmButton: false,
-            //                 timer: 1500
-
-        //             })
-        //             // setTimeout(retrasarReload, 1500)
-        //     })
-        //     .catch((err) => ("Erorr ", err))
         putSinImg();
 
     } else {

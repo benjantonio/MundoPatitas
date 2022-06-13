@@ -43,7 +43,7 @@ def veterinarios(request):
     return render(request,'veterinarios.html', {'veterinarios': veterinarios})
 
 def adopciones(request):
-    adopciones = PublicacionAdopcion.objects.all()
+    adopciones = PublicacionAdopcion.objects.exclude(id_cliente_id = request.user.id_usuario)
 
     return render(request,'adopciones.html', {'adopciones': adopciones})
 
