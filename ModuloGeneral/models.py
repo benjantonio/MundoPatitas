@@ -93,6 +93,7 @@ class Usuario(AbstractBaseUser):
 class PublicacionForo(models.Model):
     id_publicacion = models.AutoField(primary_key=True, verbose_name="Id Publicación")
     categoria = models.CharField(max_length=100, verbose_name="Categoria Publicación")
+    fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha")
     mensaje = models.CharField(max_length=1000, verbose_name="Mensaje")
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
@@ -101,13 +102,14 @@ class PublicacionForo(models.Model):
 
 class RespuestaForo(models.Model):
     id_respuesta = models.AutoField(primary_key=True)
+    fecha = models.DateTimeField(auto_now_add=True)
     comentario = models.CharField(max_length=1000)
     valoracion = models.IntegerField()
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     id_publicacion = models.ForeignKey(PublicacionForo, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.valoracion
+        return self.fecha
 
 class PublicacionAdopcion(models.Model):
     id_publicacion = models.AutoField(primary_key=True, verbose_name="Id Publicación")
@@ -150,14 +152,15 @@ class CitaDisponible(models.Model):
     actualizacion = models.CharField(max_length=30, default='', null=False)
 
     def __str__(self):
-        return self.motivo_consulta
+        return self.fecha
 
 class CitaTomada(models.Model):
 
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.CharField(max_length=11, default='')
+    fecha = models.DateField(max_length=11, default='')
     hora = models.CharField(max_length=5, default='')
     motivo_consulta = models.CharField(max_length=1000, default='')
+    estado = models.CharField(max_length=20, default='En Espera')
     id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
 
@@ -167,14 +170,16 @@ def __str__(self):
 
 class CitaConcluida(models.Model):
     id_cita = models.AutoField(primary_key=True)
-    fecha = models.CharField(max_length=11, default='')
+    fecha = models.DateField(max_length=11, default='')
     hora = models.CharField(max_length=5, default='')
     motivo_consulta = models.CharField(max_length=1000, default='')
-    tratamiento = models.CharField(max_length=600, default='')
-    comentario = models.CharField(max_length=1000, default='')
+    tratamiento = models.CharField(max_length=600, default='No se registraron tratamientos.')
+    comentario = models.CharField(max_length=1000, default='No se registraron comentarios.')
     valoracion = models.IntegerField(default=0, )
     id_mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE, default='')
+    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, default='')
     id_veterinario = models.ForeignKey(Veterinario, on_delete=models.CASCADE, default='')
+    duracion = models.CharField(max_length=9, default='?')
     
 
     def __str__(self):
