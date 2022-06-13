@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-   
-
     $('#example').DataTable({
         "aaSorting": [],
         columns: [
@@ -44,14 +42,8 @@ $(document).ready(function () {
 
 
     $('#example input').addClass('uwaso');
-    
-    
-    
-    if(document.querySelector('input') === document.activeElement){
-        console.log(" INPUT FECHA ACTIVO")
-    }
      });
-     
+
 
 //##############################################################################################//
 

@@ -31,6 +31,8 @@
   border-bottom: 7px solid #ccc;
 }
 
+
+
 .daterangepicker:after {
   top: -6px;
   border-right: 6px solid transparent;
@@ -450,7 +452,8 @@
   }
 
   .contenedor-datetable-disp{
-    margin: 21rem 0 0 0 ;
+    margin: 2rem 0 0 0 ;
   }
+
 
 }

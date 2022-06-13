@@ -10,7 +10,7 @@
 <!--Contenedor Crear Citas-->
 <div class="container">
 
-    
+
 
 </div>
 
@@ -30,7 +30,7 @@
 
 <div class="contenedor-crear">
     <div style="margin: 0 20%;">
-        <div class="well configurator" >
+        <div class="well configurator">
 
             <form style="text-align: center;">
                 <div class="form-group">
@@ -51,20 +51,20 @@
                 <input type="text" id="config-demo" class="form-control input-fecha-crear" name="input-fecha-crear">
             </center>
         </div>
-    
-    
+
+
     </div>
-    
-    
-    
+
+
+
     <!--Contenedor Citas Pendientes-->
-    <div class="card mb-4 contenedor-datetable-disp" >
+    <div class="card mb-4 contenedor-datetable-disp">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
             Citas Disponibles
         </div>
         <div class="card-body">
-    
+
             <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
                 <thead>
                     <tr style="text-align: center;">
@@ -79,22 +79,22 @@
                     <tr style="text-align: center;">
                         <td>{{citaDisponible.hora}}</td>
                         <td>{{citaDisponible.fecha}}</td>
-                      
-    
+
+
                         <td style="text-align: center;">
-                           <button
+                            <button
                                 onclick="eliminarCita('{{citaDisponible.id_cita}}','{{citaDisponible.fecha}}','{{citaDisponible.hora}}')"
                                 style="box-shadow: 0.6px 1px 4px 0.6px #0000002f; padding: 3px 10px; border: 0px; border-radius: 5px; background: #FF3333; color: white;">Eliminar</button>
                         </td>
                     </tr>{% endfor %}
                 </tbody>
-    
+
                 {% else %}
                 {% endif %}
             </table>
         </div>
-    
-    
+
+
         <div id="contenedorDetalle" class="contenedorDetalle">
             <div class="detalle-contenido">
                 <div class="part1-detalle">
@@ -123,7 +123,7 @@
                         <p class="ultimaCitaConcluida">Primera vez que viene</p>
                     </div>
                 </div>
-    
+
                 <div class="part2-detalle">
                     <div class="sec1-detalle">
                         <div class="contenedor-info">
@@ -169,26 +169,26 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="seccion-iniciar">
-    
+
                 <!-- CONTENIDO INICIAR -->
                 <div id="contenido-iniciar" class="contenido-iniciar">
                     <h6>¿Desea comenzar con la Cita?</h6>
                     <p class="textDescription">Si tu cliente ha llegado presione el botón <span
                             style="color: #09c577; font-weight:500; font-size: 18px;">Iniciar</span></p>
-    
+
                     <button onclick="comenzarCita()" id="comenzar-pendiente-btn" class="comenzar-pendiente-btn">
                         <span class="material-symbols-outlined">play_circle</span>
                         <p>Iniciar</p>
                     </button>
                 </div>
-    
+
                 <!-- CONTENIDO INICIANDO -->
                 <div class="contenidoIniciando">
                     <h6>Iniciando en <span class="contadorIniciando">3</span> ...</h6>
                 </div>
-    
+
                 <!-- CONTENIDO EN MARCHA -->
                 <div class="contenidoEnMarcha">
                     <div class="crono_wrapper">
@@ -205,7 +205,7 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
 </div>
 
@@ -240,17 +240,24 @@
         };
 
 
-
-
-
         $('#config-demo').daterangepicker(options, function (start, end, label) {
-
-
-        }).click();;
-
+        });
 
 
     });
+
+    var inputDate = document.getElementById('config-demo');
+    var contDateTable= document.querySelector('.contenedor-datetable-disp');
+    
+    inputDate.addEventListener('focus', () => {
+        contDateTable.setAttribute("style", "margin: 21rem 0 0 0;");
+    });
+
+    inputDate.addEventListener('blur', () => {
+        contDateTable.setAttribute("style", "margin: 2rem 0 0 0;");
+    });
+
+
 
     function retrasarReload() {
         location.reload();
