@@ -61,7 +61,7 @@ fetch(url)
   .then(datos => mostrar(datos))
   .catch(error => console.log(error))
 
-
+var annoActual = moment().format("YYYY");
 const mostrar = (datos) => {
   let enero = 0;
   let febrero = 0;
@@ -77,7 +77,7 @@ const mostrar = (datos) => {
   let diciembre = 0;
 
   /* Recorro la API con las citas del veterinario logeado */
-  var annoActual = moment().format("YYYY");
+  
   datos.forEach(element => {
     if (element.fecha.slice(0,7) == annoActual+"-01") {
       enero++;
@@ -127,5 +127,6 @@ const mostrar = (datos) => {
 function update(){
   myAreaChart.update();
 }
+
 
 

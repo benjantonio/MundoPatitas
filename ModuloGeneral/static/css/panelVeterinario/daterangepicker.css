@@ -1,3 +1,5 @@
+
+
 .daterangepicker {
   position: absolute;
   color: inherit;
@@ -435,7 +437,8 @@
 }
 
 .contenedor-datetable-disp{
-  margin: 0 7rem 0 0;
+  margin: 0 4rem 0 0;
+  box-shadow: 0.1rem 0.1rem 0.3rem 0.1rem #0000001f;
   transition: all 0.5s ease;
 }
 
@@ -452,7 +455,7 @@
   }
 
   .contenedor-datetable-disp{
-    margin: 2rem 0 0 0 ;
+    margin: 2rem 2rem 2rem 0 ;
   }
 
 
