@@ -505,19 +505,24 @@ table {
     background: white;
     text-align: left;
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    margin: 0px auto;
 }
 
 th,
 td {
-    padding: 20px;
+    padding: 10px;
 }
 
 thead {
     background-color: rgb(42, 196, 101);
     border-bottom: solid 5px #0f363d;
     color: white;
-    width: 100%;
+    width: 80%;
+}
+
+thead th {
+    border: none;
 }
 
 tr:hover {
@@ -539,12 +544,40 @@ tr:hover {
     color: black;
 }
 
-#tablaVets #red {
-    color: red;
+@media screen and (max-width: 600px) {
+    table {
+        width: 90%;
+        margin: 0px 5%;
+    }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    tbody {
+        border: 2px solid black;
+    }
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align: center;
+    }
 }
 
-#tablaVets .aviso {
-    display: none;
+@media (max-width: 370px) {
+    .tituloVets {
+        width: 55%;
+    }
 }
 
 

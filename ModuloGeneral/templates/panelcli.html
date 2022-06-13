@@ -166,10 +166,12 @@
                             <div class="form-floating txtInpNombre mb-3">
                                 <input type="text" class="form-control txtNombreA" id="floatingInput" name="nombre" disabled>
                                 <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                                <span id="errorN" style="color: red;display: none;">Nombre invalido. Minimo 2 caracteres</span>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control txtRazaA" id="floatingInput" name="raza" disabled>
                                 <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                                <span id="errorR" style="color: red;display: none;">Raza invalida. Minimo 3 caracteres</span>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control txtEdadA" id="floatingInput" name="edad" disabled>
@@ -183,7 +185,8 @@
                                     <option value="gato">Gato</option>
                                     <option value="exotico">Exótico</option>
                                 </select> -->
-                                <label for="floatingInput" style="color: #04bc70;">Tipo de animal</label>
+                                <label for="floatingInput" style="color: #04bc70;">Tipo Animal</label>
+                                <span id="errorT" style="color: red;display: none;">Tipo animal invalido. Minimo 3 caracteres</span>
                             </div>
                             <input type="text" value="{{user.id_usuario}}" id="id_cli" name="id_cli" style="display: none;">
 
@@ -260,6 +263,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <p style="width: 100%;text-align: center">Si borra un campo no olvide volver a completarlo. En caso de no cambiar la foto, se mantendra la anterior.</p>
+                        <hr>
                         <form id="modMas" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="img-pet mb-3">
@@ -270,10 +275,12 @@
                             <div class="form-floating txtInpNombre mb-3">
                                 <input type="text" class="form-control txtNombre" id="floatingInput" name="nombre">
                                 <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                                <span id="errorNM" style="color: red;display: none;">Nombre inválido. Minimo 2 caracteres</span>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control txtRaza" id="floatingInput" name="raza">
                                 <label for="floatingInput" style="color: #04bc70;">Raza</label>
+                                <span id="errorRM" style="color: red;display: none;">Raza inválida. Minimo 3 caracteres</span>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control txtEdad" id="floatingInput" name="edad">
@@ -286,7 +293,8 @@
                                     <option value="gato">Gato</option>
                                     <option value="exotico">Exótico</option>
                                 </select> -->
-                                <label for="floatingInput" style="color: #04bc70;">Tipo</label>
+                                <label for="floatingInput" style="color: #04bc70;">Tipo Animal</label>
+                                <span id="errorTM" style="color: red;display: none;">Tipo animal inválido. Minimo 3 caracteres</span>
                             </div>
                             <input type="text" name="id_cli" class="txtIdCli" style=" display: none;">
                             <input type="text" name="" class="txtIdM" style="display: none;">

@@ -780,14 +780,15 @@ aside .sidebar .a-cerrarsesion:focus:before {
     text-align: center;
 }
 
-.tabAgregarVet button {
+
+/* .tabAgregarVet button {
     margin-top: 2%;
     color: #ffffff;
     background: #09d882;
     transition: all 150ms ease;
     border: 0.1rem solid #09d882;
     border-radius: 50px;
-}
+} */
 
 
 /* ================== TAB HISTORIAL CITAS ==================== */

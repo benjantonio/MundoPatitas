@@ -194,11 +194,34 @@ const tipoA = document.querySelector(".txtTipoA")
 const btnAgregarM = document.querySelector("#btnAgregraM")
 const inputsM = document.querySelectorAll("#floatingInput")
 
+nombreA.addEventListener('keyup', () => {
+    if (nombreA.value.length < 2) {
+        document.querySelector("#errorN").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorN").style = 'display:none;'
+    }
+})
+
+razaA.addEventListener('keyup', () => {
+    if (razaA.value.length < 3) {
+        document.querySelector("#errorR").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorR").style = 'display:none;'
+    }
+})
+
+tipoA.addEventListener('keyup', () => {
+    if (tipoA.value.length < 3) {
+        document.querySelector("#errorT").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorT").style = 'display:none;'
+    }
+})
 
 inputsM.forEach(i => {
-    i.addEventListener('blur', () => {
-        if (nombreA.value.length == 0 || razaA.value.length == 0 || tipoA.value.length == 0 || edadA.value.length == 0) {
-            console.log("VACIO")
+    i.addEventListener('keyup', () => {
+        if (nombreA.value.length < 2 || razaA.value.length < 3 || tipoA.value.length < 3 || edadA.value.length == 0) {
+            btnAgregarM.disabled = true
         } else {
             btnAgregarM.removeAttribute("disabled")
         }
@@ -219,9 +242,33 @@ const tipo = document.querySelector(".txtTipo")
 const btnActualizar = document.querySelector("#btnActMas")
 const inputsMo = document.querySelectorAll("#modMas #floatingInput")
 
+nombre.addEventListener('keyup', () => {
+    if (nombre.value.length < 2) {
+        document.querySelector("#errorNM").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorNM").style = 'display:none;'
+    }
+})
+
+raza.addEventListener('keyup', () => {
+    if (raza.value.length < 3) {
+        document.querySelector("#errorRM").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorRM").style = 'display:none;'
+    }
+})
+
+tipo.addEventListener('keyup', () => {
+    if (tipo.value.length < 3) {
+        document.querySelector("#errorTM").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorTM").style = 'display:none;'
+    }
+})
+
 inputsM.forEach(i => {
-    i.addEventListener('blur', () => {
-        if (nombre.value.length == 0 || raza.value.length == 0 || tipo.value.length == 0 || edad.value.length == 0) {
+    i.addEventListener('keyup', () => {
+        if (nombre.value.length < 2 || raza.value.length < 3 || tipo.value.length < 3 || edad.value.length == 0) {
             console.log("VACIO")
             btnActualizar.setAttribute("disabled", true)
         } else {

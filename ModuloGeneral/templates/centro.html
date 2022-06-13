@@ -132,16 +132,21 @@
 
                         <div class="part2">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control txtNombre" id="floatingInput" name="nombreM">
+                                <input type="text" class="form-control txtNombre inputVM" id="floatingInput" name="nombreM">
                                 <label for="floatingInput" style="color: #04bc70;">Nombre</label>
+                                <span id="errorNMV" style="display: none;">Nombre inválido. Debe ingresar nombre y apellido</span>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control txtCorreo" id="floatingInput" name="correoM">
+                                <input type="text" class="form-control txtCorreo inputVM" id="floatingInput" name="correoM">
                                 <label for="floatingInput" style="color: #04bc70;">Correo</label>
+                                <span id="errorCoMV" style="display: none;">Correo inválido. Debe ingresar un formato de correo valido</span>
+
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="tel" class="form-control txtCelular" id="floatingInput" name="celularM">
+                                <input type="tel" class="form-control txtCelular inputVM" id="floatingInput" name="celularM">
                                 <label for="floatingInput" style="color: #04bc70;">Celular</label>
+                                <span id="errorCeMV" style="display: none;">Celular inválido. Debe ingresar 9 dígitos</span>
+
                             </div>
                             <input type="text" name=" " class="txtIdCli " style="display: none;">
                             <input type="text" name=" " class="txtIdV " style="display: none;">
@@ -151,7 +156,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button class="btn btn-success " onclick="actualizarVet() ">Guardar</button>
+                        <button id="btnActVet" class="btn btn-success " onclick="actualizarVet() ">Modificar</button>
                     </div>
                 </div>
             </div>
@@ -159,28 +164,34 @@
 
         <div class="tabAgregarVet">
             <h3 style="text-align: center;">Agregar Veterinarios</h3>
+            <hr>
+            <p>Para agregar un veterinario debe completos todos lo campos.</p>
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="row">
-                    <label for="nombres" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre">
+                    <label for="nombres" class="form-label" style="color: #04bc70;">Nombre Completo</label>
+                    <input type="text" class="form-control inputAV" name="nombre" id="nombre">
+                    <span id="errorNV" style="display: none;">Nombre inválido. Debe ingresar nombre y apellido</span>
                 </div>
                 <div class="row">
-                    <label for="email" class="form-label">Clave</label>
-                    <input type="password" class="form-control" name="clave" id="clave">
+                    <label for="email" class="form-label" style="color: #04bc70;">Clave</label>
+                    <input type="password" class="form-control inputAV" name="clave" id="clave">
+                    <span id="errorCV" style="display: none;">Clave inválido. Debe ingresar mínimo 5 caracteres</span>
                 </div>
                 <div class="row">
-                    <label for="email" class="form-label">Correo</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <label for="email" class="form-label" style="color: #04bc70;">Correo</label>
+                    <input type="email" class="form-control inputAV" name="email" id="email">
+                    <span id="errorCoV" style="display: none;">Correo inválido. Debe ingresar un formato de correo valido</span>
                 </div>
                 <div class="row">
-                    <label for="email" class="form-label">Celular</label>
-                    <input type="number" class="form-control" name="celular" id="celular">
+                    <label for="email" class="form-label" style="color: #04bc70;">Celular</label>
+                    <input type="number" class="form-control inputAV" name="celular" id="celular">
+                    <span id="errorCeV" style="display: none;">Celular inválido. Debe ingresar 9 dígitos</span>
                 </div>
 
                 <input type="text" value="{{user.id_usuario}}" id="id_cli" style="display: none;">
                 <input type="text" value="4" name="perfil" id="perfil" style="display: none;">
-                <button type="button" onclick="agregarVeterinario()">Agregar</button>
+                <button id="btnAV" type="button" class="btn btn-success mt-3" onclick="agregarVeterinario()" disabled>Agregar</button>
             </form>
         </div>
 

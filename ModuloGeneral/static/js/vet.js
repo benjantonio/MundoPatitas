@@ -1,26 +1,28 @@
+var id = document.querySelectorAll(".idV")
+var inputPAss = document.querySelectorAll(".passwordVet")
+var btns = document.querySelectorAll(".entrarVet")
+var btnsA = document.querySelectorAll("#verMas")
+var clave = []
+
+/*funciones al cargar pagina */
 window.addEventListener('load', () => {
     obtenerVet()
-        // var id = document.querySelectorAll(".idV")
-        // id.forEach(i => {
-        //     console.log(i.value)
-        // });
     var inputPAss = document.querySelectorAll(".passwordVet")
     inputPAss.forEach(i => {
-        i.addEventListener('blur', () => {
+        i.addEventListener('keyup', () => {
             comprobarClaves()
         })
     })
+    inputPAss.forEach(i => {
+        i.value = ""
+    });
+    btnsA.forEach(btn => {
+        btn.setAttribute("class", "desahabilitado");
+    })
 
-    // $('#tablaVets').DataTable();
 })
 
-
-
-var id = document.querySelectorAll(".idV")
-var inputPAss = document.querySelectorAll(".passwordVet")
-var btns = document.querySelectorAll("#verMas")
-var spans = document.querySelectorAll(".aviso")
-var clave = []
+/*obtener veterinarios y sus claves */
 const obtenerVet = async() => {
     for (let i = 0; i < id.length; i++) {
         try {
@@ -43,14 +45,26 @@ const obtenerVet = async() => {
     console.log(clave)
 }
 
+/*sweetalert*/
+const avisoClaveIncorrecta = () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Clave Incorrecta',
+        showConfirmButton: true,
+    })
+    console.log("CLICK")
+}
+
+
+/**comprobar claves */
 const comprobarClaves = () => {
     for (let i = 0; i < clave.length; i++) {
         if (inputPAss[i].value == clave[i]) {
-            btns[i].removeAttribute("class");
-            spans[i].setAttribute("class", "aviso");
+            btns[i].removeAttribute('onclick')
+            btnsA[i].removeAttribute("class");
         } else {
-            btns[i].setAttribute("class", "desahabilitado");
-            spans[i].removeAttribute("class");
+            btnsA[i].setAttribute("class", "desahabilitado");
         }
     }
 }

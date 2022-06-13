@@ -1,7 +1,11 @@
+/*veterinarios al cargar pagina */
 window.addEventListener('load', () => {
     obtenerVeterinarios()
+
+
 })
 
+/*obtener veterinarios */
 const obtenerVeterinarios = async() => {
     try {
         res = await fetch(`http://localhost:3000/lista_veterinario`),
@@ -17,7 +21,7 @@ const obtenerVeterinarios = async() => {
     }
 }
 
-
+/*agregar veterinarios */
 const agregarVeterinario = async() => {
     try {
         let options = {
@@ -55,6 +59,7 @@ const agregarVeterinario = async() => {
     }
 };
 
+/*eliminar veterinario */
 const eliminarVet = (id, nombre) => {
     Swal.fire({
         position: 'center',
@@ -93,6 +98,7 @@ const eliminar = async(id) => {
     }
 }
 
+/*obtener un veterinario */
 const obtenerVet = async(id) => {
     try {
         res = await fetch(`http://localhost:3000/veterinario/${id}`),
@@ -113,6 +119,7 @@ const obtenerVet = async(id) => {
     }
 }
 
+/*actualizar veterinario */
 const actualizarVet = async() => {
     id = document.querySelector(".txtIdV").value;
     try {
@@ -149,6 +156,106 @@ const actualizarVet = async() => {
     }
 }
 
+/*retrasar recarga pagina */
 function retrasarReload() {
     location.reload();
 }
+
+/*validar form agregar */
+const expresion = {
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+}
+
+const inpustAV = document.querySelectorAll(".inputAV")
+const nombreV = document.querySelector("#nombre")
+const claveV = document.querySelector("#clave")
+const emailV = document.querySelector("#email")
+const celularV = document.querySelector("#celular")
+const btnAV = document.querySelector("#btnAV")
+
+nombreV.addEventListener('keyup', () => {
+    if (nombreV.value.length < 10) {
+        document.querySelector("#errorNV").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorNV").style = 'display:none;'
+    }
+})
+
+claveV.addEventListener('keyup', () => {
+    if (claveV.value.length < 5) {
+        document.querySelector("#errorCV").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorCV").style = 'display:none;'
+    }
+})
+
+emailV.addEventListener('keyup', () => {
+    if (expresion.correo.test(emailV.value)) {
+        document.querySelector("#errorCoV").style = 'display:none;'
+    } else {
+        document.querySelector("#errorCoV").style = 'display:block; color:red;'
+    }
+})
+
+celularV.addEventListener('keyup', () => {
+    if (celularV.value.length == 9) {
+        document.querySelector("#errorCeV").style = 'display:none;'
+
+    } else {
+        document.querySelector("#errorCeV").style = 'display:block; color:red;'
+    }
+})
+
+inpustAV.forEach(i => {
+    i.addEventListener('keyup', () => {
+        console.log("FUNCIONA KEYUP")
+        if (nombreV.value.length == 10 && claveV.value.length == 5 && expresion.correo.test(emailV.value) && celularV.value.length == 9) {
+            btnAV.removeAttribute("disabled")
+        } else {
+            btnAV.disabled = true;
+        }
+    })
+});
+
+/*validar form modificar vet */
+const nombre = document.querySelector(".txtNombre")
+const correo = document.querySelector(".txtCorreo")
+const celular = document.querySelector(".txtCelular")
+const btnActVet = document.querySelector("#btnActVet")
+const inputsVM = document.querySelectorAll(".inputVM")
+
+nombre.addEventListener('keyup', () => {
+    if (nombre.value.length < 10) {
+        document.querySelector("#errorNMV").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorNMV").style = 'display:none;'
+    }
+})
+
+correo.addEventListener('keyup', () => {
+    if (!expresion.correo.test(correo.value)) {
+        document.querySelector("#errorCoMV").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorCoMV").style = 'display:none;'
+    }
+})
+
+celular.addEventListener('keyup', () => {
+    if (celular.value.length != 9) {
+        document.querySelector("#errorCeMV").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorCeMV").style = 'display:none;'
+    }
+})
+
+inputsVM.forEach(i => {
+    i.addEventListener('keyup', () => {
+        console.log("FUNCIONA KEYUP")
+        if (nombre.value.length != 10 || !expresion.correo.test(correo.value) || celular.value.length != 9) {
+
+            btnActVet.disabled = true;
+        } else {
+            btnActVet.removeAttribute("disabled")
+        }
+    })
+});
