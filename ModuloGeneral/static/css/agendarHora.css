@@ -72,7 +72,7 @@ header {
 
 /*CUADRO PRINCIPAL INFERIOR*/
 .cuadrito2 {
-    display: none;
+    display: block;
     /* SE MUESTRA AL HACER CLICK EN EL BOTON - BUSCAR HORA - */
     background: #f6f6f9da;
     color: #3b3b3b;
@@ -94,8 +94,6 @@ header {
 }
 
 .cuadrito2 .sel1 {
-    display: inline-block;
-    align-self: flex-end;
     margin-bottom: 20px;
 }
 
@@ -122,13 +120,13 @@ header {
 }
 
 .cuadrito2 .contenedor-card .cuadroFormulario {
-    display: grid;
+    display: block;
     justify-content: center;
 
 }
 
 .cuadrito2 .contenedor-card .cuadroFormulario .formulario .diaConsulta {
-    width: 300px;
+   
 }
 
 
@@ -349,7 +347,7 @@ header {
     transition: all 150ms ease;
 }
 
-.detalleFinal .btnCancelar:hover{
+.detalleFinal .btnCancelar:hover {
     background: #ffff;
     color: #1d1d1d;
     border: 0.1rem solid #bb1e1e;
@@ -561,7 +559,7 @@ header {
     overflow-wrap: break-word;
 }
 
-.detalleFinal .botones{
+.detalleFinal .botones {
     display: grid;
     grid-template-columns: auto auto;
 }
@@ -597,4 +595,100 @@ header {
     .cuadrito2 .contenedor-card {
         grid-template-columns: 50% 50%;
     }
+}
+
+@media (max-width: 750px) {
+    .cuadrito {
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+
+    .cuadrito2 .contenedor-card .info_vet p {
+        font-size: 26px;
+    }
+
+}
+
+@media (max-width: 720px) {
+    .cuadrito2 {
+        padding: 0.1rem;
+    }
+
+    .cuadrito2 .contenedor-card {
+        display: block;
+    }
+
+    .cuadrito2 .contenedor-card .cuadroFormulario {
+        width: 100%;
+    }
+
+    .cuadrito2 .contenedor-card .info_vet {
+        font-size: 26px;
+        margin-top: 1rem;
+    }
+
+
+}
+
+@media (max-width: 580px) {
+    .cuadrito {
+        display: block;
+    }
+
+    .cuadrito .cuadroFondo1 {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .cuadrito .cuadroFondo2 {
+        margin: 1rem;
+    }
+
+    .cuadrito2 {
+        margin: 1rem;
+    }
+
+}
+
+@media (max-width: 430px) {
+    .cuadrito .cuadroFondo2 {
+        padding: 10px;
+    }
+
+    .cuadrito .cuadroFondo2 .formulario {
+        font-size: 14px;
+    }
+
+    .cuadrito2 .contenedor-card .contenedor-patitas {
+        margin: 5px;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .cuadrito2 {
+        margin: 1rem;
+    }
+
+    .cuadrito2 .contenedor-card {
+        margin: 8px;
+    }
+
+    .cuadrito2 .contenedor-card .cuadroFormulario {
+        font-size: 14px;
+    }
+
+    .cuadrito2 .contenedor-card .cuadroFormulario .sel1 .diaConsulta {
+        font-size: 15px;
+    }
+
+    .cuadrito2 .contenedor-card .cuadroFormulario .sel2 .horaConsulta {
+        font-size: 15px;
+    }
+
+    .cuadrito2 .contenedor-card .contenedor-patitas {
+        margin: 3px;
+        gap: 0.5rem;
+    }
+
 }
