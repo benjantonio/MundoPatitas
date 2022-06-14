@@ -872,6 +872,18 @@ aside .sidebar .a-cerrarsesion:focus:before {
     transition: all 150ms ease;
 }
 
+
+.lista-historial .formato .eliminarBtn {
+    color: #ffffff;
+    font-size: 2.3rem;
+    background: #3acf85;
+    border-radius: 10px;
+    padding: 2.5px;
+    margin: 0;
+}
+
+
+
 #fondoNegroBlur {
     position: fixed;
     display: none;

@@ -57,12 +57,7 @@
             </a>
         </div>
 
-        <div id="miCementerio-btn" class="sidebar">
-            <a class="a-sidebar" href="#">
-                <span class="material-symbols-outlined icon-micementerio">filter_drama</span>
-                <h3 class="h3-aside">Mi Cementerio</h3>
-            </a>
-        </div>
+       
 
         <div id="ayuda-btn" class="sidebar">
             <a class="a-sidebar" href="#">
@@ -232,42 +227,89 @@
             <div class="cardHistorialCitas card">
                 <h3>Historial Citas</h3>
 
-                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes hacerlo al momento de agendar una hora > ANULAR HORA.</p>
+                <p class="info">Aquí podrás ver el historial de Citas que has tenido. Si deseas anular una hora debes hacerlo desde esta misma ventana presionando el botón <span class="eliminarBtn material-symbols-outlined" style="background: #d11111; color: white; border-radius: 5px; ">close</span></p>
 
                 <div class="top-HistorialCitas">
                     <div class="top-seccion">
                         <h6 class="titulo-cant ">En Espera</h5>
-                            <p class="cant-citas enEspera">0</p>
+                            {% if historialPendientes %}
+                            <p class="cant-citas enEspera">{{historialPendientes|length}}</p>
+                            {% else %}
+                        <p class="cant-citas enEspera">0</p>
+                        {% endif %}
                     </div>
                     <p class="separador-top">|</p>
                     <div class="top-seccion">
                         <h6 class="titulo-cant">Concluidas</h6>
-                        <p class="cant-citas concluidas">5</p>
+                        {% if historialConcluidas %}
+                        <p class="cant-citas concluidas">{{historialConcluidas|length}}</p>
+                        {% else %}
+                        <p class="cant-citas concluidas">0</p>
+                        {% endif %}
+                        
                     </div>
                 </div>
+
+                <div class="lista-historial" style="background: #ffd9c8; margin: 25px 0 0 0;">
+                    {% if historialPendientes %}
+                    <h6 style="padding-top: 10px; color: #747474;">En Espera:</h6>
+                    {% for cita in historialPendientes %}
+                <div class="historial">
+                    <div class="formato id" style="padding: 0 3px;">
+                        <p class="p-id" style="margin: 0;"><span class="material-symbols-outlined">
+                            schedule
+                            </span></p>
+                    </div>
+                    <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                        <p>{{cita.fecha}} {{cita.hora}}</p>
+                    </div>
+                    <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                        <p>{{cita.id_mascota.nombre}}</p>
+                    </div>
+                    <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                        <p style="margin-right: 3px;">{{cita.id_veterinario.id_centro.nombres}}</p>
+                        <p>{{cita.id_veterinario.id_centro.apellidos}}</p>
+                    </div>
+                    <div  class="formato cuadro-ver" onclick="eliminarCitaEspera('{{cita.id_cita}}');"><span class="eliminarBtn material-symbols-outlined" style="background: #d11111;">close</span></div>
+                </div>
+                {% endfor %}
+                    {% else %}
+                        <p >No se han encontrado citas En Espera</p>
+                      
+                    {% endif %}
+            </div>
+
 
                 <div class="separador-historial">
                     <p>_</p>
                 </div>
 
-                <div class="lista-historial">
+                
+                <div class="lista-historial ">
+                    {% if historialConcluidas %}
+                    <h6 style="padding-top: 10px; color: #747474;">Concluidas:</h6>
+                    {% for cita in historialConcluidas %}
                     <div class="historial">
                         <div class="formato id">
-                            <p class="p-id">1</p>
+                            <p class="p-id">•</p>
                         </div>
                         <div class="formato"><span class="date material-symbols-outlined">date_range</span>
-                            <p>23/04/2022</p>
+                            <p>{{cita.fecha}} {{cita.hora}}</p>
                         </div>
                         <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
-                            <p>Pelusa</p>
+                            <p>{{cita.id_mascota.nombre}}</p>
                         </div>
                         <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                            <p style="margin-right: 3px;">Centro</p>
-                            <p>Farmavet</p>
+                            <p style="margin-right: 3px;">{{cita.id_veterinario.id_centro.nombres}}</p>
+                            <p>{{cita.id_veterinario.id_centro.apellidos}}</p>
                         </div>
-                        <div id="detalleCita-btn" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div id="detalleCita-btn" onclick="abrirDetalleCita('{{cita.id_cita}}','{{cita.fecha}}','{{cita.motivo_consulta}}','{{cita.id_mascota.nombre}}','{{cita.id_mascota.tipo}}','{{cita.id_veterinario.nombre_completo}}','{{cita.id_veterinario.id_centro.nombres}} {{cita.id_veterinario.id_centro.apellidos}}', '{{cita.tratamiento}}','{{cita.comentario}}', '{{cita.valoracion}}');" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
                     </div>
-                    
+                    {% endfor %}
+                    {% else %}
+                        <p >No se han encontrado citas Concluidas</p>
+                      
+                    {% endif %}
                 </div>
 
             </div>
@@ -281,19 +323,19 @@
                         </div>
                         <div class="contenedor-info">
                             <p class="p-subtitulos">Fecha Cita:</p>
-                            <p>23/04/2022</p>
+                            <p class="txtFecha">23/04/2022</p>
                         </div>
                         <div class="contenedor-info">
                             <p class="p-subtitulos">Motivo Consulta:</p>
-                            <p>Consulta General</p>
+                            <p class="txtMotivo">Consulta General</p>
                         </div>
                         <div class="contenedor-info">
                             <p class="p-subtitulos">Nombre Mascota:</p>
-                            <p>Pelusa</p>
+                            <p class="txtNombreMascota">>Pelusa</p>
                         </div>
                         <div class="contenedor-info">
                             <p class="p-subtitulos">Tipo:</p>
-                            <p>Perro</p>
+                            <p class="txtTipoMascota">Perro</p>
                         </div>
                     </div>
 
@@ -301,24 +343,24 @@
                         <div class="sec1-detalle">
                             <div class="contenedor-info">
                                 <p class="p-subtitulos">Atendido por:</p>
-                                <p>Enrique Ominami</p>
+                                <p class="txtNombreVet">Enrique Ominami</p>
                             </div>
                             <div class="contenedor-info">
                                 <p class="p-subtitulos">Centro Médico:</p>
-                                <p>Farmavet</p>
+                                <p class="txtCentroMedico">Farmavet</p>
                             </div>
                         </div>
                         <div class="sec2-detalle">
                             <div class="contenedor-info cont-sec2">
                                 <p class="p-subtitulos">Tratamiento:</p>
                                 <div class="p-comentarios">
-                                    <p>No Aplica.</p>
+                                    <p class="txtTratamiento">No Aplica.</p>
                                 </div>
                             </div>
                             <div class="contenedor-info cont-sec2">
                                 <p class="p-subtitulos">Comentario del Veterinario:</p>
                                 <div class="p-comentarios">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
+                                    <p class="txtComentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates velit, fugit vel maxime distinctio officiis quo. Assumenda aut, nulla autem illo dolores molestias molestiae eos explicabo dolorem similique ad cupiditate.</p>
                                 </div>
                             </div>
                         </div>
@@ -330,26 +372,26 @@
                         <h6>¿Cómo te atendió tu Veterinario?</h6>
                         <p>Más patitas = Mejor valoración.</p>
                         <div class="patitas-valoracion">
-                            <div><span id="voto1" class="material-symbols-outlined">pets</span>
+                            <div><span id="voto1" onclick="agregarValoracion(1);" class="material-symbols-outlined">pets</span>
                                 <p>1</p>
                             </div>
-                            <div><span id="voto2" class="material-symbols-outlined">pets</span>
+                            <div><span id="voto2" onclick="agregarValoracion(2);" class="material-symbols-outlined">pets</span>
                                 <p>2</p>
                             </div>
-                            <div><span id="voto3" class="material-symbols-outlined">pets</span>
+                            <div><span id="voto3" onclick="agregarValoracion(3);" class="material-symbols-outlined">pets</span>
                                 <p>3</p>
                             </div>
-                            <div><span id="voto4" class="material-symbols-outlined">pets</span>
+                            <div><span id="voto4" onclick="agregarValoracion(4);" class="material-symbols-outlined">pets</span>
                                 <p>4</p>
                             </div>
-                            <div><span id="voto5" class="material-symbols-outlined">pets</span>
+                            <div><span id="voto5" onclick="agregarValoracion(5);" class="material-symbols-outlined">pets</span>
                                 <p>5</p>
                             </div>
                         </div>
                     </div>
 
                     <div id="valorado" class="valorado">
-                        <h6>¡Gracias!</h6>
+                        <h6 class="tituloValoracion">¡Gracias!</h6>
                         <img src='{% static "img/corazon.png" %}' alt="">
                         <p>Tu valoración ayuda a las demás personas a elegir su veterinario.</p>
                     </div>

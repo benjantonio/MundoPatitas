@@ -93,13 +93,13 @@ misMascotasBtn.addEventListener('click', () => {
 
 
 /* Botón Abrir y Cerrar Modificar Mascotas */
-if(document.querySelector(".modificar-mascota-btn")){
+if (document.querySelector(".modificar-mascota-btn")) {
     const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
     modificarPetBtn.addEventListener('click', () => {
         contModPet.setAttribute("style", "opacity: 1; display:block;");
-        
+
     });
-    
+
 }
 
 /* FUNCIONES */
@@ -142,15 +142,49 @@ historialCitasBtn.addEventListener('click', () => {
 });
 
 
+////////////////////////////////////////////////////////////////////////////////////////////
 
 /* FUNCIONES */
+
+const txtFecha = document.querySelector(".txtFecha")
+const txtMotivo = document.querySelector(".txtMotivo")
+const txtNombreMascota = document.querySelector(".txtNombreMascota")
+const txtTipoMascota = document.querySelector(".txtTipoMascota")
+const txtNombreVet = document.querySelector(".txtNombreVet")
+const txtCentroMedico = document.querySelector(".txtCentroMedico")
+const txtTratamiento = document.querySelector(".txtTratamiento")
+const txtComentario = document.querySelector(".txtComentario")
+const tituloValoracion = document.querySelector(".tituloValoracion")
+
 /* Abrir detalle Cita su botón */
-detalleCitaBtn.addEventListener('click', () => {
+var id_cita_abierta;
+function abrirDetalleCita(id_cita, fecha, motivo, nombreMascota, tipoMasota, nombreVet, centroMedico, tratamiento, comentario, valoracionActual) {
+    id_cita_abierta = id_cita;
+    txtFecha.innerHTML = fecha;
+    txtMotivo.innerHTML = motivo;
+    txtNombreMascota.innerHTML = nombreMascota;
+    txtTipoMascota.innerHTML = tipoMasota;
+    txtNombreVet.innerHTML = nombreVet;
+    txtCentroMedico.innerHTML = centroMedico;
+    txtTratamiento.innerHTML = tratamiento;
+    txtComentario.innerHTML = comentario;
+
+    if ( valoracionActual > 0){
+        tituloValoracion.innerHTML = "¡Gracias por tus <span style='color: #208ce9;'>"+valoracionActual+"</span> patitas! "
+        ventanaNoValorado.style = 'display:none;';
+        ventanaValorado.style = 'display:block;';
+    }else{
+        ventanaNoValorado.style = 'display:block;';
+        ventanaValorado.style = 'display:none;';
+    }
+
     fondoNegroBlur.setAttribute("style", "opacity: 1; display:block; ");
     contDetalleCita.setAttribute("style", "opacity: 1; display:block;");
-});
+}
 
 
+
+/////////////////////////////////////////////////////////////////////
 
 /* Ocultar detalle Cita con click en botón Regresar */
 cerrarDetalleCitaBtn.addEventListener('click', () => {
@@ -159,32 +193,33 @@ cerrarDetalleCitaBtn.addEventListener('click', () => {
 });
 
 /* Valorar Veterinario en el Detalle */
-/* Valoracion = 1 */
-val1Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 2 */
-val2Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 3 */
-val3Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 4 */
-val4Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
-/* Valoracion = 5 */
-val5Btn.addEventListener('click', () => {
-    ventanaNoValorado.style = 'display:none;';
-    ventanaValorado.style = 'display:block;';
-});
 
+function agregarValoracion(valoracion) {
+    try {
+        let options = {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                id: id_cita_abierta,
+                valoracion: valoracion
+            })
+        },
+            res = fetch(`http://localhost:3000/valorar_cita_concluida/`, options),
+            json = res.json();
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+    } catch (error) {
+        tituloValoracion.innerHTML = "¡Gracias por tus <span style='color: #208ce9;'>"+valoracion+"</span> patitas! "
+        ventanaNoValorado.style = 'display:none;';
+        ventanaValorado.style = 'display:block;';
+        setTimeout(function(){
+            location.reload();
+        }, 3000);
+    }
+
+
+}
 
 /* Ocultar ventanas emergentes con click en FONDO NEGRO BLUR */
 fondoNegroBlur.addEventListener('click', () => {
@@ -192,6 +227,9 @@ fondoNegroBlur.addEventListener('click', () => {
     contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
     contModPet.setAttribute("style", "opacity: 0; display:none;");
 });
+
+
+
 
 function enviarAnchoWeb() {
     let ancho = document.documentElement.clientWidth;
@@ -202,4 +240,41 @@ function enviarAnchoWeb() {
     } else {
         sideMenu.style = 'display:none;';
     }
+}
+function eliminarCitaEspera(id_cit) {
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        text: `¿Desea cancelar su hora médica?`,
+        showCancelButton: true,
+        cancelButtonColor: '#FF3333',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Confirmar.',
+        confirmButtonColor: '#09d882'
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $(function () {
+                $.ajax({
+                    type: 'DELETE',
+                    url: `http://localhost:3000/eliminar_cita_pendiente/${id_cit}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                    success: function (response) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            text: `Se cancelado su hora con éxito.`,
+                            showCancelButton: false,
+                            confirmButtonText: 'Aceptar',
+                            confirmButtonColor: '#09d882'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            }
+                        })
+                    }
+                })
+            });
+
+        }
+    })
 }

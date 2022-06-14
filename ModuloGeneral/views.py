@@ -44,7 +44,9 @@ def foro(request):
 
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
-    return render(request,'panelcli.html', {'mascotas': mascotas})
+    historialConcluidas = CitaConcluida.objects.filter(id_cliente_id = request.user.id_usuario).order_by('-fecha','-hora')
+    historialPendientes = CitaTomada.objects.filter().order_by('fecha','hora')
+    return render(request,'panelcli.html', {'mascotas': mascotas, 'historialConcluidas': historialConcluidas, 'historialPendientes': historialPendientes})
 
 def panelcenvet(request):
     return render(request,'centro.html', {})
