@@ -14,6 +14,7 @@ var diaConsulta = document.getElementById("diaConsulta");
 var horaConsulta = document.getElementById("horaConsulta");
 var fotoVet = document.querySelector(".fotoVet");
 var btnFinal = document.querySelector(".btnFinal");
+var btnFinalDeshabilitado = document.querySelector(".btnFinalDeshabilitado");
 var btnCancelar = document.querySelector(".btnCancelar");
 
 
@@ -141,6 +142,11 @@ function fechaMenor(fechaMenor, fechaMayor) {
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "veterinarios"*/
 veterinarios.addEventListener('change', () => {
 
+    btnFinal.setAttribute("style", "display:none; ");
+    btnFinalDeshabilitado.setAttribute("style", "display:flex; ");
+    diaConsulta.disabled = true;
+    horaConsulta.disabled = true;
+
     limpiarSelectFecha();
     limpiarSelectHoras();
     limpiarPatitas();
@@ -175,29 +181,29 @@ function buscarFechas() {
                 $.each(response, function (indice, fila) {
 
                     if (fila.fecha.slice(3, 5) == "01") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "enero" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Enero" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "02") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "febrero" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Febrero" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "03") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "marzo" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Marzo" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "04") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "abril" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Abril" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "05") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "mayo" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Mayo" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "06") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "junio" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Junio" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "07") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "julio" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Julio" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "08") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "agosto" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Agosto" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "09") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "septiembre" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Septiembre" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "10") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "octubre" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Octubre" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "11") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "noviembre" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Noviembre" + fila.fecha.slice(5, 11);
                     } else if (fila.fecha.slice(3, 5) == "12") {
-                        fechaNueva = fila.fecha.slice(0, 3) + "diciembre" + fila.fecha.slice(5, 11);
+                        fechaNueva = fila.fecha.slice(0, 3) + "Diciembre" + fila.fecha.slice(5, 11);
                     }
 
 
@@ -280,8 +286,6 @@ function limpiarSelectHoras() {
     }
 }
 
-
-
 /*CUANDO SE REALICE UN CAMBIO EN EL SELECT "diaConsulta"*/
 diaConsulta.addEventListener('change', () => {
     buscarHoras();
@@ -290,6 +294,8 @@ diaConsulta.addEventListener('change', () => {
 
 function buscarHoras() {
     idDiaConsulta = diaConsulta.value;
+    horaConsulta.disabled = false;
+    diaConsulta.disabled = false;
     horaConsulta.disabled = false;
 
     /*Listar horas disponibles según dia seleccionado*/
@@ -305,8 +311,17 @@ function buscarHoras() {
                     $('#horaConsulta').append("<option value='" + fila.id_cita + "'>" + fila.hora + "</option>")
                 });
 
+                btnFinal.setAttribute("style", "display:flex; ");
+                btnFinalDeshabilitado.setAttribute("style", "display:none; ");
+
                 if (response.length == 0) {
                     $('#horaConsulta').append("<option value='sinHoras'>" + "No existen horas disponibles" + "</option>")
+
+
+                    btnFinal.setAttribute("style", "display:none; ");
+                    btnFinalDeshabilitado.setAttribute("style", "display:flex; ");
+                    diaConsulta.disabled = true;
+                    horaConsulta.disabled = true;
                 }
             }
         })
@@ -478,11 +493,11 @@ btnCancelar.addEventListener('click', () => {
     detalleFinal.setAttribute("style", " display:none; opacity: o;");
 });
 
-function limpiarVentana(){
+function limpiarVentana() {
 
 }
 
-function mostrarDireccion(){
+function mostrarDireccion() {
 
     idCentroSelect = centros.value;
 
@@ -504,7 +519,7 @@ function mostrarDireccion(){
     })
 }
 
-function alertaConfirmacion(){
+function alertaConfirmacion() {
     Swal.fire({
         title: 'Agendar Hora',
         text: "¿Estas seguro que quieres agendar esta hora?",
@@ -514,45 +529,119 @@ function alertaConfirmacion(){
         cancelButtonColor: '#d33',
         confirmButtonText: 'Confirmar',
         cancelButtonText: 'Cancelar'
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+
+            anadirCita();
+
+            Swal.fire(
+                'Hora agendada con éxito!',
+                'Your file has been deleted.',
+                'success'
+            )
         }
-      })
+    })
 }
 
+var idCitaDisponible;
+var fechaSeleccionada;
+var HoraSeleccionada;
+var vetSeleccionado;
+var motivoSeleccionado;
+var mascotaSeleccionado;
+var fechaModificada;
 
-function finalizar() {
+function cambiarFormatoFecha() {
+    fechaSeleccionada = diaConsulta.options[diaConsulta.selectedIndex].text;
+
+    var anno;
+    var mes;
+    var dia = fechaSeleccionada.slice(0, 2);
+
+    if (fechaSeleccionada.includes("Enero")) {
+        mes = "01";
+    }
+    else if (fechaSeleccionada.includes("Febrero")) {
+        mes = "02"
+    }
+    else if (fechaSeleccionada.includes("Marzo")) {
+        mes = "03"
+    }
+    else if (fechaSeleccionada.includes("Abril")) {
+        mes = "04"
+    }
+    else if (fechaSeleccionada.includes("Mayo")) {
+        mes = "05"
+    }
+    else if (fechaSeleccionada.includes("Junio")) {
+        mes = "06"
+    }
+    else if (fechaSeleccionada.includes("Julio")) {
+        mes = "07"
+    }
+    else if (fechaSeleccionada.includes("Agosto")) {
+        mes = "08"
+    }
+    else if (fechaSeleccionada.includes("Septiembre")) {
+        mes = "09"
+    }
+    else if (fechaSeleccionada.includes("Octubre")) {
+        mes = "10"
+    }
+    else if (fechaSeleccionada.includes("Noviembre")) {
+        mes = "11"
+    }
+    else if (fechaSeleccionada.includes("Diciembre")) {
+        mes = "12"
+    }
+
+    if (fechaSeleccionada.includes("2022")) {
+        anno = 2022;
+    }
+    else if (fechaSeleccionada.includes("2023")) {
+        anno = 2023;
+    }
+
+    fechaModificada = anno + "-" + mes + "-" + dia;
+}
+
+function anadirCita() {
     try {
+
+        cambiarFormatoFecha();
+
+        idCitaDisponible = horaConsulta.options[horaConsulta.selectedIndex].value;
+        HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
+        vetSeleccionado = veterinarios.value;
+        motivoSeleccionado = motivoConsulta.options[motivoConsulta.selectedIndex].text;
+        mascotaSeleccionado = mascota.value;
+
+        console.log("id cita", idCitaDisponible, fechaModificada, HoraSeleccionada, motivoSeleccionado, mascotaSeleccionado, vetSeleccionado);
+
         let options = {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                tratamiento: textAreaTratamiento.value,
-                comentario: textAreaComentario.value,
-                fecha: fech,
-                hora: hor,
-                id_mascota: id_masc,
-                id_veterinario: id_vet,
-                motivo_consulta: motiv,
-                duracion: cronometro.innerHTML,
-                id_cliente: id_cli
+                fecha: fechaModificada,
+                hora: HoraSeleccionada,
+                motivo: motivoSeleccionado,
+                id_mascota: mascotaSeleccionado,
+                id_veterinario: vetSeleccionado
             })
         },
-            res = fetch(`http://localhost:3000/agregar_cita_concluida/`, options),
+            res = fetch(`http://localhost:3000/anadir_cita_tomada/`, options),
             json = res.json();
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
     } catch (error) {
-        eliminarCitaRealizada(id_cit);
+        console.log("No se añadio la cita");
     }
 
-    function eliminarCitaRealizada(id){
+    function eliminarCitaDisponible(idCitaDisponible) {
+        
+        console.log("Entre a eliminar cita");
+
         try {
             let options = {
                 method: "DELETE",
@@ -560,7 +649,7 @@ function finalizar() {
                     "Content-type": "application/json"
                 },
             },
-                res = fetch(`http://localhost:3000/eliminar_cita_pendiente/${id}`, options),
+                res = fetch(`http://localhost:3000/eliminar_cita_tomada/${idCitaDisponible}`, options),
                 json = res.json();
             if (!res.ok) throw { status: res.status, statusText: res.statusText }
             else {
@@ -576,7 +665,7 @@ function finalizar() {
                     confirmButtonColor: '#09d882'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                       location.reload();
+                        location.reload();
                     }
                 });
         }

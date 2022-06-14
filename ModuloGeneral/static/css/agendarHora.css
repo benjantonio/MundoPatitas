@@ -226,7 +226,7 @@ header {
 /* CONTINUAR */
 .cuadrito2 .btnFinal {
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     vertical-align: middle;
     color: #ffffff;
@@ -240,6 +240,26 @@ header {
 }
 
 .cuadrito2 .btnFinal .p-btn {
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+
+.cuadrito2 .btnFinalDeshabilitado {
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #72c29f;
+    width: 8rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: 16px auto 16px auto;
+}
+
+.cuadrito2 .btnFinalDeshabilitado .p-btn {
     text-align: center;
     margin: 0;
     width: auto;
@@ -298,13 +318,6 @@ header {
     transition: all 150ms ease;
 }
 
-.cuadrito2 .btnFinal:hover {
-    background: #ffff;
-    color: #1d1d1d;
-    border: 0.1rem solid #068e53;
-    transition: all 150ms ease;
-}
-
 .btnVolver .p-btn {
     text-align: center;
     margin: 0;
@@ -320,6 +333,13 @@ header {
 
 .btnVolver:hover p {
     color: #1d1d1d;
+}
+
+.cuadrito2 .btnFinal:hover {
+    background: #ffff;
+    color: #1d1d1d;
+    border: 0.1rem solid #068e53;
+    transition: all 150ms ease;
 }
 
 .detalleFinal .btnConfirmar:hover {
