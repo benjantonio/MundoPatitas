@@ -37,7 +37,7 @@
 
         {% if veterinario %}
                     {% for vet in veterinario %}
-                    <a class="navbar-brand ps-3" href="{% url 'panelVeterinario' %}">{{vet.id_centro.nombres}} {{vet.id_centro.apellidos}}</a>
+                    <a class="navbar-brand ps-3" href="{% url 'panelVeterinario' vet.id_veterinario %}">{{vet.id_centro.nombres}} {{vet.id_centro.apellidos}}</a>
                     {% endfor %}
                     {% endif %}
         <!-- Sidebar Toggle-->
@@ -67,7 +67,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Panel Veterinario</div>
-                        <a class="nav-link" href="{% url 'panelVeterinario' %}">
+                        <a class="nav-link" href="{% url 'panelVeterinario'  %}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Inicio
                         </a>

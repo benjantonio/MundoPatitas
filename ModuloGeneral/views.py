@@ -104,23 +104,23 @@ def plantillaPanelVeterinario(request):
     
     return render(request, 'panelVeterinario/plantillaPanelVet.html',{})
 
-def panelVeterinario(request):
-    citasPendientes = CitaTomada.objects.filter(id_veterinario_id = 1).order_by('fecha','hora') ## AQUÍ VA EL ID DEL VETERINARIO
-    veterinario = Veterinario.objects.filter(id_veterinario = 1) ## AQUÍ VA EL ID DEL VETERINARIO
+def panelVeterinario(request, id):
+    citasPendientes = CitaTomada.objects.filter(id_veterinario_id = id).order_by('fecha','hora') ## AQUÍ VA EL ID DEL VETERINARIO
+    veterinario = Veterinario.objects.filter(id_veterinario = id) ## AQUÍ VA EL ID DEL VETERINARIO
     return render(request,'panelVeterinario/inicio.html',{'citasPendientes':citasPendientes,'veterinario':veterinario})
 
-def moduloCrearCita(request):
-    citasDisponibles = CitaDisponible.objects.filter(id_veterinario_id = 1).order_by('fecha','hora') ## AQUÍ VA EL ID DEL VETERINARIO
-    veterinario = Veterinario.objects.filter(id_veterinario = 1) ## AQUÍ VA EL ID DEL VETERINARIO
+def moduloCrearCita(request, id):
+    citasDisponibles = CitaDisponible.objects.filter(id_veterinario_id = id).order_by('fecha','hora') ## AQUÍ VA EL ID DEL VETERINARIO
+    veterinario = Veterinario.objects.filter(id_veterinario = id) ## AQUÍ VA EL ID DEL VETERINARIO
     return render(request,'panelVeterinario/crear.html',{'citasDisponibles':citasDisponibles,'veterinario':veterinario})
 
-def moduloPendientesCita(request):
-    citasPendientes = CitaTomada.objects.filter(id_veterinario_id = 1).order_by('fecha', 'hora') ## AQUÍ VA EL ID DEL VETERINARIO
-    veterinario = Veterinario.objects.filter(id_veterinario = 1) ## AQUÍ VA EL ID DEL VETERINARIO
+def moduloPendientesCita(request, id):
+    citasPendientes = CitaTomada.objects.filter(id_veterinario_id = id).order_by('fecha', 'hora') ## AQUÍ VA EL ID DEL VETERINARIO
+    veterinario = Veterinario.objects.filter(id_veterinario = id) ## AQUÍ VA EL ID DEL VETERINARIO
     return render(request,'panelVeterinario/pendientes.html',{'citasPendientes':citasPendientes,'veterinario':veterinario})
 
-def moduluoEstadisticas(request):
-    veterinario = Veterinario.objects.filter(id_veterinario = 1) ## AQUÍ VA EL ID DEL VETERINARIO
+def moduluoEstadisticas(request, id):
+    veterinario = Veterinario.objects.filter(id_veterinario = id) ## AQUÍ VA EL ID DEL VETERINARIO
     return render(request,'panelVeterinario/estadisticas.html',{'veterinario':veterinario})
 
 
