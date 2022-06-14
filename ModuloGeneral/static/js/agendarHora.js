@@ -534,11 +534,17 @@ function alertaConfirmacion() {
 
             anadirCita();
 
+
             Swal.fire(
                 'Hora agendada con éxito!',
-                'Your file has been deleted.',
+                '',
                 'success'
             )
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    }
+                });
         }
     })
 }
@@ -635,11 +641,12 @@ function anadirCita() {
             json = res.json();
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
     } catch (error) {
-        console.log("No se añadio la cita");
+        console.log("Se añadio la cita");
+        eliminarCitaDisponible(idCitaDisponible);
     }
 
     function eliminarCitaDisponible(idCitaDisponible) {
-        
+
         console.log("Entre a eliminar cita");
 
         try {
