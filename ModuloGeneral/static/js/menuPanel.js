@@ -87,6 +87,14 @@ yoBtn.addEventListener('click', () => {
     tabAdopciones.style = 'display:none;'
 });
 
+// document.querySelector(".btn-modificar").addEventListener('click', () => {
+//     document.querySelector(".editarUsuario").style = 'display: block;'
+// })
+
+// document.querySelector("#cerrarEditUsu").addEventListener('click', () => {
+//     document.querySelector(".editarUsuario").style = 'display: none;'
+// })
+
 /* ======================= MIS MASCOTAS ============================*/
 
 /* Ventana "Mis Mascotas" */

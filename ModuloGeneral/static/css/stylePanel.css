@@ -374,6 +374,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
 .cardYo .btns .btn-modificar {
     background: #09d882;
     color: white;
+    border: none;
     border-radius: 50px;
     padding: 15px;
     margin-top: 10px;

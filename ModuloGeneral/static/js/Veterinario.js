@@ -209,10 +209,11 @@ celularV.addEventListener('keyup', () => {
 inpustAV.forEach(i => {
     i.addEventListener('keyup', () => {
         console.log("FUNCIONA KEYUP")
-        if (nombreV.value.length == 10 && claveV.value.length == 5 && expresion.correo.test(emailV.value) && celularV.value.length == 9) {
-            btnAV.removeAttribute("disabled")
-        } else {
+        if (nombreV.value.length < 10 || claveV.value.length < 5 || !expresion.correo.test(emailV.value) || celularV.value.length < 9) {
+
             btnAV.disabled = true;
+        } else {
+            btnAV.removeAttribute("disabled")
         }
     })
 });
@@ -251,7 +252,7 @@ celular.addEventListener('keyup', () => {
 inputsVM.forEach(i => {
     i.addEventListener('keyup', () => {
         console.log("FUNCIONA KEYUP")
-        if (nombre.value.length != 10 || !expresion.correo.test(correo.value) || celular.value.length != 9) {
+        if (nombre.value.length < 10 || !expresion.correo.test(correo.value) || celular.value.length != 9) {
 
             btnActVet.disabled = true;
         } else {

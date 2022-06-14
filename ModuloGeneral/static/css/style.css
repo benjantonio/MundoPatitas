@@ -620,6 +620,22 @@ tr:hover {
 /*FIN REGISTRO*/
 
 
+/*ACTUALIZACION USUARIO*/
+
+#formEditUsu {
+    width: 80%;
+    margin: 0% 10%;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/*FIN ACTUALIZACION USUARIO*/
+
+
 /*Publicaciones adopciones*/
 
 #tabMisAdopciones {

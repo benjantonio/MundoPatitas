@@ -18,7 +18,7 @@ class Comuna(models.Model):
     id_region = models.ForeignKey(Region, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.nombre_comuna},{self.id_comuna}'
+        return f'{self.nombre_comuna}'
 
 class Perfil(models.Model):
     id_perfil= models.AutoField(primary_key=True, verbose_name="ID Perfil")

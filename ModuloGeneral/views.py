@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import  *
-from .forms import RegistroUsuario
+from .forms import RegistroUsuario, EditarUsuario
 
 def home(request):
     return render(request, 'home.html', {})
@@ -16,6 +16,7 @@ def registro(request):
         usuario_form =  RegistroUsuario(request.POST)
         if usuario_form.is_valid():
             usuario_form.save()
+            # messages.add_message(request, messages.SUCCESS, 'Usuario registrado con exito.')
             return redirect('login')
         else:
             messages.add_message(request, messages.ERROR, 'Usuario y/o Correo ya existentes. Cambie sus datos y vuelva a intentralo')
@@ -24,11 +25,35 @@ def registro(request):
         usuario_form = RegistroUsuario()
     return render(request, 'registration/registro.html', {'usuario_form': usuario_form, 'comunaV': comunaV, 'comunaM':comunaM})
     
-
+def editarUsuario(request, id):
+    usuario = Usuario.objects.get(id_usuario = id)
+    if request.method == 'GET':
+        edit_form_usuario = EditarUsuario( instance=usuario)
+    else:
+        edit_form_usuario = EditarUsuario(request.POST, instance=usuario)
+        if edit_form_usuario.is_valid():
+            edit_form_usuario.save()
+            messages.add_message(request, messages.SUCCESS, 'Usuario actualizado con exito. Vuelva a iniciar sesión')
+            return redirect('login')
+        else:
+            messages.add_message(request, messages.ERROR, 'Ha ocurrido un error. Vuelva a intentarlo')
+    return render(request, 'editarUsu.html', {'form': edit_form_usuario})
 
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
     publicacion = PublicacionAdopcion.objects.filter(id_cliente_id = request.user.id_usuario)
+    
+    # usuario = Usuario.objects.get(id_usuario = id)
+    # if request.method == 'GET':
+    #     edit_form_usuario = EditarUsuario( instance=usuario)
+    # else:
+    #     edit_form_usuario = EditarUsuario(request.POST, instance=usuario)
+    #     if edit_form_usuario.is_valid():
+    #         edit_form_usuario.save()
+    #         messages.add_message(request, messages.SUCCESS, 'Usuario actualizado con exito. Vuelva a iniciar sesión')
+    #         return redirect('login')
+    #     else:
+    #         messages.add_message(request, messages.ERROR, 'Ha ocurrido un error. Vuelva a intentarlo')
 
     return render(request,'panelcli.html', {'mascotas': mascotas, 'publicacion':publicacion})
 

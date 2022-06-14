@@ -5,7 +5,7 @@
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: red;text-transform:uppercase;">{{ message }}</li>
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: red;text-transform:uppercase;list-style:none ;">{{ message }}</li>
             {% endfor %}
     </ul>
     {% endif %}
@@ -100,6 +100,8 @@
 
     <div class="clear-fix"></div>
 </div>
+
+<script src="{% static 'js/validacion_form.js' %}"></script>
 
 
 {% endblock %}
