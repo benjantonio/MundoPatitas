@@ -100,7 +100,7 @@ class PublicacionForo(models.Model):
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.categoria
+        return self.id_publicacion
 
 class RespuestaForo(models.Model):
     id_respuesta = models.AutoField(primary_key=True)
@@ -112,7 +112,7 @@ class RespuestaForo(models.Model):
     id_publicacion = models.ForeignKey(PublicacionForo, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.fecha
+        return self.id_respuesta
 
 class PublicacionAdopcion(models.Model):
     id_publicacion = models.AutoField(primary_key=True, verbose_name="Id Publicación")

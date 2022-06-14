@@ -17,7 +17,7 @@
             {% if usuarioOnline %}
             {% for usuarioOn in usuarioOnline %}
             <div id="card-part1" class="card card-part1">
-                <p>Logeado:  DATOS:<span>{{usuarioOn.nombres}} {{usuarioOn.apellidos}}</span>
+                <p>Logeado: DATOS:<span>{{usuarioOn.nombres}} {{usuarioOn.apellidos}}</span>
                 </p>
                 <p> AGREGAR PUBLICACION - VER MIS PUBLICACIONES </p>
             </div>
@@ -26,86 +26,170 @@
         </div>
 
         <div class="part2-foro">
-
             <h3 style="text-align: center;">Publicaciones</h3>
-
             <div class="contenedor-publicacion">
-                <div class="lista-historial">
-                    {% if publicacionesAll %}
-                    {% for publicacion in publicacionesAll %}
-                    <div class="historial2">
-                        <div class="formato">
-                            <p style="font-weight: 600; font-size: 20px;">Titulo:</p>
-                            <p>{{publicacion.titulo}}</p>
-                        </div>
-                        <div class="formato">
-                            <p style="font-weight: 600; font-size: 20px;">Fecha:</p>
-                            <p>{{publicacion.fecha}}</p>
-                        </div>
-                        <div class="formato">
-                            <p style="font-weight: 600; font-size: 20px;">Hora:</p>
-                            <p> {{publicacion.hora}}</p>
-                        </div>
-                        <div class="formato">
-                            <p style="font-weight: 600; font-size: 20px;">Creado por:</p>
-                            <p> {{publicacion.id_cliente.nombres}} {{publicacion.id_cliente.apellidos}}</p>
-                        </div>
-                        <div class="formato">
-                            <p style="font-weight: 600; font-size: 20px;">Respuestas: </p>
-                            <p>2</p>
+                <div class="header-lista-publicaciones">
+                    <h4 class="titulo-header">TEMA</h4>
+                    <h4 class="titulo-header">CREACIÓN</h4>
+                </div>
+
+
+                {% if publicacionesAll %}
+                {% for publicacion in publicacionesAll %}
+                <div class="publicacion"
+                    onclick="abrirPublicacion('{{publicacion.id_publicacion}}','{{publicacion.id_cliente.nombres}} {{publicacion.id_cliente.apellidos}}','{{publicacion.fecha}}','{{publicacion.hora}}','{{publicacion.titulo}}','{{publicacion.mensaje}}');">
+                    <div class="contenido-izq-publicacion">
+
+                        <div class="titulo-publicacion">
+                            <h4>
+                                <span style="vertical-align: middle; padding-bottom: 5px; "
+                                    class="material-symbols-outlined">subtitles</span>
+                                TITULO:<span class="titulo-publicacion-text">{{publicacion.titulo}}
+                                </span>
+                            </h4>
                         </div>
 
-                        <div id="detalleCita-btn" class="formato cuadro-ver"><span
-                                class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div class="creador-publicacion">
+                            <h6>
+                                <span style="vertical-align: middle; padding-bottom: 5px; "
+                                    class="material-symbols-outlined">accessibility_new</span>
+                                Creador:<span class="creador-publicacion-text">{{publicacion.id_cliente.nombres}}
+                                    {{publicacion.id_cliente.apellidos}}
+                                </span>
+                            </h6>
+                        </div>
                     </div>
 
-                    {% if respuestasAll %}
-                    {% for respuesta in respuestasAll %}
-                    {% if respuesta.id_publicacion.id_publicacion == publicacion.id_publicacion  %}
-                    <div class="respuesta-publicacion" style=" margin: 3px 10px 0px 10px; height: 7rem; width: 98%; background: rgb(255, 255, 255); border-radius: 6px; display: grid; grid-template-columns: 20rem auto;">  
-                        <div style="text-align: center;">
-                            <h4>Respuesta: </h4>
-                            <p>Creado por: <span style="font-size: 16px; font-weight: 400; color: black;">{{respuesta.id_cliente.nombres}} {{respuesta.id_cliente.apellidos}}</span></p>
-                            <p>Respondido el: <span style="font-size: 16px; font-weight: 400; color: black;">{{respuesta.fecha}} {{respuesta.hora}}hrs.</span> </p>
+                    <div class="contenido-der-publicacion">
+                        <div class="fecha-publicacion">
+                            <h5>
+                                <span style="vertical-align: middle; padding-bottom: 5px; "
+                                    class="material-symbols-outlined">today</span>
+                                FECHA:<span class="titulo-publicacion-text"><br>- {{publicacion.fecha}}<br>-
+                                    {{publicacion.hora}}hrs.
+                                </span>
+                            </h5>
                         </div>
 
-                        <div style="text-align: center;">
-                            <h4>Comentario:</h4>
-                            <p>{{respuesta.comentario}}</p>
+                        <div class="publicacion-ver" style="text-align: right;">
+                            <h5>
+                                Ver
+                                <span style="vertical-align: middle; padding-bottom: 2px; "
+                                    class="material-symbols-outlined">arrow_right_alt</span>
+                                </h4>
                         </div>
                     </div>
+                </div>
+
+                <div class="separador-publicacion">
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                <!--
                     
-                    {% endif %}
-                    {% endfor %}
-                    {% endif %}
+                    
+                    
 
-
-
-                    {% if usuarioOnline %}
+            {% if usuarioOnline %}
             {% for usuarioOn in usuarioOnline %}
-            <div class="respuesta-publicacion" style=" text-align: center;  align-items: center; margin: 5px 10px 80px 10px; height: 10rem; width: 100%; background: rgb(255, 255, 255); border-radius: 30px; display: grid; grid-template-columns: auto;">  
-                        
+            <div class="respuesta-publicacion" style=" text-align: center;  align-items: center; margin: 5px 10px 80px 10px; height: 10rem; width: 100%; background: rgb(255, 255, 255); border-radius: 30px; display: grid; grid-template-columns: auto;"> 
                 <h5 style="padding: 0px 15px 0 15px; margin-top: 20px;">Escribir respuesta: </h5>
                 <textarea class="respuestaForo" style="margin: -15px 15px 10px 15px;"  maxlength="500" spellcheck="false" placeholder="Escribe una respuesta" required></textarea>
                 <button onclick="enviarRespuesta('{{usuarioOn.id_usuario}}','{{publicacion.id_publicacion}}');" style="margin-left: 20px; text-align: center; width: 6rem; background: rgb(63, 172, 48); color: white; border-radius: 20px;">ENVIAR</button>
             </div>
             {% endfor %}
-            {% endif %}
+            {% endif %}-->
+            </div>
+        </div>
+    </div>
 
-                    {% endfor %}
-                    
-                    {% endif %}
-
+    <div id="contenedorPublicacion" class="contenedorPublicacion">
+        <div class="detalle-publicacion">
+            <div class="part1-detalle">
+                <div class="contenedor-info-top">
+                    <h5>Publicación</h5>
+                    <img src='{% static "img/publicacion-foro.png" %}' alt="">
                 </div>
-
+                <div class="contenedor-info">
+                    <p class="p-subtitulos">Creador:</p>
+                    <p class="creadorPublicacionTxt"></p>
+                </div>
+                <div class="contenedor-info">
+                    <p class="p-subtitulos">Publicaciones:</p>
+                    <p class="cantPublicacionesTxt"></p>
+                </div>
             </div>
 
+            <div class="part2-detalle part2-publi">
+                <div class="header-descripcion-pub">
+                    <div class="fecha-header-publi">
+                        <h6>
+                            <span style="vertical-align: middle; padding-bottom: 5px;"
+                                class="material-symbols-outlined">today</span>
+                            FECHA:<span class="titulo-publicacion-text fechaPublicacionTxt">
+                            </span>
+                        </h6>
+                    </div>
+                </div>
+                <div class="contenedor-descripcion-pub">
+
+                    <div class="titulo-publicacion" style="text-align: left; margin: 10px 20px 10px 20px;">
+                        <h4 style="color: #0cac49;">
+                            <span style="vertical-align: middle; padding-bottom: 5px; "
+                                class="material-symbols-outlined">subtitles</span>
+                            TITULO:<span class="tituloPublicacionTxt"
+                                style="font-size: 20px; margin-left: 5px; font-weight: 600; color: #3f3f3f; ">
+                            </span>
+                        </h4>
+                    </div>
+
+                    <div>
+                        <p class="descripcionPublicacionTxt" style="margin: 10px 20px; text-align: left;"> </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
+
+        <div class="zona-respuestas">
+            <div class="respuesta-publicacion">
+                <div style="text-align: center;">
+                    <h6>Respuesta: </h6>
+                    <img src='{% static "img/person-resp-foro.png" %}' alt="">
+                    <p style="margin: 0;"><span style="font-size: 14px; font-weight: 300; color: #333333;">- Joaquin
+                            Mendez</span></p>
+                    <p style="margin: 0;"><span style="font-size: 14px; font-weight: 300; color: #333333;">- 12 de Julio del
+                            2022 a las 23:00hrs.</span> </p>
+                </div>
+    
+                <div style="text-align: center;">
+                    <h5 style="color: #222222;">Respuesta:</h5>
+                    <p style="font-size: 15px; color: #333333;">Hola, lo que pasa es que ue pasa es queue pasa es s que ue
+                        pasa es queue pasa es s que ue pasa es queue pasa es s que ue pasa es queue pasa es s que ue pasa es
+                        queue pasa es s que ue pasa es queue pasa es s que ue pasa es queue pasa es s que ue pasa es queue
+                        pasa es s que ue pasa es queue pasa es s que ue pasa es queue pasa es s que ue pasa es queue pasa es
+                        s que ue pasa es queue pasa es queue pasa es queue pasa es que </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="cerrar-detalle-btn" class="cerrar-detalle" onclick="cerrarPublicacion();"><span
+                class="material-symbols-outlined">arrow_back</span>
+            <p>Regresar</p>
+        </div>
+
     </div>
 
+
 </body>
+
+<div id="fondoNegroBlur2" class="fondoNegroBlur2" onclick="cerrarPublicacion();">
+</div>
+
 
 
 <script src="{% static 'js/foro.js' %}"></script>
