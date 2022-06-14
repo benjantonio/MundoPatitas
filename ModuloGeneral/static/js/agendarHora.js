@@ -374,7 +374,7 @@ function mostrarValoracion() {
     $(function () {
         $.ajax({
             type: 'GET',
-            url: `http://localhost:3000/valoracion/${idVeterinarioSelect}`,
+            url: `http://localhost:3000/valoracion2/${idVeterinarioSelect}`,
             success: function (response) {
 
                 /* Declaro valor inicial valoración*/
