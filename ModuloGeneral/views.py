@@ -43,17 +43,6 @@ def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
     publicacion = PublicacionAdopcion.objects.filter(id_cliente_id = request.user.id_usuario)
     
-    # usuario = Usuario.objects.get(id_usuario = id)
-    # if request.method == 'GET':
-    #     edit_form_usuario = EditarUsuario( instance=usuario)
-    # else:
-    #     edit_form_usuario = EditarUsuario(request.POST, instance=usuario)
-    #     if edit_form_usuario.is_valid():
-    #         edit_form_usuario.save()
-    #         messages.add_message(request, messages.SUCCESS, 'Usuario actualizado con exito. Vuelva a iniciar sesión')
-    #         return redirect('login')
-    #     else:
-    #         messages.add_message(request, messages.ERROR, 'Ha ocurrido un error. Vuelva a intentarlo')
 
     return render(request,'panelcli.html', {'mascotas': mascotas, 'publicacion':publicacion})
 

@@ -106,7 +106,7 @@ class EditarUsuario(forms.ModelForm):
             'username': forms.TextInput(
                 attrs= {
                     'class': 'form-control col-xs-12 col-lg-6',
-                    'required': 'required'
+                    'disabled': 'disabled'
                 }
             ),
             'email': forms.EmailInput(

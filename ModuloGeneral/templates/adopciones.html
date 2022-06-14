@@ -1,8 +1,7 @@
 {% extends 'planilla.html' %} {% load static %} {% block content %}
 <div class="adopTitulo">
     <h1>Adopciones Mundo Patitas</h1>
-    <h5>Este apartado de la página tiene como objetivo ayudar a los animalitos a encontrar sus futuros dueños, todo esto para ayudar en la disminución de animales callejeros y/o maltrados por sus antiguos dueños. Si tienes un animalito que necesite hogar,
-        te invitamos a realizar su publicación.
+    <h5>Ayuda a los animalitos a encontrar sus futuros dueños.
     </h5>
 </div>
 
@@ -27,30 +26,4 @@
     {% endfor %}
 </div>
 {% else %}
-<span>Bienvenido a Adopciones Mundo Patitas, de momento no se han realizado publicaciones. Si necesitas publicar un animalito te invitamos a ingresar con tu cuenta <a href="{% url 'login' %}">aquí</a> para realizar la publicación</span> {% endif %}
-
-
-
-
-
-<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Publicar Adopción</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Formulario de adopcion</p>
-            </div>
-            <div class="modal-footer">
-
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-{%endblock%}
+<h6 style="width: 100%;text-align:center;">No se han realiza publiaciones. Si necesitas publicar un animalito te invitamos a realizar la publicación</h6>{% endif %} {%endblock%}

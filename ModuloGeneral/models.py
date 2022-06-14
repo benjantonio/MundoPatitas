@@ -118,6 +118,7 @@ class PublicacionAdopcion(models.Model):
     tipo_animal = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
     correo = models.CharField(max_length=50)
+    celular = models.IntegerField(blank=True, null=True)
     edad = models.IntegerField()
     comentario = models.CharField(max_length=500)
     img = models.CharField(max_length=500,blank=True, null=True)

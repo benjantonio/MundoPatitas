@@ -21,42 +21,82 @@ const obtenerVeterinarios = async() => {
     }
 }
 
-/*agregar veterinarios */
-const agregarVeterinario = async() => {
-    try {
-        let options = {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    nombre: document.querySelector("#nombre").value,
-                    correo: document.querySelector("#email").value,
-                    celular: document.querySelector("#celular").value,
-                    id_perfil: document.querySelector("#perfil").value,
-                    id_cli: document.querySelector("#id_cli").value,
-                    clave: document.querySelector("#clave").value,
-                })
-            },
-            res = await fetch("http://localhost:3000/enviar_veterinario", options),
-            json = await res.json();
-
-        if (!res.ok) throw { status: res.status, statusText: res.statusText }
-        else {
+/*COMPROBAR CORREO */
+const comprobarCorreo = () => {
+    const correos = []
+    var correo = document.querySelector("#email").value
+    var resultado = false
+    console.log(correo)
+    fetch(`http://localhost:3000/lista_veterinario`)
+        .then(response => response.json())
+        .then(json => console.log("json ", json))
+        .catch(err => console.log(err))
+    json.forEach(j => {
+        correos.push(j.correo)
+    })
+    correos.forEach(c => {
+        if (correo == c) {
             Swal.fire({
                 position: 'center',
-                icon: 'success',
-                title: 'Veterinario Agregado con Exito!!',
-                showConfirmButton: false,
-                timer: 1500
-
+                icon: 'error',
+                title: 'Correo Existente',
+                text: 'El correo ya se encuentra registrado a un Veterinario. Cambie el correo ingresado e intentelo de nuevo ',
+                showConfirmButton: true,
             })
-            setTimeout(retrasarReload, 1500);
+            resultado = true
         }
-    } catch (error) {
-        console.log(error)
+    })
 
+    return resultado
+}
+
+
+/*agregar veterinarios */
+const agregarVeterinario = async() => {
+
+    comprobarCorreo()
+    console.log(comprobarCorreo())
+
+    if (comprobarCorreo()) {
+        console.log(true)
+    } else {
+        try {
+            let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nombre: document.querySelector("#nombre").value,
+                        correo: document.querySelector("#email").value,
+                        celular: document.querySelector("#celular").value,
+                        id_perfil: document.querySelector("#perfil").value,
+                        id_cli: document.querySelector("#id_cli").value,
+                        clave: document.querySelector("#clave").value,
+                    })
+                },
+                res = await fetch("http://localhost:3000/enviar_veterinario", options),
+                json = await res.json();
+
+            if (!res.ok) throw { status: res.status, statusText: res.statusText }
+            else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Veterinario Agregado con Exito!!',
+                    showConfirmButton: false,
+                    timer: 1500
+
+                })
+                setTimeout(retrasarReload, 1500);
+            }
+        } catch (error) {
+            console.log(error)
+
+        }
     }
+
+
 };
 
 /*eliminar veterinario */

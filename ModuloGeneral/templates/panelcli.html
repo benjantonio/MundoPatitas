@@ -118,18 +118,6 @@
         </div>
         <!-- Fin - Tab "Yo" -->
 
-        <!-- EDITAR USUARIO -->
-        <!-- <div class="editarUsuario" style="display: none;">
-            <div id="formEditUsu">
-                <form id="form" method="POST">
-                    {% csrf_token %} {{form.as_p}}
-                    <button id="enviar" type="submit" class="btn btn-success">Actualizar Usario</button>
-                    <button id="cerrarEditUsu" type="button" class="btn ">Cencelar</button>
-                </form>
-            </div>
-        </div> -->
-        <!-- FIN EDITAR USUARIO -->
-
         <!-- Tab "Mis Mascotas" -->
         <div id="tabMisMascotas">
             <div class="cardMisMascotas card">
@@ -351,7 +339,7 @@
 
                         </div>
                     </div>
-                    <!-- -FIN MODIFICAR INFO MASCOTA -->
+
                     {% endfor %} {% else %}
                     <p>No ha realizado publicaciones</p>
                     {% endif %}
@@ -376,36 +364,41 @@
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label class="form-label">Foto</label>
-                                <input type="file" id="imagen" name="imagen" class="form-control">
+                                <input type="file" id="imagen" name="imagen" class="form-control imgAP">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" class="form-control">
+                                <input type="text" id="nombre" name="nombre" class="form-control nombreAP" disabled>
+                                <span id="errorNAP" style="color: red;display: none;">Nombre inválido. Minimo 2 caracteres</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="">Tipo de Animal</label>
-                                <select class="form-select" name="tipo" id="tipo">
-                                    <option value="perro">Perro</option>
-                                    <option value="gato">Gato</option>
-                                    <option value="exotico">Exótico</option>
-                                </select>
+                                <input type="text" id="tipo" name="tipo" class="form-control tipoAP" style="text-transform: uppercase;" disabled>
+                                <span id="errorTAP" style="color: red;display: none;">Tipo Animal inválido. Minimo 3 caracteres</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Correo</label>
-                                <input type="text" id="correo" name="correo" class="form-control">
+                                <input type="text" id="correo" name="correo" class="form-control correoAP" disabled>
+                                <span id="errorCAP" style="color: red;display: none;">Correo inválido. Ingrese formato correcto</span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Celular</label>
+                                <input type="number" id="celular" name="celular" class="form-control celularAP" disabled>
+                                <span id="errorCEAP" style="color: red;display: none;">Celular inválido. Digite 9 numeros</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Edad</label>
-                                <input type="text" id="edad" name="edad" class="form-control">
+                                <input type="text" id="edad" name="edad" class="form-control edadAP" disabled>
+                                <span id="errorEAP" style="color: red;display: none;">Edad inválida</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Comentario</label>
-                                <textarea id="comentario" name="comentario" class="form-control"></textarea>
+                                <textarea id="comentario" name="comentario" class="form-control comentarioAP"></textarea>
                             </div>
 
                             <input type="text" id="id_cli" name="id_cli" value="{{user.id_usuario}}" class="form-control" style="display: none;">
 
-                            <button type="submit" class="btn btn-success">Publicar</button>
+                            <button type="submit" class="btn btn-success btnAP" disabled>Publicar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </form>
                     </div>
@@ -434,27 +427,32 @@
                                 <input type="file" class="imgInput" name="imagen">
                             </div>
                             <div class="form-floating txtInpNombre mb-3">
-                                <input type="text" class="form-control txtNombreAdop" id="floatingInput" name="nombre" placeholder="name@example.com">
+                                <input type="text" class="form-control txtNombreAdop" id="floatingInput" name="nombre">
                                 <label for="floatingInput" style="color: #04bc70;">Nombre</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control txtCorreo" id="floatingInput" name="correo" placeholder="name@example.com">
+                                <input type="text" class="form-control txtCorreo" id="floatingInput" name="correo">
                                 <label for="floatingInput" style="color: #04bc70;">Correo</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control txtEdadPubli" id="floatingInput" name="edad" placeholder="name@example.com">
+                                <input type="text" class="form-control txtCelular" id="floatingInput" name="celular">
+                                <label for="floatingInput" style="color: #04bc70;">Celular</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control txtEdadPubli" id="floatingInput" name="edad">
                                 <label for="floatingInput" style="color: #04bc70;">Edad</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <select name="tipo" class="form-control txtTipo" id="selectTipo">
+                                <!-- <select name="tipo" class="form-control txtTipo" id="selectTipo">
                                     <option value="perro">Perro</option>
                                     <option value="gato">Gato</option>
                                     <option value="exotico">Exótico</option>
-                                </select>
+                                </select> -->
+                                <input type="text" class="form-control txtTipoAP" id="floatingInput" name="tipo" style="text-transform: uppercase;">
                                 <label for="floatingInput" style="color: #04bc70;">Tipo</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea type="number" class="form-control txtComentario" id="floatingInput" name="comentario" placeholder="name@example.com"></textarea>
+                                <textarea type="number" class="form-control txtComentario" id="floatingInput" name="comentario"></textarea>
                                 <label for="floatingInput" style="color: #04bc70;">Comentario</label>
                             </div>
                             <input type="text" name="id_cli" class="txtIdCliPubli" style="display: none;">

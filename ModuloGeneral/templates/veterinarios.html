@@ -3,6 +3,7 @@
     <div class="tituloVets">
         <h2>Veterinarios <span class="username">{{user.username}}</span></h2>
     </div>
+    {% if veterinarios %}
     <table id="tablaVets">
         <thead>
             <tr>
@@ -27,6 +28,9 @@
         </tbody>
 
     </table>
+    {% else %}
+    <h2 style="width: 100%; text-align:center; font-family: 'Yanone Kaffeesatz', sans-serif;">No cuenta con veterinarios registrados. Favor registrar.</h2>
+    <hr> {% endif %}
 </div>
 <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">

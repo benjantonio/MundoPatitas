@@ -64,8 +64,9 @@ const obtenerPubli = async(id) => {
         document.querySelector(".urlImg").value = document.querySelector(".imgPubli").src
         document.querySelector(".txtNombreAdop").value = json.nombre
         document.querySelector(".txtCorreo").value = json.correo
+        document.querySelector(".txtCelular").value = json.celular
         document.querySelector(".txtEdadPubli").value = json.edad
-        document.querySelector("#selectTipo").value = json.tipo
+        document.querySelector(".txtTipoAP").value = json.tipo_animal
         document.querySelector(".txtComentario").value = json.comentario
         document.querySelector(".txtIdCliPubli").value = json.id_cliente_id
 
@@ -157,6 +158,80 @@ const recargarPag = () => {
     })
     setTimeout(retrasarReload, 1500)
 }
+
+/*validar campos form agregar mascota */
+const expresion = {
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+}
+
+const inputFileAP = document.querySelector(".imgAP")
+const nombreAP = document.querySelector(".nombreAP")
+const correoAP = document.querySelector(".correoAP")
+const celularAP = document.querySelector(".celularAP")
+const edadAP = document.querySelector(".edadAP")
+const tipoAP = document.querySelector(".tipoAP")
+const comentarioAP = document.querySelector(".comentarioAP")
+const btnAP = document.querySelector(".btnAP")
+const inputsAP = document.querySelectorAll(".formAdop input")
+
+nombreAP.addEventListener('keyup', () => {
+    if (nombreAP.value.length < 2) {
+        document.querySelector("#errorNAP").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorNAP").style = 'display:none;'
+    }
+})
+
+correoAP.addEventListener('keyup', () => {
+    if (expresion.correo.test(correoAP.value)) {
+        document.querySelector("#errorCAP").style = 'display:none;'
+    } else {
+        document.querySelector("#errorCAP").style = 'display:block; color:red;'
+    }
+})
+
+celularAP.addEventListener('keyup', () => {
+    if (celularAP.value.length != 9) {
+        document.querySelector("#errorCEAP").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorCEAP").style = 'display:none;'
+    }
+})
+
+edadAP.addEventListener('keyup', () => {
+    if (edadAP.value.length > 1) {
+        document.querySelector("#errorEAP").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorEAP").style = 'display:none;'
+    }
+})
+
+tipoAP.addEventListener('keyup', () => {
+    if (tipoAP.value.length < 3) {
+        document.querySelector("#errorTAP").style = 'display:block; color:red;'
+    } else {
+        document.querySelector("#errorTAP").style = 'display:none;'
+    }
+})
+
+
+inputsAP.forEach(i => {
+    i.addEventListener('keyup', () => {
+        if (nombreAP.value.length < 2 || !expresion.correo.test(correoAP.value) || celularAP.value.length != 9 || edadAP.value.length == 0 || tipoAP.value.length < 3) {
+            btnAP.disabled = true
+        } else {
+            btnAP.removeAttribute("disabled")
+        }
+    })
+})
+
+inputFileAP.addEventListener('change', () => {
+    inputsAP.forEach(i => {
+        i.removeAttribute("disabled")
+    });
+})
+
+/*Retrasar recarga pagina */
 
 function retrasarReload() {
     location.reload();
