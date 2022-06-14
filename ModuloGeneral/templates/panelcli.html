@@ -520,8 +520,8 @@
                         <p>{{cita.id_mascota.nombre}}</p>
                     </div>
                     <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                        <p style="margin-right: 3px;">{{cita.id_veterinario.id_centro.nombres}}</p>
-                        <p>{{cita.id_veterinario.id_centro.apellidos}}</p>
+                        <p style="margin-right: 3px;">{{cita.id_veterinario.id_cliente.nombres}}</p>
+                        <p>{{cita.id_veterinario.id_cliente.apellidos}}</p>
                     </div>
                     <div  class="formato cuadro-ver" onclick="eliminarCitaEspera('{{cita.id_cita}}');"><span class="eliminarBtn material-symbols-outlined" style="background: #d11111;">close</span></div>
                 </div>
@@ -553,10 +553,10 @@
                             <p>{{cita.id_mascota.nombre}}</p>
                         </div>
                         <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                            <p style="margin-right: 3px;">{{cita.id_veterinario.id_centro.nombres}}</p>
-                            <p>{{cita.id_veterinario.id_centro.apellidos}}</p>
+                            <p style="margin-right: 3px;">{{cita.id_veterinario.id_cliente.nombres}}</p>
+                            <p>{{cita.id_veterinario.id_cliente.apellidos}}</p>
                         </div>
-                        <div id="detalleCita-btn" onclick="abrirDetalleCita('{{cita.id_cita}}','{{cita.fecha}}','{{cita.motivo_consulta}}','{{cita.id_mascota.nombre}}','{{cita.id_mascota.tipo}}','{{cita.id_veterinario.nombre_completo}}','{{cita.id_veterinario.id_centro.nombres}} {{cita.id_veterinario.id_centro.apellidos}}', '{{cita.tratamiento}}','{{cita.comentario}}', '{{cita.valoracion}}');" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div id="detalleCita-btn" onclick="abrirDetalleCita('{{cita.id_cita}}','{{cita.fecha}}','{{cita.motivo_consulta}}','{{cita.id_mascota.nombre}}','{{cita.id_mascota.tipo}}','{{cita.id_veterinario.nombre_completo}}','{{cita.id_veterinario.id_cliente.nombres}} {{cita.id_veterinario.id_cliente.apellidos}}', '{{cita.tratamiento}}','{{cita.comentario}}', '{{cita.valoracion}}');" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
                     </div>
                     {% endfor %}
                     {% else %}

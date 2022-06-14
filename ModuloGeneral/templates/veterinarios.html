@@ -22,7 +22,7 @@
                 <td>
                     <form><input type="text" value="{{vet.id_veterinario}}" class="idV" style="display: none;"><input type="password" class="passwordVet"></form>
                 </td>
-                <td><button class="entrarVet" onclick="avisoClaveIncorrecta()"><a id="verMas" class="desahabilitado" href="{% url 'vetSelect' vet.id_veterinario %}">Ver más</a></button></td>
+                <td><button class="entrarVet" onclick="avisoClaveIncorrecta()"><a id="verMas" class="desahabilitado" href="{% url 'panelVeterinario' vet.id_veterinario %}">Ver más</a></button></td>
             </tr>
             {% endfor %}
         </tbody>
