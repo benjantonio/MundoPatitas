@@ -72,7 +72,7 @@ header {
 
 /*CUADRO PRINCIPAL INFERIOR*/
 .cuadrito2 {
-    display: block;
+    display: none;
     /* SE MUESTRA AL HACER CLICK EN EL BOTON - BUSCAR HORA - */
     background: #f6f6f9da;
     color: #3b3b3b;
