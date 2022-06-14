@@ -57,7 +57,7 @@ function enviarRespuesta(id_cliente, id_publicacion) {
     }
 }
 
-function abrirPublicacion(id_publicacion,creador, fecha, hora, titulo, descripcion) {
+function abrirPublicacion(id_publicacion, creador, fecha, hora, titulo, descripcion) {
     console.log("PUBLICACION ABIERTA")
 
     creadorPublicacionTxt.innerHTML = creador;
@@ -70,7 +70,13 @@ function abrirPublicacion(id_publicacion,creador, fecha, hora, titulo, descripci
             type: 'GET',
             url: `http://localhost:3000/respuestas-publicacion/${id_publicacion}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
             success: function (response) {
-                console.log(response)
+                $.each(response, function (indice, fila) {
+
+
+                    console.log("a")
+                    $('#zona-respuestas').append("<p> eee</p")
+
+                });
             }
         })
     });
