@@ -831,22 +831,95 @@ footer {
 }
 
 #contenedor-foro {
-    background: rgb(211, 211, 211);
+    background: #dbdbdb;
     width: 80%;
     height: auto;
     border-radius: 20px;
     margin-top: 150px;
     padding: 20px;
+    border: solid 0.5px #bdbdbd;
 
 }
 
 .part1-foro {
-    padding: 30px;
+    padding: 0;
     display: grid;
+    background: rgb(255, 255, 255); 
+    width: 100%; 
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .part1-foro .titulo-p1 {
+    border-radius: 10px;
     text-align: center;
+    background: #6e6e6e;
+    padding: 15px 0;
+}
+
+.contendor-botones-online{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 10px 0 40px 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-agregar-publicacion{
+    cursor: pointer;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: #0a94e4;
+}
+
+.btn-ver-publicaciones{
+    cursor: pointer;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: #0a94e4;
+}
+
+
+.contendor-botones-online p{
+    margin: 0;
+    font-size: 23px;
+}
+
+
+.agregarPublicacion{
+    margin: 15px 0 0 0; 
+    text-align: center;
+    width: 6rem; 
+    height: 2rem;
+    background: #0cac49; 
+    color: white; 
+    border-radius: 10px;
+    border: solid 0px #ffffff;;
+}
+
+
+.eliminar-publicacion {
+    position: relative;
+    display: none;
+    opacity: 0;
+    align-items: center;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #c52323;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    padding-left: 6px;
+    margin: -10px auto 10px auto;
+    cursor: pointer;
+}
+
+.eliminar-publicacion p {
+    text-align: center;
+    margin: 0;
+    width: auto;
 }
 
 #card-part1 {
@@ -860,7 +933,6 @@ footer {
     grid-template-columns: 65% auto;
     padding: 10px 0 10px 40px;
     align-items: center;
-    border-radius: 5px 5px 0 0;
 }
 
 .header-lista-publicaciones .titulo-header {
@@ -956,7 +1028,7 @@ footer {
     align-items: center;
     background: white;
     border-radius: 50px;
-    z-index: 9999;
+    z-index: 1002;
     transition: all 600ms ease;
     box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
     overflow-y: auto;
@@ -1012,6 +1084,8 @@ footer {
     object-fit: cover;
     border-radius: 40px;
 }
+
+
 
 .part2-detalle {
     background: #f6f6f9;
@@ -1075,6 +1149,72 @@ footer {
 }
 
 
+.respuesta-on{
+    display: none;
+    opacity: 0;
+    padding: 0 15%;
+}
+
+.escribir-respuesta{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    margin: 25px 10px 25px 10px;
+    height: 10rem;
+    width: 100%;
+    background: #2fbe66;
+    border-radius: 30px;
+    grid-template-columns: auto;
+}
+
+.escribir-respuesta h5{
+    color: white;
+}
+
+.contenedor-boton-env{
+    text-align: center;
+}
+
+.btn-enviarResp{
+    margin: 0 0 5px 0; 
+    text-align: center;
+    width: 6rem; 
+    height: 2rem;
+    background: white; 
+    color: #3fac30; 
+    border-radius: 10px;
+    border: solid 0px #ffffff;;
+}
+
+.respuesta-off{
+    display: none;
+    opacity: 0;
+    padding: 0 30%;
+}
+
+.escribir-respuesta-off{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    margin: 15px 10px 15px 10px;
+    height: 2.5rem;
+    width: 100%;
+    background: #c7c7c7;
+    border-radius: 5px;
+    grid-template-columns: auto
+}
+
+.btn-enviarResp-off{
+    margin: 0 0 5px 0; 
+    text-align: center;
+    width: 6rem; 
+    height: 2rem;
+    background: rgb(202, 202, 202); 
+    color: #242424; 
+    border-radius: 5px;
+    border: solid 0px #ffffff;;
+}
+
 
 
 
@@ -1137,7 +1277,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1100;
+    z-index: 1000;
     width: 100%;
     transition: opacity .1s;
     will-change: opacity;

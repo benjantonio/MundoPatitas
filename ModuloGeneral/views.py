@@ -31,11 +31,16 @@ def foro(request):
     except:
         usuarioOnline = 0
 
+    try:
+        publicacionesOnline = PublicacionForo.objects.filter(id_cliente_id = request.user.id_usuario).order_by('fecha','hora')
+    except:
+        publicacionesOnline = 0
+
     
     publicacionesAll = PublicacionForo.objects.filter().order_by('fecha','hora')
     respuestasAll = RespuestaForo.objects.filter().order_by('fecha','hora')
     
-    return render(request,'foro.html',{'usuarioOnline': usuarioOnline,'publicacionesAll': publicacionesAll,'respuestasAll': respuestasAll})
+    return render(request,'foro.html',{'usuarioOnline': usuarioOnline,'publicacionesAll': publicacionesAll,'respuestasAll': respuestasAll,'publicacionesOnline': publicacionesOnline})
 
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
