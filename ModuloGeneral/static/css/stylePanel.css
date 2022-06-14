@@ -20,11 +20,9 @@
     margin-bottom: 250px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto;
-
     /* OJO CON ESTE CAMBIO */
     border-radius: 0 0 40px 40px;
     padding: 30px;
-
 }
 
 .zonas {
@@ -72,6 +70,7 @@
     background-image: url("../img/carusel2.png");
     background-size: cover;
 }
+
 
 /* FIN OJO CAMBIO */
 
@@ -518,11 +517,11 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
-.cardMisMascotas .zona-mascotas .card-mascota .btns p{
+.cardMisMascotas .zona-mascotas .card-mascota .btns p {
     cursor: pointer;
- }
+}
 
- .cardMisMascotas .card-mascota .btn-eliminar {
+.cardMisMascotas .card-mascota .btn-eliminar {
     background: #ee4f5d;
     color: white;
     padding: 8px;
@@ -531,7 +530,10 @@ aside .sidebar .a-cerrarsesion:focus:before {
 }
 
 
-/*MODIFICAR INFO MASCOTA*/
+/* ======================== MODIFICAR INFO MASCOTA ========================*/
+
+
+/* == CONTENEDOR PRINCIPAL == */
 
 .contenedorModPet {
     position: absolute;
@@ -555,6 +557,9 @@ aside .sidebar .a-cerrarsesion:focus:before {
     box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
 }
 
+
+/*Contenedor cuadros part1 y part2*/
+
 .cardMisMascotas .card-mascota-nueva .btnMas {
     display: block;
     margin: 0px auto;
@@ -565,8 +570,6 @@ aside .sidebar .a-cerrarsesion:focus:before {
     border-radius: 50%;
 }
 
-
-
 .contenido-modPet {
     display: grid;
     color: #3b3b3b;
@@ -575,10 +578,8 @@ aside .sidebar .a-cerrarsesion:focus:before {
     gap: 1rem;
 }
 
-.contenido-modPet .tipoPet {
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
+
+/* == CUADRO GRIS 1 == */
 
 .contenido-modPet .part1 {
     background: #f6f6f9;
@@ -586,6 +587,9 @@ aside .sidebar .a-cerrarsesion:focus:before {
     padding: 1rem;
     border-radius: 20px;
 }
+
+
+/*Fotos "perfil" mascotas*/
 
 .contenido-modPet .part1 .img-pet {
     background: #ffff;
@@ -612,13 +616,27 @@ aside .sidebar .a-cerrarsesion:focus:before {
     opacity: 0;
 }
 
-.contenido-modPet .part1 .tipoPet img {
-    height: 100%;
-}
+
+/* Label nombre de mascota */
 
 .contenido-modPet .part1 .txtInpNombre {
     margin-top: 1rem;
 }
+
+
+/* == CONTENEDOR BOTONES TIPO DE MASCOTA == */
+
+.contenido-modPet .tipoPet {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.contenido-modPet .part1 .tipoPet img {
+    height: 100%;
+}
+
+
+/*Botones selección tipo de mascota*/
 
 .tipoMascotaBtn {
     position: relative;
@@ -635,12 +653,18 @@ aside .sidebar .a-cerrarsesion:focus:before {
     cursor: pointer;
 }
 
+
+/*Animacion de botones*/
+
 .tipoMascotaBtn:hover {
     background: #ffff;
     color: #1d1d1d;
     border: 0.1rem solid #ff7543;
     transition: all 150ms ease;
 }
+
+
+/* == CUADRO GRIS 2 == */
 
 .contenido-modPet .part2 {
     background: #f6f6f9;

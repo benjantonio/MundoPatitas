@@ -51,6 +51,14 @@ def panelcli(request):
 def panelcenvet(request):
     return render(request,'centro.html', {})
 
+def agendarHora(request):
+    comunaV = Comuna.objects.filter(id_region=3)
+    comunaM =  Comuna.objects.filter(id_region=2)
+    centro = Usuario.objects.filter(perfil=3)
+    mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
+    
+    return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro, 'mascotas':mascotas})
+
 def panelvet(request):
     return render(request, 'veterinario.html', {})
 
