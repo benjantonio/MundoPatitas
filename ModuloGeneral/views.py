@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import  *
 from .forms import RegistroUsuario
@@ -16,7 +17,10 @@ def registro(request):
         if usuario_form.is_valid():
             usuario_form.save()
             return redirect('login')
+        else:
+            messages.add_message(request, messages.ERROR, 'Usuario y/o Correo ya existentes. Cambie sus datos y vuelva a intentralo')
     else:
+        
         usuario_form = RegistroUsuario()
     return render(request, 'registration/registro.html', {'usuario_form': usuario_form, 'comunaV': comunaV, 'comunaM':comunaM})
     

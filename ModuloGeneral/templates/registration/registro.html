@@ -2,6 +2,13 @@
 
 <div class="container-fluid inicio res">
     <h2>Registro Mundo Patitas</h2>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: red;text-transform:uppercase;">{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
     <form id="form" method="POST">
         {% csrf_token %}
         <div class="row ">
