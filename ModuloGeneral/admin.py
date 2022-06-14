@@ -7,3 +7,4 @@ admin.site.register(Usuario)
 admin.site.register(Region)
 admin.site.register(Comuna)
 admin.site.register(Perfil)
+

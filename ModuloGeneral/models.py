@@ -1,6 +1,9 @@
+from typing import cast
 from django.db import models
 from datetime import datetime, date
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db.models.base import ModelBase
+from django.db.models.fields import NullBooleanField
 
 
 class Region(models.Model):
@@ -16,7 +19,7 @@ class Comuna(models.Model):
     id_region = models.ForeignKey(Region, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.nombre_comuna},{self.id_comuna}'
+        return f'{self.nombre_comuna}'
 
 class Perfil(models.Model):
     id_perfil= models.AutoField(primary_key=True, verbose_name="ID Perfil")
@@ -119,8 +122,11 @@ class PublicacionAdopcion(models.Model):
     tipo_animal = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
     correo = models.CharField(max_length=50)
+    celular = models.IntegerField(blank=True, null=True)
     edad = models.IntegerField()
     comentario = models.CharField(max_length=500)
+    img = models.CharField(max_length=500,blank=True, null=True)
+    id_cliente = models.ForeignKey(Usuario,blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.tipo_animal
@@ -128,21 +134,27 @@ class PublicacionAdopcion(models.Model):
 class Mascota(models.Model):
     id_mascota = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
+    img = models.CharField(max_length=1000, blank=True, null=True)
     tipo = models.CharField(max_length=50)
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
-    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(Usuario,  on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.nombre},{self.tipo}'
+
+
 
 class Veterinario(models.Model):
     id_veterinario = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=100)
     tipo_atencion = models.CharField(max_length=11, default="")
     correo = models.CharField(max_length=50)
-    celular = models.IntegerField()
-    id_centro = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    celular = models.IntegerField(blank=True, null=True)
+    clave = models.CharField(max_length=50,blank=True, null=True)
+    valoracion = models.IntegerField(blank=True, null=True)
+    id_perfil = models.ForeignKey(Perfil,blank=True, null=True, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre_completo

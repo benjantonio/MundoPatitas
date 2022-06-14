@@ -152,8 +152,8 @@
     color: #4eca63;
 }
 
-.icon-historialcitas {
-    color: #ffbb55;
+.icon-addvet {
+    color: #659bd4;
 }
 
 .icon-misadopciones {
@@ -374,6 +374,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
 .cardYo .btns .btn-modificar {
     background: #09d882;
     color: white;
+    border: none;
     border-radius: 50px;
     padding: 15px;
     margin-top: 10px;
@@ -527,6 +528,7 @@ aside .sidebar .a-cerrarsesion:focus:before {
     padding: 8px;
     border-radius: 20px;
     cursor: pointer;
+    border: none;
 }
 
 
@@ -557,8 +559,23 @@ aside .sidebar .a-cerrarsesion:focus:before {
     box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
 }
 
+#btnModificarVet {
+    background: #09d882;
+    color: white;
+    border-radius: 50px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0.1rem 0.2rem 0.8rem 0.4rem #0000001a;
+    border: none;
+}
 
-/*Contenedor cuadros part1 y part2*/
+
+/* .btnModEnviar{
+    border: none;
+    color: white;
+    background: transparent;
+} */
 
 .cardMisMascotas .card-mascota-nueva .btnMas {
     display: block;
@@ -596,12 +613,14 @@ aside .sidebar .a-cerrarsesion:focus:before {
     border-radius: 50%;
 }
 
-.contenido-modPet .part1 .img-pet img {
-    height: 100%;
+.img-pet img {
+    height: 90%;
     width: 50%;
+    border-radius: 10px;
 }
 
-.contenido-modPet .part1 .img-pet .perfilPetPerro {
+
+/* .contenido-modPet .part1 .img-pet .perfilPetPerro {
     display: inline;
     opacity: 1;
 }
@@ -616,8 +635,9 @@ aside .sidebar .a-cerrarsesion:focus:before {
     opacity: 0;
 }
 
-
-/* Label nombre de mascota */
+.contenido-modPet .part1 .tipoPet img {
+    height: 100%;
+} */
 
 .contenido-modPet .part1 .txtInpNombre {
     margin-top: 1rem;
@@ -692,6 +712,17 @@ aside .sidebar .a-cerrarsesion:focus:before {
     text-align: center;
     margin: 0;
     width: auto;
+    border: none;
+    color: white;
+    background: transparent;
+}
+
+.p-btn:hover {
+    color: #09d882;
+}
+
+.btnModCerrar:hover {
+    color: red;
 }
 
 .guardar-modPet-btn:hover {
@@ -735,6 +766,55 @@ aside .sidebar .a-cerrarsesion:focus:before {
 
 
 /* ===== FIN - Tab Mis Mascotas ===== */
+
+
+/*TAB VETERINARIOS*/
+
+#tabVeterinarios {
+    display: none;
+}
+
+.tabAgregarVet {
+    /* position: absolute; */
+    display: none;
+    /* opacity: 0; */
+    justify-content: center;
+    transition: opacity .1s;
+    will-change: opacity;
+    /* top: 6%;
+    left: 14%;
+    right: 14%; */
+    padding: 1.5rem;
+    width: 80%;
+    overflow-y: auto;
+    margin: auto 10%;
+    margin-top: 5%;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    z-index: 9999;
+    transition: all 600ms ease;
+    box-shadow: 0.2rem 0.2rem 4rem 1rem #0000001e;
+}
+
+.tabAgregarVet label {
+    margin-top: 2%;
+}
+
+.tabAgregarVet input {
+    text-align: center;
+}
+
+
+/* .tabAgregarVet button {
+    margin-top: 2%;
+    color: #ffffff;
+    background: #09d882;
+    transition: all 150ms ease;
+    border: 0.1rem solid #09d882;
+    border-radius: 50px;
+} */
 
 
 /* ================== TAB HISTORIAL CITAS ==================== */

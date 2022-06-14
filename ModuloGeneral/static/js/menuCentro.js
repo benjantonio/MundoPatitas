@@ -8,6 +8,11 @@ const btnMisVeterinarios = document.querySelector("#misVeterinarios-btn")
 const menuBtnCli = document.querySelector("#menu-btncli");
 const closeBtnCli = document.querySelector("#close-btncli");
 
+const btnModificar = document.querySelector(".btn-modificarVet")
+const panModificar = document.querySelector("#contenedorModPet")
+const tabAddVet = document.querySelector(".tabAgregarVet")
+const btnAddVet = document.querySelector("#addVet")
+
 
 menuBtnCli.addEventListener('click', () => {
     sideMenu.style = 'display:block;';
@@ -19,13 +24,26 @@ closeBtnCli.addEventListener('click', () => {
 
 btnYoCen.addEventListener('click', () => {
     VeterinarioTab.style = 'display:none;';
+    tabAddVet.style = 'display:none'
     yoTabVet.style = 'display:block;'
 });
 
 btnMisVeterinarios.addEventListener('click', () => {
     yoTabVet.style = 'display:none;'
+    tabAddVet.style = 'display:none'
     VeterinarioTab.style = 'display:block;';
 });
+
+
+btnAddVet.addEventListener('click', () => {
+    yoTabVet.style = 'display:none';
+    VeterinarioTab.style = 'display:none';
+    if (panModificar) {
+        panModificar.style = 'display:none'
+    }
+
+    tabAddVet.style = 'display:block'
+})
 
 function enviarAnchoWeb() {
     let ancho = document.documentElement.clientWidth;

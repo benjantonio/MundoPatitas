@@ -32,4 +32,8 @@ urlpatterns = [
     path('panel-veterinario/estadisticas/', moduluoEstadisticas, name='estadisticas'),
     path('foro/', foro, name='foro'),
 
+    path('veterinarios', veterinarios, name='veterinarios'),
+    path('prueba_vet/<id>', vetSelect, name='vetSelect'),
+    path('adopciones', adopciones, name='adopciones'),
+    path('editar-usuario/<id>', editarUsuario, name='editar-usuario'),
 ]
