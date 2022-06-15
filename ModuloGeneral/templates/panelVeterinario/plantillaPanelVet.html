@@ -50,7 +50,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li style="background: #ff7979;"><a class="dropdown-item" href="#!">Cerrar Sesión</a></li>
+                    <li style="background: #ff7979;"><a class="dropdown-item" href="{% url 'home' %}">Cerrar Sesión</a></li>
                 </ul>
             </li>
         </ul>
@@ -73,8 +73,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{% url 'crear' vet.id_veterinario %}">+Crear {{vet.id_veterinario}}</a>
-                                <a class="nav-link" href="{% url 'pendientes' vet.id_veterinario %}">Pendientes {{vet.id_veterinario}}</a>
+                                <a class="nav-link" href="{% url 'crear' vet.id_veterinario %}">+Crear</a>
+                                <a class="nav-link" href="{% url 'pendientes' vet.id_veterinario %}">Pendientes</a>
                                 <!--<a class="nav-link" href="layout-sidenav-light.html">Concluidas</a>-->
                             </nav>
                         </div>
@@ -97,7 +97,7 @@
                     {% if veterinario %}
                     <div class="small">Logeado como:</div>
                     {% for vet in veterinario %}
-                    <p style="margin:0;">{{vet.nombre_completo}} {{vet.id_veterinario}}</p>
+                    <p style="margin:0;">{{vet.nombre_completo}}</p>
                     {% endfor %} {% endif %}
                 </div>
             </nav>

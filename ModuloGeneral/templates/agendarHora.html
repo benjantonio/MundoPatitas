@@ -43,8 +43,11 @@
 
 
 <body>
-
-    <br>
+    {% if usuarioLogeado %} {% for usuarioOn in usuarioLogeado %}
+    <p class="nombreCliente" style="display: block;">{{usuarioOn.nombres}} {{usuarioOn.apellidos}}</p>
+    <p class="correoCliente" style="display: block;">{{usuarioOn.email}}</p>
+    {% endfor %}{% endif %}
+  
 
     <div style="display: grid; justify-content: center;">
         <div class="btnVolver">
@@ -364,6 +367,7 @@
                             </div>
                         </div>
 
+                        <button type="submit">Enviar</button>
 
                     </form>
 

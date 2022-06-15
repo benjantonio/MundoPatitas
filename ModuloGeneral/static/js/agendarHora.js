@@ -28,6 +28,8 @@ var fechaR = document.querySelector(".fechaR");
 var horaR = document.querySelector(".horaR");
 var direccionR = document.querySelector("#direccionR");
 var correoR = document.querySelector("#correoR")
+var nombreCliente = document.querySelector(".nombreCliente");
+var correoCliente = document.querySelector(".correoCliente");
 
 let idCentroSelect;
 let idComunaSelect;
@@ -507,7 +509,6 @@ btnFinal.addEventListener('click', () => {
     var HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
     horaR.value = HoraSeleccionada;
 
-    enviarEmail(horaR, fechaR, centroR, nombreVetR);
 });
 
 btnCancelar.addEventListener('click', () => {
@@ -520,14 +521,14 @@ function limpiarVentana() {
 }
 
 function obtenerCorreo() {
-    var centroSeleccionado = centros.value;
-
+    var idVeterinarioSelect = veterinarios.options[veterinarios.selectedIndex].value;
     $(function() {
         $.ajax({
             type: 'GET',
-            url: `http://localhost:3000/veterinario/${centroSeleccionado}`,
+            url: `http://localhost:3000/veterinario/${idVeterinarioSelect}`,
             success: function(response) {
                 correoR.value = response.correo
+                correoVet = response.correo
             }
         })
     })
@@ -550,6 +551,7 @@ function mostrarDireccion() {
                 }
 
                 direccionR.value = response[0].direccion;
+                direccionCentroSel = response[0].direccion;
 
             }
         })
@@ -599,6 +601,9 @@ var motivoSeleccionado;
 var mascotaSeleccionado;
 var fechaModificada;
 
+var correoVet;
+var direccionCentroSel;
+
 function cambiarFormatoFecha() {
     fechaSeleccionada = diaConsulta.options[diaConsulta.selectedIndex].text;
 
@@ -644,13 +649,19 @@ function cambiarFormatoFecha() {
 function anadirCita() {
     try {
 
-        cambiarFormatoFecha();
+        
 
         idCitaDisponible = horaConsulta.options[horaConsulta.selectedIndex].value;
         HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
         vetSeleccionado = veterinarios.value;
         motivoSeleccionado = motivoConsulta.options[motivoConsulta.selectedIndex].text;
         mascotaSeleccionado = mascota.value;
+
+        // variable para email
+        var centroMedico = centros.options[centros.selectedIndex].text;
+        var veterinarioNombre = veterinarios.options[veterinarios.selectedIndex].text;
+        cambiarFormatoFecha();
+        enviarEmail(HoraSeleccionada, fechaSeleccionada, centroMedico, veterinarioNombre.trim(), direccionCentroSel, correoVet);
 
         console.log("id cita", idCitaDisponible, fechaModificada, HoraSeleccionada, motivoSeleccionado, mascotaSeleccionado, vetSeleccionado);
 
@@ -712,12 +723,15 @@ function anadirCita() {
     
 }
 
-function enviarEmail(laHora, laFecha, elVeterinario, elCentro){
-    emailjs.send("gmail","template_rm7miup",{
-        nombreCliente: "prueba",
+function enviarEmail(laHora, laFecha, elCentro, elVeterinario, direccion, correoV){
+    emailjs.send("service_go2wqeo","template_rm7miup",{
+        nombreCliente: nombreCliente.innerHTML,
         hora: laHora,
         fecha: laFecha,
         veterinario: elVeterinario,
         centro: elCentro,
+        direccion: direccion,
+        correoVeterinario: correoV,
+        correoCliente: correoCliente.innerHTML,
         });
 }

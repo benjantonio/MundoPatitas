@@ -101,6 +101,7 @@ def agendarHora(request):
     comunaM =  Comuna.objects.filter(id_region=1)
     centro = Usuario.objects.filter(perfil=2)
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
+    usuarioLogeado = Usuario.objects.filter(id_usuario = request.user.id_usuario)
 
     if request.method == "POST":
         centroV = request.POST.get('centro')
@@ -112,7 +113,7 @@ def agendarHora(request):
 
         enviarCorreo(centroV, veterinario,mascota, dia, hora,correo)
     
-    return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro, 'mascotas':mascotas})
+    return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro, 'mascotas':mascotas, 'usuarioLogeado':usuarioLogeado})
 
 def enviarCorreo(centro, vet, mascota, dia, hora, correo):
     
