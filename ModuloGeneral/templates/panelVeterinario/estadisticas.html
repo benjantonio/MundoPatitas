@@ -5,7 +5,9 @@
 
 
 <body class="bodyEstadisticas">
-
+    {% if veterinario %} {% for vet in veterinario %}
+    <p class="idVetLogeado" style="display: none;">{{vet.id_veterinario}}</p>
+    {% endfor %}{% endif %}
 
 
     <div class="contenedor-header-pags">

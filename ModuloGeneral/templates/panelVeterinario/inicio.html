@@ -5,7 +5,9 @@
 
 
 <body class="bodyInicio">
-
+    {% if veterinario %} {% for vet in veterinario %}
+    <p class="idVetLogeado" style="display: none;">{{vet.id_veterinario}}</p>
+    {% endfor %}{% endif %}
 <div class="container-fluid px-4">
     <h1 class="mt-4">Panel Centro Veterinario</h1>
     <ol class="breadcrumb mb-4">

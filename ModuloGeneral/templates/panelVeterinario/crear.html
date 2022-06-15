@@ -11,6 +11,10 @@
 
 
 <body class="bodyCrear" >
+
+    {% if veterinario %} {% for vet in veterinario %}
+        <p class="idVetLogeado" style="display: none;">{{vet.id_veterinario}}</p>
+        {% endfor %}{% endif %}
     <div class="contenedor-header-pags">
         <h4>
             CREAR HORA

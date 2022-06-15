@@ -52,10 +52,11 @@ const mostrar = (datos) =>{
   datos.forEach(element => {
     myAreaChart.data['datasets'][0].data.push(element.id_veterinario_id)
   }); */
-
+  const idLogeado = document.querySelector('.idVetLogeado').innerHTML;
+  console.log("idLogeado ====", idLogeado)
   var calculoFinal;
 /* Llamo a la API */
-let url = `http://localhost:3000/citas_concluidas/${1}`
+let url = `http://localhost:3000/citas_concluidas/${idLogeado}`
 fetch(url)
   .then(response => response.json())
   .then(datos => mostrar(datos))
