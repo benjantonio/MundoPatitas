@@ -8,7 +8,6 @@
 <!-- span | iconos-->
 <!-- h3 | texto menu (Yo, Mis Mascotas, Historial, etc)-->
 
-<body onload="enviarAnchoWeb();" onresize="enviarAnchoWeb();"></body>
 <div class="container-panelcli container">
 
     <!-- ZONA MENÚ -->
@@ -57,7 +56,7 @@
             </a>
         </div>
 
-       
+
 
         <div id="ayuda-btn" class="sidebar">
             <a class="a-sidebar" href="#">
@@ -101,7 +100,6 @@
                     <p>Correo: <br><span class="texto-info-PC">{{user.email}}</span></p>
                     <p>Edad: <br><span class="texto-info-PC">{{user.edad}}</span></p>
                     <p>Celular: <br><span class="texto-info-PC" style="color: rgb(26, 146, 201); font-style: italic;">+569 </span><span class="texto-info-PC">{{user.celular}}</span></p>
-                    <p>Mascotas: <br><span class="texto-info-PC">{{vet}}</span></p>
                 </div>
 
                 <div class="btns">
@@ -178,12 +176,6 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control txtTipoA" id="floatingInput" name="tipo" style="text-transform: uppercase;" disabled>
-                                <!-- <select name="tipo" class="form-control txtTipoA" id="selectTipo" disabled>
-                                    <option value=""></option>
-                                    <option value="perro">Perro</option>
-                                    <option value="gato">Gato</option>
-                                    <option value="exotico">Exótico</option>
-                                </select> -->
                                 <label for="floatingInput" style="color: #04bc70;">Tipo Animal</label>
                                 <span id="errorT" style="color: red;display: none;">Tipo animal invalido. Minimo 3 caracteres</span>
                             </div>
@@ -199,70 +191,6 @@
                 </div>
             </div>
         </div>
-
-        <!--MODIFICAR INFO MASCOTA-->
-        <!-- <div id="contenedorModPet" class="contenedorModPet">
-            <h3 style="color: #424242;">Modificar mascota</h3>
-            <div class="contenido-modPet">
-                <form id="modMas" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="part1">
-
-                        <!-- IMAGEN DE MASCOTA-->
-                        <div class="img-pet">
-                            <img class="perfilPet" alt="...">
-                            <input type="file" name="imagen">
-                        </div>
-
-                        <!-- NOMBRE DE MASCOTA -->
-                        <div class="form-floating txtInpNombre mb-3">
-                            <input type="text" class="form-control txtNombre" id="floatingInput" name="nombre" placeholder="name@example.com">
-                            <label for="floatingInput" style="color: #04bc70;">Nombre</label>
-                        </div>
-                    </div>
-                    <!-- FIN CUADRO GRIS 1 -->
-
-                    <!-- CUADRO GRIS 2 -->
-                    <div class="part2">
-
-                        <!-- LABELS INFO MASCOTA -->
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control txtRaza" id="floatingInput" name="raza" placeholder="name@example.com">
-                            <label for="floatingInput" style="color: #04bc70;">Raza</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control txtEdad" id="floatingInput" name="edad" placeholder="name@example.com">
-                            <label for="floatingInput" style="color: #04bc70;">Edad</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                             <input type="text" class="form-control txtTipo" id="floatingInput" name="tipoM" placeholder="name@example.com"> 
-                            <select name="tipo" class="form-control txtTipo" id="selectTipo">
-                                <option value="perro">Perro</option>
-                                <option value="gato">Gato</option>
-                                <option value="exotico">Exótico</option>
-                            </select>
-                            <label for="floatingInput" style="color: #04bc70;">Tipo</label>
-                        </div>
-                        <input type="text" name=" " class="txtIdCli " style="display: none;">
-                        <input type="text" name="" class="txtIdM" style="display: none;">
-                    </div>
-
-                    <div class="btnAccionMod ">
-                        <div id="guardar-modPet-btn " class="guardar-modPet-btn modbtn "><span class="material-symbols-outlined ">done</span>
-                            <button type="submit" class="p-btn btnModEnviar">Guardar</button>
-                        </div>
-                        <div id="cerrar-modPet-btn" class="cancelar-modPet-btn modbtn "><span class="material-symbols-outlined ">close</span>
-                            <button class="p-btn btnModCerrar">Cancelar</button>
-                        </div>
-                        <!-- FIN LABELS INFO MASCOTA -->
-
-                    </div>
-                </form>
-
-            </div>
-            <br>
-
-        </div> -->
 
         <div class="modal fade" id="ModalActMAs" tabindex="-1" aria-labelledby="ModalActMAsLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -464,19 +392,20 @@
                             <input type="text" name="id" class="txtIdP" style="display: none;">
                             <input type="text" name="url" class="urlImg" style="display: none;">
 
-                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <button type="submit" class="btn btn-success">Actualizar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+
+
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Tab "Historial Citas " -->
-        <div id="tabHistorialCitas ">
+        <div id="tabHistorialCitas" style="display: none;">
             <div class="cardHistorialCitas card ">
                 <h3>Historial Citas</h3>
 
@@ -488,8 +417,8 @@
                             {% if historialPendientes %}
                             <p class="cant-citas enEspera">{{historialPendientes|length}}</p>
                             {% else %}
-                        <p class="cant-citas enEspera">0</p>
-                        {% endif %}
+                            <p class="cant-citas enEspera">0</p>
+                            {% endif %}
                     </div>
                     <p class="separador-top">|</p>
                     <div class="top-seccion">
@@ -499,7 +428,7 @@
                         {% else %}
                         <p class="cant-citas concluidas">0</p>
                         {% endif %}
-                        
+
                     </div>
                 </div>
 
@@ -507,37 +436,36 @@
                     {% if historialPendientes %}
                     <h6 style="padding-top: 10px; color: #747474;">En Espera:</h6>
                     {% for cita in historialPendientes %}
-                <div class="historial">
-                    <div class="formato id" style="padding: 0 3px;">
-                        <p class="p-id" style="margin: 0;"><span class="material-symbols-outlined">
+                    <div class="historial">
+                        <div class="formato id" style="padding: 0 3px;">
+                            <p class="p-id" style="margin: 0;"><span class="material-symbols-outlined">
                             schedule
                             </span></p>
+                        </div>
+                        <div class="formato"><span class="date material-symbols-outlined">date_range</span>
+                            <p>{{cita.fecha}} {{cita.hora}}</p>
+                        </div>
+                        <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
+                            <p>{{cita.id_mascota.nombre}}</p>
+                        </div>
+                        <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
+                            <p style="margin-right: 3px;">{{cita.id_veterinario.id_cliente.nombres}}</p>
+                            <p>{{cita.id_veterinario.id_cliente.apellidos}}</p>
+                        </div>
+                        <div class="formato cuadro-ver" onclick="eliminarCitaEspera('{{cita.id_cita}}');"><span class="eliminarBtn material-symbols-outlined" style="background: #d11111;">close</span></div>
                     </div>
-                    <div class="formato"><span class="date material-symbols-outlined">date_range</span>
-                        <p>{{cita.fecha}} {{cita.hora}}</p>
-                    </div>
-                    <div class="formato"><span class="pet material-symbols-outlined icon-mismascotas">pets</span>
-                        <p>{{cita.id_mascota.nombre}}</p>
-                    </div>
-                    <div class="formato"><span class="doctor material-symbols-outlined">medical_information</span>
-                        <p style="margin-right: 3px;">{{cita.id_veterinario.id_cliente.nombres}}</p>
-                        <p>{{cita.id_veterinario.id_cliente.apellidos}}</p>
-                    </div>
-                    <div  class="formato cuadro-ver" onclick="eliminarCitaEspera('{{cita.id_cita}}');"><span class="eliminarBtn material-symbols-outlined" style="background: #d11111;">close</span></div>
-                </div>
-                {% endfor %}
-                    {% else %}
-                        <p >No se han encontrado citas En Espera</p>
-                      
+                    {% endfor %} {% else %}
+                    <p>No se han encontrado citas En Espera</p>
+
                     {% endif %}
-            </div>
+                </div>
 
 
                 <div class="separador-historial">
                     <p>_</p>
                 </div>
 
-                
+
                 <div class="lista-historial ">
                     {% if historialConcluidas %}
                     <h6 style="padding-top: 10px; color: #747474;">Concluidas:</h6>
@@ -556,12 +484,12 @@
                             <p style="margin-right: 3px;">{{cita.id_veterinario.id_cliente.nombres}}</p>
                             <p>{{cita.id_veterinario.id_cliente.apellidos}}</p>
                         </div>
-                        <div id="detalleCita-btn" onclick="abrirDetalleCita('{{cita.id_cita}}','{{cita.fecha}}','{{cita.motivo_consulta}}','{{cita.id_mascota.nombre}}','{{cita.id_mascota.tipo}}','{{cita.id_veterinario.nombre_completo}}','{{cita.id_veterinario.id_cliente.nombres}} {{cita.id_veterinario.id_cliente.apellidos}}', '{{cita.tratamiento}}','{{cita.comentario}}', '{{cita.valoracion}}');" class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
+                        <div id="detalleCita-btn" onclick="abrirDetalleCita('{{cita.id_cita}}','{{cita.fecha}}','{{cita.motivo_consulta}}','{{cita.id_mascota.nombre}}','{{cita.id_mascota.tipo}}','{{cita.id_veterinario.nombre_completo}}','{{cita.id_veterinario.id_cliente.nombres}} {{cita.id_veterinario.id_cliente.apellidos}}', '{{cita.tratamiento}}','{{cita.comentario}}', '{{cita.valoracion}}');"
+                            class="formato cuadro-ver"><span class="ver material-symbols-outlined">find_in_page</span></div>
                     </div>
-                    {% endfor %}
-                    {% else %}
-                        <p >No se han encontrado citas Concluidas</p>
-                      
+                    {% endfor %} {% else %}
+                    <p>No se han encontrado citas Concluidas</p>
+
                     {% endif %}
                 </div>
 

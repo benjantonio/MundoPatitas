@@ -87,14 +87,6 @@ yoBtn.addEventListener('click', () => {
     tabAdopciones.style = 'display:none;'
 });
 
-// document.querySelector(".btn-modificar").addEventListener('click', () => {
-//     document.querySelector(".editarUsuario").style = 'display: block;'
-// })
-
-// document.querySelector("#cerrarEditUsu").addEventListener('click', () => {
-//     document.querySelector(".editarUsuario").style = 'display: none;'
-// })
-
 /* ======================= MIS MASCOTAS ============================*/
 
 /* Ventana "Mis Mascotas" */
@@ -102,72 +94,28 @@ misMascotasBtn.addEventListener('click', () => {
     misMascotasTab.style = 'display:block;';
     tabAdopciones.style = 'display:none;'
     yoTab.style = 'display:none;'
+    historialCitasTab.style = 'display:none;';
 
 });
 
-
-/* Botón Abrir y Cerrar Modificar Mascotas */
-// if (document.querySelector(".modificar-mascota-btn")) {
-//     // const modificarPetBtn = document.querySelector(".modificar-mascota-btn")
-//     const modificarPetBtns = document.querySelectorAll(".modificar-mascota-btn")
-//     modificarPetBtns.forEach(modificarPetBtn => {
-//         modificarPetBtn.addEventListener('click', () => {
-//             contModPet.setAttribute("style", "opacity: 1; display:block;");
-//         });
-//     });
-// }
-
 /*Funciones Adopciones */
 btnAdopciones.addEventListener('click', () => {
-    console.log("adopciones")
     tabAdopciones.style = 'display:block;'
     yoTab.style = 'display:none;'
     misMascotasTab.style = 'display:none;';
+    historialCitasTab.style = 'display:none;';
+
 })
-
-
-/* FUNCIONES */
-/* Abrir Modificar Mascota  */
-
-/* Ocultar Modificar Mascota  */
-// if (cerrarModPetBtn) {
-//     cerrarModPetBtn.addEventListener('click', () => {
-//         console.log("Cerrar")
-//             // fondoNegroBlur.setAttribute("style", "opacity: 0; display:none; ");
-//         contModPet.setAttribute("style", "opacity: 0; display:none;");
-//     });
-// }
-
-
-/* Cambiar imagen tipo de mascota con botones */
-// tipoPetPerroBtn.addEventListener('click', () => {
-//     perfilPerroImg.setAttribute("style", "opacity: 1; display:inline; ");
-//     perfilGatoImg.setAttribute("style", "opacity: 0; display:none; ");
-//     perfilExoticoImg.setAttribute("style", "opacity: 0; display:none; ");
-// });
-
-// tipoPetGatoBtn.addEventListener('click', () => {
-//     perfilGatoImg.setAttribute("style", "opacity: 1; display:inline; ");
-//     perfilPerroImg.setAttribute("style", "opacity: 0; display:none; ");
-//     perfilExoticoImg.setAttribute("style", "opacity: 0; display:none; ");
-// });
-
-// tipoPetExoticoBtn.addEventListener('click', () => {
-//     perfilExoticoImg.setAttribute("style", "opacity: 1; display:inline; ");
-//     perfilPerroImg.setAttribute("style", "opacity: o; display:none; ");
-//     perfilGatoImg.setAttribute("style", "opacity: 0; display:none; ");
-
-// });
-
 
 // /* ======================= HISTORIAL DE CITAS ============================*/
 
-// /* Ventana "Historial Citas" */
-// historialCitasBtn.addEventListener('click', () => {
-//     historialCitasTab.style = 'display:block;';
-//     misMascotasTab.style = 'display:none;';
-//     yoTab.style = 'display:none;'
-// });
+/* Ventana "Historial Citas" */
+historialCitasBtn.addEventListener('click', () => {
+    historialCitasTab.style = 'display:block;';
+    misMascotasTab.style = 'display:none;';
+    yoTab.style = 'display:none;';
+    tabAdopciones.style = 'display: none;';
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,6 +134,7 @@ const tituloValoracion = document.querySelector(".tituloValoracion")
 
 /* Abrir detalle Cita su botón */
 var id_cita_abierta;
+
 function abrirDetalleCita(id_cita, fecha, motivo, nombreMascota, tipoMasota, nombreVet, centroMedico, tratamiento, comentario, valoracionActual) {
     id_cita_abierta = id_cita;
     txtFecha.innerHTML = fecha;
@@ -197,11 +146,11 @@ function abrirDetalleCita(id_cita, fecha, motivo, nombreMascota, tipoMasota, nom
     txtTratamiento.innerHTML = tratamiento;
     txtComentario.innerHTML = comentario;
 
-    if ( valoracionActual > 0){
-        tituloValoracion.innerHTML = "¡Gracias por tus <span style='color: #208ce9;'>"+valoracionActual+"</span> patitas! "
+    if (valoracionActual > 0) {
+        tituloValoracion.innerHTML = "¡Gracias por tus <span style='color: #208ce9;'>" + valoracionActual + "</span> patitas! "
         ventanaNoValorado.style = 'display:none;';
         ventanaValorado.style = 'display:block;';
-    }else{
+    } else {
         ventanaNoValorado.style = 'display:block;';
         ventanaValorado.style = 'display:none;';
     }
@@ -225,23 +174,23 @@ cerrarDetalleCitaBtn.addEventListener('click', () => {
 function agregarValoracion(valoracion) {
     try {
         let options = {
-            method: "PUT",
-            headers: {
-                "Content-type": "application/json"
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: id_cita_abierta,
+                    valoracion: valoracion
+                })
             },
-            body: JSON.stringify({
-                id: id_cita_abierta,
-                valoracion: valoracion
-            })
-        },
             res = fetch(`http://localhost:3000/valorar_cita_concluida/`, options),
             json = res.json();
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
     } catch (error) {
-        tituloValoracion.innerHTML = "¡Gracias por tus <span style='color: #208ce9;'>"+valoracion+"</span> patitas! "
+        tituloValoracion.innerHTML = "¡Gracias por tus <span style='color: #208ce9;'>" + valoracion + "</span> patitas! "
         ventanaNoValorado.style = 'display:none;';
         ventanaValorado.style = 'display:block;';
-        setTimeout(function(){
+        setTimeout(function() {
             location.reload();
         }, 3000);
     }
@@ -269,6 +218,7 @@ function enviarAnchoWeb() {
         sideMenu.style = 'display:none;';
     }
 }
+
 function eliminarCitaEspera(id_cit) {
     Swal.fire({
         position: 'center',
@@ -282,11 +232,11 @@ function eliminarCitaEspera(id_cit) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            $(function () {
+            $(function() {
                 $.ajax({
                     type: 'DELETE',
                     url: `http://localhost:3000/eliminar_cita_pendiente/${id_cit}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
-                    success: function (response) {
+                    success: function(response) {
                         Swal.fire({
                             position: 'center',
                             icon: 'success',

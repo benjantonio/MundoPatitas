@@ -10,8 +10,8 @@ def home(request):
     return render(request, 'home.html', {})
 
 def registro(request):
-    comunaV = Comuna.objects.filter(id_region=3)
-    comunaM =  Comuna.objects.filter(id_region=2)
+    comunaV = Comuna.objects.filter(id_region=2)
+    comunaM =  Comuna.objects.filter(id_region=1)
     
     
     if request.method == 'POST':
