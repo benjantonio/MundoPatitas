@@ -1,9 +1,15 @@
+import email
+from multiprocessing import context
+from django.core.mail import EmailMultiAlternatives
 from re import A
 from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
+
 from .models import  *
 from .forms import RegistroUsuario, EditarUsuario
+from django.template.loader import get_template
+from django.conf import settings
 import time
 
 def home(request):
@@ -88,12 +94,51 @@ def adopciones(request):
 
 
 def agendarHora(request):
-    comunaV = Comuna.objects.filter(id_region=3)
-    comunaM =  Comuna.objects.filter(id_region=2)
-    centro = Usuario.objects.filter(perfil=3)
+    # comunaV = Comuna.objects.filter(id_region=3)
+    # comunaM =  Comuna.objects.filter(id_region=2)
+    # centro = Usuario.objects.filter(perfil=3)
+    comunaV = Comuna.objects.filter(id_region=2)
+    comunaM =  Comuna.objects.filter(id_region=1)
+    centro = Usuario.objects.filter(perfil=2)
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
+
+    if request.method == "POST":
+        centroV = request.POST.get('centro')
+        veterinario = request.POST.get('veterinario')
+        mascota = request.POST.get('mascota')
+        dia = request.POST.get('fecha')
+        hora = request.POST.get('hora')
+        correo = request.POST.get('correo')
+
+        enviarCorreo(centroV, veterinario,mascota, dia, hora,correo)
     
     return render(request,'agendarHora.html', {'comunaV': comunaV, 'comunaM':comunaM, 'centro':centro, 'mascotas':mascotas})
+
+def enviarCorreo(centro, vet, mascota, dia, hora, correo):
+    
+    context =  {
+            'centro': centro,
+            'veterinario': vet,
+            'mascota':mascota,
+            'dia': dia,
+            'hora': hora,
+            'correo': correo
+        }
+
+    template = get_template('correoHora.html')
+    content =template.render(context)
+
+    email = EmailMultiAlternatives(
+        'Confirmación Cita Medica',
+        settings.EMAIL_HOST_USER,
+        ['patitas.mundo1@gmail.com']
+    )
+
+    email.attach_alternative(content, 'text/html')
+    email.send()
+
+        
+
 
 def panelvet(request):
     return render(request, 'veterinario.html', {})

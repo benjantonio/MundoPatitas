@@ -27,6 +27,7 @@ var mascotaR = document.querySelector(".mascotaR");
 var fechaR = document.querySelector(".fechaR");
 var horaR = document.querySelector(".horaR");
 var direccionR = document.querySelector("#direccionR");
+var correoR = document.querySelector("#correoR")
 
 let idCentroSelect;
 let idComunaSelect;
@@ -72,11 +73,11 @@ centros.addEventListener('change', () => {
     }
 
     /*Llamar a los veterinarios segun centro médico*/
-    $(function () {
+    $(function() {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/veterinarioCentro/${idCentroSelect}`,
-            success: function (response) {
+            success: function(response) {
                 for (var i = 0; i < veterinarios.length; i++) {
                     if (veterinarios.options[i].text != "Selecciona un veterinario") {
                         veterinarios.remove(i)
@@ -85,7 +86,7 @@ centros.addEventListener('change', () => {
 
                 limpiarSelectVeterinarios();
 
-                $.each(response, function (indice, fila) {
+                $.each(response, function(indice, fila) {
                     $('#veterinario').append("<option value='" + fila.id_veterinario + "'>" + fila.nombre_completo + "</option>")
                 });
 
@@ -170,15 +171,15 @@ function buscarFechas() {
     idVeterinarioSelect = veterinarios.value;
 
     /* Llamar horas disponible según veterinario seleccionado */
-    $(function () {
+    $(function() {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/fechasDisponibles/${idVeterinarioSelect}`,
-            success: function (response) {
+            success: function(response) {
                 console.log("RESCATE LAS HORAS DISPONIBLES")
                 var fechaNueva;
 
-                $.each(response, function (indice, fila) {
+                $.each(response, function(indice, fila) {
 
                     if (fila.fecha.slice(3, 5) == "01") {
                         fechaNueva = fila.fecha.slice(0, 3) + "Enero" + fila.fecha.slice(5, 11);
@@ -238,12 +239,12 @@ function buscarFechas() {
 function eliminarFechasVencidas() {
     const listaCitasDisponibles = [];
 
-    $(function () {
+    $(function() {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/fechasDisponibles/${idVeterinarioSelect}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
-            success: function (response) {
-                $.each(response, function (indice, filaA) {
+            success: function(response) {
+                $.each(response, function(indice, filaA) {
                     listaCitasDisponibles.push(filaA)
                 });
                 eliminarFecha(listaCitasDisponibles);
@@ -265,7 +266,7 @@ function eliminarFecha(unaListaX) {
             $.ajax({
                 type: 'DELETE',
                 url: `http://localhost:3000/eliminar_cita_disponible/${id_cita_disponible}`,
-                success: function (response) {
+                success: function(response) {
                     fechaCita.add(-1, 'minutes')
                     console.log("HE ELIMINADO LA CITA ID:", citaDisponible.id_cita, fechaCita.format('DD-MM-YYYY HH:mm'))
                 }
@@ -299,15 +300,15 @@ function buscarHoras() {
     horaConsulta.disabled = false;
 
     /*Listar horas disponibles según dia seleccionado*/
-    $(function () {
+    $(function() {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/horasDisponibles/${idDiaConsulta}/${idVeterinarioSelect}`,
-            success: function (response) {
+            success: function(response) {
 
                 limpiarSelectHoras();
 
-                $.each(response, function (indice, fila) {
+                $.each(response, function(indice, fila) {
                     $('#horaConsulta').append("<option value='" + fila.id_cita + "'>" + fila.hora + "</option>")
                 });
 
@@ -371,11 +372,11 @@ function mostrarValoracion() {
 
     /* Llamo a la API con el ID del veterinario*/
 
-    $(function () {
+    $(function() {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/valoracion2/${idVeterinarioSelect}`,
-            success: function (response) {
+            success: function(response) {
 
                 /* Declaro valor inicial valoración*/
                 let valoracion = 0;
@@ -469,23 +470,42 @@ btnFinal.addEventListener('click', () => {
 
     mostrarDireccion();
 
+    // var centroSeleccionado = centros.options[centros.selectedIndex].text;
+    // centroR.innerHTML = centroSeleccionado;
+
+    // var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
+    // nombreVetR.innerHTML = vetSeleccionado;
+
+    // var motivoSeleccionado = motivoConsulta.options[motivoConsulta.selectedIndex].text;
+    // motivoConsultaR.innerHTML = motivoSeleccionado;
+
+    // var mascotaSeleccionado = mascota.options[mascota.selectedIndex].text;
+    // mascotaR.innerHTML = mascotaSeleccionado;
+
+    // var fechaSeleccionada = diaConsulta.options[diaConsulta.selectedIndex].text;
+    // fechaR.innerHTML = fechaSeleccionada;
+
+    // var HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
+    // horaR.innerHTML = HoraSeleccionada;
+    obtenerCorreo()
+
     var centroSeleccionado = centros.options[centros.selectedIndex].text;
-    centroR.innerHTML = centroSeleccionado;
+    centroR.value = centroSeleccionado;
 
     var vetSeleccionado = veterinarios.options[veterinarios.selectedIndex].text;
-    nombreVetR.innerHTML = vetSeleccionado;
+    nombreVetR.value = vetSeleccionado;
 
     var motivoSeleccionado = motivoConsulta.options[motivoConsulta.selectedIndex].text;
-    motivoConsultaR.innerHTML = motivoSeleccionado;
+    motivoConsultaR.value = motivoSeleccionado;
 
     var mascotaSeleccionado = mascota.options[mascota.selectedIndex].text;
-    mascotaR.innerHTML = mascotaSeleccionado;
+    mascotaR.value = mascotaSeleccionado;
 
     var fechaSeleccionada = diaConsulta.options[diaConsulta.selectedIndex].text;
-    fechaR.innerHTML = fechaSeleccionada;
+    fechaR.value = fechaSeleccionada;
 
     var HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
-    horaR.innerHTML = HoraSeleccionada;
+    horaR.value = HoraSeleccionada;
 });
 
 btnCancelar.addEventListener('click', () => {
@@ -497,22 +517,37 @@ function limpiarVentana() {
 
 }
 
+function obtenerCorreo() {
+    var centroSeleccionado = centros.value;
+
+    $(function() {
+        $.ajax({
+            type: 'GET',
+            url: `http://localhost:3000/veterinario/${centroSeleccionado}`,
+            success: function(response) {
+                correoR.value = response.correo
+            }
+        })
+    })
+
+}
+
 function mostrarDireccion() {
 
     idCentroSelect = centros.value;
 
-    $(function () {
+    $(function() {
         $.ajax({
             type: 'GET',
             url: `http://localhost:3000/direccion/${idCentroSelect}`,
-            success: function (response) {
+            success: function(response) {
 
                 console.log(response);
                 if (response.length == 0) {
-                    direccionR.innerHTML = "No tiene direccion, por favor contacte al centro veterinario."
+                    direccionR.value = "No tiene direccion, por favor contacte al centro veterinario."
                 }
 
-                direccionR.innerHTML = response[0].direccion;
+                direccionR.value = response[0].direccion;
 
             }
         })
@@ -532,14 +567,19 @@ function alertaConfirmacion() {
     }).then((result) => {
         if (result.isConfirmed) {
 
+            // var form = document.querySelector("#formHora")
+            // form.addEventListener('submit', (e) => {
+            //     e.preventDefault()
+            // })
+
             anadirCita();
 
 
             Swal.fire(
-                'Hora agendada con éxito!',
-                '',
-                'success'
-            )
+                    'Hora agendada con éxito!',
+                    '',
+                    'success'
+                )
                 .then((result) => {
                     if (result.isConfirmed) {
                         location.reload();
@@ -566,45 +606,33 @@ function cambiarFormatoFecha() {
 
     if (fechaSeleccionada.includes("Enero")) {
         mes = "01";
-    }
-    else if (fechaSeleccionada.includes("Febrero")) {
+    } else if (fechaSeleccionada.includes("Febrero")) {
         mes = "02"
-    }
-    else if (fechaSeleccionada.includes("Marzo")) {
+    } else if (fechaSeleccionada.includes("Marzo")) {
         mes = "03"
-    }
-    else if (fechaSeleccionada.includes("Abril")) {
+    } else if (fechaSeleccionada.includes("Abril")) {
         mes = "04"
-    }
-    else if (fechaSeleccionada.includes("Mayo")) {
+    } else if (fechaSeleccionada.includes("Mayo")) {
         mes = "05"
-    }
-    else if (fechaSeleccionada.includes("Junio")) {
+    } else if (fechaSeleccionada.includes("Junio")) {
         mes = "06"
-    }
-    else if (fechaSeleccionada.includes("Julio")) {
+    } else if (fechaSeleccionada.includes("Julio")) {
         mes = "07"
-    }
-    else if (fechaSeleccionada.includes("Agosto")) {
+    } else if (fechaSeleccionada.includes("Agosto")) {
         mes = "08"
-    }
-    else if (fechaSeleccionada.includes("Septiembre")) {
+    } else if (fechaSeleccionada.includes("Septiembre")) {
         mes = "09"
-    }
-    else if (fechaSeleccionada.includes("Octubre")) {
+    } else if (fechaSeleccionada.includes("Octubre")) {
         mes = "10"
-    }
-    else if (fechaSeleccionada.includes("Noviembre")) {
+    } else if (fechaSeleccionada.includes("Noviembre")) {
         mes = "11"
-    }
-    else if (fechaSeleccionada.includes("Diciembre")) {
+    } else if (fechaSeleccionada.includes("Diciembre")) {
         mes = "12"
     }
 
     if (fechaSeleccionada.includes("2022")) {
         anno = 2022;
-    }
-    else if (fechaSeleccionada.includes("2023")) {
+    } else if (fechaSeleccionada.includes("2023")) {
         anno = 2023;
     }
 
@@ -625,18 +653,18 @@ function anadirCita() {
         console.log("id cita", idCitaDisponible, fechaModificada, HoraSeleccionada, motivoSeleccionado, mascotaSeleccionado, vetSeleccionado);
 
         let options = {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    fecha: fechaModificada,
+                    hora: HoraSeleccionada,
+                    motivo: motivoSeleccionado,
+                    id_mascota: mascotaSeleccionado,
+                    id_veterinario: vetSeleccionado
+                })
             },
-            body: JSON.stringify({
-                fecha: fechaModificada,
-                hora: HoraSeleccionada,
-                motivo: motivoSeleccionado,
-                id_mascota: mascotaSeleccionado,
-                id_veterinario: vetSeleccionado
-            })
-        },
             res = fetch(`http://localhost:3000/anadir_cita_tomada/`, options),
             json = res.json();
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
@@ -651,30 +679,28 @@ function anadirCita() {
 
         try {
             let options = {
-                method: "DELETE",
-                headers: {
-                    "Content-type": "application/json"
+                    method: "DELETE",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
                 },
-            },
                 res = fetch(`http://localhost:3000/eliminar_cita_tomada/${idCitaDisponible}`, options),
                 json = res.json();
             if (!res.ok) throw { status: res.status, statusText: res.statusText }
-            else {
-            }
+            else {}
         } catch (error) {
-            Swal.fire(
-                {
-                    icon: 'success',
-                    title: '¡Cita finalizada con éxito!',
-                    showDenyButton: false,
-                    showCancelButton: false,
-                    confirmButtonText: 'Aceptar',
-                    confirmButtonColor: '#09d882'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload();
-                    }
-                });
+            Swal.fire({
+                icon: 'success',
+                title: '¡Cita finalizada con éxito!',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#09d882'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload();
+                }
+            });
         }
     }
 }
