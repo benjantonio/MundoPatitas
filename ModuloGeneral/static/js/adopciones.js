@@ -231,6 +231,11 @@ inputFileAP.addEventListener('change', () => {
     });
 })
 
+
+
+
+
+
 /*Retrasar recarga pagina */
 
 function retrasarReload() {

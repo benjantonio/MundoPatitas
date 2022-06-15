@@ -124,6 +124,7 @@ def enviarCorreo(centro, vet, mascota, dia, hora, correo):
             'hora': hora,
             'correo': correo
         }
+    print(context)
 
     template = get_template('correoHora.html')
     content =template.render(context)

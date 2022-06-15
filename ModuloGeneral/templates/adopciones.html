@@ -12,18 +12,19 @@
     <div class="card-mascota">
         <img class="img-perfil-aside" src='{{adop.img}}' alt="">
         <h5>{{adop.nombre}}</h5>
-        <p style="text-transform: uppercase;">{{adop.edad}}</p>
         <p style="text-transform: uppercase;">{{adop.tipo_animal}}</p>
         <p>{{adop.correo}}</p>
+        {% if adop.comentario %}
         <p>{{adop.comentario}}</p>
+        {% else %}
+        <p>Sin comentarios</p>
+        {% endif %}
         <div class="btns">
-            {% if adop.id_cliente_id == user.id_usuario %}
-            <button class="btn btn-warning">Modificar</button>
-            <button class="btn btn-danger" onclick="eliminarPublicacion('{{adop.id_publicacion}}','{{adop.nombre}}')">Eliminar</button>{% else %}<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Contactar</button>            {% endif %}
+            <a class="btnWSP" href="https://wa.me/{{adop.celular}}"><img style="width:50px; height:50px;" src="{% static 'img/whatsapp.png' %} " alt=" "></a>
         </div>
 
     </div>
     {% endfor %}
 </div>
 {% else %}
-<h6 style="width: 100%;text-align:center;">No se han realiza publiaciones. Si necesitas publicar un animalito te invitamos a realizar la publicación</h6>{% endif %} {%endblock%}
+<h6 style="width: 100%;text-align:center; ">No se han realiza publiaciones. Si necesitas publicar un animalito te invitamos a realizar la publicación</h6>{% endif %} {%endblock%}
