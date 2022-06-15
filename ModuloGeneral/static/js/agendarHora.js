@@ -506,6 +506,8 @@ btnFinal.addEventListener('click', () => {
 
     var HoraSeleccionada = horaConsulta.options[horaConsulta.selectedIndex].text;
     horaR.value = HoraSeleccionada;
+
+    enviarEmail(horaR, fechaR, centroR, nombreVetR);
 });
 
 btnCancelar.addEventListener('click', () => {
@@ -671,6 +673,7 @@ function anadirCita() {
     } catch (error) {
         console.log("Se añadio la cita");
         eliminarCitaDisponible(idCitaDisponible);
+        
     }
 
     function eliminarCitaDisponible(idCitaDisponible) {
@@ -703,4 +706,18 @@ function anadirCita() {
             });
         }
     }
+
+
+
+    
+}
+
+function enviarEmail(laHora, laFecha, elVeterinario, elCentro){
+    emailjs.send("gmail","template_rm7miup",{
+        nombreCliente: "prueba",
+        hora: laHora,
+        fecha: laFecha,
+        veterinario: elVeterinario,
+        centro: elCentro,
+        });
 }
