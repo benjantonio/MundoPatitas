@@ -7,7 +7,7 @@
 <body class="bodyInicio">
     {% if veterinario %} {% for vet in veterinario %}
     <p class="idVetLogeado" style="display: none;">{{vet.id_veterinario}}</p>
-    {% endfor %}{% endif %}
+    
 <div class="container-fluid px-4">
     <h1 class="mt-4">Panel Centro Veterinario</h1>
     <ol class="breadcrumb mb-4">
@@ -18,7 +18,7 @@
             <div class="card  text-white mb-4" style="background: #007cc2;">
                 <div class="card-body">CREAR CITAS</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Acceder</a>
+                    <a class="small text-white stretched-link" href="{% url 'crear' vet.id_veterinario %}">Acceder</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
         </div>
        
     </div>
-
+    {% endfor %}{% endif %}
     <div class="row">
         <div class="col-xl-6">
             <div class="card mb-4">

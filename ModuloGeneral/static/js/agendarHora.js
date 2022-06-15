@@ -466,7 +466,7 @@ function mostrarValoracion() {
 btnFinal.addEventListener('click', () => {
 
     fondoNegroBlur.setAttribute("style", "display:block; opacity: 1;");
-    detalleFinal.setAttribute("style", "position: fixed; display:block; opacity: 1;");
+    detalleFinal.setAttribute("style", " display:block; opacity: 1;");
 
     mostrarDireccion();
 

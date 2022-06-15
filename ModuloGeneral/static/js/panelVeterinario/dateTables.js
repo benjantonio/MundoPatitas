@@ -53,6 +53,8 @@ $(document).ready(function () {
     const btnActualizar = document.getElementById('btnActualizar');
     const cantidadAtrasadas = document.querySelector('.cantidadAtrasadas')
 
+    const idLogeado3 = document.querySelector('.idVetLogeado');
+
     btnActualizar.setAttribute("style", "display: none;");
     btnActualizar.addEventListener('click', () => {
         location.reload();
@@ -74,15 +76,17 @@ $(document).ready(function () {
     contador2 = 0
     parar = false;
     cantAtras = 0;
+    
     while (contador != 99998) {
         setTimeout(function () {
             console.log("\n[ITERACIÓN]");
+        console.log("EL LOGEADO ES :",idLogeado3.innerHTML)
 
             const listaCitasPendientes = [];
             $(function () {
                 $.ajax({
                     type: 'GET',
-                    url: `http://localhost:3000/lista_Horas_Pendientes/${1}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                    url: `http://localhost:3000/lista_Horas_Pendientes/${idLogeado3.innerHTML}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
                     success: function (response) {
                         $.each(response, function (indice, fila) {
                             listaCitasPendientes.push(fila)
