@@ -80,7 +80,6 @@ $(document).ready(function () {
     while (contador != 99998) {
         setTimeout(function () {
             console.log("\n[ITERACIÓN]");
-        console.log("EL LOGEADO ES :",idLogeado3.innerHTML)
 
             const listaCitasPendientes = [];
             $(function () {
