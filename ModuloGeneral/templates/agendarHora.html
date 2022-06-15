@@ -31,6 +31,14 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+
+    <!-- CREDENCIALES EMAILJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+    emailjs.init("user_2dvP8WMfROCaNvPYMdizJ");
+    })();
+    </script>
 </head>
 
 
@@ -216,7 +224,7 @@
                         <img class="img-huella" id="huellaInactiva5" src='{% static "img/panelVeterinario/huella-veterinario-inactiva.png" %}' alt="patitaInactiva">
                     </div>
                     <div class="message-valoracion-1" style="display: none;">
-                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Éste veterinario no tiene valoraciones!
+                        <h6 style="margin-top: 2rem; text-align:center;"> ¡Este veterinario no tiene valoraciones!
                         </h6>
                         <p style="text-align:center; font-size: 13px;">Los clientes atendidos podrán valorar la atención de un veterinario. Recuerda valorar tu consulta para ayudar a la comunidad.</p>
                     </div>
@@ -249,7 +257,7 @@
 
         </div>
 
-        <div class="detalleFinal">
+        <div class="detalleFinal" id="detalleFinal">
             <div class="fondo">
                 <div class="cardDetalle">
                     <!-- <div class="cardDetalle1">

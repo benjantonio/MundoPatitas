@@ -33,8 +33,6 @@ const tipoPetExoticoBtn = document.querySelector(".tipoExoticoBtn")
 const btnAdopciones = document.querySelector("#misAdopciones-btn")
 const tabAdopciones = document.querySelector("#tabMisAdopciones")
 
-/* Contenedores */
-const contModPet = document.querySelector("#contenedorModPet") /* ventana del detalle */
 
 /* Historial Citas */
 const historialCitasBtn = document.querySelector("#historialCitas-btn")
@@ -129,7 +127,7 @@ const txtTipoMascota = document.querySelector(".txtTipoMascota")
 const txtNombreVet = document.querySelector(".txtNombreVet")
 const txtCentroMedico = document.querySelector(".txtCentroMedico")
 const txtTratamiento = document.querySelector(".txtTratamiento")
-const txtComentario = document.querySelector(".txtComentario")
+const txtComentario = document.querySelector(".txtComentarioVet")
 const tituloValoracion = document.querySelector(".tituloValoracion")
 
 /* Abrir detalle Cita su botón */
@@ -199,11 +197,10 @@ function agregarValoracion(valoracion) {
 }
 
 /* Ocultar ventanas emergentes con click en FONDO NEGRO BLUR */
-// fondoNegroBlur.addEventListener('click', () => {
-//     fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
-//     contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
-//     contModPet.setAttribute("style", "opacity: 0; display:none;");
-// });
+fondoNegroBlur.addEventListener('click', () => {
+fondoNegroBlur.setAttribute("style", "opacity: 0; display:none;");
+contDetalleCita.setAttribute("style", "opacity: 0; display:none;");
+});
 
 
 

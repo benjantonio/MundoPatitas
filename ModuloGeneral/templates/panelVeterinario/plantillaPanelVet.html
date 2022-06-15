@@ -33,7 +33,7 @@
 
 
         {% if veterinario %} {% for vet in veterinario %}
-        <a class="navbar-brand ps-3" href="{% url 'panelVeterinario' vet.id_veterinario %}">{{vet.id_centro.nombres}} {{vet.id_centro.apellidos}}</a>
+        <a class="navbar-brand ps-3" href="{% url 'panelVeterinario' vet.id_veterinario %}">{{vet.id_cliente.nombres}} {{vet.id_cliente.apellidos}}</a>
 
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i

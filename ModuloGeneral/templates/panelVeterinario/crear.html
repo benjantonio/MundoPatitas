@@ -11,6 +11,10 @@
 
 
 <body class="bodyCrear" >
+
+    {% if veterinario %} {% for vet in veterinario %}
+        <p class="idVetLogeado" style="display: none;">{{vet.id_veterinario}}</p>
+        {% endfor %}{% endif %}
     <div class="contenedor-header-pags">
         <h4>
             CREAR HORA
@@ -36,7 +40,6 @@
                     <div class="form-group">
                         <label for="timePickerIncrement">Intervalos</label>
                         <select style="text-align: center;" class="form-control" id="timePickerIncrement">
-                            <option value="10">10</option>
                             <option value="15" selected>15</option>
                             <option value="30">30</option>
                             <option value="60">60</option>

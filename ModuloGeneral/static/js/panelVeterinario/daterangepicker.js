@@ -1426,6 +1426,10 @@
 
         //Aplicar Cita
         clickApply: function (e) {
+            const idLogeado = document.querySelector('.idVetLogeado').innerHTML;
+
+            console.log("idLogeado ====", idLogeado)
+
             this.hide();
             this.element.trigger('apply.daterangepicker', this);
             console.log(" incremento obtenido: ", $('#timePickerIncrement').val())
@@ -1467,7 +1471,7 @@
                         $(function () {
                             $.ajax({
                                 type: 'GET',
-                                url: `http://localhost:3000/lista_Horas_Disponibles/${1}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                                url: `http://localhost:3000/lista_Horas_Disponibles/${idLogeado}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
                                 success: function (response) {
                                     $.each(response, function (indice, fila) {
                                         listaCitasOcupadas.push(fila)
@@ -1506,7 +1510,7 @@
                                                 body: JSON.stringify({
                                                     fecha: fechaIngresar,
                                                     hora: horaIngresar,
-                                                    id_vet: 1,
+                                                    id_vet: idLogeado,
                                                     actualizacion: horaActual
                                                 })
                                             },

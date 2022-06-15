@@ -1,7 +1,8 @@
 /* =================== FUNCION VALORACION VETERINARIO ============= */
-
+const idLogeado2 = document.querySelector('.idVetLogeado').innerHTML;
+console.log("idLogeado ====", idLogeado2)
 /* Llamo a la API con el ID del veterinario*/
-let urlValoracion = `http://localhost:3000/valoracion/${1}`
+let urlValoracion = `http://localhost:3000/valoracion/${idLogeado2}`
 fetch(urlValoracion)
   .then(response => response.json())
   .then(datos => verValoracion(datos))
