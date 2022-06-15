@@ -44,8 +44,8 @@
 
 <body>
     {% if usuarioLogeado %} {% for usuarioOn in usuarioLogeado %}
-    <p class="nombreCliente" style="display: block;">{{usuarioOn.nombres}} {{usuarioOn.apellidos}}</p>
-    <p class="correoCliente" style="display: block;">{{usuarioOn.email}}</p>
+    <p class="nombreCliente" style="display: none;">{{usuarioOn.nombres}} {{usuarioOn.apellidos}}</p>
+    <p class="correoCliente" style="display: none;">{{usuarioOn.email}}</p>
     {% endfor %}{% endif %}
   
 
