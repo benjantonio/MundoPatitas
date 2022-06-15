@@ -18,22 +18,24 @@ from django.urls import path
 
 from .views import *
 
+from django.contrib.auth.decorators import login_required
+
 urlpatterns = [
     path('', home, name='home'),
     # path('login', login, name='login'),
     path('registro/', registro, name='registro'),
-    path('panel-cliente/', panelcli, name='panelcli'),
-    path('panel-centro-vet/', panelcenvet, name='panelcentro'),
-    path('agendarHora/', agendarHora, name='agendarHora'),
-    path('panel-veterinario/<id>', panelVeterinario, name='panelVeterinario'),
-    path('panel-veterinario/plantillaPanelVet/', plantillaPanelVeterinario, name='plantillaPanelVet'),
-    path('panel-veterinario/crear/<id>', moduloCrearCita, name='crear'),
-    path('panel-veterinario/pendientes/<id>', moduloPendientesCita, name='pendientes'),
-    path('panel-veterinario/estadisticas/<id>', moduluoEstadisticas, name='estadisticas'),
+    path('panel-cliente/', login_required(panelcli), name='panelcli'),
+    path('panel-centro-vet/', login_required(panelcenvet), name='panelcentro'),
+    path('agendarHora/', login_required(agendarHora), name='agendarHora'),
+    path('panel-veterinario/<id>', login_required(panelVeterinario), name='panelVeterinario'),
+    path('panel-veterinario/plantillaPanelVet/', login_required(plantillaPanelVeterinario), name='plantillaPanelVet'),
+    path('panel-veterinario/crear/<id>', login_required(moduloCrearCita), name='crear'),
+    path('panel-veterinario/pendientes/<id>', login_required(moduloPendientesCita), name='pendientes'),
+    path('panel-veterinario/estadisticas/<id>', login_required(moduluoEstadisticas), name='estadisticas'),
     path('foro/', foro, name='foro'),
 
-    path('veterinarios', veterinarios, name='veterinarios'),
+    path('veterinarios', login_required(veterinarios), name='veterinarios'),
     path('prueba_vet/<id>', vetSelect, name='vetSelect'),
     path('adopciones', adopciones, name='adopciones'),
-    path('editar-usuario/<id>', editarUsuario, name='editar-usuario'),
+    path('editar-usuario/<id>', login_required(editarUsuario), name='editar-usuario'),
 ]
