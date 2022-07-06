@@ -59,11 +59,16 @@ def foro(request):
     except:
         publicacionesOnline = 0
 
+    try:
+        respuestas = RespuestaForo.objects.filter(id_publicacion_id = request.user.id_usuario)
+    except:
+        respuestas = 0
+
     
     publicacionesAll = PublicacionForo.objects.filter().order_by('fecha','hora')
     respuestasAll = RespuestaForo.objects.filter().order_by('fecha','hora')
     
-    return render(request,'foro.html',{'usuarioOnline': usuarioOnline,'publicacionesAll': publicacionesAll,'respuestasAll': respuestasAll,'publicacionesOnline': publicacionesOnline})
+    return render(request,'foro.html',{'respuestas': respuestas,'usuarioOnline': usuarioOnline,'publicacionesAll': publicacionesAll,'respuestasAll': respuestasAll,'publicacionesOnline': publicacionesOnline})
 
 def panelcli(request):
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
@@ -87,7 +92,10 @@ def veterinarios(request):
     return render(request,'veterinarios.html', {'veterinarios': veterinarios})
 
 def adopciones(request):
-    adopciones = PublicacionAdopcion.objects.exclude(id_cliente_id = request.user.id_usuario)
+    try:
+        adopciones = PublicacionAdopcion.objects.exclude(id_cliente_id = request.user.id_usuario)
+
+    except: adopciones = PublicacionAdopcion.objects.all()
 
     return render(request,'adopciones.html', {'adopciones': adopciones})
 

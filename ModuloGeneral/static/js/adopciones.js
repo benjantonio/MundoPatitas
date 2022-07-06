@@ -119,7 +119,8 @@ const putSinImg = async() => {
                     nombre: document.querySelector(".txtNombreAdop").value,
                     correo: document.querySelector(".txtCorreo").value,
                     edad: document.querySelector(".txtEdadPubli").value,
-                    tipo: document.querySelector(".txtTipo").value,
+                    celular: document.querySelector(".txtCelular").value,
+                    tipo: document.querySelector(".txtTipoAP").value,
                     id_cli: document.querySelector(".txtIdCliPubli").value,
                     comentario: document.querySelector(".txtComentario").value,
                     img: document.querySelector(".urlImg").value

@@ -1122,7 +1122,7 @@ footer {
 .publicacion {
     background: #f7f7f7;
     display: grid;
-    grid-template-columns: 65% auto;
+    grid-template-columns: 58% auto;
     padding: 15px 0 15px 40px;
     align-items: center;
     cursor: pointer;
@@ -1134,7 +1134,7 @@ footer {
 }
 
 .contenido-izq-publicacion {
-    padding: 0 200px 0 0;
+    padding: 0 10px 0 0;
     color: #353535;
 }
 
@@ -1162,7 +1162,7 @@ footer {
     padding: 0 70px 0 0;
     color: #353535;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     align-items: center;
 }
 
@@ -1173,9 +1173,24 @@ footer {
     color: #353535;
 }
 
+.contenido-der-publicacion .titulo-publicacion-text2 {
+    font-size: 14px;
+    font-weight: 300;
+    color: #353535;
+}
+
 .publicacion-ver {
     color: #0cac49;
 }
+
+.publicacion-ver h5, .fecha-publicacion h5 {
+    padding: 0;
+}
+
+.cant-respuestas{
+    display: grid;
+}
+
 
 
 

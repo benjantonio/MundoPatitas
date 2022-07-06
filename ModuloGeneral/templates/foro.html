@@ -77,10 +77,23 @@
                             <h5>
                                 <span style="vertical-align: middle; padding-bottom: 5px; "
                                     class="material-symbols-outlined">today</span>
-                                FECHA:<span class="titulo-publicacion-text"><br>- {{publicacion.fecha}}<br>-
+                                Fecha:<span class="titulo-publicacion-text2"><br>- {{publicacion.fecha}}<br>-
                                     {{publicacion.hora}}hrs.
                                 </span>
                             </h5>
+                        </div>
+
+                        <div class="cant-respuestas">
+                                <p style="margin: 0; padding: 0;  text-align: center;">
+                                    <span style="vertical-align: middle; padding-bottom: 2px; justify-content: center;" class="material-symbols-outlined">comment</span>
+                                    {% if respuestas %}
+                                        {% for publicacion in respuestas %}
+                                        <p>s</p>
+                                        {% endfor %}
+                                        {% else %}
+                                       0
+                                        {% endif %}
+                                </p>
                         </div>
 
                         <div class="publicacion-ver" style="text-align: right;">
