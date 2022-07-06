@@ -177,7 +177,6 @@ function enviarRespuesta() {
         comentario = textAreaRes.value;
     }
 
-    console.log("COMEN", comentario)
     try {
         let options = {
             method: "POST",
@@ -196,6 +195,40 @@ function enviarRespuesta() {
             json = res.json();
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
     } catch (error) {
+
+            
+            $.ajax({
+                type: 'GET',
+                url: `http://localhost:3000/respuestas-publicacion/${id_publicacion_abierta}`, // AQUI VA EL ID DEL VETERINARIO LOGEADO
+                success: function (response) {
+                    console.log("TAMAÑO RESPONSE",response.length)
+                    actualizarCantResp(response.length);
+                }
+            });
+
+            function actualizarCantResp(tamaño){
+                try {
+                    let options = {
+                            method: "PUT",
+                            headers: {
+                                "Content-type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                id: id_publicacion_abierta,
+                                respuestas: tamaño
+                            })
+                        },
+                        res = fetch(`http://localhost:3000/agregar-total-respuestas/`, options),
+                        json = res.json();
+                    if (!res.ok) throw { status: res.status, statusText: res.statusText }
+                } catch (error) {
+                    console.log("ACTUALICE RESPUESTAS")
+                }
+            }
+           
+
+
+
         Swal.fire({
             position: 'center',
             icon: 'success',

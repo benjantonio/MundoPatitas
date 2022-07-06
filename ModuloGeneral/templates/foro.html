@@ -86,13 +86,7 @@
                         <div class="cant-respuestas">
                                 <p style="margin: 0; padding: 0;  text-align: center;">
                                     <span style="vertical-align: middle; padding-bottom: 2px; justify-content: center;" class="material-symbols-outlined">comment</span>
-                                    {% if respuestas %}
-                                        {% for publicacion in respuestas %}
-                                        <p>s</p>
-                                        {% endfor %}
-                                        {% else %}
-                                       0
-                                        {% endif %}
+                                    {{publicacion.cantRespuestas}}
                                 </p>
                         </div>
 

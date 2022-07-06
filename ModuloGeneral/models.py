@@ -100,6 +100,8 @@ class PublicacionForo(models.Model):
     fecha = models.DateField(max_length=11, default='')
     hora = models.CharField(max_length=9,verbose_name="Hora",default="")
     mensaje = models.CharField(max_length=1000, verbose_name="Mensaje")
+    
+    cantRespuestas = models.IntegerField(default='0')
     id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
