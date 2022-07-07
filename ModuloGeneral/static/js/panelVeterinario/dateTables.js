@@ -246,8 +246,14 @@ function cambiarUltimaCita(id_cliente, id_veterinario) {
 
 var id_cli;
 var id_vet;
-function verCita(id_cliente, id_veterinario, fecha_cita, hora_cita, motivo_cita, nombre_dueno, apellido_dueno, contacto_dueno, nombre_mascota, edad_mascota, tipo_mascota, raza_mascota) {
+var correo_dueno;
+var correo_vet;
+var nomb_vet;
+function verCita(id_cliente, id_veterinario, fecha_cita, hora_cita, motivo_cita, nombre_dueno, apellido_dueno, contacto_dueno, nombre_mascota, edad_mascota, tipo_mascota, raza_mascota, mail_dueno,nombre_vet,mail_vet) {
 
+    correo_dueno = mail_dueno;
+    correo_vet = mail_vet;
+    nomb_vet = nombre_vet;
     id_cli = id_cli;
     id_vet = id_vet;
     /* TEXTOS */
@@ -352,9 +358,12 @@ function alertaFinalizarCita() {
     }).then((result) => {
         if (result.isConfirmed) {
             finalizar();
+            
         }
     })
 }
+
+
 
 
 var id_cit, id_cli, id_masc, id_vet, fech, hor, motiv;
@@ -450,6 +459,17 @@ function finalizar() {
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
     } catch (error) {
         eliminarCitaRealizada(id_cit);
+        console.log("CORREO2")
+        console.log("correo dueno: ", correo_dueno)
+            emailjs.send("service_uavzggg","template_vgwszek",{
+                veterinario: nomb_vet,
+                fecha: fech+" "+hor,
+                mascota: nombreMascotaPendiente.innerHTML,
+                tratamiento: textAreaTratamiento.value,
+                comentario: textAreaComentario.value,
+                correoVet: correo_vet,
+                correoCliente: correo_dueno,
+                });
     }
 
     function eliminarCitaRealizada(id){
@@ -481,6 +501,9 @@ function finalizar() {
                 });
         }
     }
+
+   
+
 }
 
 //################################################################################################################//
