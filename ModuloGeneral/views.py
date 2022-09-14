@@ -16,8 +16,8 @@ def home(request):
     return render(request, 'home.html', {})
 
 def registro(request):
-    comunaV = Comuna.objects.filter(id_region=2)
-    comunaM =  Comuna.objects.filter(id_region=1)
+    comunaV = Comuna.objects.filter(id_region=3)
+    comunaM =  Comuna.objects.filter(id_region=2)
     
     
     if request.method == 'POST':
@@ -105,8 +105,8 @@ def agendarHora(request):
     # comunaV = Comuna.objects.filter(id_region=3)
     # comunaM =  Comuna.objects.filter(id_region=2)
     # centro = Usuario.objects.filter(perfil=3)
-    comunaV = Comuna.objects.filter(id_region=2)
-    comunaM =  Comuna.objects.filter(id_region=1)
+    comunaV = Comuna.objects.filter(id_region=3)
+    comunaM =  Comuna.objects.filter(id_region=2)
     centro = Usuario.objects.filter(perfil=2)
     mascotas = Mascota.objects.filter(id_cliente_id = request.user.id_usuario)
     usuarioLogeado = Usuario.objects.filter(id_usuario = request.user.id_usuario)
